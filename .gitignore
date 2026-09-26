@@ -1,0 +1,56 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env*
+!.env.example
+*.egg-info/
+build/
+dist/
+.cache/
+outputs/
+results/
+data/
+datasets/
+models/
+checkpoints/
+checkpoint-*/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.log
+*.jsonl
+*.pem
+*.key
+.DS_Store
+# External benchmark media and generated artifacts
+*.audio
+*.wav
+*.mp3
+*.flac
+*.mp4
+*.parquet
+*.part
+benchmark_runs/
+
+.aris/
+
+# Local credentials and operator state are never release assets.
+.ssh/
+.aws/
+.codex/
+auth.json
+credentials*.json
+*.p12
+*.pfx
+
+# Project-owned, hash-verified public demo fixture.
+!examples/video-demo/rectangle.mp4
+!examples/motion-demo/motion.mp4
+
+# Reviewed public synthetic-video timing evidence.
+!docs/validation_evidence/hf-cache-scaling/results/
+!docs/validation_evidence/hf-cache-scaling/results/**
+
+AGENTS.md

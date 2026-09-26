@@ -1,0 +1,21 @@
+{
+  "backend": "vllm",
+  "numerics": "stable",
+  "mode": "causal",
+  "dtype": "bfloat16",
+  "projection": "full",
+  "prefix_cache": false,
+  "question_batch_size": 1,
+  "max_input_tokens": 4000,
+  "device_map": "auto",
+  "context": "Inspect the supplied media carefully.",
+  "video_options": {
+    "fps": 1,
+    "min_pixels": 3136,
+    "max_pixels": 50176,
+    "max_frames": 8
+  },
+  "seed": 37,
+  "model_id": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
+  "model_revision": "26291f793822fb6be9555850f06dfe95f2d7e695"
+}

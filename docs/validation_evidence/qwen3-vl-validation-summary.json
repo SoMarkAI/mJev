@@ -1,0 +1,73 @@
+{
+  "schema": "qwen3-vl-validation-v1",
+  "date": "2026-09-26",
+  "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "hf_environment": {
+    "python": "3.11.16",
+    "fresh_venv": true,
+    "system_site_packages": false,
+    "pip_download_cache_reused": true,
+    "vllm_installed": false,
+    "qwen_omni_utils_installed": false,
+    "pip_check": "passed",
+    "cuda_seed": 37,
+    "cuda_witness": "passed",
+    "gpu": "24 GB NVIDIA GPU",
+    "gpu_count": 1
+  },
+  "cpu_tests": {
+    "hf_clean": {
+      "passed": 123,
+      "skipped_optional_modules": 3
+    },
+    "vllm_environment": {
+      "passed": 130,
+      "skipped_optional_modules": 0
+    }
+  },
+  "independent_doc_replay": {
+    "fresh_agent": true,
+    "environment": "clean VL-only installed environment",
+    "installation_reexecuted_by_reviewer": false,
+    "preflight": "passed",
+    "cached_demo": "passed",
+    "questions": 2,
+    "cached_tokens_per_question": [
+      79,
+      79
+    ],
+    "results": "Red / Rectangle"
+  },
+  "omni_regression": {
+    "questions": 6,
+    "max_abs_logit_delta_from_prior_run": 0.0,
+    "accuracy": 0.3333333333333333
+  },
+  "nextqa_selection": {
+    "policy": "lexicographically first two video IDs in existing 200-video selection; all original questions; no label filtering",
+    "videos": [
+      "10082798964",
+      "10127533784"
+    ],
+    "questions": 18,
+    "local_audit_artifact_sha256": {
+      "selection.json": "aa6f76b6651547c3e63a4fb893147c44b0107651838f79b778a706837e6c492d",
+      "sources/val.csv": "43198bdef8436b8d64a9b75d846b0987c10cbf94ebf4be325c4a4e54634d66b8"
+    }
+  },
+  "scope": [
+    "Synthetic fixtures are authored integration tests, not benchmark accuracy",
+    "NExT-QA is a two-video pilot with original labels, not full benchmark or public-download reproduction",
+    "HF and vLLM retain their native processors and numerical paths; cross-backend scores are not required to match",
+    "HF and vLLM cache checks are within each backend; vLLM can reuse full repeated-request blocks, not only media prefix",
+    "Archived reports record tested source hashes; subsequent documentation and worker-bootstrap fixes are not retroactively attributed to those earlier runs"
+  ],
+  "cache_repeat_validation": {
+    "hf_comparisons": 32,
+    "vllm_comparisons": 32,
+    "maximum_logit_delta": 0.0,
+    "question_order_comparisons_saved": true,
+    "final_nonfinite_guard": "CPU replay of all saved results and injected NaN rejection; no model behavior change"
+  }
+}

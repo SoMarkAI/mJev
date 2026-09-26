@@ -1,0 +1,96 @@
+{
+  "date": "2026-09-26",
+  "status": "complete",
+  "environment": {
+    "os": "Debian 13 Linux x86_64 container",
+    "base_image": "python@sha256:1042b61448fef4ba92d16a8c7eb4996d027568ce64792a7877fd88511e0af7c6",
+    "python": "3.11.16",
+    "gpu": "4 x 24 GB NVIDIA GPU",
+    "driver": "580.105.08",
+    "torch_runtime": "2.11.0+cu130",
+    "torchvision_runtime": "0.26.0+cu130",
+    "torchcodec": "0.11.0+cpu",
+    "ffmpeg": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "clean_venv": true,
+    "inherits_system_site_packages": false,
+    "cache_reuse": "Pip download cache and independently SHA256-verified official model shards; no installed environment packages inherited"
+  },
+  "verification": {
+    "pip_check": "pass",
+    "cuda_seed37_four_devices": "pass",
+    "pytest": {
+      "passed": 105,
+      "skipped": 3,
+      "seconds": 8.66,
+      "skips": "optional vLLM modules"
+    },
+    "public_videos": 2,
+    "public_questions": 6,
+    "questions_per_video": [
+      2,
+      4
+    ],
+    "media_bytes": 834580,
+    "completed_questions": 6,
+    "success_marker": true,
+    "prompt_tokens": [
+      1255,
+      973,
+      926,
+      1086,
+      937,
+      920
+    ],
+    "image_demo_preflight": {
+      "passed": true,
+      "prompt_tokens": 119,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "label_token_ids": [
+        32,
+        33,
+        34
+      ]
+    },
+    "full_image_inference": false,
+    "vllm_gpu_run": false,
+    "cache_batch_regression": false
+  },
+  "timing": {
+    "startup_seconds": 25.695671144872904,
+    "group_seconds": [
+      24.629529716446996,
+      16.650655972771347
+    ],
+    "scoring_total_seconds": 41.28018568921834,
+    "boundary": "group wall time includes decoding, processor and scoring; excludes model load; no warmup; not API latency or steady-state throughput"
+  },
+  "code_commit": "04cc2e0a8fd723d678f44b0c69c2e74b4fe94ea4",
+  "source_tree_sha256": "731197cc2cce76040c89e1ab18edf2bb4d6e4bad3894180445d4262cd962994a",
+  "working_tree_dirty": true,
+  "changes": "Python minimum, pinned HF media dependencies, explicit decoder environment recording, installation docs; no attention/scoring/weights edits",
+  "final_doc_review": "Repeated documented invocation by reused reviewer; not fresh blinded acceptance",
+  "scope": "One HF stable causal serial no-cache configuration, two public MMOU clips/six original questions; not overall benchmark accuracy or universal installation guarantee",
+  "log_sha256": {
+    "ffmpeg-version.txt": "b241942a091ee91966e5b04017a34f1f2a3bcfb1cf80a195e274db03874459d9",
+    "gpu-before-infer.txt": "239096c85a89f88efaab8f79e2b71d685db6c5a521c40e0b01329e6e9aaf544c",
+    "gpu-before-witness.txt": "239096c85a89f88efaab8f79e2b71d685db6c5a521c40e0b01329e6e9aaf544c",
+    "infer.log": "51c7ff7cd567fae5d5faf08d665fd90aeed7449a5a9071e64007fd24352f5caa",
+    "report.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pip-check.txt": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+    "weight_integrity.json": "7b1f14730640b948d5f87f684171c72b3497c4b990a7edaebc57ba85af8a8a17",
+    "demo-check.log": "c2bf04db49c3556150dcc038c7fd26a1d9f69407d9e7ea1cdb7b98e9f54f1114",
+    "install-codec.log": "75a484e367cc651e389f9897541a66163012abaf663148c7cdc5a63c0a6a8a02",
+    "initial-packages.json": "f28a1f2d6bfeff7ceb6a49f523f909a92ebded1f638ffade1961426993e9a06a",
+    "cpu-tests.log": "7bad2779bb0b1528a72a7c7ceaf2dee5f62df19fadebc81d4d1f1052e5dc13f9",
+    "pip-freeze.txt": "20afa71d2dda6b9fb5540d29f63aca14f2f7e3a4367507cf3130cde23b91d247",
+    "cuda-witness.log": "26b41cf9ed537945aa8b02e4e93b6ba7c8dc6e0fd8c030ee84aca99dc01e1e0c",
+    "prepare.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "install.log": "ea71487451bbb53dba2730fb7135162d77f078b1462909919df79f07e147a232",
+    "decoder-probe.log": "d9c02e15443459ce7cd0ee033e11a4f5a9ed8f2ff46d4c152c8b29d8c4195107",
+    "source-status.txt": "0c7f2dab7efedb7c7fed01653c814def95b0e083ea83ad22809781c2e5602cd0"
+  }
+}

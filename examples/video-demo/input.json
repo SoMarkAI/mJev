@@ -1,0 +1,40 @@
+{
+  "modality": "video",
+  "media_path": "rectangle.mp4",
+  "context": "Inspect the supplied media carefully.",
+  "video_options": {
+    "fps": 1,
+    "min_pixels": 3136,
+    "max_pixels": 50176,
+    "max_frames": 8
+  },
+  "questions": [
+    {
+      "id": "visual-smoke:video:0",
+      "question": "What color is the rectangle?",
+      "candidates": [
+        "Red",
+        "Blue",
+        "Green"
+      ]
+    },
+    {
+      "id": "visual-smoke:video:1",
+      "question": "Which shape is shown?",
+      "candidates": [
+        "Circle",
+        "Rectangle"
+      ]
+    },
+    {
+      "id": "visual-smoke:video:2",
+      "question": "What color is the background?",
+      "candidates": [
+        "Black",
+        "Blue",
+        "Green",
+        "White"
+      ]
+    }
+  ]
+}

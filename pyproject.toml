@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mJev"
+version = "0.1.0"
+description = "Multimodal candidate scoring with Qwen3-Omni or Qwen3-VL, Hugging Face or vLLM"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+dependencies = ["transformers==5.13.1", "torch==2.11.0", "Pillow>=10"]
+
+[tool.setuptools.packages.find]
+include = ["mjev*"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9", "requests>=2.31", "accelerate>=1.0"]
+vllm = ["vllm==0.25.1"]
+hf = ["torchvision==0.26.0", "torchcodec==0.11.0+cpu", "accelerate>=1.0", "qwen-omni-utils[decord]==0.0.9", "librosa==0.11.0", "soundfile==0.14.0", "av==18.1.0"]
+hf-vl = ["torchvision==0.26.0", "torchcodec==0.11.0+cpu", "accelerate>=1.0"]
+benchmark = ["requests>=2.31", "pyarrow>=15"]
+benchmark-av = ["qwen-omni-utils[decord]==0.0.9", "librosa==0.11.0", "audioread==3.0.1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "runtime", "benchmarks/integrated"]
+markers = [
+  "base: CPU contracts, metrics, masks and report checks",
+  "hf: tiny random-weight HF CPU forwards; not pretrained accuracy",
+  "runtime: experimental HTTP/Tree-KV CPU helpers; not full-model parity",
+  "vllm: CPU tests requiring the pinned optional vLLM package",
+  "gpu: explicit official-model GPU tests",
+]

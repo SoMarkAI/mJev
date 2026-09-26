@@ -1,0 +1,372 @@
+{
+  "code_commit": "af2215bec742de6d96af4ccb9fb83dd903b4d6c6",
+  "working_tree_dirty": null,
+  "source_sha256": {
+    "benchmarks/integrated/compare_backends.py": "2032cd990ef56ddbe2c07d61f47dac582a10d03b1ac87d4513c237ad3b3146c5",
+    "benchmarks/integrated/evaluate_hf.py": "f69d1b854e425476aee207afc3b12104a24139d9d717560369cec8b947a071cd",
+    "benchmarks/integrated/evaluate_service.py": "461a3d9e2e3377a2d1b82a8d58d55546780468936511d2a04cc5454dfdbd8941",
+    "benchmarks/integrated/hf_batch_probe.py": "25a111bd3380ee31c11c02e473bbc7322d33dbb30d47160a044afc0e42c689ea",
+    "benchmarks/integrated/report_comparison.py": "ce4b613999a393bcff5e4e57be14c78fd70fa653f6b451f89eea4847d92116d3",
+    "benchmarks/integrated/report_concurrent_cache.py": "5e120a45b719913fc63cca6625ade09ee69b492d59965cd281e3214ee91786cf",
+    "benchmarks/integrated/validate_concurrent_cache.py": "296546a6687f205eaa609a810056b14247bcf47e154944ab1900fc9185cd81ca",
+    "benchmarks/integrated/validate_hf_gpu.py": "e7a421b3363d28d1e963f9da27f3a775aa832b9a018bcaaff4cc83bd826249d0",
+    "benchmarks/integrated/validate_model.py": "bbb36439ed3626f6a18f67077116ddb9ab6f05ed9defa78687f6cc3ec55d04f1",
+    "configs/av_env.json": "09ba9980d73e7593225e74c4cff74c62874b9bc628d3876b9a1e5540e1ea4b9f",
+    "configs/public_mini_hf.json": "cee1cec840c6b1718f9efa5407ed12694167d0bf0fba2a04bc90e9aab5b38d7a",
+    "configs/public_mini_vllm.json": "fa6940b9529552a6654b00ef60c354a1052f9dbdb7abf96456e6b465b03e6c21",
+    "configs/qwen3_vl_4b_hf.json": "8ed6afbd1d2e718d98fb13ebf37ce279f581ea3cd4b86a76c5776b0db7226834",
+    "configs/qwen3_vl_4b_vllm.json": "ed3ba5758a9ac9e3af5c9768a5e4a70530f4389dee5abb6d1f83ed2f0856aea6",
+    "mjev/__init__.py": "cb3b61bc7b535557dfc5f8e6a91c1397a8ca4d7baa270123bccf4ecb45eb1772",
+    "mjev/av_witness.py": "f908907e8a287ec696822259fe00fbb38403c96248237a1c9f31ff96d8247e3d",
+    "mjev/benchmark/__init__.py": "ee88902e782fc8d604800e039e9c337252888c1a159937b826148ad19a5df133",
+    "mjev/benchmark/adapters.py": "06319e0e4690e8db0e632258b8d516f1b2064130e4487439b7a8045200d1c3bf",
+    "mjev/benchmark/artifacts.py": "10004117c1aca0fcd292c6e5413e07336cc30475c95d18f9b2bcc932db62af6b",
+    "mjev/benchmark/audit.py": "21fe4cd3b3874bef75a9b565134d0d8e8479188882c2bfd89a94bd992aef82d0",
+    "mjev/benchmark/dataset.py": "9b7f4081bfeab251fa6907a6f71732be0f98c07da6feb48805fa6e34577456d3",
+    "mjev/benchmark/download.py": "69df0f0948819df27feabe4eefc4d0762a2cb4e16b9b826a3fd62277873e2c72",
+    "mjev/benchmark/evaluate.py": "ccb5d20d99dd3ee053c82d961696a663db7e29ef5673f32e5b62bc9f38a1960e",
+    "mjev/benchmark/fetch.py": "0d01597bbc0a51f540a42e1ee6eb51e699aa678080e83176adf7182046aa91a7",
+    "mjev/benchmark/grouped.py": "d3928a1d07b962587d9949b77812ade2d2957b66091d779aa9b95d831b71b353",
+    "mjev/benchmark/pilot.py": "645c03800050a1c509c54039ff64838bcd9df1065d8a42f5f9e0f8332be2dd65",
+    "mjev/benchmark/prepare.py": "23b8f2ff31ccbcd3400b2e67d19f1b68f172b93a719896cd5c7fff2648a89bfa",
+    "mjev/benchmark/provenance.py": "91e971c31a77d2cc0171e0b633b10edf0418d5fb141435f0be4e88cf9cf437c0",
+    "mjev/benchmark/public_mini.py": "71c5d5073771315911636a8e159546d2bc54241772d6d76f32e33996c53050fe",
+    "mjev/benchmark/run.py": "dc5f972018c084db053e9e3c0a70c245237c113ebbaafa6e2444d8a12c87448a",
+    "mjev/benchmark/visual_smoke.py": "a67d624d783b2f4efa516a126bdd787fa86e8ed127200da2f92656ea348f638b",
+    "mjev/decision.py": "c622f50497266ee5f6115cf494bd505a0fb6f012e849d8612f3ed890b9d58d72",
+    "mjev/engine.py": "b2d987bb75927385cdd93635a40559aa42be9b48dc97ea50ca4b64c45e905dff",
+    "mjev/families.py": "dd61eee95b4375deb167491181133d026a887f562183d7a83e39729630e5d6a4",
+    "mjev/hf.py": "f62f4f6afcd7f7e34286fa3eb89720480a7e8ca94e333b353218593e515c930a",
+    "mjev/hf_batch.py": "b37cc4ebbb33a8a05d08cc12658907a8cce9557ffbfba717044de8ef9743abd2",
+    "mjev/hf_numerics.py": "393127bcabfaa952ca8b749a95e896d900eb488fb95bb829f3d90d17a83403f8",
+    "mjev/inputs.py": "d465fe0aa0c42065991846f03257dd7b984ab1d226994f5f1bc5c3d9bcf91095",
+    "mjev/model.py": "3f05804a16732661df9e381de589c9de66864ef6780ea6e0eaaa6ac17e3da69a",
+    "mjev/multimodal_merge.py": "fcc671b1f9011aded190bc47d482c16578fad251cff6caabd5eadbd34815a847",
+    "mjev/patch.py": "b11031f5705f9c01bd12ce947dac71500decba78abac016f09c9d5c0f96cbb53",
+    "mjev/prompt.py": "e57d43689a07eb87707310919e095ab07447f0ef0d2011e8dd9762838e3a878e",
+    "mjev/protocol.py": "c159ca62c4145a0782908cd4f00becd9ac7f989b11fa0847b89714b4b2bb59b9",
+    "mjev/stable_attention.py": "20753435407e040e699dfcc28ea009b6fbca1298921ec677b6818ebcd1117b83",
+    "mjev/vl_media.py": "9c6b2afd2f4fa85defb5d2007f90ee5f7998d20f054a45041c818e0c0de2bbef",
+    "runtime/mjev_contract.py": "cf0672ffb1c7f0f484a483ba4be72e33f280a0af2a835ad9a08e2e0e753d446d",
+    "runtime/mjev_mask.py": "58e8d4b5b38f8b788d0b206925b15abf8abf8c8b67a9419074d5eac861efce40",
+    "runtime/mjev_media.py": "e83db4a23262ba054ffdf614a0b701fdee3affc25de1f889bf00b77f9c2154c1",
+    "runtime/mjev_scoring.py": "d3a1aefa207c21fac61d63cb837df6ff8fee51a951d5db3de0d69b186b44386b",
+    "runtime/mjev_server.py": "2b408819b96a6757998fd82e042e38d3ac3ad58521cc378c78cf684b63ae1fd2",
+    "runtime/mjev_vllm_patch.py": "67ce05bfd6d313b3858cb356090243fd2a313d11f571c7e6acc96297c704f647",
+    "runtime/sitecustomize.py": "512f3ed234faf2ec387cdef4ef51813ad06e51ac4c95f01421ed2c187152023b",
+    "scripts/build_av_benchmark.sh": "8e9d0403e8ccaebddd17ebf2eb41bf98fde3e100ca63f2fbcdac0f4b1c44a671",
+    "scripts/serve_integrated.sh": "936ae72b22196c14342be8ce15ad7f1658fbf2a12d708d186122b209ee737b43",
+    "scripts/test.sh": "a21123abf5ecd89b8f55f892b929b020cada3946dbbc75bd796a14b2f035ca7c",
+    "scripts/test_gpu.sh": "4631fc6db3cceae4c6f4d78b9d78da3034d117a684876867098d46d472ad5ba2",
+    "tests/conftest.py": "4a3880c4b686839106a14f4c940351f8133fc568922739ba5ef8351941535db4",
+    "tests/e2e.py": "51d8c2ed693d014eef31f253ad60dd909a70679d54b8e4e6eaa8ebfce8d67b5a",
+    "tests/gpu/test_e2e.py": "0dac66795e5e4257c8aff3037f4488df5ae6141608046d0c02f4d5502f0eb519",
+    "tests/hf/test_batch_probe.py": "de3ff97f17d44e8e1122862cca2e4eb07cae52e365da1c8dfa867417adfa2780",
+    "tests/hf/test_cache.py": "227393a8e4504e622617c519e5c746f7ed384d719784c74a07603dc74198455e",
+    "tests/hf/test_dependency.py": "a13e2123d77feba0ad7a654bdff49480a7c05b4e4209224ae759271b7bf5dfa4",
+    "tests/hf/test_forward.py": "6027346937d4247637f2e6710569251682127ddd92ece30e27a683d59d68590f",
+    "tests/hf/test_numerics.py": "2e4fc245ddb79642ac3867630d1c29be8da72bfbbe9bcff0541890651722c1ad",
+    "tests/hf/test_qwen3_vl.py": "76ad3764640906458d7f5c8c78afdb4cc4c970e47abfe12547f31fe508562bc8",
+    "tests/hf/test_sampling_options.py": "921c5e16f8652dce1a6c3470be9df35e213da6fae27eaf3506ca2305942a2352",
+    "tests/runtime/test_benchmark_payload.py": "deafa76c45767e26f026e571cfa8b4e30dc1303674d4ac0f69a65488c93a6278",
+    "tests/runtime/test_contract.py": "cc46ddca83a7028cdebe55f149cfd34a26c718918a6d1f4cf63008def78f4097",
+    "tests/runtime/test_mask_oracle.py": "a39eb5bfb88da91331f5a55b6d4e865c295f47d58b2c769ce0392578857856f4",
+    "tests/runtime/test_media.py": "dbfc0720d256d60c3959c6df3260b107bcb1543c2f4e351536c752a5bc2b29cd",
+    "tests/runtime/test_projection.py": "3e7cb70b152ae5aa755fe83e2bc3736b1f9ebea65c03f8b76913777cb1fd8781",
+    "tests/runtime/test_scoring.py": "44c8f541ce7bf4782e5ebf5c75b37dac4d1ca3abdcc54c801464863d422dfc55",
+    "tests/runtime/test_server.py": "3dbc336c71f6e4d7f8cad1d33783da2c323d121d316d26d7751d61a72e436ace",
+    "tests/runtime/test_startup.py": "aefcb9ff1ff609c39bcd2a6b012473c33d6f56890bb0b238279b3eb3acba2059",
+    "tests/test_benchmark.py": "bc082b96bd48e420c5c8e59eb732c6b85c9e676f342224f98e297e0c46ea7cf0",
+    "tests/test_comparison_report.py": "a877c8dbfb173783e8ceb83edcd5b5679d5fbf4274993df7c933c0ddba300e93",
+    "tests/test_concurrent_report.py": "2228fe5bc526ca40ba8852ec7af41a8283d46e5e49384ed2dc63b8aa55bb1207",
+    "tests/test_core.py": "8f3c94290bdadc10e8f1d0f893b2ee39f34e4c83ca7ee85491e08fe3b7eb03a6",
+    "tests/test_grouped.py": "b189af6b3bc0bb45293a58525b2fe455c8ec0410467f7e738acd6cae221b6fe7",
+    "tests/test_inputs.py": "96dda8386b90793367a7074206b2e4ed3e07ece7dab2c360b828dae8cb754d80",
+    "tests/test_interleaved.py": "b8d1f5095583ec4eee913b982e5c36af7925ac756136966454adb29421f8f2cc",
+    "tests/test_multimodal_merge.py": "1a2e95e617aacc183bc23c1da8c1b6a3cd31673c0beb711c52dca611774f80ac",
+    "tests/test_patch_install.py": "ece84b886d7044e0ac11880ae3b353f64d762f61bcaa0a94bb4c2fdb2857bd5c",
+    "tests/test_prefix_bypass.py": "7bfb50c384d292617128ae6025bb7e9df9c27ea1893b8e9c22220726aee7bd88",
+    "tests/test_public_mini.py": "c57f3a3216413cfeb9a56c5e53edf0dc1bef0097f371678a03445ad081617d9d",
+    "tests/test_stable_attention.py": "180374a080a5dc9d49f5e10293b44836994baa1cf5426e683609396a5e47f72f",
+    "tests/test_validate_model.py": "18d7ed3e6c39a08ba74b506abf0a1eb898f6093471be1ec7256628f48bacfd0d",
+    "pyproject.toml": "e08b57ec3fdd1bf571b8d8b74de9a81f89521b79550352427345a122b628932f",
+    "sitecustomize.py": "e82c6e0953e353b5f315083dbfc5cd45a6543e4bd93b8fe076141bf79abd1506",
+    "demo.py": "2acf31f06dfaaea5332e7e58f02ee1d29224ea83227d19cbb2f49e3a27438cdd",
+    "demo_hf.py": "420c9bf0e4c51dd47070d8b1adc939be5bc5f85b8bada4b707fdea428ccb52ae"
+  },
+  "source_tree_sha256": "1de1a3521f42033ca82925bcdab993d2d1ade21187ecf77ad50fad7e3e2aa68e",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "model_revision_status": "Previously hash-verified local official snapshot; no download this run",
+  "model_config_sha256": {
+    "chat_template.json": "6f8a6a55027e3da5160105556cda5dd69f6423f1c32645f6730d32de7773d0c4",
+    "config.json": "edac7703329133edfc53e46ac0081835144c99d7eebf28b71c732694d435224d",
+    "generation_config.json": "8469742d1fce0de951c8909b26a2c0c0d8490837ce476efb114da9e0cefc4d44",
+    "model.safetensors.index.json": "58a7841d7bff2548dd91577d216274a83cf1b500bc6a534b809d6c1b1707cf2b",
+    "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+    "tokenizer.json": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7",
+    "tokenizer_config.json": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399",
+    "video_preprocessor_config.json": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  },
+  "dependencies": {
+    "Jinja2": "3.1.6",
+    "MarkupSafe": "3.0.3",
+    "PyYAML": "6.0.3",
+    "Pygments": "2.21.0",
+    "accelerate": "1.15.0",
+    "annotated-doc": "0.0.5",
+    "anyio": "4.15.1",
+    "certifi": "2026.7.22",
+    "charset-normalizer": "3.5.1",
+    "click": "8.5.0",
+    "cuda-bindings": "13.4.3",
+    "cuda-pathfinder": "1.8.2",
+    "cuda-toolkit": "13.0.2",
+    "filelock": "4.0.3",
+    "fsspec": "2026.9.0",
+    "h11": "0.16.0",
+    "hf-xet": "1.6.0",
+    "httpcore": "1.0.9",
+    "httpx": "0.28.1",
+    "huggingface_hub": "1.33.0",
+    "idna": "3.20",
+    "iniconfig": "2.3.0",
+    "markdown-it-py": "4.2.0",
+    "mdurl": "0.1.2",
+    "mjev": "0.1.0",
+    "mpmath": "1.3.0",
+    "networkx": "3.6.1",
+    "numpy": "2.4.6",
+    "nvidia-cublas": "13.1.0.3",
+    "nvidia-cuda-cupti": "13.0.85",
+    "nvidia-cuda-nvrtc": "13.0.88",
+    "nvidia-cuda-runtime": "13.0.96",
+    "nvidia-cudnn-cu13": "9.19.0.56",
+    "nvidia-cufft": "12.0.0.61",
+    "nvidia-cufile": "1.15.1.6",
+    "nvidia-curand": "10.4.0.35",
+    "nvidia-cusolver": "12.0.4.66",
+    "nvidia-cusparse": "12.6.3.3",
+    "nvidia-cusparselt-cu13": "0.8.0",
+    "nvidia-nccl-cu13": "2.28.9",
+    "nvidia-nvjitlink": "13.0.88",
+    "nvidia-nvshmem-cu13": "3.4.5",
+    "nvidia-nvtx": "13.0.85",
+    "packaging": "26.3",
+    "pillow": "12.3.0",
+    "pip": "24.0",
+    "pluggy": "1.6.0",
+    "psutil": "7.2.2",
+    "pytest": "8.4.2",
+    "regex": "2026.9.10",
+    "requests": "2.34.2",
+    "rich": "15.0.0",
+    "safetensors": "0.8.0",
+    "setuptools": "79.0.1",
+    "shellingham": "1.5.4",
+    "sympy": "1.14.0",
+    "tokenizers": "0.22.2",
+    "torch": "2.11.0",
+    "torchcodec": "0.11.0+cpu",
+    "torchvision": "0.26.0",
+    "tqdm": "4.70.1",
+    "transformers": "5.13.1",
+    "triton": "3.6.0",
+    "typer": "0.27.2",
+    "typing_extensions": "4.16.0",
+    "urllib3": "2.8.0"
+  },
+  "python": "3.11.16",
+  "platform": "Linux",
+  "architecture": "x86_64",
+  "settings": {
+    "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+    "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "code_commit": "af2215bec742de6d96af4ccb9fb83dd903b4d6c6",
+    "numerics": "stable",
+    "dtype": "bfloat16",
+    "projection": "full",
+    "mode": "causal",
+    "seed": 37,
+    "repeats": 5,
+    "warmups": 2,
+    "question_counts": [
+      1,
+      3,
+      8,
+      16
+    ],
+    "profiles": {
+      "short": {
+        "nframes": 2,
+        "min_pixels": 3136,
+        "max_pixels": 100352
+      },
+      "long": {
+        "nframes": 24,
+        "min_pixels": 200704,
+        "max_pixels": 200704
+      }
+    },
+    "questions": [
+      {
+        "id": "probe:0",
+        "question": "How does the red ball move?",
+        "candidates": [
+          "From left to right",
+          "From right to left",
+          "Upward",
+          "It stays still"
+        ]
+      },
+      {
+        "id": "probe:1",
+        "question": "Which object moves upward?",
+        "candidates": [
+          "The red ball",
+          "The blue square",
+          "Both objects"
+        ]
+      },
+      {
+        "id": "probe:2",
+        "question": "Which movement happens first?",
+        "candidates": [
+          "The red ball moves right",
+          "The blue square moves up",
+          "Both movements begin at the same time"
+        ]
+      },
+      {
+        "id": "probe:3",
+        "question": "What color is the ball?",
+        "candidates": [
+          "Red",
+          "Blue",
+          "Green",
+          "Yellow"
+        ]
+      },
+      {
+        "id": "probe:4",
+        "question": "What shape is the blue object?",
+        "candidates": [
+          "Square",
+          "Circle",
+          "Triangle",
+          "Star"
+        ]
+      },
+      {
+        "id": "probe:5",
+        "question": "Does the red ball move upward?",
+        "candidates": [
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "id": "probe:6",
+        "question": "What color is the square?",
+        "candidates": [
+          "Blue",
+          "Red",
+          "Yellow",
+          "Green"
+        ]
+      },
+      {
+        "id": "probe:7",
+        "question": "Which object moves horizontally?",
+        "candidates": [
+          "The red ball",
+          "The blue square",
+          "Both objects"
+        ]
+      },
+      {
+        "id": "probe:8",
+        "question": "Does the blue square move after the ball starts moving?",
+        "candidates": [
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "id": "probe:9",
+        "question": "How many colored objects are shown?",
+        "candidates": [
+          "One",
+          "Two",
+          "Three",
+          "Four"
+        ]
+      },
+      {
+        "id": "probe:10",
+        "question": "Which object has a circular shape?",
+        "candidates": [
+          "The red object",
+          "The blue object"
+        ]
+      },
+      {
+        "id": "probe:11",
+        "question": "Does the red ball move from right to left?",
+        "candidates": [
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "id": "probe:12",
+        "question": "How does the blue square move?",
+        "candidates": [
+          "Upward",
+          "Downward",
+          "From left to right",
+          "From right to left"
+        ]
+      },
+      {
+        "id": "probe:13",
+        "question": "Which motion occurs later?",
+        "candidates": [
+          "The square moves upward",
+          "The ball moves right",
+          "Both occur at the same time"
+        ]
+      },
+      {
+        "id": "probe:14",
+        "question": "Is the moving circular object blue?",
+        "candidates": [
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "id": "probe:15",
+        "question": "Does the scene contain a moving square?",
+        "candidates": [
+          "Yes",
+          "No"
+        ]
+      }
+    ],
+    "media_sha256": "542ab35127fff5bd16eac5aa8637c09b53be505969175280754ff6c7d8c03202",
+    "scope": "One project-owned synthetic motion video, varied video sampling/resolution. Performance and execution parity only; no accuracy evaluation.",
+    "timing": "Synchronized wall time: public score_many includes decoding, processor, packing, forward and scoring; cache_batch includes new prefix construction on every call. Model loading and GC excluded.",
+    "memory": "PyTorch CUDA peak allocated/reserved including model weights; allocator empty_cache before each measured call, outside timer. Not whole-device nvidia-smi memory.",
+    "harness_sha256": "12fb52f896b68cbc7aa2c6be336500d92a0b869b955aa796a60b2e602f38f584"
+  },
+  "environment": {
+    "VLLM_BATCH_INVARIANT": null,
+    "MJEV_ENABLE": "0",
+    "MJEV_ENABLE_PATCHES": "0",
+    "VLLM_USE_V2_MODEL_RUNNER": null,
+    "FORCE_QWENVL_VIDEO_READER": null
+  },
+  "code_commit_source": "Exact git archive deployed, harness separately hashed",
+  "gpu": "24 GB NVIDIA GPU"
+}

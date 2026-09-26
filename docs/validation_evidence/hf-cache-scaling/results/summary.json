@@ -1,0 +1,722 @@
+[
+  {
+    "profile": "short",
+    "n": 1,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.17287227176129819,
+    "stdev_seconds": 0.0031087873627260896,
+    "peak_allocated_gib": 9.76326036453247,
+    "peak_reserved_gib": 9.884765625,
+    "prompt_tokens": [
+      117
+    ],
+    "cached_tokens": [
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "short",
+    "n": 1,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.17298703007400035,
+    "stdev_seconds": 0.00172649392168873,
+    "peak_allocated_gib": 9.76326036453247,
+    "peak_reserved_gib": 9.884765625,
+    "prompt_tokens": [
+      117
+    ],
+    "cached_tokens": [
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "short",
+    "n": 1,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.2422570711001754,
+    "stdev_seconds": 0.012437072884765829,
+    "peak_allocated_gib": 9.811585903167725,
+    "peak_reserved_gib": 9.9375,
+    "prompt_tokens": [
+      117
+    ],
+    "cached_tokens": [
+      63
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "short",
+    "n": 3,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.479386255890131,
+    "stdev_seconds": 0.009905286691400696,
+    "peak_allocated_gib": 9.76326036453247,
+    "peak_reserved_gib": 9.884765625,
+    "prompt_tokens": [
+      117,
+      107,
+      116
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "short",
+    "n": 3,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.3582739120349288,
+    "stdev_seconds": 0.014616458032196909,
+    "peak_allocated_gib": 9.768229961395264,
+    "peak_reserved_gib": 9.94140625,
+    "prompt_tokens": [
+      117,
+      107,
+      116
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "short",
+    "n": 3,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.3414160680025816,
+    "stdev_seconds": 0.0021641434880394265,
+    "peak_allocated_gib": 9.887236595153809,
+    "peak_reserved_gib": 10.064453125,
+    "prompt_tokens": [
+      117,
+      107,
+      116
+    ],
+    "cached_tokens": [
+      63,
+      63,
+      63
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "short",
+    "n": 8,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 1.2214650493115187,
+    "stdev_seconds": 0.012840612647695445,
+    "peak_allocated_gib": 9.76326036453247,
+    "peak_reserved_gib": 9.88671875,
+    "prompt_tokens": [
+      117,
+      107,
+      116,
+      107,
+      108,
+      100,
+      107,
+      107
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "short",
+    "n": 8,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.7577168161049486,
+    "stdev_seconds": 0.004580166369315068,
+    "peak_allocated_gib": 9.7787766456604,
+    "peak_reserved_gib": 10.109375,
+    "prompt_tokens": [
+      117,
+      107,
+      116,
+      107,
+      108,
+      100,
+      107,
+      107
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "short",
+    "n": 8,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.5815740581601858,
+    "stdev_seconds": 0.010895441461363746,
+    "peak_allocated_gib": 10.066643238067627,
+    "peak_reserved_gib": 10.23046875,
+    "prompt_tokens": [
+      117,
+      107,
+      116,
+      107,
+      108,
+      100,
+      107,
+      107
+    ],
+    "cached_tokens": [
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "short",
+    "n": 16,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 2.429690035432577,
+    "stdev_seconds": 0.02064865474101088,
+    "peak_allocated_gib": 9.76326036453247,
+    "peak_reserved_gib": 9.88671875,
+    "prompt_tokens": [
+      117,
+      107,
+      116,
+      107,
+      108,
+      100,
+      107,
+      107,
+      104,
+      108,
+      104,
+      103,
+      116,
+      113,
+      100,
+      101
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "short",
+    "n": 16,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 1.437527366541326,
+    "stdev_seconds": 0.011440027825728328,
+    "peak_allocated_gib": 9.797375202178955,
+    "peak_reserved_gib": 10.30078125,
+    "prompt_tokens": [
+      117,
+      107,
+      116,
+      107,
+      108,
+      100,
+      107,
+      107,
+      104,
+      108,
+      104,
+      103,
+      116,
+      113,
+      100,
+      101
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "short",
+    "n": 16,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.9836542930454015,
+    "stdev_seconds": 0.0165994026408311,
+    "peak_allocated_gib": 10.321784019470215,
+    "peak_reserved_gib": 10.720703125,
+    "prompt_tokens": [
+      117,
+      107,
+      116,
+      107,
+      108,
+      100,
+      107,
+      107,
+      104,
+      108,
+      104,
+      103,
+      116,
+      113,
+      100,
+      101
+    ],
+    "cached_tokens": [
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63,
+      63
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 1,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.34184026420116426,
+    "stdev_seconds": 0.0013860698185640525,
+    "peak_allocated_gib": 9.764668941497803,
+    "peak_reserved_gib": 9.92578125,
+    "prompt_tokens": [
+      232
+    ],
+    "cached_tokens": [
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 1,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.3474362103268504,
+    "stdev_seconds": 0.007825392676306098,
+    "peak_allocated_gib": 9.764668941497803,
+    "peak_reserved_gib": 9.92578125,
+    "prompt_tokens": [
+      232
+    ],
+    "cached_tokens": [
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 1,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.4110807817429304,
+    "stdev_seconds": 0.016927224267728417,
+    "peak_allocated_gib": 9.874764442443848,
+    "peak_reserved_gib": 10.0234375,
+    "prompt_tokens": [
+      232
+    ],
+    "cached_tokens": [
+      178
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 3,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.9458991339430213,
+    "stdev_seconds": 0.007025653110638414,
+    "peak_allocated_gib": 9.764668941497803,
+    "peak_reserved_gib": 9.92578125,
+    "prompt_tokens": [
+      232,
+      222,
+      231
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 3,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.6990162393078208,
+    "stdev_seconds": 0.009777958487322139,
+    "peak_allocated_gib": 9.772036075592041,
+    "peak_reserved_gib": 10.076171875,
+    "prompt_tokens": [
+      232,
+      222,
+      231
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 3,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.5621452663093806,
+    "stdev_seconds": 0.010936839799513065,
+    "peak_allocated_gib": 10.013729095458984,
+    "peak_reserved_gib": 10.259765625,
+    "prompt_tokens": [
+      232,
+      222,
+      231
+    ],
+    "cached_tokens": [
+      178,
+      178,
+      178
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 8,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 2.447683055885136,
+    "stdev_seconds": 0.026635749840834527,
+    "peak_allocated_gib": 9.764668941497803,
+    "peak_reserved_gib": 9.92578125,
+    "prompt_tokens": [
+      232,
+      222,
+      231,
+      222,
+      223,
+      215,
+      222,
+      222
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 8,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 1.5548767047002912,
+    "stdev_seconds": 0.006928752766181591,
+    "peak_allocated_gib": 9.791444301605225,
+    "peak_reserved_gib": 10.32421875,
+    "prompt_tokens": [
+      232,
+      222,
+      231,
+      222,
+      223,
+      215,
+      222,
+      222
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 8,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 0.9261479498818517,
+    "stdev_seconds": 0.026730919849116713,
+    "peak_allocated_gib": 10.33265209197998,
+    "peak_reserved_gib": 10.669921875,
+    "prompt_tokens": [
+      232,
+      222,
+      231,
+      222,
+      223,
+      215,
+      222,
+      222
+    ],
+    "cached_tokens": [
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 16,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 4.8827715327963235,
+    "stdev_seconds": 0.026251370471656786,
+    "peak_allocated_gib": 9.764668941497803,
+    "peak_reserved_gib": 9.92578125,
+    "prompt_tokens": [
+      232,
+      222,
+      231,
+      222,
+      223,
+      215,
+      222,
+      222,
+      219,
+      223,
+      219,
+      218,
+      231,
+      228,
+      215,
+      216
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 16,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 3.0503485180437564,
+    "stdev_seconds": 0.025785115518510572,
+    "peak_allocated_gib": 9.819591999053955,
+    "peak_reserved_gib": 10.828125,
+    "prompt_tokens": [
+      232,
+      222,
+      231,
+      222,
+      223,
+      215,
+      222,
+      222,
+      219,
+      223,
+      219,
+      218,
+      231,
+      228,
+      215,
+      216
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 16,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 1.458411649800837,
+    "stdev_seconds": 0.007534538735769265,
+    "peak_allocated_gib": 10.848597526550293,
+    "peak_reserved_gib": 11.98046875,
+    "prompt_tokens": [
+      232,
+      222,
+      231,
+      222,
+      223,
+      215,
+      222,
+      222,
+      219,
+      223,
+      219,
+      218,
+      231,
+      228,
+      215,
+      216
+    ],
+    "cached_tokens": [
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178,
+      178
+    ],
+    "max_logit_delta": 0.0
+  }
+]

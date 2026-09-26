@@ -1,0 +1,8 @@
+{
+  "base_image": "vllm/vllm-openai:v0.25.1@sha256:e4f88a835143cd22aee2397a26ec6bb80b3a4a6fe0c882bcbc63822904766089",
+  "pip_phases": [["qwen-omni-utils[decord]==0.0.9", "librosa==0.11.0", "audioread==3.0.1", "av==18.1.0", "soundfile==0.14.0", "pyarrow==25.0.1"]],
+  "environment": {"VLLM_USE_V2_MODEL_RUNNER":"0", "OMP_NUM_THREADS":"4", "MKL_NUM_THREADS":"4", "OPENBLAS_NUM_THREADS":"4"},
+  "resource": {"gpus":4, "tensor_parallel_size":4, "dtype":"bfloat16", "max_model_len":8192},
+  "model": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
+  "smoke": {"command":"python3 -m mjev.av_witness", "expected":"AV_KERNEL_WITNESS_OK"}
+}

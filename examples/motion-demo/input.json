@@ -1,0 +1,11 @@
+{
+  "modality": "video",
+  "media_path": "motion.mp4",
+  "context": "Inspect the supplied media carefully.",
+  "video_options": {"fps": 2, "min_pixels": 3136, "max_pixels": 100352, "max_frames": 16},
+  "questions": [
+    {"id": "motion:action", "question": "How does the red ball move?", "candidates": ["From left to right", "From right to left", "Upward", "It stays still"]},
+    {"id": "motion:object", "question": "Which object moves upward?", "candidates": ["The red ball", "The blue square", "Both objects"]},
+    {"id": "motion:order", "question": "Which movement happens first?", "candidates": ["The red ball moves right", "The blue square moves up", "Both movements begin at the same time"]}
+  ]
+}

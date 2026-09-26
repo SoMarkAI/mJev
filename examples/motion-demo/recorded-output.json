@@ -1,0 +1,224 @@
+{
+  "description": "Real model output on a project-owned six-second synthetic animation. Demonstration, not benchmark accuracy.",
+  "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "media_license": "Apache-2.0",
+  "media_source": "generate.py",
+  "media_sha256": "542ab35127fff5bd16eac5aa8637c09b53be505969175280754ff6c7d8c03202",
+  "input_sha256": "ac2f4935eebb782e9e64b3e80d237bae3f60186a99ff6a79c55be243ebd0d310",
+  "output_sha256": "e07adabc8db5adf2ee361462c38286c7a15efc8092405729f9e0f8cd4001d49b",
+  "settings": {
+    "backend": "hf",
+    "mode": "causal",
+    "numerics": "stable",
+    "dtype": "bfloat16",
+    "projection": "full",
+    "prefix_cache": true,
+    "question_batch_size": 3,
+    "max_input_tokens": 4000,
+    "video_options": {
+      "fps": 2,
+      "min_pixels": 3136,
+      "max_pixels": 100352,
+      "max_frames": 16
+    }
+  },
+  "questions": [
+    {
+      "question": "How does the red ball move?",
+      "id": "motion:action",
+      "backend": "transformers",
+      "model_family": "qwen3_vl",
+      "projection": "full",
+      "mode": "causal",
+      "candidates": [
+        {
+          "label": "A",
+          "text": "From left to right",
+          "token_id": 32,
+          "raw_logit": 22.299352645874023,
+          "probability": 0.7133827805519104
+        },
+        {
+          "label": "B",
+          "text": "From right to left",
+          "token_id": 33,
+          "raw_logit": 21.377161026000977,
+          "probability": 0.2836742401123047
+        },
+        {
+          "label": "C",
+          "text": "Upward",
+          "token_id": 34,
+          "raw_logit": 16.72052574157715,
+          "probability": 0.002694442169740796
+        },
+        {
+          "label": "D",
+          "text": "It stays still",
+          "token_id": 35,
+          "raw_logit": 14.337053298950195,
+          "probability": 0.0002485077711753547
+        }
+      ],
+      "decision": {
+        "label": "A",
+        "text": "From left to right",
+        "token_id": 32,
+        "raw_logit": 22.299352645874023,
+        "probability": 0.7133827805519104,
+        "index": 0,
+        "tied_labels": [
+          "A"
+        ],
+        "tie_policy": "first_in_input_order"
+      },
+      "probability_sum": 0.9999999706051312,
+      "prompt_tokens": 148,
+      "num_cached_tokens": 94,
+      "implementation": "hf_real_batch",
+      "batch_size": 3,
+      "numerics": "stable"
+    },
+    {
+      "question": "Which object moves upward?",
+      "id": "motion:object",
+      "backend": "transformers",
+      "model_family": "qwen3_vl",
+      "projection": "full",
+      "mode": "causal",
+      "candidates": [
+        {
+          "label": "A",
+          "text": "The red ball",
+          "token_id": 32,
+          "raw_logit": 19.086803436279297,
+          "probability": 0.02334442362189293
+        },
+        {
+          "label": "B",
+          "text": "The blue square",
+          "token_id": 33,
+          "raw_logit": 22.81673240661621,
+          "probability": 0.9729055762290955
+        },
+        {
+          "label": "C",
+          "text": "Both objects",
+          "token_id": 34,
+          "raw_logit": 17.258211135864258,
+          "probability": 0.0037500374019145966
+        }
+      ],
+      "decision": {
+        "label": "B",
+        "text": "The blue square",
+        "token_id": 33,
+        "raw_logit": 22.81673240661621,
+        "probability": 0.9729055762290955,
+        "index": 1,
+        "tied_labels": [
+          "B"
+        ],
+        "tie_policy": "first_in_input_order"
+      },
+      "probability_sum": 1.000000037252903,
+      "prompt_tokens": 138,
+      "num_cached_tokens": 94,
+      "implementation": "hf_real_batch",
+      "batch_size": 3,
+      "numerics": "stable"
+    },
+    {
+      "question": "Which movement happens first?",
+      "id": "motion:order",
+      "backend": "transformers",
+      "model_family": "qwen3_vl",
+      "projection": "full",
+      "mode": "causal",
+      "candidates": [
+        {
+          "label": "A",
+          "text": "The red ball moves right",
+          "token_id": 32,
+          "raw_logit": 23.494115829467773,
+          "probability": 0.8961552381515503
+        },
+        {
+          "label": "B",
+          "text": "The blue square moves up",
+          "token_id": 33,
+          "raw_logit": 21.30515480041504,
+          "probability": 0.10039903968572617
+        },
+        {
+          "label": "C",
+          "text": "Both movements begin at the same time",
+          "token_id": 34,
+          "raw_logit": 17.933115005493164,
+          "probability": 0.003445650916546583
+        }
+      ],
+      "decision": {
+        "label": "A",
+        "text": "The red ball moves right",
+        "token_id": 32,
+        "raw_logit": 23.494115829467773,
+        "probability": 0.8961552381515503,
+        "index": 0,
+        "tied_labels": [
+          "A"
+        ],
+        "tie_policy": "first_in_input_order"
+      },
+      "probability_sum": 0.999999928753823,
+      "prompt_tokens": 147,
+      "num_cached_tokens": 94,
+      "implementation": "hf_real_batch",
+      "batch_size": 3,
+      "numerics": "stable"
+    }
+  ],
+  "environment": {
+    "warm_environment_reused": true,
+    "python": "3.11.16",
+    "packages": {
+      "torch": "2.11.0",
+      "transformers": "5.13.1",
+      "accelerate": "1.15.0",
+      "torchcodec": "0.11.0+cpu",
+      "qwen-vl-utils": "not installed",
+      "huggingface-hub": "1.33.0"
+    },
+    "cuda": "13.0",
+    "gpu": "24 GB NVIDIA GPU",
+    "threads": 4
+  },
+  "source_sha256": {
+    "mjev/__init__.py": "cb3b61bc7b535557dfc5f8e6a91c1397a8ca4d7baa270123bccf4ecb45eb1772",
+    "mjev/av_witness.py": "f908907e8a287ec696822259fe00fbb38403c96248237a1c9f31ff96d8247e3d",
+    "mjev/decision.py": "c622f50497266ee5f6115cf494bd505a0fb6f012e849d8612f3ed890b9d58d72",
+    "mjev/engine.py": "53f1667638e78c9c71737a8a5c4cc5f7a7c12ebe1f1b7c7b70e2d9fe36469702",
+    "mjev/families.py": "dd61eee95b4375deb167491181133d026a887f562183d7a83e39729630e5d6a4",
+    "mjev/hf.py": "4a4891d0802d95185c912cce04136183bfbb94161505ef5ec311c02d8bb45009",
+    "mjev/hf_batch.py": "b37cc4ebbb33a8a05d08cc12658907a8cce9557ffbfba717044de8ef9743abd2",
+    "mjev/hf_numerics.py": "393127bcabfaa952ca8b749a95e896d900eb488fb95bb829f3d90d17a83403f8",
+    "mjev/model.py": "3f05804a16732661df9e381de589c9de66864ef6780ea6e0eaaa6ac17e3da69a",
+    "mjev/multimodal_merge.py": "fcc671b1f9011aded190bc47d482c16578fad251cff6caabd5eadbd34815a847",
+    "mjev/patch.py": "b11031f5705f9c01bd12ce947dac71500decba78abac016f09c9d5c0f96cbb53",
+    "mjev/prompt.py": "ff1cf3d36ea724e51aa08a0ce511bd7090c6425270c8cba0d3b3265f082d7e07",
+    "mjev/protocol.py": "dad4776a44f2c043098ee08ab6a2d4e0d849b44596e4e152f89ce7ab3cb5a619",
+    "mjev/stable_attention.py": "20753435407e040e699dfcc28ea009b6fbca1298921ec677b6818ebcd1117b83",
+    "mjev/vl_media.py": "9c6b2afd2f4fa85defb5d2007f90ee5f7998d20f054a45041c818e0c0de2bbef",
+    "demo_hf.py": "71167e8419bad720b9775c75045c4af1db52c3f5491a175ad6eb15d8a4063647"
+  },
+  "validation": {
+    "documented_inference_command": "passed",
+    "environment_reused": true,
+    "installation_repeated": false,
+    "question_count": 3,
+    "candidate_order": "passed",
+    "probability_sums": "passed",
+    "source_files_match_local_checkout": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "backend": "vllm",
+  "numerics": "stable",
+  "mode": "causal",
+  "dtype": "bfloat16",
+  "projection": "full",
+  "prefix_cache": true,
+  "question_batch_size": 3,
+  "max_input_tokens": 4000,
+  "context": "Inspect the supplied media carefully.",
+  "video_options": {
+    "fps": 1,
+    "min_pixels": 3136,
+    "max_pixels": 50176,
+    "max_frames": 8
+  },
+  "seed": 37,
+  "tensor_parallel_size": 1
+}

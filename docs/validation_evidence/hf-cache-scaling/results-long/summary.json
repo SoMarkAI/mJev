@@ -1,0 +1,362 @@
+[
+  {
+    "profile": "long",
+    "n": 1,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 2.468039659038186,
+    "stdev_seconds": 0.011858815313078749,
+    "peak_allocated_gib": 9.808524131774902,
+    "peak_reserved_gib": 10.49609375,
+    "prompt_tokens": [
+      2320
+    ],
+    "cached_tokens": [
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 1,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 2.467287205159664,
+    "stdev_seconds": 0.0061454606609951225,
+    "peak_allocated_gib": 9.808524131774902,
+    "peak_reserved_gib": 10.49609375,
+    "prompt_tokens": [
+      2320
+    ],
+    "cached_tokens": [
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 1,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 2.630777661688626,
+    "stdev_seconds": 0.016878499169696,
+    "peak_allocated_gib": 11.023551940917969,
+    "peak_reserved_gib": 11.58984375,
+    "prompt_tokens": [
+      2320
+    ],
+    "cached_tokens": [
+      2266
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 3,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 7.362330649234354,
+    "stdev_seconds": 0.014375933038691288,
+    "peak_allocated_gib": 9.808524131774902,
+    "peak_reserved_gib": 10.49609375,
+    "prompt_tokens": [
+      2320,
+      2310,
+      2319
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 3,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 6.487273810431361,
+    "stdev_seconds": 0.03179765150948909,
+    "peak_allocated_gib": 9.905661582946777,
+    "peak_reserved_gib": 11.875,
+    "prompt_tokens": [
+      2320,
+      2310,
+      2319
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 3,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 3.1180263932794334,
+    "stdev_seconds": 0.011008763492781416,
+    "peak_allocated_gib": 12.343464851379395,
+    "peak_reserved_gib": 13.208984375,
+    "prompt_tokens": [
+      2320,
+      2310,
+      2319
+    ],
+    "cached_tokens": [
+      2266,
+      2266,
+      2266
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 8,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 19.535106219910084,
+    "stdev_seconds": 0.03077869147405976,
+    "peak_allocated_gib": 9.808524131774902,
+    "peak_reserved_gib": 10.49609375,
+    "prompt_tokens": [
+      2320,
+      2310,
+      2319,
+      2310,
+      2311,
+      2303,
+      2310,
+      2310
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 8,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 16.46415993440896,
+    "stdev_seconds": 0.026258664006842885,
+    "peak_allocated_gib": 12.091259002685547,
+    "peak_reserved_gib": 15.326171875,
+    "prompt_tokens": [
+      2320,
+      2310,
+      2319,
+      2310,
+      2311,
+      2303,
+      2310,
+      2310
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 8,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 4.2464191693812605,
+    "stdev_seconds": 0.01972810210376638,
+    "peak_allocated_gib": 15.491392135620117,
+    "peak_reserved_gib": 21.57421875,
+    "prompt_tokens": [
+      2320,
+      2310,
+      2319,
+      2310,
+      2311,
+      2303,
+      2310,
+      2310
+    ],
+    "cached_tokens": [
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 16,
+    "strategy": "serial",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 38.9855075776577,
+    "stdev_seconds": 0.02151892672339077,
+    "peak_allocated_gib": 9.808524131774902,
+    "peak_reserved_gib": 10.49609375,
+    "prompt_tokens": [
+      2320,
+      2310,
+      2319,
+      2310,
+      2311,
+      2303,
+      2310,
+      2310,
+      2307,
+      2311,
+      2307,
+      2306,
+      2319,
+      2316,
+      2303,
+      2304
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 16,
+    "strategy": "batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 32.620002209581436,
+    "stdev_seconds": 0.04753522716589377,
+    "peak_allocated_gib": 15.802273750305176,
+    "peak_reserved_gib": 20.703125,
+    "prompt_tokens": [
+      2320,
+      2310,
+      2319,
+      2310,
+      2311,
+      2303,
+      2310,
+      2310,
+      2307,
+      2311,
+      2307,
+      2306,
+      2319,
+      2316,
+      2303,
+      2304
+    ],
+    "cached_tokens": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_logit_delta": 0.0
+  },
+  {
+    "profile": "long",
+    "n": 16,
+    "strategy": "cache_batch",
+    "status": "ok",
+    "measured_repeats": 5,
+    "mean_seconds": 6.287059459462762,
+    "stdev_seconds": 0.01419304958508345,
+    "peak_allocated_gib": 20.600078105926514,
+    "peak_reserved_gib": 23.111328125,
+    "prompt_tokens": [
+      2320,
+      2310,
+      2319,
+      2310,
+      2311,
+      2303,
+      2310,
+      2310,
+      2307,
+      2311,
+      2307,
+      2306,
+      2319,
+      2316,
+      2303,
+      2304
+    ],
+    "cached_tokens": [
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266,
+      2266
+    ],
+    "max_logit_delta": 0.0
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "image": "rectangle.png",
+  "context": "Inspect the supplied picture.",
+  "questions": [
+    {
+      "question": "What color is the rectangle?",
+      "candidates": [
+        "Red",
+        "Blue",
+        "Green"
+      ]
+    },
+    {
+      "question": "What shape is shown?",
+      "candidates": [
+        "Rectangle",
+        "Circle",
+        "Triangle",
+        "Star",
+        "Oval"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5313 @@
+{
+  "run": {
+    "code_commit": null,
+    "working_tree_dirty": null,
+    "source_sha256": {
+      "benchmarks/integrated/compare_backends.py": "2032cd990ef56ddbe2c07d61f47dac582a10d03b1ac87d4513c237ad3b3146c5",
+      "benchmarks/integrated/evaluate_hf.py": "f69d1b854e425476aee207afc3b12104a24139d9d717560369cec8b947a071cd",
+      "benchmarks/integrated/evaluate_service.py": "461a3d9e2e3377a2d1b82a8d58d55546780468936511d2a04cc5454dfdbd8941",
+      "benchmarks/integrated/hf_batch_probe.py": "25a111bd3380ee31c11c02e473bbc7322d33dbb30d47160a044afc0e42c689ea",
+      "benchmarks/integrated/report_comparison.py": "5c0b9dbf4c87a5ced44840a03e9a4d4bfe420997dc704a4e5a94bccdf96bda17",
+      "benchmarks/integrated/report_concurrent_cache.py": "67b3a4f004bec7b057a96e26777f4ec07cd657caf432801cbd047ec07f471143",
+      "benchmarks/integrated/validate_concurrent_cache.py": "296546a6687f205eaa609a810056b14247bcf47e154944ab1900fc9185cd81ca",
+      "benchmarks/integrated/validate_hf_gpu.py": "e7a421b3363d28d1e963f9da27f3a775aa832b9a018bcaaff4cc83bd826249d0",
+      "benchmarks/integrated/validate_model.py": "ec629f95a215ca9378c3e846a3bc163d71e41aef41a194ad95e74b6831da9f1c",
+      "configs/av_env.json": "09ba9980d73e7593225e74c4cff74c62874b9bc628d3876b9a1e5540e1ea4b9f",
+      "configs/public_mini_hf.json": "cee1cec840c6b1718f9efa5407ed12694167d0bf0fba2a04bc90e9aab5b38d7a",
+      "configs/public_mini_vllm.json": "fa6940b9529552a6654b00ef60c354a1052f9dbdb7abf96456e6b465b03e6c21",
+      "configs/qwen3_vl_4b_hf.json": "8ed6afbd1d2e718d98fb13ebf37ce279f581ea3cd4b86a76c5776b0db7226834",
+      "configs/qwen3_vl_4b_vllm.json": "ed3ba5758a9ac9e3af5c9768a5e4a70530f4389dee5abb6d1f83ed2f0856aea6",
+      "mjev/__init__.py": "cb3b61bc7b535557dfc5f8e6a91c1397a8ca4d7baa270123bccf4ecb45eb1772",
+      "mjev/av_witness.py": "f908907e8a287ec696822259fe00fbb38403c96248237a1c9f31ff96d8247e3d",
+      "mjev/benchmark/__init__.py": "ee88902e782fc8d604800e039e9c337252888c1a159937b826148ad19a5df133",
+      "mjev/benchmark/adapters.py": "06319e0e4690e8db0e632258b8d516f1b2064130e4487439b7a8045200d1c3bf",
+      "mjev/benchmark/audit.py": "ab7b1389aa48042605fddc9ab8e8e73498e25e0c21e3e25dd1dd4419fbdedc3e",
+      "mjev/benchmark/dataset.py": "9b7f4081bfeab251fa6907a6f71732be0f98c07da6feb48805fa6e34577456d3",
+      "mjev/benchmark/download.py": "69df0f0948819df27feabe4eefc4d0762a2cb4e16b9b826a3fd62277873e2c72",
+      "mjev/benchmark/evaluate.py": "ccb5d20d99dd3ee053c82d961696a663db7e29ef5673f32e5b62bc9f38a1960e",
+      "mjev/benchmark/fetch.py": "0d01597bbc0a51f540a42e1ee6eb51e699aa678080e83176adf7182046aa91a7",
+      "mjev/benchmark/grouped.py": "208cf4f64557291e42665d391f1638b50ae6d983c3b6fd58b89b2d8bf4cd9164",
+      "mjev/benchmark/pilot.py": "645c03800050a1c509c54039ff64838bcd9df1065d8a42f5f9e0f8332be2dd65",
+      "mjev/benchmark/prepare.py": "23b8f2ff31ccbcd3400b2e67d19f1b68f172b93a719896cd5c7fff2648a89bfa",
+      "mjev/benchmark/provenance.py": "91e971c31a77d2cc0171e0b633b10edf0418d5fb141435f0be4e88cf9cf437c0",
+      "mjev/benchmark/public_mini.py": "71c5d5073771315911636a8e159546d2bc54241772d6d76f32e33996c53050fe",
+      "mjev/benchmark/run.py": "dc5f972018c084db053e9e3c0a70c245237c113ebbaafa6e2444d8a12c87448a",
+      "mjev/benchmark/visual_smoke.py": "a67d624d783b2f4efa516a126bdd787fa86e8ed127200da2f92656ea348f638b",
+      "mjev/decision.py": "c622f50497266ee5f6115cf494bd505a0fb6f012e849d8612f3ed890b9d58d72",
+      "mjev/engine.py": "53f1667638e78c9c71737a8a5c4cc5f7a7c12ebe1f1b7c7b70e2d9fe36469702",
+      "mjev/families.py": "dd61eee95b4375deb167491181133d026a887f562183d7a83e39729630e5d6a4",
+      "mjev/hf.py": "4a4891d0802d95185c912cce04136183bfbb94161505ef5ec311c02d8bb45009",
+      "mjev/hf_batch.py": "b37cc4ebbb33a8a05d08cc12658907a8cce9557ffbfba717044de8ef9743abd2",
+      "mjev/hf_numerics.py": "393127bcabfaa952ca8b749a95e896d900eb488fb95bb829f3d90d17a83403f8",
+      "mjev/model.py": "3f05804a16732661df9e381de589c9de66864ef6780ea6e0eaaa6ac17e3da69a",
+      "mjev/multimodal_merge.py": "fcc671b1f9011aded190bc47d482c16578fad251cff6caabd5eadbd34815a847",
+      "mjev/patch.py": "b11031f5705f9c01bd12ce947dac71500decba78abac016f09c9d5c0f96cbb53",
+      "mjev/prompt.py": "ff1cf3d36ea724e51aa08a0ce511bd7090c6425270c8cba0d3b3265f082d7e07",
+      "mjev/protocol.py": "dad4776a44f2c043098ee08ab6a2d4e0d849b44596e4e152f89ce7ab3cb5a619",
+      "mjev/stable_attention.py": "20753435407e040e699dfcc28ea009b6fbca1298921ec677b6818ebcd1117b83",
+      "mjev/vl_media.py": "9c6b2afd2f4fa85defb5d2007f90ee5f7998d20f054a45041c818e0c0de2bbef",
+      "runtime/mjev_contract.py": "cf0672ffb1c7f0f484a483ba4be72e33f280a0af2a835ad9a08e2e0e753d446d",
+      "runtime/mjev_mask.py": "58e8d4b5b38f8b788d0b206925b15abf8abf8c8b67a9419074d5eac861efce40",
+      "runtime/mjev_scoring.py": "d3a1aefa207c21fac61d63cb837df6ff8fee51a951d5db3de0d69b186b44386b",
+      "runtime/mjev_server.py": "4e367518f416e5c52c57a8b355318241e45d02312fb91f4d5285b0d705985d48",
+      "runtime/mjev_vllm_patch.py": "175a68a8b8c43baafc343745fabc4a074e982f396eb80793b7de6b8c5dd75721",
+      "runtime/sitecustomize.py": "0b84dbb18cad5582c25d2a5d1f43e03f0e3a6d4fe8f50eef2e00082a8498ec5e",
+      "scripts/build_av_benchmark.sh": "8e9d0403e8ccaebddd17ebf2eb41bf98fde3e100ca63f2fbcdac0f4b1c44a671",
+      "scripts/serve_integrated.sh": "5ba3bce908e39050b3688945bd10af06dc717c4d5f9fa0f612618eb488b60263",
+      "scripts/test.sh": "a21123abf5ecd89b8f55f892b929b020cada3946dbbc75bd796a14b2f035ca7c",
+      "scripts/test_gpu.sh": "4631fc6db3cceae4c6f4d78b9d78da3034d117a684876867098d46d472ad5ba2",
+      "tests/conftest.py": "4a3880c4b686839106a14f4c940351f8133fc568922739ba5ef8351941535db4",
+      "tests/e2e.py": "51d8c2ed693d014eef31f253ad60dd909a70679d54b8e4e6eaa8ebfce8d67b5a",
+      "tests/gpu/test_e2e.py": "0dac66795e5e4257c8aff3037f4488df5ae6141608046d0c02f4d5502f0eb519",
+      "tests/hf/test_batch_probe.py": "de3ff97f17d44e8e1122862cca2e4eb07cae52e365da1c8dfa867417adfa2780",
+      "tests/hf/test_cache.py": "227393a8e4504e622617c519e5c746f7ed384d719784c74a07603dc74198455e",
+      "tests/hf/test_dependency.py": "a13e2123d77feba0ad7a654bdff49480a7c05b4e4209224ae759271b7bf5dfa4",
+      "tests/hf/test_forward.py": "6027346937d4247637f2e6710569251682127ddd92ece30e27a683d59d68590f",
+      "tests/hf/test_numerics.py": "2e4fc245ddb79642ac3867630d1c29be8da72bfbbe9bcff0541890651722c1ad",
+      "tests/hf/test_qwen3_vl.py": "76ad3764640906458d7f5c8c78afdb4cc4c970e47abfe12547f31fe508562bc8",
+      "tests/runtime/test_benchmark_payload.py": "deafa76c45767e26f026e571cfa8b4e30dc1303674d4ac0f69a65488c93a6278",
+      "tests/runtime/test_contract.py": "cc46ddca83a7028cdebe55f149cfd34a26c718918a6d1f4cf63008def78f4097",
+      "tests/runtime/test_mask_oracle.py": "a39eb5bfb88da91331f5a55b6d4e865c295f47d58b2c769ce0392578857856f4",
+      "tests/runtime/test_projection.py": "3e7cb70b152ae5aa755fe83e2bc3736b1f9ebea65c03f8b76913777cb1fd8781",
+      "tests/runtime/test_scoring.py": "44c8f541ce7bf4782e5ebf5c75b37dac4d1ca3abdcc54c801464863d422dfc55",
+      "tests/test_benchmark.py": "bc082b96bd48e420c5c8e59eb732c6b85c9e676f342224f98e297e0c46ea7cf0",
+      "tests/test_comparison_report.py": "ab34b81432da004f505b195c585a6884f9bb6179d5c069a70549c01927e167fa",
+      "tests/test_concurrent_report.py": "639beb4ea006417ed2196bf7d260b2fd7e0c06f8657ffd198d9374f3d3c65a1d",
+      "tests/test_core.py": "8f3c94290bdadc10e8f1d0f893b2ee39f34e4c83ca7ee85491e08fe3b7eb03a6",
+      "tests/test_grouped.py": "a076ebad9c472acb34074c74d38625d0ecd7ef561c9d290dbf8ca8c50d4ac6c7",
+      "tests/test_interleaved.py": "b8d1f5095583ec4eee913b982e5c36af7925ac756136966454adb29421f8f2cc",
+      "tests/test_multimodal_merge.py": "1a2e95e617aacc183bc23c1da8c1b6a3cd31673c0beb711c52dca611774f80ac",
+      "tests/test_patch_install.py": "ece84b886d7044e0ac11880ae3b353f64d762f61bcaa0a94bb4c2fdb2857bd5c",
+      "tests/test_prefix_bypass.py": "7bfb50c384d292617128ae6025bb7e9df9c27ea1893b8e9c22220726aee7bd88",
+      "tests/test_public_mini.py": "c57f3a3216413cfeb9a56c5e53edf0dc1bef0097f371678a03445ad081617d9d",
+      "tests/test_stable_attention.py": "180374a080a5dc9d49f5e10293b44836994baa1cf5426e683609396a5e47f72f",
+      "pyproject.toml": "ee4523ee5e3325adcbc327c262205ce9fabfaf86075c4984301d7805cb447937",
+      "sitecustomize.py": "e82c6e0953e353b5f315083dbfc5cd45a6543e4bd93b8fe076141bf79abd1506",
+      "demo.py": "1a1910d803c3cf7afbb4ae3852cb672e63c32ec6919711062b25c3ad201b63ad",
+      "demo_hf.py": "71167e8419bad720b9775c75045c4af1db52c3f5491a175ad6eb15d8a4063647"
+    },
+    "source_tree_sha256": "453fc31ee5522500b33534357e2a14afc81a8e5fc8788c1c6e63b0064818431f",
+    "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "model_revision_status": "Hub snapshot at requested commit",
+    "model_config_sha256": {
+      "chat_template.json": "6f8a6a55027e3da5160105556cda5dd69f6423f1c32645f6730d32de7773d0c4",
+      "config.json": "edac7703329133edfc53e46ac0081835144c99d7eebf28b71c732694d435224d",
+      "generation_config.json": "8469742d1fce0de951c8909b26a2c0c0d8490837ce476efb114da9e0cefc4d44",
+      "model.safetensors.index.json": "58a7841d7bff2548dd91577d216274a83cf1b500bc6a534b809d6c1b1707cf2b",
+      "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+      "tokenizer.json": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7",
+      "tokenizer_config.json": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399",
+      "video_preprocessor_config.json": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    "dependencies": {
+      "Jinja2": "3.1.6",
+      "MarkupSafe": "3.0.3",
+      "PyGObject": "3.42.1",
+      "PyJWT": "2.3.0",
+      "PyYAML": "6.0.3",
+      "Pygments": "2.20.0",
+      "SecretStorage": "3.3.1",
+      "accelerate": "1.14.0",
+      "aiofile": "3.11.1",
+      "aiofiles": "25.1.0",
+      "aiohappyeyeballs": "2.7.1",
+      "aiohttp": "3.14.1",
+      "aiosignal": "1.4.0",
+      "annotated-doc": "0.0.4",
+      "annotated-types": "0.7.0",
+      "anthropic": "0.116.0",
+      "anyio": "4.14.2",
+      "apache-tvm-ffi": "0.1.9",
+      "astor": "0.8.1",
+      "attrs": "26.1.0",
+      "av": "16.1.0",
+      "awscrt": "0.35.0",
+      "azure-core": "1.41.0",
+      "azure-identity": "1.25.3",
+      "azure-storage-blob": "12.30.0",
+      "bitsandbytes": "0.49.2",
+      "blake3": "1.0.9",
+      "blinker": "1.4",
+      "boto3": "1.43.46",
+      "botocore": "1.43.46",
+      "cachetools": "7.1.4",
+      "caio": "0.9.25",
+      "cbor2": "6.1.3",
+      "certifi": "2026.6.17",
+      "cffi": "2.1.0",
+      "charset-normalizer": "3.4.9",
+      "click": "8.4.2",
+      "cloudpickle": "3.1.2",
+      "compressed-tensors": "0.17.0",
+      "cryptography": "3.4.8",
+      "cuda-bindings": "13.3.1",
+      "cuda-core": "1.0.1",
+      "cuda-pathfinder": "1.5.6",
+      "cuda-python": "13.3.1",
+      "cuda-tile": "1.3.0",
+      "cuda-toolkit": "13.0.2",
+      "cufile-python": "0.2.0",
+      "cupy-cuda13x": "14.0.1",
+      "dbus-python": "1.2.18",
+      "deep_ep": "1.2.1+73b6ea4",
+      "depyf": "0.20.0",
+      "detect-installer": "0.1.0",
+      "dill": "0.4.1",
+      "diskcache": "5.6.3",
+      "distro": "1.7.0",
+      "dnspython": "2.8.0",
+      "docstring_parser": "0.18.0",
+      "einops": "0.8.2",
+      "email-validator": "2.3.0",
+      "fastapi": "0.136.3",
+      "fastapi-cli": "0.0.29",
+      "fastapi-cloud-cli": "0.22.1",
+      "fastar": "0.11.0",
+      "fastsafetensors": "0.3.3",
+      "filelock": "3.29.7",
+      "flashinfer-cubin": "0.6.13",
+      "flashinfer-jit-cache": "0.6.13+cu130",
+      "flashinfer-python": "0.6.13",
+      "frozenlist": "1.8.0",
+      "fsspec": "2026.6.0",
+      "google-api-core": "2.31.0",
+      "google-auth": "2.55.2",
+      "google-cloud-bigtable": "2.40.0",
+      "google-cloud-core": "2.6.0",
+      "google-cloud-storage": "3.12.1",
+      "google-crc32c": "1.8.0",
+      "google-resumable-media": "2.10.0",
+      "googleapis-common-protos": "1.75.0",
+      "grpc-google-iam-v1": "0.14.4",
+      "grpcio": "1.82.1",
+      "grpcio-status": "1.81.1",
+      "h11": "0.16.0",
+      "hf-xet": "1.5.1",
+      "httpcore": "1.0.9",
+      "httplib2": "0.20.2",
+      "httptools": "0.8.0",
+      "httpx": "0.28.1",
+      "httpx-sse": "0.4.3",
+      "huggingface_hub": "1.23.0",
+      "humanize": "4.16.0",
+      "humming-kernels": "0.1.10",
+      "idna": "3.18",
+      "ijson": "3.5.1",
+      "importlib-metadata": "4.6.4",
+      "importlib_metadata": "8.7.1",
+      "iniconfig": "2.3.0",
+      "interegular": "0.3.3",
+      "isodate": "0.7.2",
+      "jeepney": "0.7.1",
+      "jiter": "0.16.0",
+      "jmespath": "1.1.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "keyring": "23.5.0",
+      "lark": "1.2.2",
+      "launchpadlib": "1.10.16",
+      "lazr.restfulclient": "0.14.4",
+      "lazr.uri": "1.0.6",
+      "llguidance": "1.7.6",
+      "llvmlite": "0.47.0",
+      "lm-format-enforcer": "0.11.3",
+      "lmcache": "0.5.1",
+      "loguru": "0.7.3",
+      "markdown-it-py": "4.2.0",
+      "mcp": "1.28.1",
+      "mdurl": "0.1.2",
+      "mineru_vl_utils": "2.0.4",
+      "mistral_common": "1.11.5",
+      "mjev": "0.1.0",
+      "ml_dtypes": "0.5.4",
+      "model-hosting-container-standards": "0.1.16",
+      "modelscope": "1.37.1",
+      "mooncake-transfer-engine": "0.3.10.post2",
+      "more-itertools": "8.10.0",
+      "mpmath": "1.3.0",
+      "msal": "1.37.0",
+      "msal-extensions": "1.3.1",
+      "msgspec": "0.21.1",
+      "multidict": "6.7.1",
+      "networkx": "3.6.1",
+      "ninja": "1.13.0",
+      "nixl": "1.3.0",
+      "nixl-cu12": "1.3.0",
+      "nixl-cu13": "1.3.1",
+      "numba": "0.65.0",
+      "numpy": "2.2.6",
+      "nvidia-cublas": "13.1.0.3",
+      "nvidia-cuda-cccl": "13.3.3.4.1",
+      "nvidia-cuda-crt": "13.3.73",
+      "nvidia-cuda-cupti": "13.0.85",
+      "nvidia-cuda-nvcc": "13.2.78",
+      "nvidia-cuda-nvrtc": "13.0.88",
+      "nvidia-cuda-runtime": "13.0.96",
+      "nvidia-cuda-tileiras": "13.2.78",
+      "nvidia-cudnn-cu13": "9.19.0.56",
+      "nvidia-cudnn-frontend": "1.26.0",
+      "nvidia-cufft": "12.0.0.61",
+      "nvidia-cufile": "1.15.1.6",
+      "nvidia-curand": "10.4.0.35",
+      "nvidia-cusolver": "12.0.4.66",
+      "nvidia-cusparse": "12.6.3.3",
+      "nvidia-cusparselt-cu13": "0.8.0",
+      "nvidia-cutlass-dsl": "4.5.2",
+      "nvidia-cutlass-dsl-libs-base": "4.5.2",
+      "nvidia-cutlass-dsl-libs-cu13": "4.5.2",
+      "nvidia-ml-py": "13.610.43",
+      "nvidia-nccl-cu13": "2.28.9",
+      "nvidia-nvjitlink": "13.0.88",
+      "nvidia-nvshmem-cu13": "3.4.5",
+      "nvidia-nvtx": "13.0.85",
+      "nvidia-nvvm": "13.2.78",
+      "nvtx": "0.2.15",
+      "oauthlib": "3.2.0",
+      "openai": "2.45.0",
+      "openai-harmony": "0.0.8",
+      "opencv-python-headless": "5.0.0.93",
+      "opentelemetry-api": "1.40.0",
+      "opentelemetry-exporter-otlp": "1.40.0",
+      "opentelemetry-exporter-otlp-proto-common": "1.40.0",
+      "opentelemetry-exporter-otlp-proto-grpc": "1.40.0",
+      "opentelemetry-exporter-otlp-proto-http": "1.40.0",
+      "opentelemetry-exporter-prometheus": "0.61b0",
+      "opentelemetry-proto": "1.40.0",
+      "opentelemetry-sdk": "1.40.0",
+      "opentelemetry-semantic-conventions": "0.61b0",
+      "opentelemetry-semantic-conventions-ai": "0.5.1",
+      "outlines_core": "0.2.14",
+      "packaging": "26.2",
+      "partial-json-parser": "0.2.1.1.post7",
+      "pillow": "12.3.0",
+      "pip": "26.1.2",
+      "pluggy": "1.6.0",
+      "prometheus-fastapi-instrumentator": "8.0.2",
+      "prometheus_client": "0.24.1",
+      "propcache": "0.5.2",
+      "proto-plus": "1.28.1",
+      "protobuf": "6.33.6",
+      "psutil": "7.2.2",
+      "py-cpuinfo": "9.0.0",
+      "pyasn1": "0.6.4",
+      "pyasn1_modules": "0.4.2",
+      "pybase64": "1.4.3",
+      "pycountry": "26.2.16",
+      "pycparser": "3.0",
+      "pydantic": "2.13.4",
+      "pydantic-extra-types": "2.11.1",
+      "pydantic-settings": "2.14.2",
+      "pydantic_core": "2.46.4",
+      "pyelftools": "0.33",
+      "pynvvideocodec": "2.0.4",
+      "pyparsing": "2.4.7",
+      "pytest": "9.1.1",
+      "python-apt": "2.4.0+ubuntu4.1",
+      "python-dateutil": "2.9.0.post0",
+      "python-dotenv": "1.2.2",
+      "python-json-logger": "4.1.0",
+      "python-multipart": "0.0.32",
+      "pyzmq": "27.1.0",
+      "quack-kernels": "0.5.0",
+      "redis": "8.0.1",
+      "referencing": "0.37.0",
+      "regex": "2026.7.10",
+      "requests": "2.34.2",
+      "rich": "15.0.0",
+      "rich-toolkit": "0.20.1",
+      "rignore": "0.7.6",
+      "rpds-py": "2026.6.3",
+      "runai-model-streamer": "0.16.0",
+      "runai-model-streamer-azure": "0.16.0",
+      "runai-model-streamer-gcs": "0.16.0",
+      "runai-model-streamer-s3": "0.16.0",
+      "s3transfer": "0.19.1",
+      "safetensors": "0.8.0",
+      "sentencepiece": "0.2.2",
+      "sentry-sdk": "2.64.0",
+      "setproctitle": "1.3.7",
+      "setuptools": "80.10.2",
+      "setuptools-scm": "10.2.0",
+      "shellingham": "1.5.4",
+      "six": "1.16.0",
+      "sniffio": "1.3.1",
+      "sortedcontainers": "2.4.0",
+      "sse-starlette": "3.4.5",
+      "starlette": "1.3.1",
+      "supervisor": "4.3.0",
+      "sympy": "1.14.0",
+      "tabulate": "0.10.0",
+      "tiktoken": "0.13.0",
+      "tilelang": "0.1.9",
+      "timm": "1.0.28",
+      "tokenizers": "0.22.2",
+      "tokenspeed-mla": "0.1.2",
+      "tokenspeed-triton": "3.8.10.post20260709",
+      "torch": "2.11.0+cu130",
+      "torch_c_dlpack_ext": "0.1.5",
+      "torchaudio": "2.11.0+cu130",
+      "torchcodec": "0.14.0+cu130",
+      "torchvision": "0.26.0+cu130",
+      "tqdm": "4.68.4",
+      "transformers": "5.13.1",
+      "triton": "3.6.0",
+      "typer": "0.26.8",
+      "typing-inspection": "0.4.2",
+      "typing_extensions": "4.16.0",
+      "urllib3": "2.7.0",
+      "uv": "0.11.28",
+      "uvicorn": "0.51.0",
+      "uvloop": "0.22.1",
+      "vcs-versioning": "2.2.2",
+      "vllm": "0.25.1",
+      "wadllib": "1.3.6",
+      "watchfiles": "1.2.0",
+      "websockets": "16.1",
+      "xgrammar": "0.2.3",
+      "yarl": "1.24.2",
+      "z3-solver": "4.15.4.0",
+      "zipp": "1.0.0"
+    },
+    "python": "3.12.13",
+    "platform": "Linux",
+    "architecture": "x86_64",
+    "settings": {
+      "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+      "backend": "vllm",
+      "numerics": "stable",
+      "mode": "causal",
+      "dtype": "bfloat16",
+      "projection": "full",
+      "prefix_cache": true,
+      "question_batch_size": 3,
+      "max_input_tokens": 4000,
+      "context": "Inspect the supplied media carefully.",
+      "video_options": {
+        "fps": 1,
+        "min_pixels": 3136,
+        "max_pixels": 50176,
+        "max_frames": 8
+      },
+      "seed": 37,
+      "tensor_parallel_size": 1
+    },
+    "environment": {
+      "VLLM_BATCH_INVARIANT": "1",
+      "MJEV_ENABLE": null,
+      "MJEV_ENABLE_PATCHES": null,
+      "VLLM_USE_V2_MODEL_RUNNER": "0",
+      "FORCE_QWENVL_VIDEO_READER": null
+    },
+    "manifest_sha256": "cb4a52400ce1d56a71982ac2e21b1cf91e188d7f1085b2da2124f90605aa752d",
+    "gpu_names": [
+      "24 GB NVIDIA GPU"
+    ]
+  },
+  "atol": 0.0001,
+  "probes": [
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "serial",
+      "seconds": [
+        0.33296533301472664,
+        0.3268321519717574
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-dc554b7cf2c641c2ab3779c4c6c20e2e",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 23.625,
+              "probability": 0.9999923706054688
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.625,
+              "probability": 2.2603121578868013e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 11.5,
+              "probability": 5.422206868388457e-06
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "c548a5b8f85f0d65a71ea4a3a673db097b278121b2576aa56716f2dff6f8f437",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 23.625,
+            "probability": 0.9999923706054688,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-962a55ca46b04bef841cc9a543d460ab",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 16.75,
+              "probability": 0.00037998449988663197
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 24.625,
+              "probability": 0.9996199607849121
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "98eb56f607026891ee8297a626e8bc2b8c80665a6fba8e53be1f480179d343d5",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 24.625,
+            "probability": 0.9996199607849121,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-bfac399b11a04a9cb62570efc826119f",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 16.25,
+              "probability": 0.0006263300310820341
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.5625,
+              "probability": 2.1220389498921577e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 11.3125,
+              "probability": 4.492356310947798e-06
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.625,
+              "probability": 0.9993670582771301
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "b0799669e438bd921bc0c79a582cef039bde11b5e17a515c59d373d7969bb48a",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.625,
+            "probability": 0.9993670582771301,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "batch",
+      "seconds": [
+        0.24589343927800655,
+        0.24606724828481674
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-5e0c2c3a954540c3b2ceaf9385c46d32",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 23.625,
+              "probability": 0.9999923706054688
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.625,
+              "probability": 2.2603121578868013e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 11.5,
+              "probability": 5.422206868388457e-06
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "c548a5b8f85f0d65a71ea4a3a673db097b278121b2576aa56716f2dff6f8f437",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 23.625,
+            "probability": 0.9999923706054688,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-147734d6d9ca4ccf95192b97a09b9e73",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 16.75,
+              "probability": 0.00037998449988663197
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 24.625,
+              "probability": 0.9996199607849121
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "98eb56f607026891ee8297a626e8bc2b8c80665a6fba8e53be1f480179d343d5",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 24.625,
+            "probability": 0.9996199607849121,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-d8783d4205ec41768b6ce9966cbe1132",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 16.25,
+              "probability": 0.0006263300310820341
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.5625,
+              "probability": 2.1220389498921577e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 11.3125,
+              "probability": 4.492356310947798e-06
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.625,
+              "probability": 0.9993670582771301
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "b0799669e438bd921bc0c79a582cef039bde11b5e17a515c59d373d7969bb48a",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.625,
+            "probability": 0.9993670582771301,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "cache_serial",
+      "seconds": [
+        0.283207131549716,
+        0.23910907842218876
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-fe22b3668fa5405d82d28de1d590f5de",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 23.625,
+              "probability": 0.9999923706054688
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.625,
+              "probability": 2.2603121578868013e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 11.5,
+              "probability": 5.422206868388457e-06
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "c548a5b8f85f0d65a71ea4a3a673db097b278121b2576aa56716f2dff6f8f437",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 23.625,
+            "probability": 0.9999923706054688,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-cd6cad824bc548bca674abcd441b0f04",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 16.75,
+              "probability": 0.00037998449988663197
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 24.625,
+              "probability": 0.9996199607849121
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "98eb56f607026891ee8297a626e8bc2b8c80665a6fba8e53be1f480179d343d5",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 24.625,
+            "probability": 0.9996199607849121,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-bbe26e24f46744c7b86ff9d8f7032174",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 16.25,
+              "probability": 0.0006263300310820341
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.5625,
+              "probability": 2.1220389498921577e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 11.3125,
+              "probability": 4.492356310947798e-06
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.625,
+              "probability": 0.9993670582771301
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "b0799669e438bd921bc0c79a582cef039bde11b5e17a515c59d373d7969bb48a",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.625,
+            "probability": 0.9993670582771301,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "cache_batch",
+      "seconds": [
+        0.1812661960721016,
+        0.184092715382576
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-11af2ff73eb845148dfd705ebdd0ee40",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 23.625,
+              "probability": 0.9999923706054688
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.625,
+              "probability": 2.2603121578868013e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 11.5,
+              "probability": 5.422206868388457e-06
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "c548a5b8f85f0d65a71ea4a3a673db097b278121b2576aa56716f2dff6f8f437",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 23.625,
+            "probability": 0.9999923706054688,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-f5d0188f974e44ff85454f4796535cf0",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 16.75,
+              "probability": 0.00037998449988663197
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 24.625,
+              "probability": 0.9996199607849121
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "98eb56f607026891ee8297a626e8bc2b8c80665a6fba8e53be1f480179d343d5",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 24.625,
+            "probability": 0.9996199607849121,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-1cc6d1b27333481cbcd7045560c55f21",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 16.25,
+              "probability": 0.0006263300310820341
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.5625,
+              "probability": 2.1220389498921577e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 11.3125,
+              "probability": 4.492356310947798e-06
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.625,
+              "probability": 0.9993670582771301
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "b0799669e438bd921bc0c79a582cef039bde11b5e17a515c59d373d7969bb48a",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.625,
+            "probability": 0.9993670582771301,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "question_order_reversed",
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-8cca1c1b1e534204bf5b8914d8cf67e8",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 16.25,
+              "probability": 0.0006263300310820341
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.5625,
+              "probability": 2.1220389498921577e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 11.3125,
+              "probability": 4.492356310947798e-06
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.625,
+              "probability": 0.9993670582771301
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "b0799669e438bd921bc0c79a582cef039bde11b5e17a515c59d373d7969bb48a",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.625,
+            "probability": 0.9993670582771301,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-d406837b6ef648b595b0f12c8f555a14",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 16.75,
+              "probability": 0.00037998449988663197
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 24.625,
+              "probability": 0.9996199607849121
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "98eb56f607026891ee8297a626e8bc2b8c80665a6fba8e53be1f480179d343d5",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 24.625,
+            "probability": 0.9996199607849121,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-0e43b5fac7aa4bd68d4dab5ee32bb150",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 23.625,
+              "probability": 0.9999923706054688
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.625,
+              "probability": 2.2603121578868013e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 11.5,
+              "probability": 5.422206868388457e-06
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "c548a5b8f85f0d65a71ea4a3a673db097b278121b2576aa56716f2dff6f8f437",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 23.625,
+            "probability": 0.9999923706054688,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "candidate_order_reversed",
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-40dbe96e9ade4710b767e2655058115c",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Green",
+              "token_id": 32,
+              "raw_logit": 14.875,
+              "probability": 1.47389764606487e-05
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 11.375,
+              "probability": 4.450785127119161e-07
+            },
+            {
+              "label": "C",
+              "text": "Red",
+              "token_id": 34,
+              "raw_logit": 26.0,
+              "probability": 0.999984860420227
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "83a09584f339c026ab6561b7ed6f32dd4d1145ec80e5e5f027e6a0dfafe6dcc5",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "C",
+            "text": "Red",
+            "token_id": 34,
+            "raw_logit": 26.0,
+            "probability": 0.999984860420227,
+            "index": 2,
+            "tied_labels": [
+              "C"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-441a0d44d9cd437a9cb775df1fb7dfca",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Rectangle",
+              "token_id": 32,
+              "raw_logit": 23.75,
+              "probability": 0.9999861717224121
+            },
+            {
+              "label": "B",
+              "text": "Circle",
+              "token_id": 33,
+              "raw_logit": 12.5625,
+              "probability": 1.3846004549122881e-05
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "652aaeb21031baa64e7b99145d5bdefe2a96b83b612170e4967d8fc2a13e6ee6",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Rectangle",
+            "token_id": 32,
+            "raw_logit": 23.75,
+            "probability": 0.9999861717224121,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-3717e41436504ec5b4707f1fa8c72647",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "White",
+              "token_id": 32,
+              "raw_logit": 23.5,
+              "probability": 0.999988317489624
+            },
+            {
+              "label": "B",
+              "text": "Green",
+              "token_id": 33,
+              "raw_logit": 10.25,
+              "probability": 1.7603257447262877e-06
+            },
+            {
+              "label": "C",
+              "text": "Blue",
+              "token_id": 34,
+              "raw_logit": 11.3125,
+              "probability": 5.093671461509075e-06
+            },
+            {
+              "label": "D",
+              "text": "Black",
+              "token_id": 35,
+              "raw_logit": 11.25,
+              "probability": 4.785061264556134e-06
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "864d263086b54614ecec84edf794beb75a23e8a77d147b29c9f4028b75cd4202",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "White",
+            "token_id": 32,
+            "raw_logit": 23.5,
+            "probability": 0.999988317489624,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ],
+      "note": "Mapping and normalization checked; answer invariance is not expected or asserted"
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "serial",
+      "seconds": [
+        0.32250411715358496,
+        0.32247732672840357
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-adb9dd6ca4e940929b8f6e6e1d5cb482",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.375,
+              "probability": 0.99787437915802
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.875,
+              "probability": 0.0015002434374764562
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 18.0,
+              "probability": 0.0006253945175558329
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "c548a5b8f85f0d65a71ea4a3a673db097b278121b2576aa56716f2dff6f8f437",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.375,
+            "probability": 0.99787437915802,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-16607ecd5fa64a049a60a37a2d0c5848",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 20.625,
+              "probability": 0.07585818320512772
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.125,
+              "probability": 0.9241418242454529
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "98eb56f607026891ee8297a626e8bc2b8c80665a6fba8e53be1f480179d343d5",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.125,
+            "probability": 0.9241418242454529,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-eaf8e60f759c4ecba5e886008d9f432a",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.25,
+              "probability": 0.008572520688176155
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 16.375,
+              "probability": 0.00048362850793637335
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.75,
+              "probability": 9.52321061049588e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.0,
+              "probability": 0.9908486604690552
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "b0799669e438bd921bc0c79a582cef039bde11b5e17a515c59d373d7969bb48a",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.0,
+            "probability": 0.9908486604690552,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "batch",
+      "seconds": [
+        0.27908457815647125,
+        0.26235874556005
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-708f66dd09f749559ce1df7b48638c4c",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.375,
+              "probability": 0.99787437915802
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.875,
+              "probability": 0.0015002434374764562
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 18.0,
+              "probability": 0.0006253945175558329
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "c548a5b8f85f0d65a71ea4a3a673db097b278121b2576aa56716f2dff6f8f437",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.375,
+            "probability": 0.99787437915802,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-4f45fdccc39242cead37dc11a58cb29c",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 20.625,
+              "probability": 0.07585818320512772
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.125,
+              "probability": 0.9241418242454529
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "98eb56f607026891ee8297a626e8bc2b8c80665a6fba8e53be1f480179d343d5",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.125,
+            "probability": 0.9241418242454529,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-db15dc13be0049048c25fbdd47711be0",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.25,
+              "probability": 0.008572520688176155
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 16.375,
+              "probability": 0.00048362850793637335
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.75,
+              "probability": 9.52321061049588e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.0,
+              "probability": 0.9908486604690552
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "b0799669e438bd921bc0c79a582cef039bde11b5e17a515c59d373d7969bb48a",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.0,
+            "probability": 0.9908486604690552,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "cache_serial",
+      "seconds": [
+        0.25567607767879963,
+        0.24269919283688068
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-997e37585f2e44dcb70da7348e8dbd8a",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.375,
+              "probability": 0.99787437915802
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.875,
+              "probability": 0.0015002434374764562
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 18.0,
+              "probability": 0.0006253945175558329
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "c548a5b8f85f0d65a71ea4a3a673db097b278121b2576aa56716f2dff6f8f437",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.375,
+            "probability": 0.99787437915802,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-67bfbbe1e2bb40008fec8848d8b2da56",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 20.625,
+              "probability": 0.07585818320512772
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.125,
+              "probability": 0.9241418242454529
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "98eb56f607026891ee8297a626e8bc2b8c80665a6fba8e53be1f480179d343d5",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.125,
+            "probability": 0.9241418242454529,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-6ba5153459d24a76847236fccb324628",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.25,
+              "probability": 0.008572520688176155
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 16.375,
+              "probability": 0.00048362850793637335
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.75,
+              "probability": 9.52321061049588e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.0,
+              "probability": 0.9908486604690552
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "b0799669e438bd921bc0c79a582cef039bde11b5e17a515c59d373d7969bb48a",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.0,
+            "probability": 0.9908486604690552,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "cache_batch",
+      "seconds": [
+        0.17885034158825874,
+        0.17981581296771765
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-bc683861033d41e7904258248f9381d2",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.375,
+              "probability": 0.99787437915802
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.875,
+              "probability": 0.0015002434374764562
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 18.0,
+              "probability": 0.0006253945175558329
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "c548a5b8f85f0d65a71ea4a3a673db097b278121b2576aa56716f2dff6f8f437",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.375,
+            "probability": 0.99787437915802,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-73ec34b9d6ac42fe8fc314960c796d8d",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 20.625,
+              "probability": 0.07585818320512772
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.125,
+              "probability": 0.9241418242454529
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "98eb56f607026891ee8297a626e8bc2b8c80665a6fba8e53be1f480179d343d5",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.125,
+            "probability": 0.9241418242454529,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-2221a79360e048bc8798672055e0f029",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.25,
+              "probability": 0.008572520688176155
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 16.375,
+              "probability": 0.00048362850793637335
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.75,
+              "probability": 9.52321061049588e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.0,
+              "probability": 0.9908486604690552
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "b0799669e438bd921bc0c79a582cef039bde11b5e17a515c59d373d7969bb48a",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.0,
+            "probability": 0.9908486604690552,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "question_order_reversed",
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-42866abb74c446b5a2d18c868afd0c9c",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.25,
+              "probability": 0.008572520688176155
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 16.375,
+              "probability": 0.00048362850793637335
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.75,
+              "probability": 9.52321061049588e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.0,
+              "probability": 0.9908486604690552
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "b0799669e438bd921bc0c79a582cef039bde11b5e17a515c59d373d7969bb48a",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.0,
+            "probability": 0.9908486604690552,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-0a6c787536de4658b844a1692543aa90",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 20.625,
+              "probability": 0.07585818320512772
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.125,
+              "probability": 0.9241418242454529
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "98eb56f607026891ee8297a626e8bc2b8c80665a6fba8e53be1f480179d343d5",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.125,
+            "probability": 0.9241418242454529,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-bb4a2443248f403695b61d7540a95a09",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 96,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.375,
+              "probability": 0.99787437915802
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.875,
+              "probability": 0.0015002434374764562
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 18.0,
+              "probability": 0.0006253945175558329
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "c548a5b8f85f0d65a71ea4a3a673db097b278121b2576aa56716f2dff6f8f437",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.375,
+            "probability": 0.99787437915802,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "candidate_order_reversed",
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-b3174b9dae1b4a84a86739794445890b",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Green",
+              "token_id": 32,
+              "raw_logit": 19.75,
+              "probability": 0.0005520466365851462
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 20.625,
+              "probability": 0.0013242909917607903
+            },
+            {
+              "label": "C",
+              "text": "Red",
+              "token_id": 34,
+              "raw_logit": 27.25,
+              "probability": 0.9981237053871155
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 99,
+          "prompt_token_ids_sha256": "83a09584f339c026ab6561b7ed6f32dd4d1145ec80e5e5f027e6a0dfafe6dcc5",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ]
+          ],
+          "decision": {
+            "label": "C",
+            "text": "Red",
+            "token_id": 34,
+            "raw_logit": 27.25,
+            "probability": 0.9981237053871155,
+            "index": 2,
+            "tied_labels": [
+              "C"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-ae54ee5b2ab2472e823d26b91acc3e72",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Rectangle",
+              "token_id": 32,
+              "raw_logit": 24.5,
+              "probability": 0.9978172779083252
+            },
+            {
+              "label": "B",
+              "text": "Circle",
+              "token_id": 33,
+              "raw_logit": 18.375,
+              "probability": 0.002182716503739357
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 94,
+          "prompt_token_ids_sha256": "652aaeb21031baa64e7b99145d5bdefe2a96b83b612170e4967d8fc2a13e6ee6",
+          "candidate_spans": [
+            [
+              79,
+              83
+            ],
+            [
+              83,
+              87
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Rectangle",
+            "token_id": 32,
+            "raw_logit": 24.5,
+            "probability": 0.9978172779083252,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-636f210d984948d088bb0fef2e1164b7",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "White",
+              "token_id": 32,
+              "raw_logit": 24.75,
+              "probability": 0.9992851614952087
+            },
+            {
+              "label": "B",
+              "text": "Green",
+              "token_id": 33,
+              "raw_logit": 16.625,
+              "probability": 0.000295833102427423
+            },
+            {
+              "label": "C",
+              "text": "Blue",
+              "token_id": 34,
+              "raw_logit": 15.75,
+              "probability": 0.00012332158803474158
+            },
+            {
+              "label": "D",
+              "text": "Black",
+              "token_id": 35,
+              "raw_logit": 16.625,
+              "probability": 0.000295833102427423
+            }
+          ],
+          "probability_sum": 1.0000001192092896,
+          "prompt_tokens": 103,
+          "prompt_token_ids_sha256": "864d263086b54614ecec84edf794beb75a23e8a77d147b29c9f4028b75cd4202",
+          "candidate_spans": [
+            [
+              80,
+              84
+            ],
+            [
+              84,
+              88
+            ],
+            [
+              88,
+              92
+            ],
+            [
+              92,
+              96
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "White",
+            "token_id": 32,
+            "raw_logit": 24.75,
+            "probability": 0.9992851614952087,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ],
+      "note": "Mapping and normalization checked; answer invariance is not expected or asserted"
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "serial",
+      "seconds": [
+        0.3450413215905428,
+        0.35265500843524933
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-3957d64c74684fc7b554f1d6e4de6d3f",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.75,
+              "probability": 0.999983549118042
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.875,
+              "probability": 6.962190127524082e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 15.1875,
+              "probability": 9.516185855318327e-06
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "fda872a7e0fdf95326ca54dee58cf85c65c275c26604b21f31f016569b3c72f0",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.75,
+            "probability": 0.999983549118042,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-d5c747bf7c7e4e33bc2604f00c29b418",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 19.75,
+              "probability": 0.00037998449988663197
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 27.625,
+              "probability": 0.9996199607849121
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "c4c394d9178ced9d9720f7b6aaefa62f82fb43113e31f4e139a97ecc7bb79537",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 27.625,
+            "probability": 0.9996199607849121,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-89b110f8a53a46a096f4571c1c93faaa",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.625,
+              "probability": 0.00521980132907629
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.4375,
+              "probability": 2.9157570679672062e-05
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.5625,
+              "probability": 3.303985795355402e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.875,
+              "probability": 0.9947180151939392
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "3c976a725517c6a5587b9f861b16752d3f5b57ee95ca0c62f6303cb9c4ad156e",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.875,
+            "probability": 0.9947180151939392,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "batch",
+      "seconds": [
+        0.2648407416418195,
+        0.259046021848917
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-b64122b9c0994078b38263e8b774037e",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.75,
+              "probability": 0.999983549118042
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.875,
+              "probability": 6.962190127524082e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 15.1875,
+              "probability": 9.516185855318327e-06
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "fda872a7e0fdf95326ca54dee58cf85c65c275c26604b21f31f016569b3c72f0",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.75,
+            "probability": 0.999983549118042,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-433429f511f84656a4a7ccd0d1fa9739",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 19.75,
+              "probability": 0.00037998449988663197
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 27.625,
+              "probability": 0.9996199607849121
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "c4c394d9178ced9d9720f7b6aaefa62f82fb43113e31f4e139a97ecc7bb79537",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 27.625,
+            "probability": 0.9996199607849121,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-a54724f395794b8da14b168cc4f3ac8d",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.625,
+              "probability": 0.00521980132907629
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.4375,
+              "probability": 2.9157570679672062e-05
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.5625,
+              "probability": 3.303985795355402e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.875,
+              "probability": 0.9947180151939392
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "3c976a725517c6a5587b9f861b16752d3f5b57ee95ca0c62f6303cb9c4ad156e",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.875,
+            "probability": 0.9947180151939392,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "cache_serial",
+      "seconds": [
+        0.2591607393696904,
+        0.26143221743404865
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-2171dc789a5c4a7c8a31599aae69c156",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.75,
+              "probability": 0.999983549118042
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.875,
+              "probability": 6.962190127524082e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 15.1875,
+              "probability": 9.516185855318327e-06
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "fda872a7e0fdf95326ca54dee58cf85c65c275c26604b21f31f016569b3c72f0",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.75,
+            "probability": 0.999983549118042,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-e8847cd4f15f459da147ca46768dffcf",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 19.75,
+              "probability": 0.00037998449988663197
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 27.625,
+              "probability": 0.9996199607849121
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "c4c394d9178ced9d9720f7b6aaefa62f82fb43113e31f4e139a97ecc7bb79537",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 27.625,
+            "probability": 0.9996199607849121,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-7c05a68249df4a2fa662acd48cb64e24",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.625,
+              "probability": 0.00521980132907629
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.4375,
+              "probability": 2.9157570679672062e-05
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.5625,
+              "probability": 3.303985795355402e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.875,
+              "probability": 0.9947180151939392
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "3c976a725517c6a5587b9f861b16752d3f5b57ee95ca0c62f6303cb9c4ad156e",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.875,
+            "probability": 0.9947180151939392,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "cache_batch",
+      "seconds": [
+        0.1865173326805234,
+        0.18911167047917843
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-cebb47d487254e0c85ba2aa8589d90db",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.75,
+              "probability": 0.999983549118042
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.875,
+              "probability": 6.962190127524082e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 15.1875,
+              "probability": 9.516185855318327e-06
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "fda872a7e0fdf95326ca54dee58cf85c65c275c26604b21f31f016569b3c72f0",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.75,
+            "probability": 0.999983549118042,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-adad6a60c7d24537b63f45dbb67f36ea",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 19.75,
+              "probability": 0.00037998449988663197
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 27.625,
+              "probability": 0.9996199607849121
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "c4c394d9178ced9d9720f7b6aaefa62f82fb43113e31f4e139a97ecc7bb79537",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 27.625,
+            "probability": 0.9996199607849121,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-c7e87315a65642cfaa73376308fdd04b",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.625,
+              "probability": 0.00521980132907629
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.4375,
+              "probability": 2.9157570679672062e-05
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.5625,
+              "probability": 3.303985795355402e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.875,
+              "probability": 0.9947180151939392
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "3c976a725517c6a5587b9f861b16752d3f5b57ee95ca0c62f6303cb9c4ad156e",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.875,
+            "probability": 0.9947180151939392,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "question_order_reversed",
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-09bf3ad12bc34952ba28fedfe9ecdbf3",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.625,
+              "probability": 0.00521980132907629
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.4375,
+              "probability": 2.9157570679672062e-05
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.5625,
+              "probability": 3.303985795355402e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.875,
+              "probability": 0.9947180151939392
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "3c976a725517c6a5587b9f861b16752d3f5b57ee95ca0c62f6303cb9c4ad156e",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.875,
+            "probability": 0.9947180151939392,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-e04da388f79d4cbb811fd2731a8656f0",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 19.75,
+              "probability": 0.00037998449988663197
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 27.625,
+              "probability": 0.9996199607849121
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "c4c394d9178ced9d9720f7b6aaefa62f82fb43113e31f4e139a97ecc7bb79537",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 27.625,
+            "probability": 0.9996199607849121,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-50f2ddaa8a734446987294daba76ce5b",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.75,
+              "probability": 0.999983549118042
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.875,
+              "probability": 6.962190127524082e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 15.1875,
+              "probability": 9.516185855318327e-06
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "fda872a7e0fdf95326ca54dee58cf85c65c275c26604b21f31f016569b3c72f0",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.75,
+            "probability": 0.999983549118042,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "candidate_order_reversed",
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-3d627feab71543949956881392a8218e",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Green",
+              "token_id": 32,
+              "raw_logit": 18.125,
+              "probability": 3.1201889214571565e-05
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.4375,
+              "probability": 7.811240152477694e-07
+            },
+            {
+              "label": "C",
+              "text": "Red",
+              "token_id": 34,
+              "raw_logit": 28.5,
+              "probability": 0.9999680519104004
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "360ed513b52121a356722aa08bd17288220c35269163698a22a9df0f0ded13a6",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "C",
+            "text": "Red",
+            "token_id": 34,
+            "raw_logit": 28.5,
+            "probability": 0.9999680519104004,
+            "index": 2,
+            "tied_labels": [
+              "C"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-47de918ce6ae40a8bc7d921eb58e5e3b",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Rectangle",
+              "token_id": 32,
+              "raw_logit": 26.875,
+              "probability": 0.9999545812606812
+            },
+            {
+              "label": "B",
+              "text": "Circle",
+              "token_id": 33,
+              "raw_logit": 16.875,
+              "probability": 4.539786823443137e-05
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "f520a2595c09a82b4fc04392dba1a25cf139ea903763604581cba214ecd4cb89",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Rectangle",
+            "token_id": 32,
+            "raw_logit": 26.875,
+            "probability": 0.9999545812606812,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-1c6d3a10d90c4db68583492f067943bb",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "causal",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "White",
+              "token_id": 32,
+              "raw_logit": 24.75,
+              "probability": 0.9998407363891602
+            },
+            {
+              "label": "B",
+              "text": "Green",
+              "token_id": 33,
+              "raw_logit": 13.8125,
+              "probability": 1.7776035747374408e-05
+            },
+            {
+              "label": "C",
+              "text": "Blue",
+              "token_id": 34,
+              "raw_logit": 14.75,
+              "probability": 4.5392698666546494e-05
+            },
+            {
+              "label": "D",
+              "text": "Black",
+              "token_id": 35,
+              "raw_logit": 15.5,
+              "probability": 9.609634435037151e-05
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "1d6fac073181506aa904fa1e9a4469256438f186d272b674ea826fd76f1762e7",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "White",
+            "token_id": 32,
+            "raw_logit": 24.75,
+            "probability": 0.9998407363891602,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ],
+      "note": "Mapping and normalization checked; answer invariance is not expected or asserted"
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "serial",
+      "seconds": [
+        0.3748239614069462,
+        0.49855859111994505
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-c5e570d414094862bb302cce3073c074",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.125,
+              "probability": 0.9991127848625183
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.75,
+              "probability": 0.000626170658506453
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 17.875,
+              "probability": 0.0002610267838463187
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "fda872a7e0fdf95326ca54dee58cf85c65c275c26604b21f31f016569b3c72f0",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.125,
+            "probability": 0.9991127848625183,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-a7e320d2cc5c4f6a80229d1433d37536",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 21.875,
+              "probability": 0.13296423852443695
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.75,
+              "probability": 0.8670357465744019
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "c4c394d9178ced9d9720f7b6aaefa62f82fb43113e31f4e139a97ecc7bb79537",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.75,
+            "probability": 0.8670357465744019,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-d5663a5063824def95287b2e0343c456",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.875,
+              "probability": 0.05334087833762169
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.6875,
+              "probability": 0.0008099384722299874
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.875,
+              "probability": 0.0003594080335460603
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 22.75,
+              "probability": 0.9454897046089172
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "3c976a725517c6a5587b9f861b16752d3f5b57ee95ca0c62f6303cb9c4ad156e",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 22.75,
+            "probability": 0.9454897046089172,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "batch",
+      "seconds": [
+        0.27665201760828495,
+        0.2624814407899976
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-26f37902ce7a48cba4deee877a80d4e2",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.125,
+              "probability": 0.9991127848625183
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.75,
+              "probability": 0.000626170658506453
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 17.875,
+              "probability": 0.0002610267838463187
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "fda872a7e0fdf95326ca54dee58cf85c65c275c26604b21f31f016569b3c72f0",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.125,
+            "probability": 0.9991127848625183,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-64d21522998241c59e02dc64fc8c604b",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 21.875,
+              "probability": 0.13296423852443695
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.75,
+              "probability": 0.8670357465744019
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "c4c394d9178ced9d9720f7b6aaefa62f82fb43113e31f4e139a97ecc7bb79537",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.75,
+            "probability": 0.8670357465744019,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-c6bb37295ecc4ada95a228461fbf5a6d",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 0,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.875,
+              "probability": 0.05334087833762169
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.6875,
+              "probability": 0.0008099384722299874
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.875,
+              "probability": 0.0003594080335460603
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 22.75,
+              "probability": 0.9454897046089172
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "3c976a725517c6a5587b9f861b16752d3f5b57ee95ca0c62f6303cb9c4ad156e",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 22.75,
+            "probability": 0.9454897046089172,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "cache_serial",
+      "seconds": [
+        0.2595267631113529,
+        0.2356900330632925
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-5098aa90b42e4c129ad9f6280ed2e2ab",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.125,
+              "probability": 0.9991127848625183
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.75,
+              "probability": 0.000626170658506453
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 17.875,
+              "probability": 0.0002610267838463187
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "fda872a7e0fdf95326ca54dee58cf85c65c275c26604b21f31f016569b3c72f0",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.125,
+            "probability": 0.9991127848625183,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-c4d0660f14144629a4c266b832c600eb",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 21.875,
+              "probability": 0.13296423852443695
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.75,
+              "probability": 0.8670357465744019
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "c4c394d9178ced9d9720f7b6aaefa62f82fb43113e31f4e139a97ecc7bb79537",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.75,
+            "probability": 0.8670357465744019,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-5dd82bba5635491aa84ff26e0b0b8e87",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.875,
+              "probability": 0.05334087833762169
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.6875,
+              "probability": 0.0008099384722299874
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.875,
+              "probability": 0.0003594080335460603
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 22.75,
+              "probability": 0.9454897046089172
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "3c976a725517c6a5587b9f861b16752d3f5b57ee95ca0c62f6303cb9c4ad156e",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 22.75,
+            "probability": 0.9454897046089172,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "cache_batch",
+      "seconds": [
+        0.17768482584506273,
+        0.17723050992935896
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-5b937a536a7f437a9deca6b27ab1c15c",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.125,
+              "probability": 0.9991127848625183
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.75,
+              "probability": 0.000626170658506453
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 17.875,
+              "probability": 0.0002610267838463187
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "fda872a7e0fdf95326ca54dee58cf85c65c275c26604b21f31f016569b3c72f0",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.125,
+            "probability": 0.9991127848625183,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-fc2ff7f2ac2c4503afe961474d8f2bcf",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 21.875,
+              "probability": 0.13296423852443695
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.75,
+              "probability": 0.8670357465744019
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "c4c394d9178ced9d9720f7b6aaefa62f82fb43113e31f4e139a97ecc7bb79537",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.75,
+            "probability": 0.8670357465744019,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-50b4c6709a5a43f1a75212930fad8190",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.875,
+              "probability": 0.05334087833762169
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.6875,
+              "probability": 0.0008099384722299874
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.875,
+              "probability": 0.0003594080335460603
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 22.75,
+              "probability": 0.9454897046089172
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "3c976a725517c6a5587b9f861b16752d3f5b57ee95ca0c62f6303cb9c4ad156e",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 22.75,
+            "probability": 0.9454897046089172,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "question_order_reversed",
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-1093250fd0e14b6fadba001543a2bb9f",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.875,
+              "probability": 0.05334087833762169
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.6875,
+              "probability": 0.0008099384722299874
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.875,
+              "probability": 0.0003594080335460603
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 22.75,
+              "probability": 0.9454897046089172
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "3c976a725517c6a5587b9f861b16752d3f5b57ee95ca0c62f6303cb9c4ad156e",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 22.75,
+            "probability": 0.9454897046089172,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-6a055014b75943a99da0acb0cbdebad0",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 21.875,
+              "probability": 0.13296423852443695
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.75,
+              "probability": 0.8670357465744019
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "c4c394d9178ced9d9720f7b6aaefa62f82fb43113e31f4e139a97ecc7bb79537",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.75,
+            "probability": 0.8670357465744019,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-fd400de978d94cfabced5c84350268ba",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 80,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.125,
+              "probability": 0.9991127848625183
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.75,
+              "probability": 0.000626170658506453
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 17.875,
+              "probability": 0.0002610267838463187
+            }
+          ],
+          "probability_sum": 0.9999999403953552,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "fda872a7e0fdf95326ca54dee58cf85c65c275c26604b21f31f016569b3c72f0",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.125,
+            "probability": 0.9991127848625183,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "candidate_order_reversed",
+      "results": [
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-7cbed315aa5642d49b36ce72171a6f10",
+          "question": "What color is the rectangle?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Green",
+              "token_id": 32,
+              "raw_logit": 19.375,
+              "probability": 0.0010320459259673953
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 17.625,
+              "probability": 0.00017934270726982504
+            },
+            {
+              "label": "C",
+              "text": "Red",
+              "token_id": 34,
+              "raw_logit": 26.25,
+              "probability": 0.9987886548042297
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 82,
+          "prompt_token_ids_sha256": "360ed513b52121a356722aa08bd17288220c35269163698a22a9df0f0ded13a6",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ]
+          ],
+          "decision": {
+            "label": "C",
+            "text": "Red",
+            "token_id": 34,
+            "raw_logit": 26.25,
+            "probability": 0.9987886548042297,
+            "index": 2,
+            "tied_labels": [
+              "C"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-ea8a310a3e1e40269a8f9b452a75c5d6",
+          "question": "Which shape is shown?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Rectangle",
+              "token_id": 32,
+              "raw_logit": 25.25,
+              "probability": 0.9992903470993042
+            },
+            {
+              "label": "B",
+              "text": "Circle",
+              "token_id": 33,
+              "raw_logit": 18.0,
+              "probability": 0.0007096704212017357
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 77,
+          "prompt_token_ids_sha256": "f520a2595c09a82b4fc04392dba1a25cf139ea903763604581cba214ecd4cb89",
+          "candidate_spans": [
+            [
+              62,
+              66
+            ],
+            [
+              66,
+              70
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Rectangle",
+            "token_id": 32,
+            "raw_logit": 25.25,
+            "probability": 0.9992903470993042,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        },
+        {
+          "model_family": "qwen3_vl",
+          "request_id": "mjev-b3614d0a773741c191d5e5c549d34445",
+          "question": "What color is the background?",
+          "numerics": "stable",
+          "mode": "isolated",
+          "num_cached_tokens": 64,
+          "candidates": [
+            {
+              "label": "A",
+              "text": "White",
+              "token_id": 32,
+              "raw_logit": 25.125,
+              "probability": 0.9994534850120544
+            },
+            {
+              "label": "B",
+              "text": "Green",
+              "token_id": 33,
+              "raw_logit": 16.625,
+              "probability": 0.00020335716544650495
+            },
+            {
+              "label": "C",
+              "text": "Blue",
+              "token_id": 34,
+              "raw_logit": 16.625,
+              "probability": 0.00020335716544650495
+            },
+            {
+              "label": "D",
+              "text": "Black",
+              "token_id": 35,
+              "raw_logit": 16.25,
+              "probability": 0.00013976520858705044
+            }
+          ],
+          "probability_sum": 1.0,
+          "prompt_tokens": 86,
+          "prompt_token_ids_sha256": "1d6fac073181506aa904fa1e9a4469256438f186d272b674ea826fd76f1762e7",
+          "candidate_spans": [
+            [
+              63,
+              67
+            ],
+            [
+              67,
+              71
+            ],
+            [
+              71,
+              75
+            ],
+            [
+              75,
+              79
+            ]
+          ],
+          "decision": {
+            "label": "A",
+            "text": "White",
+            "token_id": 32,
+            "raw_logit": 25.125,
+            "probability": 0.9994534850120544,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          }
+        }
+      ],
+      "note": "Mapping and normalization checked; answer invariance is not expected or asserted"
+    }
+  ],
+  "scope": "Mechanism/timing probe on supplied data; synthetic data is not benchmark accuracy",
+  "timing_boundary": "HF includes decode/process and prefill per call; vLLM prepared inputs exclude media decoding and warm cache can persist. Backend times are not directly comparable. One warmup per mode; model load excluded."
+}

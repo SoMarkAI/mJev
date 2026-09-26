@@ -1,0 +1,666 @@
+[
+  {
+    "profile": "short",
+    "questions": 1,
+    "strategies": {
+      "serial": {
+        "status": "ok",
+        "seconds": [
+          0.17462410777807236,
+          0.172833071090281,
+          0.17709695734083652,
+          0.17014226503670216,
+          0.16966495756059885
+        ],
+        "mean_seconds": 0.17287227176129819,
+        "stdev_seconds": 0.0031087873627260896,
+        "peak_allocated_gib": 9.76326036453247,
+        "peak_reserved_gib": 9.884765625,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117
+        ],
+        "prefix_tokens": 0
+      },
+      "batch": {
+        "status": "ok",
+        "seconds": [
+          0.17283959034830332,
+          0.1712044458836317,
+          0.17543043289333582,
+          0.17387528251856565,
+          0.1715853987261653
+        ],
+        "mean_seconds": 0.17298703007400035,
+        "stdev_seconds": 0.00172649392168873,
+        "peak_allocated_gib": 9.76326036453247,
+        "peak_reserved_gib": 9.884765625,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117
+        ],
+        "prefix_tokens": 0
+      },
+      "cache_batch": {
+        "status": "ok",
+        "seconds": [
+          0.23110205680131912,
+          0.23233036790043116,
+          0.23646227084100246,
+          0.25640103314071894,
+          0.2549896268174052
+        ],
+        "mean_seconds": 0.2422570711001754,
+        "stdev_seconds": 0.01243707288476583,
+        "peak_allocated_gib": 9.811585903167725,
+        "peak_reserved_gib": 9.9375,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117
+        ],
+        "prefix_tokens": 63
+      }
+    },
+    "cache_vs_batch_speedup": 0.7140639044648102,
+    "latency_reduction_percent": -40.04348822946015
+  },
+  {
+    "profile": "short",
+    "questions": 3,
+    "strategies": {
+      "serial": {
+        "status": "ok",
+        "seconds": [
+          0.4794236896559596,
+          0.4700552234426141,
+          0.47051234357059,
+          0.4940204033628106,
+          0.48291961941868067
+        ],
+        "mean_seconds": 0.479386255890131,
+        "stdev_seconds": 0.009905286691400696,
+        "peak_allocated_gib": 9.76326036453247,
+        "peak_reserved_gib": 9.884765625,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117,
+          107,
+          116
+        ],
+        "prefix_tokens": 0
+      },
+      "batch": {
+        "status": "ok",
+        "seconds": [
+          0.3521771552041173,
+          0.3479862893000245,
+          0.3607778362929821,
+          0.38266341760754585,
+          0.34776486176997423
+        ],
+        "mean_seconds": 0.3582739120349288,
+        "stdev_seconds": 0.014616458032196909,
+        "peak_allocated_gib": 9.768229961395264,
+        "peak_reserved_gib": 9.94140625,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117,
+          107,
+          116
+        ],
+        "prefix_tokens": 0
+      },
+      "cache_batch": {
+        "status": "ok",
+        "seconds": [
+          0.34022813849151134,
+          0.340154480189085,
+          0.3422794258221984,
+          0.33958922885358334,
+          0.3448290666565299
+        ],
+        "mean_seconds": 0.3414160680025816,
+        "stdev_seconds": 0.0021641434880394265,
+        "peak_allocated_gib": 9.887236595153809,
+        "peak_reserved_gib": 10.064453125,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117,
+          107,
+          116
+        ],
+        "prefix_tokens": 63
+      }
+    },
+    "cache_vs_batch_speedup": 1.0493762467916996,
+    "latency_reduction_percent": 4.7052948780439525
+  },
+  {
+    "profile": "short",
+    "questions": 8,
+    "strategies": {
+      "serial": {
+        "status": "ok",
+        "seconds": [
+          1.215258214622736,
+          1.241409357637167,
+          1.2155089629814029,
+          1.226447775028646,
+          1.2087009362876415
+        ],
+        "mean_seconds": 1.2214650493115187,
+        "stdev_seconds": 0.012840612647695445,
+        "peak_allocated_gib": 9.76326036453247,
+        "peak_reserved_gib": 9.88671875,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117,
+          107,
+          116,
+          107,
+          108,
+          100,
+          107,
+          107
+        ],
+        "prefix_tokens": 0
+      },
+      "batch": {
+        "status": "ok",
+        "seconds": [
+          0.7608198914676905,
+          0.7609603246673942,
+          0.757903553545475,
+          0.7498466102406383,
+          0.7590537006035447
+        ],
+        "mean_seconds": 0.7577168161049486,
+        "stdev_seconds": 0.004580166369315069,
+        "peak_allocated_gib": 9.7787766456604,
+        "peak_reserved_gib": 10.109375,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117,
+          107,
+          116,
+          107,
+          108,
+          100,
+          107,
+          107
+        ],
+        "prefix_tokens": 0
+      },
+      "cache_batch": {
+        "status": "ok",
+        "seconds": [
+          0.5764808524399996,
+          0.5730508044362068,
+          0.5881584910675883,
+          0.597503300756216,
+          0.5726768421009183
+        ],
+        "mean_seconds": 0.5815740581601858,
+        "stdev_seconds": 0.010895441461363746,
+        "peak_allocated_gib": 10.066643238067627,
+        "peak_reserved_gib": 10.23046875,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117,
+          107,
+          116,
+          107,
+          108,
+          100,
+          107,
+          107
+        ],
+        "prefix_tokens": 63
+      }
+    },
+    "cache_vs_batch_speedup": 1.3028724467215607,
+    "latency_reduction_percent": 23.246515611231445
+  },
+  {
+    "profile": "short",
+    "questions": 16,
+    "strategies": {
+      "serial": {
+        "status": "ok",
+        "seconds": [
+          2.465303882956505,
+          2.4218031046912074,
+          2.4247747771441936,
+          2.4250137051567435,
+          2.4115547072142363
+        ],
+        "mean_seconds": 2.429690035432577,
+        "stdev_seconds": 0.02064865474101088,
+        "peak_allocated_gib": 9.76326036453247,
+        "peak_reserved_gib": 9.88671875,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117,
+          107,
+          116,
+          107,
+          108,
+          100,
+          107,
+          107,
+          104,
+          108,
+          104,
+          103,
+          116,
+          113,
+          100,
+          101
+        ],
+        "prefix_tokens": 0
+      },
+      "batch": {
+        "status": "ok",
+        "seconds": [
+          1.4253817237913609,
+          1.439415548928082,
+          1.4274102374911308,
+          1.4421246331185102,
+          1.4533046893775463
+        ],
+        "mean_seconds": 1.437527366541326,
+        "stdev_seconds": 0.01144002782572833,
+        "peak_allocated_gib": 9.797375202178955,
+        "peak_reserved_gib": 10.30078125,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117,
+          107,
+          116,
+          107,
+          108,
+          100,
+          107,
+          107,
+          104,
+          108,
+          104,
+          103,
+          116,
+          113,
+          100,
+          101
+        ],
+        "prefix_tokens": 0
+      },
+      "cache_batch": {
+        "status": "ok",
+        "seconds": [
+          0.9755351636558771,
+          0.981997836381197,
+          0.9719296898692846,
+          0.9761711601167917,
+          1.0126376152038574
+        ],
+        "mean_seconds": 0.9836542930454015,
+        "stdev_seconds": 0.0165994026408311,
+        "peak_allocated_gib": 10.321784019470215,
+        "peak_reserved_gib": 10.720703125,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          117,
+          107,
+          116,
+          107,
+          108,
+          100,
+          107,
+          107,
+          104,
+          108,
+          104,
+          103,
+          116,
+          113,
+          100,
+          101
+        ],
+        "prefix_tokens": 63
+      }
+    },
+    "cache_vs_batch_speedup": 1.4614152316569775,
+    "latency_reduction_percent": 31.57317794846144
+  },
+  {
+    "profile": "long",
+    "questions": 1,
+    "strategies": {
+      "serial": {
+        "status": "ok",
+        "seconds": [
+          2.464039440266788,
+          2.46291380841285,
+          2.4643994020298123,
+          2.459836717694998,
+          2.4890089267864823
+        ],
+        "mean_seconds": 2.468039659038186,
+        "stdev_seconds": 0.011858815313078749,
+        "peak_allocated_gib": 9.808524131774902,
+        "peak_reserved_gib": 10.49609375,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320
+        ],
+        "prefix_tokens": 0
+      },
+      "batch": {
+        "status": "ok",
+        "seconds": [
+          2.4616789426654577,
+          2.470617196522653,
+          2.4598476476967335,
+          2.470419825054705,
+          2.4738724138587713
+        ],
+        "mean_seconds": 2.467287205159664,
+        "stdev_seconds": 0.0061454606609951225,
+        "peak_allocated_gib": 9.808524131774902,
+        "peak_reserved_gib": 10.49609375,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320
+        ],
+        "prefix_tokens": 0
+      },
+      "cache_batch": {
+        "status": "ok",
+        "seconds": [
+          2.6273678662255406,
+          2.6236221259459853,
+          2.6171018444001675,
+          2.625637559220195,
+          2.660158912651241
+        ],
+        "mean_seconds": 2.630777661688626,
+        "stdev_seconds": 0.016878499169696,
+        "peak_allocated_gib": 11.023551940917969,
+        "peak_reserved_gib": 11.58984375,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320
+        ],
+        "prefix_tokens": 2266
+      }
+    },
+    "cache_vs_batch_speedup": 0.9378547039874052,
+    "latency_reduction_percent": -6.626324498707148
+  },
+  {
+    "profile": "long",
+    "questions": 3,
+    "strategies": {
+      "serial": {
+        "status": "ok",
+        "seconds": [
+          7.386743993498385,
+          7.361059059388936,
+          7.348855093121529,
+          7.356892084702849,
+          7.358103015460074
+        ],
+        "mean_seconds": 7.362330649234354,
+        "stdev_seconds": 0.014375933038691288,
+        "peak_allocated_gib": 9.808524131774902,
+        "peak_reserved_gib": 10.49609375,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320,
+          2310,
+          2319
+        ],
+        "prefix_tokens": 0
+      },
+      "batch": {
+        "status": "ok",
+        "seconds": [
+          6.533971603959799,
+          6.506839943118393,
+          6.468241078779101,
+          6.462391849607229,
+          6.464924576692283
+        ],
+        "mean_seconds": 6.487273810431361,
+        "stdev_seconds": 0.03179765150948909,
+        "peak_allocated_gib": 9.905661582946777,
+        "peak_reserved_gib": 11.875,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320,
+          2310,
+          2319
+        ],
+        "prefix_tokens": 0
+      },
+      "cache_batch": {
+        "status": "ok",
+        "seconds": [
+          3.104386686347425,
+          3.116805063560605,
+          3.117580837570131,
+          3.1161956544965506,
+          3.135163724422455
+        ],
+        "mean_seconds": 3.1180263932794334,
+        "stdev_seconds": 0.011008763492781416,
+        "peak_allocated_gib": 12.343464851379395,
+        "peak_reserved_gib": 13.208984375,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320,
+          2310,
+          2319
+        ],
+        "prefix_tokens": 2266
+      }
+    },
+    "cache_vs_batch_speedup": 2.080570525128964,
+    "latency_reduction_percent": 51.936260370793484
+  },
+  {
+    "profile": "long",
+    "questions": 8,
+    "strategies": {
+      "serial": {
+        "status": "ok",
+        "seconds": [
+          19.5871816938743,
+          19.515527304261923,
+          19.509367211721838,
+          19.533824309706688,
+          19.529630579985678
+        ],
+        "mean_seconds": 19.535106219910084,
+        "stdev_seconds": 0.03077869147405976,
+        "peak_allocated_gib": 9.808524131774902,
+        "peak_reserved_gib": 10.49609375,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320,
+          2310,
+          2319,
+          2310,
+          2311,
+          2303,
+          2310,
+          2310
+        ],
+        "prefix_tokens": 0
+      },
+      "batch": {
+        "status": "ok",
+        "seconds": [
+          16.469326574355364,
+          16.461701148189604,
+          16.457413667812943,
+          16.429630109108984,
+          16.502728172577918
+        ],
+        "mean_seconds": 16.46415993440896,
+        "stdev_seconds": 0.026258664006842885,
+        "peak_allocated_gib": 12.091259002685547,
+        "peak_reserved_gib": 15.326171875,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320,
+          2310,
+          2319,
+          2310,
+          2311,
+          2303,
+          2310,
+          2310
+        ],
+        "prefix_tokens": 0
+      },
+      "cache_batch": {
+        "status": "ok",
+        "seconds": [
+          4.268891295418143,
+          4.260949324816465,
+          4.225401594303548,
+          4.250071048736572,
+          4.226782583631575
+        ],
+        "mean_seconds": 4.2464191693812605,
+        "stdev_seconds": 0.01972810210376638,
+        "peak_allocated_gib": 15.491392135620117,
+        "peak_reserved_gib": 21.57421875,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320,
+          2310,
+          2319,
+          2310,
+          2311,
+          2303,
+          2310,
+          2310
+        ],
+        "prefix_tokens": 2266
+      }
+    },
+    "cache_vs_batch_speedup": 3.877186701944907,
+    "latency_reduction_percent": 74.20810301710847
+  },
+  {
+    "profile": "long",
+    "questions": 16,
+    "strategies": {
+      "serial": {
+        "status": "ok",
+        "seconds": [
+          39.003495008684695,
+          38.97853325493634,
+          38.964236875995994,
+          38.968556789681315,
+          39.01271595899016
+        ],
+        "mean_seconds": 38.9855075776577,
+        "stdev_seconds": 0.02151892672339077,
+        "peak_allocated_gib": 9.808524131774902,
+        "peak_reserved_gib": 10.49609375,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320,
+          2310,
+          2319,
+          2310,
+          2311,
+          2303,
+          2310,
+          2310,
+          2307,
+          2311,
+          2307,
+          2306,
+          2319,
+          2316,
+          2303,
+          2304
+        ],
+        "prefix_tokens": 0
+      },
+      "batch": {
+        "status": "ok",
+        "seconds": [
+          32.56679228041321,
+          32.63120761234313,
+          32.620888768695295,
+          32.589397709816694,
+          32.69172467663884
+        ],
+        "mean_seconds": 32.620002209581436,
+        "stdev_seconds": 0.04753522716589377,
+        "peak_allocated_gib": 15.802273750305176,
+        "peak_reserved_gib": 20.703125,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320,
+          2310,
+          2319,
+          2310,
+          2311,
+          2303,
+          2310,
+          2310,
+          2307,
+          2311,
+          2307,
+          2306,
+          2319,
+          2316,
+          2303,
+          2304
+        ],
+        "prefix_tokens": 0
+      },
+      "cache_batch": {
+        "status": "ok",
+        "seconds": [
+          6.2771814139559865,
+          6.269812345504761,
+          6.287375974468887,
+          6.295400185510516,
+          6.305527377873659
+        ],
+        "mean_seconds": 6.287059459462762,
+        "stdev_seconds": 0.014193049585083448,
+        "peak_allocated_gib": 20.600078105926514,
+        "peak_reserved_gib": 23.111328125,
+        "max_abs_logit_delta": 0.0,
+        "prompt_tokens": [
+          2320,
+          2310,
+          2319,
+          2310,
+          2311,
+          2303,
+          2310,
+          2310,
+          2307,
+          2311,
+          2307,
+          2306,
+          2319,
+          2316,
+          2303,
+          2304
+        ],
+        "prefix_tokens": 2266
+      }
+    },
+    "cache_vs_batch_speedup": 5.1884354553835985,
+    "latency_reduction_percent": 80.7263671563576
+  }
+]

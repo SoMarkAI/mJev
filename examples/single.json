@@ -1,0 +1,10 @@
+{
+  "image": "rectangle.png",
+  "context": "Inspect the supplied picture.",
+  "question": "What color is the rectangle?",
+  "candidates": [
+    "Red",
+    "Blue",
+    "Green"
+  ]
+}

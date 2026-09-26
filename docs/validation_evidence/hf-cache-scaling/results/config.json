@@ -1,0 +1,181 @@
+{
+  "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "code_commit": "af2215bec742de6d96af4ccb9fb83dd903b4d6c6",
+  "numerics": "stable",
+  "dtype": "bfloat16",
+  "projection": "full",
+  "mode": "causal",
+  "seed": 37,
+  "repeats": 5,
+  "warmups": 2,
+  "question_counts": [
+    1,
+    3,
+    8,
+    16
+  ],
+  "profiles": {
+    "short": {
+      "nframes": 2,
+      "min_pixels": 3136,
+      "max_pixels": 100352
+    },
+    "long": {
+      "nframes": 24,
+      "min_pixels": 200704,
+      "max_pixels": 200704
+    }
+  },
+  "questions": [
+    {
+      "id": "probe:0",
+      "question": "How does the red ball move?",
+      "candidates": [
+        "From left to right",
+        "From right to left",
+        "Upward",
+        "It stays still"
+      ]
+    },
+    {
+      "id": "probe:1",
+      "question": "Which object moves upward?",
+      "candidates": [
+        "The red ball",
+        "The blue square",
+        "Both objects"
+      ]
+    },
+    {
+      "id": "probe:2",
+      "question": "Which movement happens first?",
+      "candidates": [
+        "The red ball moves right",
+        "The blue square moves up",
+        "Both movements begin at the same time"
+      ]
+    },
+    {
+      "id": "probe:3",
+      "question": "What color is the ball?",
+      "candidates": [
+        "Red",
+        "Blue",
+        "Green",
+        "Yellow"
+      ]
+    },
+    {
+      "id": "probe:4",
+      "question": "What shape is the blue object?",
+      "candidates": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Star"
+      ]
+    },
+    {
+      "id": "probe:5",
+      "question": "Does the red ball move upward?",
+      "candidates": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "id": "probe:6",
+      "question": "What color is the square?",
+      "candidates": [
+        "Blue",
+        "Red",
+        "Yellow",
+        "Green"
+      ]
+    },
+    {
+      "id": "probe:7",
+      "question": "Which object moves horizontally?",
+      "candidates": [
+        "The red ball",
+        "The blue square",
+        "Both objects"
+      ]
+    },
+    {
+      "id": "probe:8",
+      "question": "Does the blue square move after the ball starts moving?",
+      "candidates": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "id": "probe:9",
+      "question": "How many colored objects are shown?",
+      "candidates": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ]
+    },
+    {
+      "id": "probe:10",
+      "question": "Which object has a circular shape?",
+      "candidates": [
+        "The red object",
+        "The blue object"
+      ]
+    },
+    {
+      "id": "probe:11",
+      "question": "Does the red ball move from right to left?",
+      "candidates": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "id": "probe:12",
+      "question": "How does the blue square move?",
+      "candidates": [
+        "Upward",
+        "Downward",
+        "From left to right",
+        "From right to left"
+      ]
+    },
+    {
+      "id": "probe:13",
+      "question": "Which motion occurs later?",
+      "candidates": [
+        "The square moves upward",
+        "The ball moves right",
+        "Both occur at the same time"
+      ]
+    },
+    {
+      "id": "probe:14",
+      "question": "Is the moving circular object blue?",
+      "candidates": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "id": "probe:15",
+      "question": "Does the scene contain a moving square?",
+      "candidates": [
+        "Yes",
+        "No"
+      ]
+    }
+  ],
+  "media_sha256": "542ab35127fff5bd16eac5aa8637c09b53be505969175280754ff6c7d8c03202",
+  "scope": "One project-owned synthetic motion video, varied video sampling/resolution. Performance and execution parity only; no accuracy evaluation.",
+  "timing": "Synchronized wall time: public score_many includes decoding, processor, packing, forward and scoring; cache_batch includes new prefix construction on every call. Model loading and GC excluded.",
+  "memory": "PyTorch CUDA peak allocated/reserved including model weights; allocator empty_cache before each measured call, outside timer. Not whole-device nvidia-smi memory.",
+  "harness_sha256": "12fb52f896b68cbc7aa2c6be336500d92a0b869b955aa796a60b2e602f38f584"
+}

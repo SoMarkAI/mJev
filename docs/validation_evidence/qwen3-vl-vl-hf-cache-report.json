@@ -1,0 +1,4224 @@
+{
+  "run": {
+    "code_commit": "2e75abf9ee109d998ce946c55c8267634c0aba29",
+    "working_tree_dirty": true,
+    "source_sha256": {
+      "benchmarks/integrated/compare_backends.py": "2032cd990ef56ddbe2c07d61f47dac582a10d03b1ac87d4513c237ad3b3146c5",
+      "benchmarks/integrated/evaluate_hf.py": "f69d1b854e425476aee207afc3b12104a24139d9d717560369cec8b947a071cd",
+      "benchmarks/integrated/evaluate_service.py": "461a3d9e2e3377a2d1b82a8d58d55546780468936511d2a04cc5454dfdbd8941",
+      "benchmarks/integrated/hf_batch_probe.py": "25a111bd3380ee31c11c02e473bbc7322d33dbb30d47160a044afc0e42c689ea",
+      "benchmarks/integrated/report_comparison.py": "5c0b9dbf4c87a5ced44840a03e9a4d4bfe420997dc704a4e5a94bccdf96bda17",
+      "benchmarks/integrated/report_concurrent_cache.py": "67b3a4f004bec7b057a96e26777f4ec07cd657caf432801cbd047ec07f471143",
+      "benchmarks/integrated/validate_concurrent_cache.py": "296546a6687f205eaa609a810056b14247bcf47e154944ab1900fc9185cd81ca",
+      "benchmarks/integrated/validate_hf_gpu.py": "e7a421b3363d28d1e963f9da27f3a775aa832b9a018bcaaff4cc83bd826249d0",
+      "benchmarks/integrated/validate_model.py": "ec629f95a215ca9378c3e846a3bc163d71e41aef41a194ad95e74b6831da9f1c",
+      "configs/av_env.json": "09ba9980d73e7593225e74c4cff74c62874b9bc628d3876b9a1e5540e1ea4b9f",
+      "configs/public_mini_hf.json": "cee1cec840c6b1718f9efa5407ed12694167d0bf0fba2a04bc90e9aab5b38d7a",
+      "configs/public_mini_vllm.json": "fa6940b9529552a6654b00ef60c354a1052f9dbdb7abf96456e6b465b03e6c21",
+      "configs/qwen3_vl_4b_hf.json": "8ed6afbd1d2e718d98fb13ebf37ce279f581ea3cd4b86a76c5776b0db7226834",
+      "configs/qwen3_vl_4b_vllm.json": "ed3ba5758a9ac9e3af5c9768a5e4a70530f4389dee5abb6d1f83ed2f0856aea6",
+      "mjev/__init__.py": "cb3b61bc7b535557dfc5f8e6a91c1397a8ca4d7baa270123bccf4ecb45eb1772",
+      "mjev/av_witness.py": "f908907e8a287ec696822259fe00fbb38403c96248237a1c9f31ff96d8247e3d",
+      "mjev/benchmark/__init__.py": "ee88902e782fc8d604800e039e9c337252888c1a159937b826148ad19a5df133",
+      "mjev/benchmark/adapters.py": "06319e0e4690e8db0e632258b8d516f1b2064130e4487439b7a8045200d1c3bf",
+      "mjev/benchmark/audit.py": "ab7b1389aa48042605fddc9ab8e8e73498e25e0c21e3e25dd1dd4419fbdedc3e",
+      "mjev/benchmark/dataset.py": "9b7f4081bfeab251fa6907a6f71732be0f98c07da6feb48805fa6e34577456d3",
+      "mjev/benchmark/download.py": "69df0f0948819df27feabe4eefc4d0762a2cb4e16b9b826a3fd62277873e2c72",
+      "mjev/benchmark/evaluate.py": "ccb5d20d99dd3ee053c82d961696a663db7e29ef5673f32e5b62bc9f38a1960e",
+      "mjev/benchmark/fetch.py": "0d01597bbc0a51f540a42e1ee6eb51e699aa678080e83176adf7182046aa91a7",
+      "mjev/benchmark/grouped.py": "208cf4f64557291e42665d391f1638b50ae6d983c3b6fd58b89b2d8bf4cd9164",
+      "mjev/benchmark/pilot.py": "645c03800050a1c509c54039ff64838bcd9df1065d8a42f5f9e0f8332be2dd65",
+      "mjev/benchmark/prepare.py": "23b8f2ff31ccbcd3400b2e67d19f1b68f172b93a719896cd5c7fff2648a89bfa",
+      "mjev/benchmark/provenance.py": "91e971c31a77d2cc0171e0b633b10edf0418d5fb141435f0be4e88cf9cf437c0",
+      "mjev/benchmark/public_mini.py": "71c5d5073771315911636a8e159546d2bc54241772d6d76f32e33996c53050fe",
+      "mjev/benchmark/run.py": "dc5f972018c084db053e9e3c0a70c245237c113ebbaafa6e2444d8a12c87448a",
+      "mjev/benchmark/visual_smoke.py": "a67d624d783b2f4efa516a126bdd787fa86e8ed127200da2f92656ea348f638b",
+      "mjev/decision.py": "c622f50497266ee5f6115cf494bd505a0fb6f012e849d8612f3ed890b9d58d72",
+      "mjev/engine.py": "53f1667638e78c9c71737a8a5c4cc5f7a7c12ebe1f1b7c7b70e2d9fe36469702",
+      "mjev/families.py": "dd61eee95b4375deb167491181133d026a887f562183d7a83e39729630e5d6a4",
+      "mjev/hf.py": "4a4891d0802d95185c912cce04136183bfbb94161505ef5ec311c02d8bb45009",
+      "mjev/hf_batch.py": "b37cc4ebbb33a8a05d08cc12658907a8cce9557ffbfba717044de8ef9743abd2",
+      "mjev/hf_numerics.py": "393127bcabfaa952ca8b749a95e896d900eb488fb95bb829f3d90d17a83403f8",
+      "mjev/model.py": "3f05804a16732661df9e381de589c9de66864ef6780ea6e0eaaa6ac17e3da69a",
+      "mjev/multimodal_merge.py": "fcc671b1f9011aded190bc47d482c16578fad251cff6caabd5eadbd34815a847",
+      "mjev/patch.py": "b11031f5705f9c01bd12ce947dac71500decba78abac016f09c9d5c0f96cbb53",
+      "mjev/prompt.py": "ff1cf3d36ea724e51aa08a0ce511bd7090c6425270c8cba0d3b3265f082d7e07",
+      "mjev/protocol.py": "dad4776a44f2c043098ee08ab6a2d4e0d849b44596e4e152f89ce7ab3cb5a619",
+      "mjev/stable_attention.py": "20753435407e040e699dfcc28ea009b6fbca1298921ec677b6818ebcd1117b83",
+      "mjev/vl_media.py": "9c6b2afd2f4fa85defb5d2007f90ee5f7998d20f054a45041c818e0c0de2bbef",
+      "runtime/mjev_contract.py": "cf0672ffb1c7f0f484a483ba4be72e33f280a0af2a835ad9a08e2e0e753d446d",
+      "runtime/mjev_mask.py": "58e8d4b5b38f8b788d0b206925b15abf8abf8c8b67a9419074d5eac861efce40",
+      "runtime/mjev_scoring.py": "d3a1aefa207c21fac61d63cb837df6ff8fee51a951d5db3de0d69b186b44386b",
+      "runtime/mjev_server.py": "4e367518f416e5c52c57a8b355318241e45d02312fb91f4d5285b0d705985d48",
+      "runtime/mjev_vllm_patch.py": "175a68a8b8c43baafc343745fabc4a074e982f396eb80793b7de6b8c5dd75721",
+      "runtime/sitecustomize.py": "0b84dbb18cad5582c25d2a5d1f43e03f0e3a6d4fe8f50eef2e00082a8498ec5e",
+      "scripts/build_av_benchmark.sh": "8e9d0403e8ccaebddd17ebf2eb41bf98fde3e100ca63f2fbcdac0f4b1c44a671",
+      "scripts/serve_integrated.sh": "5ba3bce908e39050b3688945bd10af06dc717c4d5f9fa0f612618eb488b60263",
+      "scripts/test.sh": "a21123abf5ecd89b8f55f892b929b020cada3946dbbc75bd796a14b2f035ca7c",
+      "scripts/test_gpu.sh": "4631fc6db3cceae4c6f4d78b9d78da3034d117a684876867098d46d472ad5ba2",
+      "tests/conftest.py": "4a3880c4b686839106a14f4c940351f8133fc568922739ba5ef8351941535db4",
+      "tests/e2e.py": "51d8c2ed693d014eef31f253ad60dd909a70679d54b8e4e6eaa8ebfce8d67b5a",
+      "tests/gpu/test_e2e.py": "0dac66795e5e4257c8aff3037f4488df5ae6141608046d0c02f4d5502f0eb519",
+      "tests/hf/test_batch_probe.py": "de3ff97f17d44e8e1122862cca2e4eb07cae52e365da1c8dfa867417adfa2780",
+      "tests/hf/test_cache.py": "227393a8e4504e622617c519e5c746f7ed384d719784c74a07603dc74198455e",
+      "tests/hf/test_dependency.py": "a13e2123d77feba0ad7a654bdff49480a7c05b4e4209224ae759271b7bf5dfa4",
+      "tests/hf/test_forward.py": "6027346937d4247637f2e6710569251682127ddd92ece30e27a683d59d68590f",
+      "tests/hf/test_numerics.py": "2e4fc245ddb79642ac3867630d1c29be8da72bfbbe9bcff0541890651722c1ad",
+      "tests/hf/test_qwen3_vl.py": "76ad3764640906458d7f5c8c78afdb4cc4c970e47abfe12547f31fe508562bc8",
+      "tests/runtime/test_benchmark_payload.py": "deafa76c45767e26f026e571cfa8b4e30dc1303674d4ac0f69a65488c93a6278",
+      "tests/runtime/test_contract.py": "cc46ddca83a7028cdebe55f149cfd34a26c718918a6d1f4cf63008def78f4097",
+      "tests/runtime/test_mask_oracle.py": "a39eb5bfb88da91331f5a55b6d4e865c295f47d58b2c769ce0392578857856f4",
+      "tests/runtime/test_projection.py": "3e7cb70b152ae5aa755fe83e2bc3736b1f9ebea65c03f8b76913777cb1fd8781",
+      "tests/runtime/test_scoring.py": "44c8f541ce7bf4782e5ebf5c75b37dac4d1ca3abdcc54c801464863d422dfc55",
+      "tests/test_benchmark.py": "bc082b96bd48e420c5c8e59eb732c6b85c9e676f342224f98e297e0c46ea7cf0",
+      "tests/test_comparison_report.py": "ab34b81432da004f505b195c585a6884f9bb6179d5c069a70549c01927e167fa",
+      "tests/test_concurrent_report.py": "639beb4ea006417ed2196bf7d260b2fd7e0c06f8657ffd198d9374f3d3c65a1d",
+      "tests/test_core.py": "8f3c94290bdadc10e8f1d0f893b2ee39f34e4c83ca7ee85491e08fe3b7eb03a6",
+      "tests/test_grouped.py": "a076ebad9c472acb34074c74d38625d0ecd7ef561c9d290dbf8ca8c50d4ac6c7",
+      "tests/test_interleaved.py": "b8d1f5095583ec4eee913b982e5c36af7925ac756136966454adb29421f8f2cc",
+      "tests/test_multimodal_merge.py": "1a2e95e617aacc183bc23c1da8c1b6a3cd31673c0beb711c52dca611774f80ac",
+      "tests/test_patch_install.py": "ece84b886d7044e0ac11880ae3b353f64d762f61bcaa0a94bb4c2fdb2857bd5c",
+      "tests/test_prefix_bypass.py": "7bfb50c384d292617128ae6025bb7e9df9c27ea1893b8e9c22220726aee7bd88",
+      "tests/test_public_mini.py": "c57f3a3216413cfeb9a56c5e53edf0dc1bef0097f371678a03445ad081617d9d",
+      "tests/test_stable_attention.py": "180374a080a5dc9d49f5e10293b44836994baa1cf5426e683609396a5e47f72f",
+      "pyproject.toml": "ee4523ee5e3325adcbc327c262205ce9fabfaf86075c4984301d7805cb447937",
+      "sitecustomize.py": "e82c6e0953e353b5f315083dbfc5cd45a6543e4bd93b8fe076141bf79abd1506",
+      "demo.py": "1a1910d803c3cf7afbb4ae3852cb672e63c32ec6919711062b25c3ad201b63ad",
+      "demo_hf.py": "71167e8419bad720b9775c75045c4af1db52c3f5491a175ad6eb15d8a4063647"
+    },
+    "source_tree_sha256": "453fc31ee5522500b33534357e2a14afc81a8e5fc8788c1c6e63b0064818431f",
+    "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "model_revision_status": "Hub snapshot at requested commit",
+    "model_config_sha256": {
+      "chat_template.json": "6f8a6a55027e3da5160105556cda5dd69f6423f1c32645f6730d32de7773d0c4",
+      "config.json": "edac7703329133edfc53e46ac0081835144c99d7eebf28b71c732694d435224d",
+      "generation_config.json": "8469742d1fce0de951c8909b26a2c0c0d8490837ce476efb114da9e0cefc4d44",
+      "model.safetensors.index.json": "58a7841d7bff2548dd91577d216274a83cf1b500bc6a534b809d6c1b1707cf2b",
+      "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+      "tokenizer.json": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7",
+      "tokenizer_config.json": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399",
+      "video_preprocessor_config.json": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    "dependencies": {
+      "Jinja2": "3.1.6",
+      "MarkupSafe": "3.0.3",
+      "PyYAML": "6.0.3",
+      "Pygments": "2.21.0",
+      "accelerate": "1.15.0",
+      "annotated-doc": "0.0.5",
+      "anyio": "4.15.1",
+      "certifi": "2026.7.22",
+      "charset-normalizer": "3.5.1",
+      "click": "8.5.0",
+      "cuda-bindings": "13.4.3",
+      "cuda-pathfinder": "1.8.2",
+      "cuda-toolkit": "13.0.2",
+      "filelock": "4.0.3",
+      "fsspec": "2026.9.0",
+      "h11": "0.16.0",
+      "hf-xet": "1.6.0",
+      "httpcore": "1.0.9",
+      "httpx": "0.28.1",
+      "huggingface_hub": "1.33.0",
+      "idna": "3.20",
+      "iniconfig": "2.3.0",
+      "markdown-it-py": "4.2.0",
+      "mdurl": "0.1.2",
+      "mjev": "0.1.0",
+      "mpmath": "1.3.0",
+      "networkx": "3.6.1",
+      "numpy": "2.4.6",
+      "nvidia-cublas": "13.1.0.3",
+      "nvidia-cuda-cupti": "13.0.85",
+      "nvidia-cuda-nvrtc": "13.0.88",
+      "nvidia-cuda-runtime": "13.0.96",
+      "nvidia-cudnn-cu13": "9.19.0.56",
+      "nvidia-cufft": "12.0.0.61",
+      "nvidia-cufile": "1.15.1.6",
+      "nvidia-curand": "10.4.0.35",
+      "nvidia-cusolver": "12.0.4.66",
+      "nvidia-cusparse": "12.6.3.3",
+      "nvidia-cusparselt-cu13": "0.8.0",
+      "nvidia-nccl-cu13": "2.28.9",
+      "nvidia-nvjitlink": "13.0.88",
+      "nvidia-nvshmem-cu13": "3.4.5",
+      "nvidia-nvtx": "13.0.85",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "pip": "24.0",
+      "pluggy": "1.6.0",
+      "psutil": "7.2.2",
+      "pytest": "8.4.2",
+      "regex": "2026.9.10",
+      "requests": "2.34.2",
+      "rich": "15.0.0",
+      "safetensors": "0.8.0",
+      "setuptools": "79.0.1",
+      "shellingham": "1.5.4",
+      "sympy": "1.14.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.11.0",
+      "torchcodec": "0.11.0+cpu",
+      "torchvision": "0.26.0",
+      "tqdm": "4.70.1",
+      "transformers": "5.13.1",
+      "triton": "3.6.0",
+      "typer": "0.27.2",
+      "typing_extensions": "4.16.0",
+      "urllib3": "2.8.0"
+    },
+    "python": "3.11.16",
+    "platform": "Linux",
+    "architecture": "x86_64",
+    "settings": {
+      "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+      "backend": "hf",
+      "numerics": "stable",
+      "mode": "causal",
+      "dtype": "bfloat16",
+      "projection": "full",
+      "prefix_cache": true,
+      "question_batch_size": 3,
+      "max_input_tokens": 4000,
+      "context": "Inspect the supplied media carefully.",
+      "video_options": {
+        "fps": 1,
+        "min_pixels": 3136,
+        "max_pixels": 50176,
+        "max_frames": 8
+      },
+      "seed": 37,
+      "tensor_parallel_size": 1
+    },
+    "environment": {
+      "VLLM_BATCH_INVARIANT": "1",
+      "MJEV_ENABLE": "0",
+      "MJEV_ENABLE_PATCHES": "0",
+      "VLLM_USE_V2_MODEL_RUNNER": "0",
+      "FORCE_QWENVL_VIDEO_READER": null
+    },
+    "manifest_sha256": "cb4a52400ce1d56a71982ac2e21b1cf91e188d7f1085b2da2124f90605aa752d",
+    "gpu_names": [
+      "24 GB NVIDIA GPU"
+    ]
+  },
+  "atol": 0.0001,
+  "probes": [
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "serial",
+      "seconds": [
+        0.45220527797937393,
+        0.4428184749558568
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 23.07431411743164,
+              "probability": 0.999991774559021
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.166431427001953,
+              "probability": 2.4784158085822128e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 10.995278358459473,
+              "probability": 5.677247827406973e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 23.07431411743164,
+            "probability": 0.999991774559021,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999930222657,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 16.033300399780273,
+              "probability": 0.00029011827427893877
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 24.178232192993164,
+              "probability": 0.9997099041938782
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 24.178232192993164,
+            "probability": 0.9997099041938782,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000224681571,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        },
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 15.362339973449707,
+              "probability": 0.0003989604883827269
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 9.83609676361084,
+              "probability": 1.5882283150858711e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 10.798985481262207,
+              "probability": 4.15997055824846e-06
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.188583374023438,
+              "probability": 0.9995953440666199
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.188583374023438,
+            "probability": 0.9995953440666199,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.000000052753876,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "batch",
+      "seconds": [
+        0.31978077348321676,
+        0.32011856976896524
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 23.07431411743164,
+              "probability": 0.999991774559021
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.166431427001953,
+              "probability": 2.4784158085822128e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 10.995278358459473,
+              "probability": 5.677247827406973e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 23.07431411743164,
+            "probability": 0.999991774559021,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999930222657,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 16.033300399780273,
+              "probability": 0.00029011827427893877
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 24.178232192993164,
+              "probability": 0.9997099041938782
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 24.178232192993164,
+            "probability": 0.9997099041938782,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000224681571,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 15.362339973449707,
+              "probability": 0.0003989604883827269
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 9.83609676361084,
+              "probability": 1.5882283150858711e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 10.798985481262207,
+              "probability": 4.15997055824846e-06
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.188583374023438,
+              "probability": 0.9995953440666199
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.188583374023438,
+            "probability": 0.9995953440666199,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.000000052753876,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "cache_serial",
+      "seconds": [
+        0.39936555828899145,
+        0.3955020997673273
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 23.07431411743164,
+              "probability": 0.999991774559021
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.166431427001953,
+              "probability": 2.4784158085822128e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 10.995278358459473,
+              "probability": 5.677247827406973e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 23.07431411743164,
+            "probability": 0.999991774559021,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999930222657,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 74,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 16.033300399780273,
+              "probability": 0.00029011827427893877
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 24.178232192993164,
+              "probability": 0.9997099041938782
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 24.178232192993164,
+            "probability": 0.9997099041938782,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000224681571,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 74,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        },
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 15.362339973449707,
+              "probability": 0.0003989604883827269
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 9.83609676361084,
+              "probability": 1.5882283150858711e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 10.798985481262207,
+              "probability": 4.15997055824846e-06
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.188583374023438,
+              "probability": 0.9995953440666199
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.188583374023438,
+            "probability": 0.9995953440666199,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.000000052753876,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 74,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "cache_batch",
+      "seconds": [
+        0.3354725828394294,
+        0.3216997282579541
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 23.07431411743164,
+              "probability": 0.999991774559021
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.166431427001953,
+              "probability": 2.4784158085822128e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 10.995278358459473,
+              "probability": 5.677247827406973e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 23.07431411743164,
+            "probability": 0.999991774559021,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999930222657,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 16.033300399780273,
+              "probability": 0.00029011827427893877
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 24.178232192993164,
+              "probability": 0.9997099041938782
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 24.178232192993164,
+            "probability": 0.9997099041938782,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000224681571,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 15.362339973449707,
+              "probability": 0.0003989604883827269
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 9.83609676361084,
+              "probability": 1.5882283150858711e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 10.798985481262207,
+              "probability": 4.15997055824846e-06
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.188583374023438,
+              "probability": 0.9995953440666199
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.188583374023438,
+            "probability": 0.9995953440666199,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.000000052753876,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "question_order_reversed",
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "results": [
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 15.362339973449707,
+              "probability": 0.0003989604883827269
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 9.83609676361084,
+              "probability": 1.5882283150858711e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 10.798985481262207,
+              "probability": 4.15997055824846e-06
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.188583374023438,
+              "probability": 0.9995953440666199
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.188583374023438,
+            "probability": 0.9995953440666199,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.000000052753876,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 16.033300399780273,
+              "probability": 0.00029011827427893877
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 24.178232192993164,
+              "probability": 0.9997099041938782
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 24.178232192993164,
+            "probability": 0.9997099041938782,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000224681571,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 23.07431411743164,
+              "probability": 0.999991774559021
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.166431427001953,
+              "probability": 2.4784158085822128e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 10.995278358459473,
+              "probability": 5.677247827406973e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 23.07431411743164,
+            "probability": 0.999991774559021,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999930222657,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "causal",
+      "execution": "candidate_order_reversed",
+      "results": [
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Green",
+              "token_id": 32,
+              "raw_logit": 14.348234176635742,
+              "probability": 1.4379932508745696e-05
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 10.921462059020996,
+              "probability": 4.6722772140128654e-07
+            },
+            {
+              "label": "C",
+              "text": "Red",
+              "token_id": 34,
+              "raw_logit": 25.497896194458008,
+              "probability": 0.9999850988388062
+            }
+          ],
+          "decision": {
+            "label": "C",
+            "text": "Red",
+            "token_id": 34,
+            "raw_logit": 25.497896194458008,
+            "probability": 0.9999850988388062,
+            "index": 2,
+            "tied_labels": [
+              "C"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999459990363,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Rectangle",
+              "token_id": 32,
+              "raw_logit": 23.38330841064453,
+              "probability": 0.9999902248382568
+            },
+            {
+              "label": "B",
+              "text": "Circle",
+              "token_id": 33,
+              "raw_logit": 11.843489646911621,
+              "probability": 9.734556442708708e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Rectangle",
+            "token_id": 32,
+            "raw_logit": 23.38330841064453,
+            "probability": 0.9999902248382568,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999593946995,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "White",
+              "token_id": 32,
+              "raw_logit": 22.811832427978516,
+              "probability": 0.9999879598617554
+            },
+            {
+              "label": "B",
+              "text": "Green",
+              "token_id": 33,
+              "raw_logit": 9.511795043945312,
+              "probability": 1.6744104414101457e-06
+            },
+            {
+              "label": "C",
+              "text": "Blue",
+              "token_id": 34,
+              "raw_logit": 10.753132820129395,
+              "probability": 5.793860964331543e-06
+            },
+            {
+              "label": "D",
+              "text": "Black",
+              "token_id": 35,
+              "raw_logit": 10.514598846435547,
+              "probability": 4.5642987061000895e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "White",
+            "token_id": 32,
+            "raw_logit": 22.811832427978516,
+            "probability": 0.9999879598617554,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999924318672,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ],
+      "note": "Mapping and normalization checked; answer invariance is not expected or asserted"
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "serial",
+      "seconds": [
+        0.441158015280962,
+        0.44136172253638506
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.136762619018555,
+              "probability": 0.9983649849891663
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.487028121948242,
+              "probability": 0.001292249420657754
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 17.159801483154297,
+              "probability": 0.00034271975164301693
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.136762619018555,
+            "probability": 0.9983649849891663,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999954161467,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 20.291765213012695,
+              "probability": 0.06697387993335724
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 22.92589569091797,
+              "probability": 0.9330260753631592
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 22.92589569091797,
+            "probability": 0.9330260753631592,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999552965164,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        },
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 18.156604766845703,
+              "probability": 0.004094157367944717
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.869465827941895,
+              "probability": 0.00041578873060643673
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.076607704162598,
+              "probability": 6.922202737769112e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.650209426879883,
+              "probability": 0.9954207539558411
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.650209426879883,
+            "probability": 0.9954207539558411,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999220817699,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "batch",
+      "seconds": [
+        0.3206546837463975,
+        0.32073509134352207
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.136762619018555,
+              "probability": 0.9983649849891663
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.487028121948242,
+              "probability": 0.001292249420657754
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 17.159801483154297,
+              "probability": 0.00034271975164301693
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.136762619018555,
+            "probability": 0.9983649849891663,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999954161467,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 20.291765213012695,
+              "probability": 0.06697387993335724
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 22.92589569091797,
+              "probability": 0.9330260753631592
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 22.92589569091797,
+            "probability": 0.9330260753631592,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999552965164,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 18.156604766845703,
+              "probability": 0.004094157367944717
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.869465827941895,
+              "probability": 0.00041578873060643673
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.076607704162598,
+              "probability": 6.922202737769112e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.650209426879883,
+              "probability": 0.9954207539558411
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.650209426879883,
+            "probability": 0.9954207539558411,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999220817699,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "cache_serial",
+      "seconds": [
+        0.41719143465161324,
+        0.43429933581501245
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.136762619018555,
+              "probability": 0.9983649849891663
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.487028121948242,
+              "probability": 0.001292249420657754
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 17.159801483154297,
+              "probability": 0.00034271975164301693
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.136762619018555,
+            "probability": 0.9983649849891663,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999954161467,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 74,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 20.291765213012695,
+              "probability": 0.06697387993335724
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 22.92589569091797,
+              "probability": 0.9330260753631592
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 22.92589569091797,
+            "probability": 0.9330260753631592,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999552965164,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 74,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        },
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 18.156604766845703,
+              "probability": 0.004094157367944717
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.869465827941895,
+              "probability": 0.00041578873060643673
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.076607704162598,
+              "probability": 6.922202737769112e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.650209426879883,
+              "probability": 0.9954207539558411
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.650209426879883,
+            "probability": 0.9954207539558411,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999220817699,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 74,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "cache_batch",
+      "seconds": [
+        0.3239927049726248,
+        0.32129922416061163
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.136762619018555,
+              "probability": 0.9983649849891663
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.487028121948242,
+              "probability": 0.001292249420657754
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 17.159801483154297,
+              "probability": 0.00034271975164301693
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.136762619018555,
+            "probability": 0.9983649849891663,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999954161467,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 20.291765213012695,
+              "probability": 0.06697387993335724
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 22.92589569091797,
+              "probability": 0.9330260753631592
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 22.92589569091797,
+            "probability": 0.9330260753631592,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999552965164,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 18.156604766845703,
+              "probability": 0.004094157367944717
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.869465827941895,
+              "probability": 0.00041578873060643673
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.076607704162598,
+              "probability": 6.922202737769112e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.650209426879883,
+              "probability": 0.9954207539558411
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.650209426879883,
+            "probability": 0.9954207539558411,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999220817699,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "question_order_reversed",
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "results": [
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 18.156604766845703,
+              "probability": 0.004094157367944717
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.869465827941895,
+              "probability": 0.00041578873060643673
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.076607704162598,
+              "probability": 6.922202737769112e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 23.650209426879883,
+              "probability": 0.9954207539558411
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 23.650209426879883,
+            "probability": 0.9954207539558411,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999220817699,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 20.291765213012695,
+              "probability": 0.06697387993335724
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 22.92589569091797,
+              "probability": 0.9330260753631592
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 22.92589569091797,
+            "probability": 0.9330260753631592,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999552965164,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.136762619018555,
+              "probability": 0.9983649849891663
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.487028121948242,
+              "probability": 0.001292249420657754
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 17.159801483154297,
+              "probability": 0.00034271975164301693
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.136762619018555,
+            "probability": 0.9983649849891663,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999954161467,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "image",
+      "mode": "isolated",
+      "execution": "candidate_order_reversed",
+      "results": [
+        {
+          "id": "visual-smoke:image:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Green",
+              "token_id": 32,
+              "raw_logit": 19.282625198364258,
+              "probability": 0.00043865584302693605
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 20.02689552307129,
+              "probability": 0.0009233288001269102
+            },
+            {
+              "label": "C",
+              "text": "Red",
+              "token_id": 34,
+              "raw_logit": 27.013057708740234,
+              "probability": 0.9986379742622375
+            }
+          ],
+          "decision": {
+            "label": "C",
+            "text": "Red",
+            "token_id": 34,
+            "raw_logit": 27.013057708740234,
+            "probability": 0.9986379742622375,
+            "index": 2,
+            "tied_labels": [
+              "C"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999589053914,
+          "prompt_tokens": 114,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Rectangle",
+              "token_id": 32,
+              "raw_logit": 24.190235137939453,
+              "probability": 0.9981841444969177
+            },
+            {
+              "label": "B",
+              "text": "Circle",
+              "token_id": 33,
+              "raw_logit": 17.8808536529541,
+              "probability": 0.0018158548045903444
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Rectangle",
+            "token_id": 32,
+            "raw_logit": 24.190235137939453,
+            "probability": 0.9981841444969177,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999993015081,
+          "prompt_tokens": 109,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:image:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "White",
+              "token_id": 32,
+              "raw_logit": 24.408491134643555,
+              "probability": 0.999316930770874
+            },
+            {
+              "label": "B",
+              "text": "Green",
+              "token_id": 33,
+              "raw_logit": 16.33368682861328,
+              "probability": 0.00031107154791243374
+            },
+            {
+              "label": "C",
+              "text": "Blue",
+              "token_id": 34,
+              "raw_logit": 14.970759391784668,
+              "probability": 7.96064778114669e-05
+            },
+            {
+              "label": "D",
+              "text": "Black",
+              "token_id": 35,
+              "raw_logit": 16.27180290222168,
+              "probability": 0.00029240475851111114
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "White",
+            "token_id": 32,
+            "raw_logit": 24.408491134643555,
+            "probability": 0.999316930770874,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.000000013555109,
+          "prompt_tokens": 118,
+          "num_cached_tokens": 74,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ],
+      "note": "Mapping and normalization checked; answer invariance is not expected or asserted"
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "serial",
+      "seconds": [
+        0.4684532256796956,
+        0.47265937831252813
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.485126495361328,
+              "probability": 0.9999842643737793
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.564789772033691,
+              "probability": 6.653600394201931e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.87267780303955,
+              "probability": 9.052546374732628e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.485126495361328,
+            "probability": 0.9999842643737793,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999705205482,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 19.68779754638672,
+              "probability": 0.00042629093513824046
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 27.4477596282959,
+              "probability": 0.9995736479759216
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 27.4477596282959,
+            "probability": 0.9995736479759216,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999389110599,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        },
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.702438354492188,
+              "probability": 0.005292948801070452
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.483773231506348,
+              "probability": 2.865894748538267e-05
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.655987739562988,
+              "probability": 3.40448968927376e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.938447952270508,
+              "probability": 0.994644284248352
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.938447952270508,
+            "probability": 0.994644284248352,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999368938006,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "batch",
+      "seconds": [
+        0.29884860944002867,
+        0.30277613271027803
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.485126495361328,
+              "probability": 0.9999842643737793
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.564789772033691,
+              "probability": 6.653600394201931e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.87267780303955,
+              "probability": 9.052546374732628e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.485126495361328,
+            "probability": 0.9999842643737793,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999705205482,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 19.68779754638672,
+              "probability": 0.00042629093513824046
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 27.4477596282959,
+              "probability": 0.9995736479759216
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 27.4477596282959,
+            "probability": 0.9995736479759216,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999389110599,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.702438354492188,
+              "probability": 0.005292948801070452
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.483773231506348,
+              "probability": 2.865894748538267e-05
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.655987739562988,
+              "probability": 3.40448968927376e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.938447952270508,
+              "probability": 0.994644284248352
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.938447952270508,
+            "probability": 0.994644284248352,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999368938006,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "cache_serial",
+      "seconds": [
+        0.42238803766667843,
+        0.4251533253118396
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.485126495361328,
+              "probability": 0.9999842643737793
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.564789772033691,
+              "probability": 6.653600394201931e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.87267780303955,
+              "probability": 9.052546374732628e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.485126495361328,
+            "probability": 0.9999842643737793,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999705205482,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 44,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 19.68779754638672,
+              "probability": 0.00042629093513824046
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 27.4477596282959,
+              "probability": 0.9995736479759216
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 27.4477596282959,
+            "probability": 0.9995736479759216,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999389110599,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 44,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        },
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "causal",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.702438354492188,
+              "probability": 0.005292948801070452
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.483773231506348,
+              "probability": 2.865894748538267e-05
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.655987739562988,
+              "probability": 3.40448968927376e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.938447952270508,
+              "probability": 0.994644284248352
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.938447952270508,
+            "probability": 0.994644284248352,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999368938006,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 44,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "cache_batch",
+      "seconds": [
+        0.3270928096026182,
+        0.32560316286981106
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.485126495361328,
+              "probability": 0.9999842643737793
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.564789772033691,
+              "probability": 6.653600394201931e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.87267780303955,
+              "probability": 9.052546374732628e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.485126495361328,
+            "probability": 0.9999842643737793,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999705205482,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 19.68779754638672,
+              "probability": 0.00042629093513824046
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 27.4477596282959,
+              "probability": 0.9995736479759216
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 27.4477596282959,
+            "probability": 0.9995736479759216,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999389110599,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.702438354492188,
+              "probability": 0.005292948801070452
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.483773231506348,
+              "probability": 2.865894748538267e-05
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.655987739562988,
+              "probability": 3.40448968927376e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.938447952270508,
+              "probability": 0.994644284248352
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.938447952270508,
+            "probability": 0.994644284248352,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999368938006,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "question_order_reversed",
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "results": [
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.702438354492188,
+              "probability": 0.005292948801070452
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.483773231506348,
+              "probability": 2.865894748538267e-05
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.655987739562988,
+              "probability": 3.40448968927376e-05
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 24.938447952270508,
+              "probability": 0.994644284248352
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 24.938447952270508,
+            "probability": 0.994644284248352,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999368938006,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 19.68779754638672,
+              "probability": 0.00042629093513824046
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 27.4477596282959,
+              "probability": 0.9995736479759216
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 27.4477596282959,
+            "probability": 0.9995736479759216,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999389110599,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 26.485126495361328,
+              "probability": 0.9999842643737793
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.564789772033691,
+              "probability": 6.653600394201931e-06
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.87267780303955,
+              "probability": 9.052546374732628e-06
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 26.485126495361328,
+            "probability": 0.9999842643737793,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999705205482,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "causal",
+      "execution": "candidate_order_reversed",
+      "results": [
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Green",
+              "token_id": 32,
+              "raw_logit": 18.111225128173828,
+              "probability": 3.4256376238772646e-05
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 14.455007553100586,
+              "probability": 8.848430752550485e-07
+            },
+            {
+              "label": "C",
+              "text": "Red",
+              "token_id": 34,
+              "raw_logit": 28.3928279876709,
+              "probability": 0.9999649524688721
+            }
+          ],
+          "decision": {
+            "label": "C",
+            "text": "Red",
+            "token_id": 34,
+            "raw_logit": 28.3928279876709,
+            "probability": 0.9999649524688721,
+            "index": 2,
+            "tied_labels": [
+              "C"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.000000093688186,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Rectangle",
+              "token_id": 32,
+              "raw_logit": 26.6075439453125,
+              "probability": 0.9999501705169678
+            },
+            {
+              "label": "B",
+              "text": "Circle",
+              "token_id": 33,
+              "raw_logit": 16.699947357177734,
+              "probability": 4.979248842573725e-05
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Rectangle",
+            "token_id": 32,
+            "raw_logit": 26.6075439453125,
+            "probability": 0.9999501705169678,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999630053935,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "causal",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "White",
+              "token_id": 32,
+              "raw_logit": 24.708436965942383,
+              "probability": 0.9998601675033569
+            },
+            {
+              "label": "B",
+              "text": "Green",
+              "token_id": 33,
+              "raw_logit": 13.761942863464355,
+              "probability": 1.7617217963561416e-05
+            },
+            {
+              "label": "C",
+              "text": "Blue",
+              "token_id": 34,
+              "raw_logit": 14.629219055175781,
+              "probability": 4.193634231342003e-05
+            },
+            {
+              "label": "D",
+              "text": "Black",
+              "token_id": 35,
+              "raw_logit": 15.277877807617188,
+              "probability": 8.022310794331133e-05
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "White",
+            "token_id": 32,
+            "raw_logit": 24.708436965942383,
+            "probability": 0.9998601675033569,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999441715772,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ],
+      "note": "Mapping and normalization checked; answer invariance is not expected or asserted"
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "serial",
+      "seconds": [
+        0.46428146213293076,
+        0.4647959852591157
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.290706634521484,
+              "probability": 0.9989416003227234
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.171052932739258,
+              "probability": 0.0008081905543804169
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 16.998390197753906,
+              "probability": 0.0002501686103641987
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.290706634521484,
+            "probability": 0.9989416003227234,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999959487468,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 21.402999877929688,
+              "probability": 0.11502721160650253
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.443387985229492,
+              "probability": 0.8849727511405945
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.443387985229492,
+            "probability": 0.8849727511405945,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999962747097,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        },
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.25432777404785,
+              "probability": 0.04073324054479599
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.23090648651123,
+              "probability": 0.0007287848857231438
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.322347640991211,
+              "probability": 0.0002937766257673502
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 22.412385940551758,
+              "probability": 0.9582442045211792
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 22.412385940551758,
+            "probability": 0.9582442045211792,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000065774657,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 0,
+          "cache_note": "No KV reuse."
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "batch",
+      "seconds": [
+        0.29660327453166246,
+        0.30244567058980465
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.290706634521484,
+              "probability": 0.9989416003227234
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.171052932739258,
+              "probability": 0.0008081905543804169
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 16.998390197753906,
+              "probability": 0.0002501686103641987
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.290706634521484,
+            "probability": 0.9989416003227234,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999959487468,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 21.402999877929688,
+              "probability": 0.11502721160650253
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.443387985229492,
+              "probability": 0.8849727511405945
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.443387985229492,
+            "probability": 0.8849727511405945,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999962747097,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.25432777404785,
+              "probability": 0.04073324054479599
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.23090648651123,
+              "probability": 0.0007287848857231438
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.322347640991211,
+              "probability": 0.0002937766257673502
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 22.412385940551758,
+              "probability": 0.9582442045211792
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 22.412385940551758,
+            "probability": 0.9582442045211792,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000065774657,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 0,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "cache_serial",
+      "seconds": [
+        0.410009347833693,
+        0.44229354336857796
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.290706634521484,
+              "probability": 0.9989416003227234
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.171052932739258,
+              "probability": 0.0008081905543804169
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 16.998390197753906,
+              "probability": 0.0002501686103641987
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.290706634521484,
+            "probability": 0.9989416003227234,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999959487468,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 44,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 21.402999877929688,
+              "probability": 0.11502721160650253
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.443387985229492,
+              "probability": 0.8849727511405945
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.443387985229492,
+            "probability": 0.8849727511405945,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999962747097,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 44,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        },
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "mode": "isolated",
+          "projection": "full",
+          "numerics": "stable",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.25432777404785,
+              "probability": 0.04073324054479599
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.23090648651123,
+              "probability": 0.0007287848857231438
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.322347640991211,
+              "probability": 0.0002937766257673502
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 22.412385940551758,
+              "probability": 0.9582442045211792
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 22.412385940551758,
+            "probability": 0.9582442045211792,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000065774657,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 44,
+          "cache_note": "Independent prefix KV clone; numerical profile: stable"
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "cache_batch",
+      "seconds": [
+        0.3440223354846239,
+        0.35986205469816923
+      ],
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "repeat_comparisons": [
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        },
+        {
+          "max_abs_logit_delta": 0.0,
+          "max_abs_probability_delta": 0.0,
+          "decision_agreement": 3,
+          "questions": 3
+        }
+      ],
+      "results": [
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.290706634521484,
+              "probability": 0.9989416003227234
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.171052932739258,
+              "probability": 0.0008081905543804169
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 16.998390197753906,
+              "probability": 0.0002501686103641987
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.290706634521484,
+            "probability": 0.9989416003227234,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999959487468,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 21.402999877929688,
+              "probability": 0.11502721160650253
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.443387985229492,
+              "probability": 0.8849727511405945
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.443387985229492,
+            "probability": 0.8849727511405945,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999962747097,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.25432777404785,
+              "probability": 0.04073324054479599
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.23090648651123,
+              "probability": 0.0007287848857231438
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.322347640991211,
+              "probability": 0.0002937766257673502
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 22.412385940551758,
+              "probability": 0.9582442045211792
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 22.412385940551758,
+            "probability": 0.9582442045211792,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000065774657,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "question_order_reversed",
+      "comparison": {
+        "max_abs_logit_delta": 0.0,
+        "max_abs_probability_delta": 0.0,
+        "decision_agreement": 3,
+        "questions": 3
+      },
+      "results": [
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Black",
+              "token_id": 32,
+              "raw_logit": 19.25432777404785,
+              "probability": 0.04073324054479599
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 15.23090648651123,
+              "probability": 0.0007287848857231438
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 14.322347640991211,
+              "probability": 0.0002937766257673502
+            },
+            {
+              "label": "D",
+              "text": "White",
+              "token_id": 35,
+              "raw_logit": 22.412385940551758,
+              "probability": 0.9582442045211792
+            }
+          ],
+          "decision": {
+            "label": "D",
+            "text": "White",
+            "token_id": 35,
+            "raw_logit": 22.412385940551758,
+            "probability": 0.9582442045211792,
+            "index": 3,
+            "tied_labels": [
+              "D"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000065774657,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Circle",
+              "token_id": 32,
+              "raw_logit": 21.402999877929688,
+              "probability": 0.11502721160650253
+            },
+            {
+              "label": "B",
+              "text": "Rectangle",
+              "token_id": 33,
+              "raw_logit": 23.443387985229492,
+              "probability": 0.8849727511405945
+            }
+          ],
+          "decision": {
+            "label": "B",
+            "text": "Rectangle",
+            "token_id": 33,
+            "raw_logit": 23.443387985229492,
+            "probability": 0.8849727511405945,
+            "index": 1,
+            "tied_labels": [
+              "B"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999962747097,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Red",
+              "token_id": 32,
+              "raw_logit": 25.290706634521484,
+              "probability": 0.9989416003227234
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 18.171052932739258,
+              "probability": 0.0008081905543804169
+            },
+            {
+              "label": "C",
+              "text": "Green",
+              "token_id": 34,
+              "raw_logit": 16.998390197753906,
+              "probability": 0.0002501686103641987
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Red",
+            "token_id": 32,
+            "raw_logit": 25.290706634521484,
+            "probability": 0.9989416003227234,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.999999959487468,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ]
+    },
+    {
+      "modality": "video",
+      "mode": "isolated",
+      "execution": "candidate_order_reversed",
+      "results": [
+        {
+          "id": "visual-smoke:video:0",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Green",
+              "token_id": 32,
+              "raw_logit": 18.951818466186523,
+              "probability": 0.001029523671604693
+            },
+            {
+              "label": "B",
+              "text": "Blue",
+              "token_id": 33,
+              "raw_logit": 17.33597755432129,
+              "probability": 0.0002045905275736004
+            },
+            {
+              "label": "C",
+              "text": "Red",
+              "token_id": 34,
+              "raw_logit": 25.829242706298828,
+              "probability": 0.9987659454345703
+            }
+          ],
+          "decision": {
+            "label": "C",
+            "text": "Red",
+            "token_id": 34,
+            "raw_logit": 25.829242706298828,
+            "probability": 0.9987659454345703,
+            "index": 2,
+            "tied_labels": [
+              "C"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000596337486,
+          "prompt_tokens": 84,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:1",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "Rectangle",
+              "token_id": 32,
+              "raw_logit": 24.75961685180664,
+              "probability": 0.9991623163223267
+            },
+            {
+              "label": "B",
+              "text": "Circle",
+              "token_id": 33,
+              "raw_logit": 17.675642013549805,
+              "probability": 0.0008377315243706107
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "Rectangle",
+            "token_id": 32,
+            "raw_logit": 24.75961685180664,
+            "probability": 0.9991623163223267,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 1.0000000478466973,
+          "prompt_tokens": 79,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        },
+        {
+          "id": "visual-smoke:video:2",
+          "backend": "transformers",
+          "model_family": "qwen3_vl",
+          "projection": "full",
+          "mode": "isolated",
+          "candidates": [
+            {
+              "label": "A",
+              "text": "White",
+              "token_id": 32,
+              "raw_logit": 24.290258407592773,
+              "probability": 0.999298095703125
+            },
+            {
+              "label": "B",
+              "text": "Green",
+              "token_id": 33,
+              "raw_logit": 16.06855010986328,
+              "probability": 0.0002685669169295579
+            },
+            {
+              "label": "C",
+              "text": "Blue",
+              "token_id": 34,
+              "raw_logit": 15.746795654296875,
+              "probability": 0.0001946777629200369
+            },
+            {
+              "label": "D",
+              "text": "Black",
+              "token_id": 35,
+              "raw_logit": 15.950435638427734,
+              "probability": 0.00023864702961873263
+            }
+          ],
+          "decision": {
+            "label": "A",
+            "text": "White",
+            "token_id": 32,
+            "raw_logit": 24.290258407592773,
+            "probability": 0.999298095703125,
+            "index": 0,
+            "tied_labels": [
+              "A"
+            ],
+            "tie_policy": "first_in_input_order"
+          },
+          "probability_sum": 0.9999999874125933,
+          "prompt_tokens": 88,
+          "num_cached_tokens": 44,
+          "implementation": "hf_real_batch",
+          "batch_size": 3,
+          "numerics": "stable"
+        }
+      ],
+      "note": "Mapping and normalization checked; answer invariance is not expected or asserted"
+    }
+  ],
+  "scope": "Mechanism/timing probe on supplied data; synthetic data is not benchmark accuracy",
+  "timing_boundary": "HF includes decode/process and prefill per call; vLLM prepared inputs exclude media decoding and warm cache can persist. Backend times are not directly comparable. One warmup per mode; model load excluded."
+}

@@ -1,0 +1,111 @@
+{
+  "revision": "26291f793822fb6be9555850f06dfe95f2d7e695",
+  "origin": "existing official cache; all bytes independently SHA256 verified against pinned Hugging Face LFS metadata; hardlinks in separate Hub cache",
+  "files": [
+    {
+      "name": "model-00001-of-00015.safetensors",
+      "sha256": "f95d142b727fbd0698f0ed9478e222d4f29467df855e21862e46bd1401049065",
+      "size": 4997899632,
+      "seconds": 5.8369000852108,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00002-of-00015.safetensors",
+      "sha256": "320c1f31f7ddc4efd2501891590eca2c481ce4eca3db33d70ebbb637dae85764",
+      "size": 4997754216,
+      "seconds": 5.306168816052377,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00003-of-00015.safetensors",
+      "sha256": "306f06b05ef032f1fa51eb62e72c3432324e7a084fa0d15ed17ff856adffcf33",
+      "size": 4997754216,
+      "seconds": 5.405177961103618,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00004-of-00015.safetensors",
+      "sha256": "4cb551f433bfb4d83a5843e433e74688d71a96eeb1b62217b37d719026d559b5",
+      "size": 4997755648,
+      "seconds": 5.02074658498168,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00005-of-00015.safetensors",
+      "sha256": "8aec5e8cc0e0b179a81f690af31a1149238f4b1d18ac60e3f690020fdf7d915f",
+      "size": 4997755792,
+      "seconds": 5.721895407885313,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00006-of-00015.safetensors",
+      "sha256": "8ff40a3d9e9c59a35a10257c1c5b216f472e6a102a4d6059bd31183eee03cb4c",
+      "size": 4997755792,
+      "seconds": 5.157302212901413,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00007-of-00015.safetensors",
+      "sha256": "f6d84cc1d47178850f9ba1fe9c01f45ee63d9a8b9975f92821ee2b4a0387860b",
+      "size": 4997755792,
+      "seconds": 5.504685641266406,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00008-of-00015.safetensors",
+      "sha256": "9f369ccdc9d2d2a55df794005b23cdbce44494a72e4a0069a150ae471cfea720",
+      "size": 4997755792,
+      "seconds": 5.526216775178909,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00009-of-00015.safetensors",
+      "sha256": "980f754b21c4b20f36e02d184b792f5625f7c9d24b8a5c9da94287cf3cfde11b",
+      "size": 4997755792,
+      "seconds": 5.985903206281364,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00010-of-00015.safetensors",
+      "sha256": "5c5a798376321d74df2eb3f235e1c8c68669f09b0c753b5698a16e681204d808",
+      "size": 4997755792,
+      "seconds": 5.075505552813411,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00011-of-00015.safetensors",
+      "sha256": "6f7c051bd391c89279b43e7342ff4a243ad2ba2144f4aa62233fd2b02d72fce0",
+      "size": 4997755792,
+      "seconds": 4.7785710003226995,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00012-of-00015.safetensors",
+      "sha256": "a8b09a9367cd31ebf928e87b9eaf002492379d9d21d352b480854c2fbe6d9978",
+      "size": 4997755792,
+      "seconds": 5.980215033516288,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00013-of-00015.safetensors",
+      "sha256": "d9b7441c3a33e066d109cd6338e74ed680de9aa407d4df66eba5cb3c15c6d738",
+      "size": 4999771808,
+      "seconds": 5.994541319087148,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00014-of-00015.safetensors",
+      "sha256": "73f09f187ff7b469a8937b39b8ac772e539e0d61311526c345558c5e6a6eb09a",
+      "size": 4996618552,
+      "seconds": 5.819848253391683,
+      "sha256_verified_against_pinned_hub": true
+    },
+    {
+      "name": "model-00015-of-00015.safetensors",
+      "sha256": "68880d566a50643807a4e73f5227c4f468bb31532925ed5fae78a51bdd39492a",
+      "size": 553698794,
+      "seconds": 0.5230910470709205,
+      "sha256_verified_against_pinned_hub": true
+    }
+  ]
+}

@@ -1,0 +1,1649 @@
+{
+  "evaluation": {
+    "metrics": {
+      "count": 6,
+      "accuracy": 0.3333333333333333,
+      "nll": 1.3467509477291018,
+      "nll_is_infinite": false,
+      "zero_target_probability_count": 0,
+      "brier_score": 0.7032547644119819,
+      "ece": 0.3278200257663572,
+      "calibration_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.06666666666666667,
+          "count": 0,
+          "accuracy": null,
+          "confidence": null
+        },
+        {
+          "lower": 0.06666666666666667,
+          "upper": 0.13333333333333333,
+          "count": 0,
+          "accuracy": null,
+          "confidence": null
+        },
+        {
+          "lower": 0.13333333333333333,
+          "upper": 0.2,
+          "count": 0,
+          "accuracy": null,
+          "confidence": null
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.26666666666666666,
+          "count": 0,
+          "accuracy": null,
+          "confidence": null
+        },
+        {
+          "lower": 0.26666666666666666,
+          "upper": 0.3333333333333333,
+          "count": 1,
+          "accuracy": 0.0,
+          "confidence": 0.2677524010169815
+        },
+        {
+          "lower": 0.3333333333333333,
+          "upper": 0.4,
+          "count": 0,
+          "accuracy": null,
+          "confidence": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.4666666666666667,
+          "count": 1,
+          "accuracy": 0.0,
+          "confidence": 0.4148743410758179
+        },
+        {
+          "lower": 0.4666666666666667,
+          "upper": 0.5333333333333333,
+          "count": 0,
+          "accuracy": null,
+          "confidence": null
+        },
+        {
+          "lower": 0.5333333333333333,
+          "upper": 0.6,
+          "count": 1,
+          "accuracy": 0.0,
+          "confidence": 0.5625234104914093
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.6666666666666666,
+          "count": 1,
+          "accuracy": 0.0,
+          "confidence": 0.648589932325734
+        },
+        {
+          "lower": 0.6666666666666666,
+          "upper": 0.7333333333333333,
+          "count": 0,
+          "accuracy": null,
+          "confidence": null
+        },
+        {
+          "lower": 0.7333333333333333,
+          "upper": 0.8,
+          "count": 0,
+          "accuracy": null,
+          "confidence": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.8666666666666667,
+          "count": 0,
+          "accuracy": null,
+          "confidence": null
+        },
+        {
+          "lower": 0.8666666666666667,
+          "upper": 0.9333333333333333,
+          "count": 0,
+          "accuracy": null,
+          "confidence": null
+        },
+        {
+          "lower": 0.9333333333333333,
+          "upper": 1.0,
+          "count": 2,
+          "accuracy": 1.0,
+          "confidence": 0.9634099651558996
+        }
+      ]
+    },
+    "expected_count": 6,
+    "coverage": 1.0,
+    "missing_ids": [],
+    "groups": {
+      "candidate_count:10": {
+        "count": 6,
+        "accuracy": 0.3333333333333333,
+        "nll": 1.3467509477291018,
+        "nll_is_infinite": false,
+        "zero_target_probability_count": 0,
+        "brier_score": 0.7032547644119819,
+        "ece": 0.3278200257663572,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.06666666666666667,
+            "upper": 0.13333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.13333333333333333,
+            "upper": 0.2,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.26666666666666666,
+            "upper": 0.3333333333333333,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.2677524010169815
+          },
+          {
+            "lower": 0.3333333333333333,
+            "upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.4666666666666667,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.4148743410758179
+          },
+          {
+            "lower": 0.4666666666666667,
+            "upper": 0.5333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.5333333333333333,
+            "upper": 0.6,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.5625234104914093
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.6666666666666666,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.648589932325734
+          },
+          {
+            "lower": 0.6666666666666666,
+            "upper": 0.7333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.7333333333333333,
+            "upper": 0.8,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.8666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8666666666666667,
+            "upper": 0.9333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.9333333333333333,
+            "upper": 1.0,
+            "count": 2,
+            "accuracy": 1.0,
+            "confidence": 0.9634099651558996
+          }
+        ]
+      },
+      "dataset:mmou": {
+        "count": 6,
+        "accuracy": 0.3333333333333333,
+        "nll": 1.3467509477291018,
+        "nll_is_infinite": false,
+        "zero_target_probability_count": 0,
+        "brier_score": 0.7032547644119819,
+        "ece": 0.3278200257663572,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.06666666666666667,
+            "upper": 0.13333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.13333333333333333,
+            "upper": 0.2,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.26666666666666666,
+            "upper": 0.3333333333333333,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.2677524010169815
+          },
+          {
+            "lower": 0.3333333333333333,
+            "upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.4666666666666667,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.4148743410758179
+          },
+          {
+            "lower": 0.4666666666666667,
+            "upper": 0.5333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.5333333333333333,
+            "upper": 0.6,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.5625234104914093
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.6666666666666666,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.648589932325734
+          },
+          {
+            "lower": 0.6666666666666666,
+            "upper": 0.7333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.7333333333333333,
+            "upper": 0.8,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.8666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8666666666666667,
+            "upper": 0.9333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.9333333333333333,
+            "upper": 1.0,
+            "count": 2,
+            "accuracy": 1.0,
+            "confidence": 0.9634099651558996
+          }
+        ]
+      },
+      "modality:audio_video": {
+        "count": 6,
+        "accuracy": 0.3333333333333333,
+        "nll": 1.3467509477291018,
+        "nll_is_infinite": false,
+        "zero_target_probability_count": 0,
+        "brier_score": 0.7032547644119819,
+        "ece": 0.3278200257663572,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.06666666666666667,
+            "upper": 0.13333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.13333333333333333,
+            "upper": 0.2,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.26666666666666666,
+            "upper": 0.3333333333333333,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.2677524010169815
+          },
+          {
+            "lower": 0.3333333333333333,
+            "upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.4666666666666667,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.4148743410758179
+          },
+          {
+            "lower": 0.4666666666666667,
+            "upper": 0.5333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.5333333333333333,
+            "upper": 0.6,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.5625234104914093
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.6666666666666666,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.648589932325734
+          },
+          {
+            "lower": 0.6666666666666666,
+            "upper": 0.7333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.7333333333333333,
+            "upper": 0.8,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.8666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8666666666666667,
+            "upper": 0.9333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.9333333333333333,
+            "upper": 1.0,
+            "count": 2,
+            "accuracy": 1.0,
+            "confidence": 0.9634099651558996
+          }
+        ]
+      },
+      "task:Audio-Visual Stitching": {
+        "count": 1,
+        "accuracy": 1.0,
+        "nll": 0.045745040390552716,
+        "nll_is_infinite": false,
+        "zero_target_probability_count": 0,
+        "brier_score": 0.0032225147534165346,
+        "ece": 0.04471450963999524,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.06666666666666667,
+            "upper": 0.13333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.13333333333333333,
+            "upper": 0.2,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.26666666666666666,
+            "upper": 0.3333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.3333333333333333,
+            "upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.4666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4666666666666667,
+            "upper": 0.5333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.5333333333333333,
+            "upper": 0.6,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.6666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6666666666666666,
+            "upper": 0.7333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.7333333333333333,
+            "upper": 0.8,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.8666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8666666666666667,
+            "upper": 0.9333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.9333333333333333,
+            "upper": 1.0,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.9552854903600048
+          }
+        ]
+      },
+      "task:Comparative": {
+        "count": 3,
+        "accuracy": 0.3333333333333333,
+        "nll": 1.479623666705913,
+        "nll_is_infinite": false,
+        "zero_target_probability_count": 0,
+        "brier_score": 0.7010347316158952,
+        "ece": 0.2862471238521988,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.06666666666666667,
+            "upper": 0.13333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.13333333333333333,
+            "upper": 0.2,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.26666666666666666,
+            "upper": 0.3333333333333333,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.2677524010169815
+          },
+          {
+            "lower": 0.3333333333333333,
+            "upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.4666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4666666666666667,
+            "upper": 0.5333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.5333333333333333,
+            "upper": 0.6,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.5625234104914093
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.6666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6666666666666666,
+            "upper": 0.7333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.7333333333333333,
+            "upper": 0.8,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.8666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8666666666666667,
+            "upper": 0.9333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.9333333333333333,
+            "upper": 1.0,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.9715344399517944
+          }
+        ]
+      },
+      "task:Context": {
+        "count": 4,
+        "accuracy": 0.5,
+        "nll": 1.0636176304901293,
+        "nll_is_infinite": false,
+        "zero_target_probability_count": 0,
+        "brier_score": 0.5394351173448674,
+        "ece": 0.262644455313857,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.06666666666666667,
+            "upper": 0.13333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.13333333333333333,
+            "upper": 0.2,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.26666666666666666,
+            "upper": 0.3333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.3333333333333333,
+            "upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.4666666666666667,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.4148743410758179
+          },
+          {
+            "lower": 0.4666666666666667,
+            "upper": 0.5333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.5333333333333333,
+            "upper": 0.6,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.5625234104914093
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.6666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6666666666666666,
+            "upper": 0.7333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.7333333333333333,
+            "upper": 0.8,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.8666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8666666666666667,
+            "upper": 0.9333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.9333333333333333,
+            "upper": 1.0,
+            "count": 2,
+            "accuracy": 1.0,
+            "confidence": 0.9634099651558996
+          }
+        ]
+      },
+      "task:General Holistic Reasoning": {
+        "count": 1,
+        "accuracy": 0.0,
+        "nll": 1.6660468777693742,
+        "nll_is_infinite": false,
+        "zero_target_probability_count": 0,
+        "brier_score": 0.940079442965531,
+        "ece": 0.4148743410758179,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.06666666666666667,
+            "upper": 0.13333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.13333333333333333,
+            "upper": 0.2,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.26666666666666666,
+            "upper": 0.3333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.3333333333333333,
+            "upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.4666666666666667,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.4148743410758179
+          },
+          {
+            "lower": 0.4666666666666667,
+            "upper": 0.5333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.5333333333333333,
+            "upper": 0.6,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.6666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6666666666666666,
+            "upper": 0.7333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.7333333333333333,
+            "upper": 0.8,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.8666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8666666666666667,
+            "upper": 0.9333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.9333333333333333,
+            "upper": 1.0,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          }
+        ]
+      },
+      "task:Inference": {
+        "count": 4,
+        "accuracy": 0.25,
+        "nll": 1.3844567706435051,
+        "nll_is_infinite": false,
+        "zero_target_probability_count": 0,
+        "brier_score": 0.7512725187028424,
+        "ece": 0.34398279601463216,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.06666666666666667,
+            "upper": 0.13333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.13333333333333333,
+            "upper": 0.2,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.26666666666666666,
+            "upper": 0.3333333333333333,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.2677524010169815
+          },
+          {
+            "lower": 0.3333333333333333,
+            "upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.4666666666666667,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.4148743410758179
+          },
+          {
+            "lower": 0.4666666666666667,
+            "upper": 0.5333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.5333333333333333,
+            "upper": 0.6,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.6666666666666666,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.648589932325734
+          },
+          {
+            "lower": 0.6666666666666666,
+            "upper": 0.7333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.7333333333333333,
+            "upper": 0.8,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.8666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8666666666666667,
+            "upper": 0.9333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.9333333333333333,
+            "upper": 1.0,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.9552854903600048
+          }
+        ]
+      },
+      "task:Sequential": {
+        "count": 3,
+        "accuracy": 0.3333333333333333,
+        "nll": 1.2849712416407228,
+        "nll_is_infinite": false,
+        "zero_target_probability_count": 0,
+        "brier_score": 0.6876993702581536,
+        "ece": 0.31493596446364036,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.06666666666666667,
+            "upper": 0.13333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.13333333333333333,
+            "upper": 0.2,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.26666666666666666,
+            "upper": 0.3333333333333333,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.2677524010169815
+          },
+          {
+            "lower": 0.3333333333333333,
+            "upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.4666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4666666666666667,
+            "upper": 0.5333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.5333333333333333,
+            "upper": 0.6,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.6666666666666666,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.648589932325734
+          },
+          {
+            "lower": 0.6666666666666666,
+            "upper": 0.7333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.7333333333333333,
+            "upper": 0.8,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.8666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8666666666666667,
+            "upper": 0.9333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.9333333333333333,
+            "upper": 1.0,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.9715344399517944
+          }
+        ]
+      },
+      "task:Subscene": {
+        "count": 5,
+        "accuracy": 0.4,
+        "nll": 1.2828917617210474,
+        "nll_is_infinite": false,
+        "zero_target_probability_count": 0,
+        "brier_score": 0.655889828701272,
+        "ece": 0.3104091627044651,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.06666666666666667,
+            "upper": 0.13333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.13333333333333333,
+            "upper": 0.2,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.26666666666666666,
+            "upper": 0.3333333333333333,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.2677524010169815
+          },
+          {
+            "lower": 0.3333333333333333,
+            "upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.4666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4666666666666667,
+            "upper": 0.5333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.5333333333333333,
+            "upper": 0.6,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.5625234104914093
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.6666666666666666,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.648589932325734
+          },
+          {
+            "lower": 0.6666666666666666,
+            "upper": 0.7333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.7333333333333333,
+            "upper": 0.8,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.8666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8666666666666667,
+            "upper": 0.9333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.9333333333333333,
+            "upper": 1.0,
+            "count": 2,
+            "accuracy": 1.0,
+            "confidence": 0.9634099651558996
+          }
+        ]
+      },
+      "task:Temporal Understanding": {
+        "count": 3,
+        "accuracy": 0.3333333333333333,
+        "nll": 1.2849712416407228,
+        "nll_is_infinite": false,
+        "zero_target_probability_count": 0,
+        "brier_score": 0.6876993702581536,
+        "ece": 0.31493596446364036,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.06666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.06666666666666667,
+            "upper": 0.13333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.13333333333333333,
+            "upper": 0.2,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.26666666666666666,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.26666666666666666,
+            "upper": 0.3333333333333333,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.2677524010169815
+          },
+          {
+            "lower": 0.3333333333333333,
+            "upper": 0.4,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.4666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.4666666666666667,
+            "upper": 0.5333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.5333333333333333,
+            "upper": 0.6,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.6666666666666666,
+            "count": 1,
+            "accuracy": 0.0,
+            "confidence": 0.648589932325734
+          },
+          {
+            "lower": 0.6666666666666666,
+            "upper": 0.7333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.7333333333333333,
+            "upper": 0.8,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.8666666666666667,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.8666666666666667,
+            "upper": 0.9333333333333333,
+            "count": 0,
+            "accuracy": null,
+            "confidence": null
+          },
+          {
+            "lower": 0.9333333333333333,
+            "upper": 1.0,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.9715344399517944
+          }
+        ]
+      }
+    },
+    "definitions": {
+      "nll": "mean negative natural log probability of original label; infinity encoded as null with nll_is_infinite=true",
+      "brier_score": "mean sum over candidates of (p-one_hot(label)) squared; no division by candidate count",
+      "ece": "top-label confidence, 15 equal-width bins; left-closed, last bin includes 1",
+      "decision": "argmax, ties resolved by original candidate order",
+      "scope": "sampled per-question metrics, not official Video-MME-v2 group leaderboard score"
+    }
+  },
+  "metric_config": {
+    "ece_bins": 15,
+    "allow_partial": false
+  },
+  "run": {
+    "code_commit": "04cc2e0a8fd723d678f44b0c69c2e74b4fe94ea4",
+    "working_tree_dirty": true,
+    "source_sha256": {
+      "benchmarks/integrated/compare_backends.py": "2032cd990ef56ddbe2c07d61f47dac582a10d03b1ac87d4513c237ad3b3146c5",
+      "benchmarks/integrated/evaluate_hf.py": "f69d1b854e425476aee207afc3b12104a24139d9d717560369cec8b947a071cd",
+      "benchmarks/integrated/evaluate_service.py": "461a3d9e2e3377a2d1b82a8d58d55546780468936511d2a04cc5454dfdbd8941",
+      "benchmarks/integrated/hf_batch_probe.py": "25a111bd3380ee31c11c02e473bbc7322d33dbb30d47160a044afc0e42c689ea",
+      "benchmarks/integrated/report_comparison.py": "5c0b9dbf4c87a5ced44840a03e9a4d4bfe420997dc704a4e5a94bccdf96bda17",
+      "benchmarks/integrated/report_concurrent_cache.py": "67b3a4f004bec7b057a96e26777f4ec07cd657caf432801cbd047ec07f471143",
+      "benchmarks/integrated/validate_concurrent_cache.py": "296546a6687f205eaa609a810056b14247bcf47e154944ab1900fc9185cd81ca",
+      "benchmarks/integrated/validate_hf_gpu.py": "e7a421b3363d28d1e963f9da27f3a775aa832b9a018bcaaff4cc83bd826249d0",
+      "configs/av_env.json": "09ba9980d73e7593225e74c4cff74c62874b9bc628d3876b9a1e5540e1ea4b9f",
+      "configs/public_mini_hf.json": "cee1cec840c6b1718f9efa5407ed12694167d0bf0fba2a04bc90e9aab5b38d7a",
+      "configs/public_mini_vllm.json": "fa6940b9529552a6654b00ef60c354a1052f9dbdb7abf96456e6b465b03e6c21",
+      "mjev/__init__.py": "cb3b61bc7b535557dfc5f8e6a91c1397a8ca4d7baa270123bccf4ecb45eb1772",
+      "mjev/av_witness.py": "f908907e8a287ec696822259fe00fbb38403c96248237a1c9f31ff96d8247e3d",
+      "mjev/benchmark/__init__.py": "ee88902e782fc8d604800e039e9c337252888c1a159937b826148ad19a5df133",
+      "mjev/benchmark/adapters.py": "06319e0e4690e8db0e632258b8d516f1b2064130e4487439b7a8045200d1c3bf",
+      "mjev/benchmark/audit.py": "ab7b1389aa48042605fddc9ab8e8e73498e25e0c21e3e25dd1dd4419fbdedc3e",
+      "mjev/benchmark/dataset.py": "9b7f4081bfeab251fa6907a6f71732be0f98c07da6feb48805fa6e34577456d3",
+      "mjev/benchmark/download.py": "69df0f0948819df27feabe4eefc4d0762a2cb4e16b9b826a3fd62277873e2c72",
+      "mjev/benchmark/evaluate.py": "ccb5d20d99dd3ee053c82d961696a663db7e29ef5673f32e5b62bc9f38a1960e",
+      "mjev/benchmark/fetch.py": "0d01597bbc0a51f540a42e1ee6eb51e699aa678080e83176adf7182046aa91a7",
+      "mjev/benchmark/pilot.py": "645c03800050a1c509c54039ff64838bcd9df1065d8a42f5f9e0f8332be2dd65",
+      "mjev/benchmark/prepare.py": "23b8f2ff31ccbcd3400b2e67d19f1b68f172b93a719896cd5c7fff2648a89bfa",
+      "mjev/benchmark/provenance.py": "91e971c31a77d2cc0171e0b633b10edf0418d5fb141435f0be4e88cf9cf437c0",
+      "mjev/benchmark/public_mini.py": "71c5d5073771315911636a8e159546d2bc54241772d6d76f32e33996c53050fe",
+      "mjev/benchmark/run.py": "dc5f972018c084db053e9e3c0a70c245237c113ebbaafa6e2444d8a12c87448a",
+      "mjev/decision.py": "c622f50497266ee5f6115cf494bd505a0fb6f012e849d8612f3ed890b9d58d72",
+      "mjev/engine.py": "056325b4b9b3b15760cac0f6d40d24379bea4314f400278526093979693362b7",
+      "mjev/hf.py": "8a8ce6402dc7de2b35f56182b9dead0aa9e3cb5feb74a23fbbc7e3cbfa45fc8f",
+      "mjev/hf_batch.py": "6a77203f46a11091d2114a5d0209a4c500259dd7a14fb7e449688f18e4e94e6d",
+      "mjev/hf_numerics.py": "d833a7a94d591307adfeb001652433ef7a8ffcb10fc4c9be94a058a86b7468a5",
+      "mjev/model.py": "48b9cda36e38c6c9202b50aca9302c5f2997d608c8d47f33c6c4833cb6a0512a",
+      "mjev/multimodal_merge.py": "fcc671b1f9011aded190bc47d482c16578fad251cff6caabd5eadbd34815a847",
+      "mjev/patch.py": "24fbd7f2e3cc3a8484a462f4180f9770720d5178cfdccf96e21423599c844d64",
+      "mjev/prompt.py": "126822ad888002d72897da7f368854b7b770a444ec88142382f8ca21b686e9d7",
+      "mjev/protocol.py": "06a7316940c2bc22df1edd1fb9bbc836926f2fc82eeef6c1e2174121064a5b02",
+      "mjev/stable_attention.py": "20753435407e040e699dfcc28ea009b6fbca1298921ec677b6818ebcd1117b83",
+      "runtime/mjev_contract.py": "cf0672ffb1c7f0f484a483ba4be72e33f280a0af2a835ad9a08e2e0e753d446d",
+      "runtime/mjev_mask.py": "58e8d4b5b38f8b788d0b206925b15abf8abf8c8b67a9419074d5eac861efce40",
+      "runtime/mjev_scoring.py": "d3a1aefa207c21fac61d63cb837df6ff8fee51a951d5db3de0d69b186b44386b",
+      "runtime/mjev_server.py": "4e367518f416e5c52c57a8b355318241e45d02312fb91f4d5285b0d705985d48",
+      "runtime/mjev_vllm_patch.py": "175a68a8b8c43baafc343745fabc4a074e982f396eb80793b7de6b8c5dd75721",
+      "runtime/sitecustomize.py": "0b84dbb18cad5582c25d2a5d1f43e03f0e3a6d4fe8f50eef2e00082a8498ec5e",
+      "scripts/build_av_benchmark.sh": "33c8b202fecd32245fa8a35b24a7bf73ed54871fc30cb347a6366c5ff2e657d4",
+      "scripts/serve_integrated.sh": "5ba3bce908e39050b3688945bd10af06dc717c4d5f9fa0f612618eb488b60263",
+      "scripts/test.sh": "f22a05ad46be49923667d6973e54fdefb3807a093d4716fada9efd5320a134a0",
+      "scripts/test_gpu.sh": "bcf7cd17d5a36eaa09a203e42428a4060b89d05e2a5cbddb17b747c44488c3ef",
+      "tests/conftest.py": "4a3880c4b686839106a14f4c940351f8133fc568922739ba5ef8351941535db4",
+      "tests/e2e.py": "51d8c2ed693d014eef31f253ad60dd909a70679d54b8e4e6eaa8ebfce8d67b5a",
+      "tests/gpu/test_e2e.py": "0dac66795e5e4257c8aff3037f4488df5ae6141608046d0c02f4d5502f0eb519",
+      "tests/hf/test_batch_probe.py": "de3ff97f17d44e8e1122862cca2e4eb07cae52e365da1c8dfa867417adfa2780",
+      "tests/hf/test_cache.py": "227393a8e4504e622617c519e5c746f7ed384d719784c74a07603dc74198455e",
+      "tests/hf/test_dependency.py": "a13e2123d77feba0ad7a654bdff49480a7c05b4e4209224ae759271b7bf5dfa4",
+      "tests/hf/test_forward.py": "6027346937d4247637f2e6710569251682127ddd92ece30e27a683d59d68590f",
+      "tests/hf/test_numerics.py": "2e4fc245ddb79642ac3867630d1c29be8da72bfbbe9bcff0541890651722c1ad",
+      "tests/runtime/test_benchmark_payload.py": "deafa76c45767e26f026e571cfa8b4e30dc1303674d4ac0f69a65488c93a6278",
+      "tests/runtime/test_contract.py": "cc46ddca83a7028cdebe55f149cfd34a26c718918a6d1f4cf63008def78f4097",
+      "tests/runtime/test_mask_oracle.py": "a39eb5bfb88da91331f5a55b6d4e865c295f47d58b2c769ce0392578857856f4",
+      "tests/runtime/test_projection.py": "3e7cb70b152ae5aa755fe83e2bc3736b1f9ebea65c03f8b76913777cb1fd8781",
+      "tests/runtime/test_scoring.py": "44c8f541ce7bf4782e5ebf5c75b37dac4d1ca3abdcc54c801464863d422dfc55",
+      "tests/test_benchmark.py": "bc082b96bd48e420c5c8e59eb732c6b85c9e676f342224f98e297e0c46ea7cf0",
+      "tests/test_comparison_report.py": "ab34b81432da004f505b195c585a6884f9bb6179d5c069a70549c01927e167fa",
+      "tests/test_concurrent_report.py": "639beb4ea006417ed2196bf7d260b2fd7e0c06f8657ffd198d9374f3d3c65a1d",
+      "tests/test_core.py": "8f3c94290bdadc10e8f1d0f893b2ee39f34e4c83ca7ee85491e08fe3b7eb03a6",
+      "tests/test_interleaved.py": "b8d1f5095583ec4eee913b982e5c36af7925ac756136966454adb29421f8f2cc",
+      "tests/test_multimodal_merge.py": "1a2e95e617aacc183bc23c1da8c1b6a3cd31673c0beb711c52dca611774f80ac",
+      "tests/test_patch_install.py": "ece84b886d7044e0ac11880ae3b353f64d762f61bcaa0a94bb4c2fdb2857bd5c",
+      "tests/test_prefix_bypass.py": "e89aa0818b791876e49b2bd8b1eb0431757cd54d1a7ad9cb7e80948ea9434fbf",
+      "tests/test_public_mini.py": "f86a6ad9445578b73e8a39ac716ac540efb91210aa9dcecbffd6470cb8542432",
+      "tests/test_stable_attention.py": "180374a080a5dc9d49f5e10293b44836994baa1cf5426e683609396a5e47f72f",
+      "pyproject.toml": "7835ad159426bb736736ba90b5e8f5b7b9f36a26dcfec9bac89068860b5b82a6",
+      "sitecustomize.py": "e82c6e0953e353b5f315083dbfc5cd45a6543e4bd93b8fe076141bf79abd1506",
+      "demo.py": "553dcdbf2c294c6a58e32a4f10381194a1c4d0f2fb17cc73ff1dba2583899476",
+      "demo_hf.py": "f39bf5ac71b3065fccf1494e426d8eafe889fca08dca5871478c3134369a522a"
+    },
+    "source_tree_sha256": "731197cc2cce76040c89e1ab18edf2bb4d6e4bad3894180445d4262cd962994a",
+    "model_revision": "26291f793822fb6be9555850f06dfe95f2d7e695",
+    "model_revision_status": "downloaded_or_cached_hub_snapshot_at_requested_commit",
+    "model_config_sha256": {
+      "chat_template.json": "90c1b81f29e41b7642b0cc02c877a10c8bf6751a8d8fa1d16ac9a718cf1c3d86",
+      "config.json": "eab5093d47807aaf894119506b238b2b1cee70d08456e894fee9a012d88f2e0d",
+      "generation_config.json": "7fa40989be8e43c078907810c41c25d33747523afce3d5a34d5850f930c886cb",
+      "model.safetensors.index.json": "03ffe9a54efe9007ceb788c2b036f5c589094918c4582add4e92bc17e1cba838",
+      "preprocessor_config.json": "b10e27fd4542cf89ec7145942b87f3e65408d4e9f9d031a29acdd293c15fb3fc",
+      "tokenizer_config.json": "dc3c31c3bdaedd5016382bb3cbe07323026775ad51f5a4fb564505992ae4a670",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    "dependencies": {
+      "Jinja2": "3.1.6",
+      "MarkupSafe": "3.0.3",
+      "PyYAML": "6.0.3",
+      "Pygments": "2.21.0",
+      "accelerate": "1.15.0",
+      "annotated-doc": "0.0.5",
+      "anyio": "4.15.1",
+      "audioread": "3.1.0",
+      "av": "18.1.0",
+      "certifi": "2026.7.22",
+      "cffi": "2.1.1",
+      "charset-normalizer": "3.5.1",
+      "click": "8.5.0",
+      "cloudpickle": "3.1.2",
+      "cuda-bindings": "13.4.3",
+      "cuda-pathfinder": "1.8.2",
+      "cuda-toolkit": "13.0.2",
+      "decorator": "5.3.1",
+      "decord": "0.6.0",
+      "filelock": "4.0.3",
+      "fsspec": "2026.9.0",
+      "h11": "0.16.0",
+      "hf-xet": "1.6.0",
+      "httpcore": "1.0.9",
+      "httpx": "0.28.1",
+      "huggingface_hub": "1.33.0",
+      "idna": "3.20",
+      "iniconfig": "2.3.0",
+      "joblib": "1.6.0",
+      "lazy-loader": "0.6",
+      "librosa": "0.11.0",
+      "llvmlite": "0.49.0",
+      "markdown-it-py": "4.2.0",
+      "mdurl": "0.1.2",
+      "mjev": "0.1.0",
+      "mpmath": "1.3.0",
+      "msgpack": "1.2.2",
+      "narwhals": "2.26.0",
+      "networkx": "3.6.1",
+      "numba": "0.67.0",
+      "numpy": "2.4.6",
+      "nvidia-cublas": "13.1.0.3",
+      "nvidia-cuda-cupti": "13.0.85",
+      "nvidia-cuda-nvrtc": "13.0.88",
+      "nvidia-cuda-runtime": "13.0.96",
+      "nvidia-cudnn-cu13": "9.19.0.56",
+      "nvidia-cufft": "12.0.0.61",
+      "nvidia-cufile": "1.15.1.6",
+      "nvidia-curand": "10.4.0.35",
+      "nvidia-cusolver": "12.0.4.66",
+      "nvidia-cusparse": "12.6.3.3",
+      "nvidia-cusparselt-cu13": "0.8.0",
+      "nvidia-nccl-cu13": "2.28.9",
+      "nvidia-nvjitlink": "13.0.88",
+      "nvidia-nvshmem-cu13": "3.4.5",
+      "nvidia-nvtx": "13.0.85",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "pip": "24.0",
+      "platformdirs": "4.11.15",
+      "pluggy": "1.6.0",
+      "pooch": "1.9.0",
+      "psutil": "7.2.2",
+      "pycparser": "3.0",
+      "pytest": "8.4.2",
+      "qwen-omni-utils": "0.0.9",
+      "regex": "2026.9.10",
+      "requests": "2.34.2",
+      "rich": "15.0.0",
+      "safetensors": "0.8.0",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.17.1",
+      "setuptools": "79.0.1",
+      "shellingham": "1.5.4",
+      "soundfile": "0.14.0",
+      "soxr": "1.1.0",
+      "sympy": "1.14.0",
+      "threadpoolctl": "3.7.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.11.0",
+      "torchcodec": "0.11.0+cpu",
+      "torchvision": "0.26.0",
+      "tqdm": "4.70.1",
+      "transformers": "5.13.1",
+      "triton": "3.6.0",
+      "typer": "0.27.2",
+      "typing_extensions": "4.16.0",
+      "urllib3": "2.8.0"
+    },
+    "python": "3.11.16",
+    "platform": "Linux",
+    "architecture": "x86_64",
+    "settings": {
+      "backend": "hf",
+      "numerics": "stable",
+      "mode": "causal",
+      "dtype": "bfloat16",
+      "projection": "full",
+      "prefix_cache": false,
+      "question_batch_size": 1,
+      "max_input_tokens": 4000,
+      "device_map": "auto",
+      "context": "Inspect the supplied media carefully.",
+      "video_options": {
+        "fps": 1,
+        "min_pixels": 3136,
+        "max_pixels": 50176,
+        "max_frames": 8
+      },
+      "seed": 37,
+      "model_id": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
+      "model_revision": "26291f793822fb6be9555850f06dfe95f2d7e695"
+    },
+    "environment": {
+      "VLLM_BATCH_INVARIANT": "1",
+      "MJEV_ENABLE": "0",
+      "MJEV_ENABLE_PATCHES": "0",
+      "VLLM_USE_V2_MODEL_RUNNER": "0",
+      "FORCE_QWENVL_VIDEO_READER": "torchcodec"
+    },
+    "weight_integrity": "Hub snapshot provenance; weight shards not independently rehashed",
+    "engine_settings": {
+      "placement": "device_map=auto",
+      "stable_auto_headroom_gib_per_gpu": 4,
+      "attention": "sdpa"
+    },
+    "manifest_sha256": "ba5c99bd9e06faf5ecaf7efa52cad41987c4b46b2b447fe62827fd1e86def0bd",
+    "media_sha256": {
+      "media/d6pliD_PVnI.mp4": "8c7b4ba48e07c4f973d4b205d39925084941e4e18c89bae0675d68a028b5e3ee",
+      "media/y7KHHbNbrpQ.mp4": "06fdc284ccced01d3ab9d6c0fc13126e734bafe8921495a832877e2350e6cf7e"
+    },
+    "gpu_names": [
+      "24 GB NVIDIA GPU",
+      "24 GB NVIDIA GPU",
+      "24 GB NVIDIA GPU",
+      "24 GB NVIDIA GPU"
+    ]
+  },
+  "timing": {
+    "startup_seconds": 25.695671144872904,
+    "boundary": "group wall time includes decoding, processor and scoring; excludes model load; no warmup; not API latency or steady-state throughput"
+  },
+  "predictions_sha256": "49b4d77bfb9574d89a6666d760ab9bee744b27ff9b7b06e803e84b9948a7dfd5",
+  "raw_sha256": "eb8af3c77615e711bcc9f7c0786dc8a595d2b7ae8ab165c9bdb853e650ae11e6",
+  "timing_sha256": "98a864d92109820901cbe844a1a0dc5cfa7daf700f26853cb7000b4b8fb13fc7",
+  "scope": "Original-label short-video MMOU subset; not official leaderboard or historical paired reproduction"
+}

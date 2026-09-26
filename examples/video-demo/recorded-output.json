@@ -1,0 +1,183 @@
+{
+  "description": "Actual archived HF outputs on the owned synthetic two-second static video; not a natural-video accuracy benchmark.",
+  "source_report": "../../docs/validation_evidence/qwen3-vl-vl-hf-smoke-report.json",
+  "source_raw_sha256": "3c26e8ce21b4fde71d69f555e7536b4a042b98b712002e3bf81b1be8c2c2a52c",
+  "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "config": {
+    "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+    "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "backend": "hf",
+    "numerics": "stable",
+    "mode": "causal",
+    "dtype": "bfloat16",
+    "projection": "full",
+    "prefix_cache": true,
+    "question_batch_size": 3,
+    "max_input_tokens": 4000,
+    "context": "Inspect the supplied media carefully.",
+    "video_options": {
+      "fps": 1,
+      "min_pixels": 3136,
+      "max_pixels": 50176,
+      "max_frames": 8
+    },
+    "seed": 37,
+    "tensor_parallel_size": 1
+  },
+  "media_sha256": {
+    "rectangle.mp4": "1ba19bdc586b895f01e2e110ead91842f44cfd7ed2ce6d49f9fdd2ae87cc304f",
+    "rectangle.png": "5dfcb2f5ab4af0dff94ff8a672845dc7b903971616aa9ccc28ac30c4285097cb"
+  },
+  "questions": [
+    {
+      "question": "What color is the rectangle?",
+      "id": "visual-smoke:video:0",
+      "backend": "transformers",
+      "model_family": "qwen3_vl",
+      "projection": "full",
+      "mode": "causal",
+      "candidates": [
+        {
+          "label": "A",
+          "text": "Red",
+          "token_id": 32,
+          "raw_logit": 26.485126495361328,
+          "probability": 0.9999842643737793
+        },
+        {
+          "label": "B",
+          "text": "Blue",
+          "token_id": 33,
+          "raw_logit": 14.564789772033691,
+          "probability": 6.653600394201931e-06
+        },
+        {
+          "label": "C",
+          "text": "Green",
+          "token_id": 34,
+          "raw_logit": 14.87267780303955,
+          "probability": 9.052546374732628e-06
+        }
+      ],
+      "decision": {
+        "label": "A",
+        "text": "Red",
+        "token_id": 32,
+        "raw_logit": 26.485126495361328,
+        "probability": 0.9999842643737793,
+        "index": 0,
+        "tied_labels": [
+          "A"
+        ],
+        "tie_policy": "first_in_input_order"
+      },
+      "probability_sum": 0.9999999705205482,
+      "prompt_tokens": 84,
+      "num_cached_tokens": 44,
+      "implementation": "hf_real_batch",
+      "batch_size": 3,
+      "numerics": "stable"
+    },
+    {
+      "question": "Which shape is shown?",
+      "id": "visual-smoke:video:1",
+      "backend": "transformers",
+      "model_family": "qwen3_vl",
+      "projection": "full",
+      "mode": "causal",
+      "candidates": [
+        {
+          "label": "A",
+          "text": "Circle",
+          "token_id": 32,
+          "raw_logit": 19.68779754638672,
+          "probability": 0.00042629093513824046
+        },
+        {
+          "label": "B",
+          "text": "Rectangle",
+          "token_id": 33,
+          "raw_logit": 27.4477596282959,
+          "probability": 0.9995736479759216
+        }
+      ],
+      "decision": {
+        "label": "B",
+        "text": "Rectangle",
+        "token_id": 33,
+        "raw_logit": 27.4477596282959,
+        "probability": 0.9995736479759216,
+        "index": 1,
+        "tied_labels": [
+          "B"
+        ],
+        "tie_policy": "first_in_input_order"
+      },
+      "probability_sum": 0.9999999389110599,
+      "prompt_tokens": 79,
+      "num_cached_tokens": 44,
+      "implementation": "hf_real_batch",
+      "batch_size": 3,
+      "numerics": "stable"
+    },
+    {
+      "question": "What color is the background?",
+      "id": "visual-smoke:video:2",
+      "backend": "transformers",
+      "model_family": "qwen3_vl",
+      "projection": "full",
+      "mode": "causal",
+      "candidates": [
+        {
+          "label": "A",
+          "text": "Black",
+          "token_id": 32,
+          "raw_logit": 19.702438354492188,
+          "probability": 0.005292948801070452
+        },
+        {
+          "label": "B",
+          "text": "Blue",
+          "token_id": 33,
+          "raw_logit": 14.483773231506348,
+          "probability": 2.865894748538267e-05
+        },
+        {
+          "label": "C",
+          "text": "Green",
+          "token_id": 34,
+          "raw_logit": 14.655987739562988,
+          "probability": 3.40448968927376e-05
+        },
+        {
+          "label": "D",
+          "text": "White",
+          "token_id": 35,
+          "raw_logit": 24.938447952270508,
+          "probability": 0.994644284248352
+        }
+      ],
+      "decision": {
+        "label": "D",
+        "text": "White",
+        "token_id": 35,
+        "raw_logit": 24.938447952270508,
+        "probability": 0.994644284248352,
+        "index": 3,
+        "tied_labels": [
+          "D"
+        ],
+        "tie_policy": "first_in_input_order"
+      },
+      "probability_sum": 0.9999999368938006,
+      "prompt_tokens": 88,
+      "num_cached_tokens": 44,
+      "implementation": "hf_real_batch",
+      "batch_size": 3,
+      "numerics": "stable"
+    }
+  ],
+  "media_source": "Project-owned fixture generated by mjev/benchmark/visual_smoke.py",
+  "media_license": "Apache-2.0"
+}
