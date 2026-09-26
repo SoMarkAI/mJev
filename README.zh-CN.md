@@ -187,3 +187,11 @@ mJev 代码使用 [Apache License 2.0](LICENSE)，上游署名见 [NOTICE](NOTIC
 - [统一最新验证入口与后端边界](docs/validation_current.zh-CN.md)
 - [pytest 测试范围与入口](docs/testing.zh-CN.md)
 - [隔离环境安装实测与限制](docs/installation_validation.zh-CN.md)
+
+## 贡献者
+
+感谢各位伙伴对 mJev 的贡献，以下排名不分先后：
+
+- [Immortal-Zhang](https://github.com/Immortal-Zhang)
+- [Kyousuke661](https://github.com/Kyousuke661)
+- [BinyangQiu](https://github.com/BinyangQiu)

@@ -189,3 +189,11 @@ Third-party annotations, audio and video retain their original rights and restri
 - [Current validation and backend boundaries](docs/validation_current.md)
 - [pytest test suites](docs/testing.md)
 - [Isolated installation checks and limitations](docs/installation_validation.md)
+
+## Contributors
+
+Thanks to everyone contributing to mJev. Listed in no particular order:
+
+- [Immortal-Zhang](https://github.com/Immortal-Zhang)
+- [Kyousuke661](https://github.com/Kyousuke661)
+- [BinyangQiu](https://github.com/BinyangQiu)
