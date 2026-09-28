@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-labelledby="title desc">
+<title id="title">mJev — Jev, with senses.</title>
+<desc id="desc">A charcoal and warm-orange mJev cover with image, video and audio illustrations, inspired by the SoMark color palette.</desc>
+<defs>
+<radialGradient id="warm-glow" cx=".02" cy=".02" r=".9">
+  <stop offset="0" stop-color="#ff8c00" stop-opacity=".16"/>
+  <stop offset=".6" stop-color="#ff8c00" stop-opacity=".035"/>
+  <stop offset="1" stop-color="#ff8c00" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="warm-card" x2="1" y2="1">
+  <stop stop-color="#ff8c00"/><stop offset="1" stop-color="#ffb45a"/>
+</linearGradient>
+</defs>
+<rect width="1280" height="360" rx="26" fill="#0b0d0e"/>
+<rect width="1280" height="360" rx="26" fill="url(#warm-glow)"/>
+<g font-family="Arial, Helvetica, sans-serif">
+  <text x="76" y="82" fill="#9198a1" font-size="14" letter-spacing="4" font-weight="700">MULTIMODAL DECISIONS</text>
+  <text x="70" y="222" fill="#f0f6fc" font-size="142" font-weight="800" letter-spacing="-9">mJev<tspan fill="#ff8c00" dx="5">.</tspan></text>
+  <text x="78" y="282" fill="#f0f6fc" font-size="32" letter-spacing="-.7">Jev, with senses.</text>
+  <g fill="#9198a1" font-size="12" font-weight="600" letter-spacing="2">
+    <text x="80" y="322">IMAGE</text><circle cx="145" cy="317" r="2"/>
+    <text x="163" y="322">VIDEO</text><circle cx="230" cy="317" r="2"/>
+    <text x="248" y="322">AUDIO</text>
+  </g>
+</g>
+<!-- Three media illustrations, intentionally separate from an architecture diagram. -->
+<g transform="translate(750 56) rotate(-10 88 76)">
+  <rect x="5" y="7" width="176" height="152" rx="23" fill="#000000" opacity=".07"/>
+  <rect width="176" height="152" rx="23" fill="#ffb45a"/>
+  <rect x="26" y="27" width="124" height="93" rx="10" fill="none" stroke="#0b0d0e" stroke-width="4"/>
+  <circle cx="116" cy="52" r="10" fill="#0b0d0e"/>
+  <path d="M29 104 66 67 95 96 111 82 148 113" fill="none" stroke="#0b0d0e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(956 92) rotate(10 105 76)">
+  <rect x="5" y="7" width="210" height="158" rx="23" fill="#000000" opacity=".07"/>
+  <rect width="210" height="158" rx="23" fill="url(#warm-card)"/>
+  <g fill="#0b0d0e"><circle cx="26" cy="22" r="3"/><circle cx="39" cy="22" r="3"/><circle cx="52" cy="22" r="3"/></g>
+  <path d="M20 36H190" stroke="#0b0d0e" stroke-opacity=".2" stroke-width="2"/>
+  <rect x="25" y="50" width="160" height="88" rx="12" fill="#0b0d0e"/>
+  <path d="m96 72 35 22-35 22z" fill="#ff8c00"/>
+</g>
+<g transform="translate(824 205) rotate(5 90 57)">
+  <rect x="5" y="7" width="180" height="113" rx="22" fill="#000000" opacity=".07"/>
+  <rect width="180" height="113" rx="22" fill="#ffcb86"/>
+  <path d="M41 65V57a22 22 0 0 1 44 0v8" fill="none" stroke="#0b0d0e" stroke-width="5" stroke-linecap="round"/>
+  <rect x="36" y="55" width="13" height="27" rx="6" fill="#0b0d0e"/>
+  <rect x="77" y="55" width="13" height="27" rx="6" fill="#0b0d0e"/>
+  <g stroke="#0b0d0e" stroke-width="5" stroke-linecap="round">
+    <path d="M114 55v15M125 45v35M136 35v55M147 51v23"/>
+  </g>
+</g>
+<!-- A small answer tick, with no metrics or performance claim. -->
+<g transform="translate(1092 267) rotate(-6 34 28)">
+  <rect width="68" height="55" rx="17" fill="#1b1d20" stroke="#9198a1" stroke-opacity=".18"/>
+  <path d="m21 27 9 9 18-18" fill="none" stroke="#f0f6fc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g fill="none" stroke="#9198a1" stroke-width="3" stroke-linecap="round" opacity=".7">
+  <path d="M711 186v16M703 194h16"/>
+  <path d="M1152 57v16M1144 65h16"/>
+  <path d="M749 285v10M744 290h10"/>
+</g>
+</svg>
