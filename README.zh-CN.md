@@ -78,8 +78,7 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 
 根据官方配置自动识别模型。图片／视频从 4B 开始；需要音频时切换到 Omni。两者使用相同的问题与候选项格式。
 
-<details>
-<summary>🔎 好奇里面怎么转？展开看看</summary>
+## 🔎 好奇里面怎么转？
 
 ```text
 媒体 + 公共上下文 → 官方 processor / chat template → 原生模型前缀 prefill
@@ -95,8 +94,6 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 - **想做对照实验？试试 `isolated`**：给每个选项一间“小隔间”，共享上下文和问题，互不偷看；最后的决策仍会综合所有选项的信息。
 
 评分交给模型原有的输出层，你拿到选择和候选概率。好奇 HF 与 vLLM 怎么实现？[技术细节在这里](docs/development.zh-CN.md)。
-
-</details>
 
 ## 训练与奖励设计
 
@@ -119,8 +116,7 @@ r(\hat{y}) = \begin{cases}
 
 缓存也挑场合：长上下文、多问题更有用；单题可能更慢。长前缀 16 题的峰值已分配显存由 **15.80 增至 20.60 GiB**。这是单个自制视频的受控结果，不是所有任务的加速保证。
 
-<details>
-<summary>📏 展开：完整数字与测量条件</summary>
+### 📏 完整数字与测量条件
 
 | 共享前缀 | 问题数 | 普通 batch | 前缀 KV 复用 | 加速比 |
 | --- | ---: | ---: | ---: | ---: |
@@ -133,8 +129,6 @@ r(\hat{y}) = \begin{cases}
 
 [全部八组配置与原始记录](docs/cache_scaling.zh-CN.md)
 
-</details>
-
 ## 🎯 给它出点题
 
 在 [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) 的 **195 题评测子集**上，经过 GRPO 微调，准确率从 **77.95% 提升至 80.00%（+2.05 个百分点）**，多答对 4 道题。
@@ -146,8 +140,7 @@ r(\hat{y}) = \begin{cases}
 
 两组模型使用相同的 195 道题进行评测，评测题独立于 RL 训练数据。准确率按正确题数除以总题数计算。公开数据集包含图片、问题、候选项与参考答案。
 
-<details>
-<summary>📝 换成自己的输入</summary>
+## 📝 换成自己的输入
 
 媒体路径相对于输入 JSON 文件解析。单问题示例见 [examples/single.json](examples/single.json)；多个问题共享媒体与上下文：
 
@@ -169,8 +162,6 @@ r(\hat{y}) = \begin{cases}
 实际结果还包含 token ID、并列决策信息、输入长度及缓存诊断。概率仅在本题候选集合内归一化，**不是校准后的置信度**。并列时选择输入顺序中的第一个候选。
 
 候选数可变，接口边界为 2–128；所有标签必须在实际模板下通过单 token 校验，因此不保证每个数量都可用。空候选、重复候选和不合法控制 token 会被拒绝。HF 默认限制完整输入为 4000 tokens，超限报错，不静默截断。
-
-</details>
 
 ## 📚 按需翻阅，不用从头啃
 

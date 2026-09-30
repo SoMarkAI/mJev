@@ -78,8 +78,7 @@ Choose your GPUs with `CUDA_VISIBLE_DEVICES`. More options: [HF deployment](docs
 
 The official config selects the model family automatically. Start with 4B for image/video; choose Omni for audio. Keep the same question and candidate format.
 
-<details>
-<summary>🔎 Curious about the moving parts?</summary>
+## 🔎 Curious about the moving parts?
 
 ```text
 Media + shared context → official processor / chat template → native model prefix prefill
@@ -95,8 +94,6 @@ Every question brings its own little crew of choices 🧩
 - **Running a comparison? Try `isolated`.** Each choice gets its own booth: shared context and question, no peeking at the neighbors. The final decision still considers information from all the choices.
 
 The model’s existing output layer does the scoring; you get a decision and candidate probabilities. Curious about the HF and vLLM plumbing? [Here are the technical details](docs/development.md).
-
-</details>
 
 ## Training and reward
 
@@ -119,8 +116,7 @@ Same video, 16 questions: in the recorded controlled test, prefix reuse cut tota
 
 Caching has a sweet spot: longer shared context and more questions. One question can be slower. For the long-prefix, 16-question case, peak allocated memory rose from **15.80 to 20.60 GiB**. This is a controlled result on one project-created video, not a universal speed guarantee.
 
-<details>
-<summary>📏 The numbers and measurement conditions</summary>
+### 📏 The numbers and measurement conditions
 
 | Shared prefix | Questions | Ordinary batch | Prefix KV reuse | Speedup |
 | --- | ---: | ---: | ---: | ---: |
@@ -133,8 +129,6 @@ One 24 GB NVIDIA GPU, Qwen3-VL-4B, HF `stable` (BF16 weights, FP32 text computat
 
 [All eight configurations and raw records](docs/cache_scaling.md)
 
-</details>
-
 ## 🎯 Put it to the test
 
 On a **195-question evaluation subset** of [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA), GRPO fine-tuning improves accuracy from **77.95% to 80.00% (+2.05 percentage points)**, with four more questions answered correctly.
@@ -146,8 +140,7 @@ On a **195-question evaluation subset** of [mJev-Compositional-VQA](https://hugg
 
 Both models were evaluated on the same 195 questions, held out from RL training. Accuracy is the number of correct answers divided by the total number of questions. The public dataset provides images, questions, candidate choices and reference answers.
 
-<details>
-<summary>📝 Bring your own input</summary>
+## 📝 Bring your own input
 
 Media paths resolve relative to the input JSON file. See [examples/single.json](examples/single.json) for one question. Multiple questions share the media and context:
 
@@ -169,8 +162,6 @@ Output is a JSON array, one result per question, containing `candidates`, `decis
 Actual results also include token IDs, tie metadata, input length and cache diagnostics. Probabilities are normalized only over the supplied candidates and **are not calibrated confidence scores**. Ties select the first candidate in input order.
 
 Candidate counts may vary between 2 and 128, subject to single-token label validation in the actual template; not every count is guaranteed to work. Empty or duplicate candidates and invalid control tokens are rejected. HF limits the complete input to 4000 tokens by default. Overlength inputs raise an error rather than being silently truncated.
-
-</details>
 
 ## 📚 Take the shortcut
 
