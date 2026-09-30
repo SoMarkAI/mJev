@@ -6,6 +6,7 @@
 <p align="center"><a href="README.zh-CN.md">简体中文</a> · <strong>English</strong></p>
 <p align="center"><strong>Jev, with senses.</strong></p>
 <p align="center">
+  <a href="https://huggingface.co/SoMarkAI/mJev">🤗 Hugging Face Model</a> ·
   <a href="docs/index.md">Project Overview</a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="docs/hf.md">Deployment</a> ·
@@ -65,9 +66,8 @@ source .venv/bin/activate
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
 
-export MODEL_DIR="$HOME/models/Qwen3-VL-4B-Instruct"
-hf download Qwen/Qwen3-VL-4B-Instruct \
-  --revision ebb281ec70b05090aa6165b016eac8ec08e71b17 --local-dir "$MODEL_DIR"
+export MODEL_DIR="$HOME/models/mJev"
+hf download SoMarkAI/mJev --local-dir "$MODEL_DIR"
 
 # Run the video and three questions shown above
 CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
@@ -85,7 +85,7 @@ Need audio or the 30B model? See [model selection and installation](docs/models.
 
 | Model | Inputs | Start here |
 | --- | --- | --- |
-| **Qwen3-VL-4B-Instruct** | Image + text, video + text | [4B installation, demo and evaluation](docs/models.md) |
+| **[mJev (Qwen3-VL-4B)](https://huggingface.co/SoMarkAI/mJev)** | Image + text, video + text | [Weights](https://huggingface.co/SoMarkAI/mJev) · [Installation, demo and evaluation](docs/models.md) |
 | **Qwen3-Omni-30B-A3B-Instruct** | Image, audio, video, video with audio + text | [Omni deployment guide](docs/hf.md) |
 
 The official config selects the model family automatically. Start with 4B for image/video; choose Omni for audio. Keep the same question and candidate format.

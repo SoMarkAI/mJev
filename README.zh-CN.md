@@ -6,6 +6,7 @@
 <p align="center"><strong>简体中文</strong> · <a href="README.md">English</a></p>
 <p align="center"><strong>Jev, with senses.</strong></p>
 <p align="center">
+  <a href="https://huggingface.co/SoMarkAI/mJev">🤗 Hugging Face 模型</a> ·
   <a href="docs/index.zh-CN.md">项目介绍</a> ·
   <a href="#quick-start">快速开始</a> ·
   <a href="docs/hf.zh-CN.md">部署教程</a> ·
@@ -65,9 +66,8 @@ source .venv/bin/activate
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
 
-export MODEL_DIR="$HOME/models/Qwen3-VL-4B-Instruct"
-hf download Qwen/Qwen3-VL-4B-Instruct \
-  --revision ebb281ec70b05090aa6165b016eac8ec08e71b17 --local-dir "$MODEL_DIR"
+export MODEL_DIR="$HOME/models/mJev"
+hf download SoMarkAI/mJev --local-dir "$MODEL_DIR"
 
 # 运行上面的同一段视频与三个问题
 CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
@@ -85,7 +85,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
 
 | 模型 | 输入 | 从这里开始 |
 | --- | --- | --- |
-| **Qwen3-VL-4B-Instruct** | 图片＋文本、视频＋文本 | [4B 安装、示例与评测](docs/models.zh-CN.md) |
+| **[mJev（Qwen3-VL-4B）](https://huggingface.co/SoMarkAI/mJev)** | 图片＋文本、视频＋文本 | [模型权重](https://huggingface.co/SoMarkAI/mJev) · [安装、示例与评测](docs/models.zh-CN.md) |
 | **Qwen3-Omni-30B-A3B-Instruct** | 图片、音频、视频、带音轨视频＋文本 | [Omni 部署教程](docs/hf.zh-CN.md) |
 
 根据官方配置自动识别模型。图片／视频从 4B 开始；需要音频时切换到 Omni。两者使用相同的问题与候选项格式。
