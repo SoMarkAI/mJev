@@ -6,6 +6,7 @@
 <p align="center"><a href="README.zh-CN.md">简体中文</a> · <strong>English</strong></p>
 <p align="center"><strong>Jev, with senses.</strong></p>
 <p align="center">
+  <a href="https://huggingface.co/SoMarkAI/mJev">🤗 Hugging Face Model</a> ·
   <a href="docs/index.md">Project Overview</a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="docs/hf.md">Deployment</a> ·
@@ -63,9 +64,8 @@ source .venv/bin/activate
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
 
-export MODEL_DIR="$HOME/models/Qwen3-VL-4B-Instruct"
-hf download Qwen/Qwen3-VL-4B-Instruct \
-  --revision ebb281ec70b05090aa6165b016eac8ec08e71b17 --local-dir "$MODEL_DIR"
+export MODEL_DIR="$HOME/models/mJev"
+hf download SoMarkAI/mJev --local-dir "$MODEL_DIR"
 
 # Run the video and three questions shown above
 CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
@@ -81,7 +81,7 @@ Choose your GPUs with `CUDA_VISIBLE_DEVICES`. More options: [HF deployment](docs
 
 | Model | Inputs | Start here |
 | --- | --- | --- |
-| **Qwen3-VL-4B-Instruct** | Image + text, video + text | [4B installation, demo and evaluation](docs/models.md) |
+| **[mJev (Qwen3-VL-4B)](https://huggingface.co/SoMarkAI/mJev)** | Image + text, video + text | [Weights](https://huggingface.co/SoMarkAI/mJev) · [Installation, demo and evaluation](docs/models.md) |
 | **Qwen3-Omni-30B-A3B-Instruct** | Image, audio, video, video with audio + text | [Omni deployment guide](docs/hf.md) |
 
 The official config selects the model family automatically. Start with 4B for image/video; choose Omni for audio. Keep the same question and candidate format.
@@ -105,6 +105,19 @@ Every question brings its own little crew of choices 🧩
 The model’s existing output layer does the scoring; you get a decision and candidate probabilities. Curious about the HF and vLLM plumbing? [Here are the technical details](docs/development.md).
 
 </details>
+
+## Training and reward
+
+The released mJev model is fine-tuned with [GRPO](https://arxiv.org/abs/2402.03300) for candidate selection. Before training, a frozen scorer assigns each example a target probability $p^{\ast}$: the probability of the correct option within its candidate set. Each sampled answer receives:
+
+```math
+r(\hat{y}) = \begin{cases}
++p^{\ast}, & \hat{y} = y^{\ast} \\
+-p^{\ast}, & \text{otherwise}
+\end{cases}
+```
+
+Here $y^{\ast}$ is the correct label; incorrect or invalid answers receive the negative reward. Rewards lie in $[-1, 1]$, with higher target probabilities producing stronger signals. Outputs are constrained to one candidate label, so no separate format reward is used. Reward scaling is disabled to preserve this weighting, and a separate KL penalty limits drift from the reference model. Training updates the language model while freezing the vision tower and aligner.
 
 ## ⚡ Same context. Keep the questions coming.
 
@@ -132,7 +145,14 @@ One 24 GB NVIDIA GPU, Qwen3-VL-4B, HF `stable` (BF16 weights, FP32 text computat
 
 ## 🎯 Put it to the test
 
-[mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA): images, questions, candidate choices and reference answers. The dataset is public; benchmark results will be linked when published.
+On a **195-question evaluation subset** of [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA), GRPO fine-tuning improves accuracy from **77.95% to 80.00% (+2.05 percentage points)**, with four more questions answered correctly.
+
+| Model | Correct / total | Accuracy |
+| --- | ---: | ---: |
+| Qwen3-VL-4B-Instruct (before GRPO) | 152 / 195 | 77.95% |
+| **[mJev](https://huggingface.co/SoMarkAI/mJev) (after GRPO)** | **156 / 195** | **80.00%** |
+
+Both models were evaluated on the same 195 questions, held out from RL training. Accuracy is the number of correct answers divided by the total number of questions. The public dataset provides images, questions, candidate choices and reference answers.
 
 <details>
 <summary>📝 Bring your own input</summary>

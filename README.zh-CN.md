@@ -6,6 +6,7 @@
 <p align="center"><strong>简体中文</strong> · <a href="README.md">English</a></p>
 <p align="center"><strong>Jev, with senses.</strong></p>
 <p align="center">
+  <a href="https://huggingface.co/SoMarkAI/mJev">🤗 Hugging Face 模型</a> ·
   <a href="docs/index.zh-CN.md">项目介绍</a> ·
   <a href="#quick-start">快速开始</a> ·
   <a href="docs/hf.zh-CN.md">部署教程</a> ·
@@ -63,9 +64,8 @@ source .venv/bin/activate
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
 
-export MODEL_DIR="$HOME/models/Qwen3-VL-4B-Instruct"
-hf download Qwen/Qwen3-VL-4B-Instruct \
-  --revision ebb281ec70b05090aa6165b016eac8ec08e71b17 --local-dir "$MODEL_DIR"
+export MODEL_DIR="$HOME/models/mJev"
+hf download SoMarkAI/mJev --local-dir "$MODEL_DIR"
 
 # 运行上面的同一段视频与三个问题
 CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
@@ -81,7 +81,7 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 
 | 模型 | 输入 | 从这里开始 |
 | --- | --- | --- |
-| **Qwen3-VL-4B-Instruct** | 图片＋文本、视频＋文本 | [4B 安装、示例与评测](docs/models.zh-CN.md) |
+| **[mJev（Qwen3-VL-4B）](https://huggingface.co/SoMarkAI/mJev)** | 图片＋文本、视频＋文本 | [模型权重](https://huggingface.co/SoMarkAI/mJev) · [安装、示例与评测](docs/models.zh-CN.md) |
 | **Qwen3-Omni-30B-A3B-Instruct** | 图片、音频、视频、带音轨视频＋文本 | [Omni 部署教程](docs/hf.zh-CN.md) |
 
 根据官方配置自动识别模型。图片／视频从 4B 开始；需要音频时切换到 Omni。两者使用相同的问题与候选项格式。
@@ -105,6 +105,19 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 评分交给模型原有的输出层，你拿到选择和候选概率。好奇 HF 与 vLLM 怎么实现？[技术细节在这里](docs/development.zh-CN.md)。
 
 </details>
+
+## 训练与奖励设计
+
+发布的 mJev 模型使用 [GRPO](https://arxiv.org/abs/2402.03300) 针对候选选择进行微调。训练前，冻结的评分器为每条样本计算目标概率 $p^{\ast}$，即正确选项在候选集合内的概率。每次采样的回答按下式获得奖励：
+
+```math
+r(\hat{y}) = \begin{cases}
++p^{\ast}, & \hat{y} = y^{\ast} \\
+-p^{\ast}, & \text{otherwise}
+\end{cases}
+```
+
+其中 $y^{\ast}$ 为正确标签，错误或无效回答获得负奖励。奖励范围为 $[-1, 1]$，目标概率越高，训练信号越强。输出被限制为单个候选标签，因此不另加格式奖励；关闭 reward scaling 以保留这一权重，并通过独立的 KL 惩罚限制策略偏离参考模型。训练更新语言模型，视觉塔和对齐模块保持冻结。
 
 ## ⚡ 上下文不换，问题接着来
 
@@ -132,7 +145,14 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 
 ## 🎯 给它出点题
 
-[mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA)：图片、问题、候选项与参考答案。数据集已公开，评测成绩待发布后补充。
+在 [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) 的 **195 题评测子集**上，经过 GRPO 微调，准确率从 **77.95% 提升至 80.00%（+2.05 个百分点）**，多答对 4 道题。
+
+| 模型 | 正确 / 总题数 | 准确率 |
+| --- | ---: | ---: |
+| Qwen3-VL-4B-Instruct（GRPO 训练前） | 152 / 195 | 77.95% |
+| **[mJev](https://huggingface.co/SoMarkAI/mJev)（GRPO 训练后）** | **156 / 195** | **80.00%** |
+
+两组模型使用相同的 195 道题进行评测，评测题独立于 RL 训练数据。准确率按正确题数除以总题数计算。公开数据集包含图片、问题、候选项与参考答案。
 
 <details>
 <summary>📝 换成自己的输入</summary>
