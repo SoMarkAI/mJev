@@ -32,20 +32,6 @@ mJev turns shared context into explicit choices. Supply the context, ask multipl
 - **Defined outputs:** keep a candidate set per question so every decision maps to a supplied choice.
 - **Runnable workflow:** combine input processing, candidate scoring and cache-consistency checks on HF/vLLM. Start with standalone HF.
 
-## Reinforcement learning for better decisions
-
-mJev uses [GRPO](https://arxiv.org/abs/2402.03300) with a target-probability-weighted correctness reward. For each training example, a frozen pre-RL candidate scorer records $p^* = p(y^* \mid x, q, C)$: the probability assigned to the ground-truth option given the media, question and candidate set. A label-only rollout receives
-
-$$
-r(\hat{y}) =
-\begin{cases}
-+p^*, & \hat{y} = y^* \\
--p^*, & \hat{y} \ne y^*.
-\end{cases}
-$$
-
-The reward is verifiable and bounded in $[-1, 1]$: correct labels receive a positive signal, while incorrect or invalid labels receive an equally sized negative signal. Examples with a higher frozen target probability therefore carry more weight without allowing any one example to produce an unbounded reward. Rollouts are constrained to one candidate label, so no separate format reward is needed. Reward scaling is disabled to preserve the magnitude of $p^*$, while a small reference-model KL penalty is applied separately to limit policy drift. The vision tower and aligner remain frozen; GRPO updates the language model.
-
 ## From motion to sequence: see an actual run
 
 [![Motion preview: a red ball moves right, then a blue square rises](examples/motion-demo/preview.gif)](examples/motion-demo/motion.mp4)
@@ -117,6 +103,19 @@ Candidate-label logits → softmax over supplied candidates → argmax decision
 Each question has its own candidate set. `causal` uses ordinary causal visibility. In `isolated` mode, each candidate can attend to the shared context, question and its own preceding tokens; the final `Answer:` position can attend to all candidates. Use `causal` by default, or select `isolated` for controlled attention experiments.
 
 HF calls `forward` directly; vLLM pooling calls `AsyncLLM.encode`. Neither main path calls `generate()`.
+
+## Training and reward
+
+The released mJev model is fine-tuned with [GRPO](https://arxiv.org/abs/2402.03300) for candidate selection. Before training, a frozen scorer assigns each example a target probability $p^{\ast}$: the probability of the correct option within its candidate set. Each sampled answer receives:
+
+```math
+r(\hat{y}) = \begin{cases}
++p^{\ast}, & \hat{y} = y^{\ast} \\
+-p^{\ast}, & \text{otherwise}
+\end{cases}
+```
+
+Here $y^{\ast}$ is the correct label; incorrect or invalid answers receive the negative reward. Rewards lie in $[-1, 1]$, with higher target probabilities producing stronger signals. Outputs are constrained to one candidate label, so no separate format reward is used. Reward scaling is disabled to preserve this weighting, and a separate KL penalty limits drift from the reference model. Training updates the language model while freezing the vision tower and aligner.
 
 ## Evidence behind the features
 
