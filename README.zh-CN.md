@@ -1,19 +1,11 @@
 <p align="center">
-  <img src="assets/mjev-banner.svg" alt="mJev — Jev, with senses." width="100%">
+  <img src="assets/mjev-cover-somark.svg" alt="mJev — Jev, with senses." width="100%">
 </p>
 
 <h1 align="center">mJev</h1>
 <p align="center"><strong>简体中文</strong> · <a href="README.md">English</a></p>
 <p align="center"><strong>Jev, with senses.</strong></p>
-<p align="center">
-  <a href="https://huggingface.co/SoMarkAI/mJev">🤗 Hugging Face 模型</a> ·
-  <a href="docs/index.zh-CN.md">项目介绍</a> ·
-  <a href="#quick-start">快速开始</a> ·
-  <a href="docs/hf.zh-CN.md">部署教程</a> ·
-  <a href="docs/development.zh-CN.md">开发者文档</a> ·
-  <a href="docs/validation_current.zh-CN.md">最新验证</a> ·
-  <a href="CONTRIBUTING.zh-CN.md">参与贡献</a>
-</p>
+<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 Hugging Face 模型</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
   <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
@@ -32,15 +24,17 @@ mJev 将共享上下文转化为明确的选择：输入上下文，提出多个
 - **明确输出**：每道题拥有自己的候选集合，让每个决策对应一个预先定义的选项。
 - **可运行流程**：在 HF／vLLM 上整合输入处理、候选评分和缓存一致性验证，默认从独立 HF 路径开始。
 
-## 从动作到顺序：看一次实际输出
+## 🎬 六秒小剧场
 
 [![动态视频预览：红球先向右移动，随后蓝色方块上升](examples/motion-demo/preview.gif)](examples/motion-demo/motion.mp4)
 
 **[打开 6 秒视频](examples/motion-demo/motion.mp4)** · [三题输入](examples/motion-demo/input.json) · [完整实测结果](examples/motion-demo/recorded-output.json)
 
-红球先向右移动，蓝色方块随后上升。同一段视频，三个问题：发生了什么、谁在移动、哪个动作在先？下面是 **Qwen3-VL-4B 的实际输出**。
+红球先走，蓝方块接棒。六秒小剧场，看看模型有没有跟上 👀
 
-| 问题（保留原始英文输入） | 候选项概率 | 最终选择 |
+下表为 **Qwen3-VL-4B + HF 的实际输出**，使用项目自制动画。
+
+| 问题 | 候选项概率 | 最终选择 |
 | --- | --- | --- |
 | How does the red ball move? | From left to right: 71.34%<br>From right to left: 28.37%<br>Upward: 0.27%<br>It stays still: 0.02% | **From left to right** |
 | Which object moves upward? | The red ball: 2.33%<br>The blue square: 97.29%<br>Both objects: 0.38% | **The blue square** |
@@ -48,26 +42,22 @@ mJev 将共享上下文转化为明确的选择：输入上下文，提出多个
 
 **候选内相对概率，不是校准置信度。** 数字经过四舍五入。
 
-项目自制动画，HF 单卡实测；配置与原始结果见上方记录。静态矩形仍作为[最小示例](examples/video-demo/input.json)保留（[视频](examples/video-demo/rectangle.mp4) · [结果](examples/video-demo/recorded-output.json)）。
-
 <a id="quick-start"></a>
 
-## 单卡运行
+## 🚀 跑起来，轮到你了
 
-**已在单张 24 GB NVIDIA GPU 上验证，可运行下方示例。** 准备 Linux、Python 3.11+、兼容的 NVIDIA 驱动和系统 FFmpeg。
-
-将仓库 Code/Clone 按钮提供的地址设为 `REPOSITORY_URL`，随后运行：
+**已在单张 24 GB NVIDIA GPU 上验证。** 需要 Linux、Python 3.11+、兼容的 NVIDIA 驱动和系统 FFmpeg。
 
 ```bash
-git clone "$REPOSITORY_URL" mJev
+git clone https://github.com/SoMarkAI/mJev.git
 cd mJev
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
 
-export MODEL_DIR="$HOME/models/mJev"
-hf download SoMarkAI/mJev --local-dir "$MODEL_DIR"
+export MODEL_DIR="$HOME/models/mJev-Qwen3-VL-4B-RLCD"
+hf download SoMarkAI/mJev-Qwen3-VL-4B-RLCD --local-dir "$MODEL_DIR"
 
 # 运行上面的同一段视频与三个问题
 CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
@@ -75,22 +65,20 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
   --prefix-cache --question-batch-size 3 --output outputs/motion-demo.json
 ```
 
-示例使用 HF，无需 Docker、vLLM 或编译自定义 CUDA 内核。`demo_hf.py` 是 HF 入口。根目录 `Dockerfile` 是可选的 vLLM demo 镜像；[实验音视频镜像](experiments/av/README.zh-CN.md)用于评测与实验 runtime。
+🎉 结果在 `outputs/motion-demo.json`。默认走 **HF + causal + stable**，无需安装 vLLM 或编译自定义 CUDA 内核。
 
-**GPU 数量由你选择。** HF 默认自动分配到可见 GPU，可用 `CUDA_VISIBLE_DEVICES=0` 指定单卡，或 `CUDA_VISIBLE_DEVICES=0,1` 指定两卡；实际容量取决于模型、输入长度和并发量。vLLM 提供 `--tensor-parallel-size`，4B 默认 1，Omni 默认 4。
+GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配置见 [HF 部署](docs/hf.zh-CN.md) · [vLLM 部署](docs/vllm.zh-CN.md)。
 
-需要音频或 30B？查看 [模型选择与安装](docs/models.zh-CN.md) 和 [Omni HF 部署](docs/hf.zh-CN.md)。已激活的虚拟环境使用 `python`，Docker 内使用 `python3`。
-
-## 选择你的模型
+## 🧩 选个搭档
 
 | 模型 | 输入 | 从这里开始 |
 | --- | --- | --- |
-| **[mJev（Qwen3-VL-4B）](https://huggingface.co/SoMarkAI/mJev)** | 图片＋文本、视频＋文本 | [模型权重](https://huggingface.co/SoMarkAI/mJev) · [安装、示例与评测](docs/models.zh-CN.md) |
+| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | 图片＋文本、视频＋文本 | [模型权重](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [安装、示例与评测](docs/models.zh-CN.md) |
 | **Qwen3-Omni-30B-A3B-Instruct** | 图片、音频、视频、带音轨视频＋文本 | [Omni 部署教程](docs/hf.zh-CN.md) |
 
 根据官方配置自动识别模型。图片／视频从 4B 开始；需要音频时切换到 Omni。两者使用相同的问题与候选项格式。
 
-## 推理过程
+## 🔎 好奇里面怎么转？
 
 ```text
 媒体 + 公共上下文 → 官方 processor / chat template → 原生模型前缀 prefill
@@ -100,13 +88,16 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
 候选标签 logits → 候选集合内 softmax → argmax 决策
 ```
 
-每个问题拥有自己的候选集合。`causal` 使用普通因果可见性；`isolated` 让每个候选只能看到公共上下文、问题和自身的历史 token，最终 `Answer:` 位置可以看到全部候选。默认使用 `causal`；`isolated` 作为可控的注意力实验选项。
+每道题，都带着自己的选项小队 🧩
 
-HF 使用直接 `forward`；vLLM pooling 使用 `AsyncLLM.encode`，这两条主路径均不调用 `generate()`。
+- **默认 `causal`**：选项按顺序入场，后面的可以读到前面的内容。
+- **想做对照实验？试试 `isolated`**：给每个选项一间“小隔间”，共享上下文和问题，互不偷看；最后的决策仍会综合所有选项的信息。
+
+评分交给模型原有的输出层，你拿到选择和候选概率。好奇 HF 与 vLLM 怎么实现？[技术细节在这里](docs/development.zh-CN.md)。
 
 ## 训练与奖励设计
 
-发布的 mJev 模型使用 [GRPO](https://arxiv.org/abs/2402.03300) 针对候选选择进行微调。训练前，冻结的评分器为每条样本计算目标概率 $p^{\ast}$，即正确选项在候选集合内的概率。每次采样的回答按下式获得奖励：
+发布的 **mJev-Qwen3-VL-4B-RLCD** 模型使用 [GRPO](https://arxiv.org/abs/2402.03300) 针对候选选择进行微调。训练前，冻结的评分器为每条样本计算目标概率 $p^{\ast}$，即正确选项在候选集合内的概率。每次采样的回答按下式获得奖励：
 
 ```math
 r(\hat{y}) = \begin{cases}
@@ -117,17 +108,15 @@ r(\hat{y}) = \begin{cases}
 
 其中 $y^{\ast}$ 为正确标签，错误或无效回答获得负奖励。奖励范围为 $[-1, 1]$，目标概率越高，训练信号越强。输出被限制为单个候选标签，因此不另加格式奖励；关闭 reward scaling 以保留这一权重，并通过独立的 KL 惩罚限制策略偏离参考模型。训练更新语言模型，视觉塔和对齐模块保持冻结。
 
-## 每个卖点，都有对应证据
+## ⚡ 上下文不换，问题接着来
 
-| 能力 | 已验证内容 |
-| --- | --- |
-| 单卡入门 | 4B 的 HF／vLLM 图片和视频推理均在单张 24 GB NVIDIA GPU 上跑通；HF 干净环境安装与示例通过。 |
-| 缓存与批处理一致性 | 固定配置的小规模测试中，每后端 32 次重复比较，最大 logits 差值为 0；这是数值一致性证据。 |
-| 同一视频的多题耗时 | 下方受控实验比较不同输入长度、问题数量下的普通 batch 与前缀复用。 |
+同一视频、16 个问题：已有受控实验中，前缀复用将整组耗时从 **32.62 秒降到 6.29 秒，提速 5.19×**。
 
-**复用同一份上下文，让后续问题回答得更快。**
+[![HF cache latency comparison: ordinary batching versus prefix KV reuse](assets/cache-latency.svg)](docs/cache_scaling.zh-CN.md)
 
-在本次 16 题视频受控实验中，前缀复用将整组耗时从 **32.62 秒降至 6.29 秒**，已包含首次构建前缀的时间。收益取决于这些问题共享多少上下文：
+缓存也挑场合：长上下文、多问题更有用；单题可能更慢。长前缀 16 题的峰值已分配显存由 **15.80 增至 20.60 GiB**。这是单个自制视频的受控结果，不是所有任务的加速保证。
+
+### 📏 完整数字与测量条件
 
 | 共享前缀 | 问题数 | 普通 batch | 前缀 KV 复用 | 加速比 |
 | --- | ---: | ---: | ---: | ---: |
@@ -138,9 +127,20 @@ r(\hat{y}) = \begin{cases}
 
 条件：单张 24 GB NVIDIA GPU、Qwen3-VL-4B、HF `stable`（BF16 权重、FP32 文本计算）、`causal`、完整投影；预热两次后的五次均值，每次计时前清空分配器。包含媒体处理和首次前缀 prefill，不计模型加载。加速比为普通 batch 耗时除以缓存耗时，小于 1 表示更慢。
 
-长前缀 16 题的峰值已分配显存从 **15.80 增至 20.60 GiB**，包含模型权重。这是一个项目自有合成视频上的受控结果，不代表所有任务均能获得相同加速。[全部八组配置、原始结果与复现方法](docs/cache_scaling.zh-CN.md) · [历史三题示例](docs/cache_scaling.zh-CN.md#历史三题示例)
+[全部八组配置与原始记录](docs/cache_scaling.zh-CN.md)
 
-## 输入与输出
+## 🎯 给它出点题
+
+在 [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) 的 **195 题评测子集**上，经过 GRPO 微调，准确率从 **77.95% 提升至 80.00%（+2.05 个百分点）**，多答对 4 道题。
+
+| 模型 | 正确 / 总题数 | 准确率 |
+| --- | ---: | ---: |
+| Qwen3-VL-4B-Instruct（GRPO 训练前） | 152 / 195 | 77.95% |
+| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)（GRPO 训练后）** | **156 / 195** | **80.00%** |
+
+两组模型使用相同的 195 道题进行评测，评测题独立于 RL 训练数据。准确率按正确题数除以总题数计算。公开数据集包含图片、问题、候选项与参考答案。
+
+## 📝 换成自己的输入
 
 媒体路径相对于输入 JSON 文件解析。单问题示例见 [examples/single.json](examples/single.json)；多个问题共享媒体与上下文：
 
@@ -163,48 +163,22 @@ r(\hat{y}) = \begin{cases}
 
 候选数可变，接口边界为 2–128；所有标签必须在实际模板下通过单 token 校验，因此不保证每个数量都可用。空候选、重复候选和不合法控制 token 会被拒绝。HF 默认限制完整输入为 4000 tokens，超限报错，不静默截断。
 
-## 部署与开发文档
+## 📚 按需翻阅，不用从头啃
 
-| 目标 | 文档入口 |
+| 你想做什么 | 去这里 |
 | --- | --- |
-| 不依赖 vLLM，运行 HF demo / Python API | [HF 安装、输入、缓存与部署](docs/hf.zh-CN.md) |
-| Docker、可配置 GPU 并行与 vLLM pooling | [vLLM 部署与验证](docs/vllm.zh-CN.md) |
-| 理解模块职责、扩展输入与评分逻辑 | [开发者指南](docs/development.zh-CN.md) |
-| 数值稳定性、精度模式与缓存一致性 | [稳定性与验证范围](docs/stability.zh-CN.md) |
-| 数据加载与 Accuracy / NLL / Brier / ECE | [Benchmark 指南](docs/benchmark.zh-CN.md) |
-| HTTP 与 Tree-KV 实验实现 | [实验 runtime](docs/integrated.zh-CN.md) |
-| 发布检查与已知限制 | [最新验证记录](docs/validation_current.zh-CN.md) |
+| 部署、选模型 | [HF](docs/hf.zh-CN.md) · [vLLM](docs/vllm.zh-CN.md) · [模型选择](docs/models.zh-CN.md) |
+| 看代码、跑测试 | [开发者指南](docs/development.zh-CN.md) · [pytest](docs/testing.zh-CN.md) |
+| 准备数据、复现评测 | [Benchmark](docs/benchmark.zh-CN.md) · [公开小型评测](docs/reproduce.zh-CN.md) |
+| 查证据、看边界 | [最新验证](docs/validation_current.zh-CN.md) · [安装检查](docs/installation_validation.zh-CN.md) · [数值配置](docs/stability.zh-CN.md) |
+| 探索实验功能 | [HTTP / Tree-KV](docs/integrated.zh-CN.md) · [音视频 Docker 镜像](experiments/av/README.zh-CN.md) |
 
-## 运行说明
+## 🤝 来，一起添块积木
 
-mJev 当前以研究工具发布，默认采用 HF、`causal` 注意力和 `stable` 数值配置。`stable` 会增加计算与显存开销；缓存收益随输入长度和问题数量变化。HF 问题分支复制前缀 KV；vLLM 使用固定版本与自定义 hooks。
+发现 bug、想到新场景、想改两行文档？都欢迎！[提 Issue](https://github.com/SoMarkAI/mJev/issues) · [发 PR](https://github.com/SoMarkAI/mJev/pulls) · [贡献指南](CONTRIBUTING.zh-CN.md)。报告问题时，记得带上环境、配置和最小复现步骤。
 
-完整的硬件配置、数值差异、实验选项及历史结果集中在 [最新验证](docs/validation_current.zh-CN.md) 和 [数值配置](docs/stability.zh-CN.md)，方便按需深入。
+感谢 [Immortal-Zhang](https://github.com/Immortal-Zhang)、[Kyousuke661](https://github.com/Kyousuke661)、[BinyangQiu](https://github.com/BinyangQiu)，也期待你的名字出现在这里 ✨
 
-## 社区与贡献
+## 📜 许可证
 
-欢迎提交可复现的 bug、文档修正、机制测试和性能对照。开始前请阅读 [贡献指南](CONTRIBUTING.zh-CN.md)，开发与验证方法见 [开发者文档](docs/development.zh-CN.md)。
-
-- Issues：从本仓库导航提交问题与功能讨论
-- Pull Requests：从本仓库导航提交代码与文档
-
-## 许可证与第三方资产
-
-mJev 代码使用 [Apache License 2.0](LICENSE)，上游署名见 [NOTICE](NOTICE)。官方 [Qwen3-VL](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct) 和 [Qwen3-Omni](https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct) 权重单独下载并遵循各自许可证。
-
-第三方数据的标注、音频和视频保留原始权利与限制，**不会被本项目统一重授权为 Apache-2.0**。详情见 [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.zh-CN.md)。仓库不分发模型权重和 benchmark 媒体。
-
-## 复现与最新验证
-
-- [公开小型评测：数据准备 → 推理 → 报告](docs/reproduce.zh-CN.md)
-- [统一最新验证入口与后端边界](docs/validation_current.zh-CN.md)
-- [pytest 测试范围与入口](docs/testing.zh-CN.md)
-- [隔离环境安装实测与限制](docs/installation_validation.zh-CN.md)
-
-## 贡献者
-
-感谢各位伙伴对 mJev 的贡献，以下排名不分先后：
-
-- [Immortal-Zhang](https://github.com/Immortal-Zhang)
-- [Kyousuke661](https://github.com/Kyousuke661)
-- [BinyangQiu](https://github.com/BinyangQiu)
+代码采用 [Apache-2.0](LICENSE)，上游署名见 [NOTICE](NOTICE)。官方模型权重单独下载，遵循各自许可证。第三方数据保留原始许可，**不随代码重授权**；详见 [第三方许可](THIRD_PARTY_LICENSES.zh-CN.md)。仓库不分发模型权重和第三方评测媒体。

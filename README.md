@@ -1,19 +1,11 @@
 <p align="center">
-  <img src="assets/mjev-banner.svg" alt="mJev — Jev, with senses." width="100%">
+  <img src="assets/mjev-cover-somark.svg" alt="mJev — Jev, with senses." width="100%">
 </p>
 
 <h1 align="center">mJev</h1>
 <p align="center"><a href="README.zh-CN.md">简体中文</a> · <strong>English</strong></p>
 <p align="center"><strong>Jev, with senses.</strong></p>
-<p align="center">
-  <a href="https://huggingface.co/SoMarkAI/mJev">🤗 Hugging Face Model</a> ·
-  <a href="docs/index.md">Project Overview</a> ·
-  <a href="#quick-start">Quick Start</a> ·
-  <a href="docs/hf.md">Deployment</a> ·
-  <a href="docs/development.md">Developer Guide</a> ·
-  <a href="docs/validation_current.md">Validation Status</a> ·
-  <a href="CONTRIBUTING.md">Contributing</a>
-</p>
+<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 Hugging Face Model</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
   <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
@@ -32,13 +24,15 @@ mJev turns shared context into explicit choices. Supply the context, ask multipl
 - **Defined outputs:** keep a candidate set per question so every decision maps to a supplied choice.
 - **Runnable workflow:** combine input processing, candidate scoring and cache-consistency checks on HF/vLLM. Start with standalone HF.
 
-## From motion to sequence: see an actual run
+## 🎬 A six-second show
 
 [![Motion preview: a red ball moves right, then a blue square rises](examples/motion-demo/preview.gif)](examples/motion-demo/motion.mp4)
 
 **[Open the 6-second video](examples/motion-demo/motion.mp4)** · [Three-question input](examples/motion-demo/input.json) · [Full recorded output](examples/motion-demo/recorded-output.json)
 
-A red ball moves right. A blue square rises next. One video, three questions: what happened, which object moved, and what came first? These are **actual Qwen3-VL-4B outputs**.
+Red ball goes first. Blue square takes the stage. Six seconds, three questions — did the model keep up? 👀
+
+These are **actual Qwen3-VL-4B + HF outputs** on a project-created animation.
 
 | Question | Candidate probabilities | Decision |
 | --- | --- | --- |
@@ -48,26 +42,22 @@ A red ball moves right. A blue square rises next. One video, three questions: wh
 
 **Relative probabilities within the candidate set, not calibrated confidence.** Values are rounded.
 
-Project-owned animation, run with HF on one GPU; settings and raw results are in the linked record. The static rectangle remains available as a [minimal example](examples/video-demo/input.json) ([video](examples/video-demo/rectangle.mp4) · [results](examples/video-demo/recorded-output.json)).
-
 <a id="quick-start"></a>
 
-## Run on one GPU
+## 🚀 Your turn
 
-**Validated on one 24 GB NVIDIA GPU. Run the example below.** Use Linux, Python 3.11+, compatible NVIDIA drivers and system FFmpeg.
-
-Set `REPOSITORY_URL` to the URL from this repository’s Code/Clone button, then run:
+**Validated on one 24 GB NVIDIA GPU.** Requires Linux, Python 3.11+, compatible NVIDIA drivers and system FFmpeg.
 
 ```bash
-git clone "$REPOSITORY_URL" mJev
+git clone https://github.com/SoMarkAI/mJev.git
 cd mJev
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
 
-export MODEL_DIR="$HOME/models/mJev"
-hf download SoMarkAI/mJev --local-dir "$MODEL_DIR"
+export MODEL_DIR="$HOME/models/mJev-Qwen3-VL-4B-RLCD"
+hf download SoMarkAI/mJev-Qwen3-VL-4B-RLCD --local-dir "$MODEL_DIR"
 
 # Run the video and three questions shown above
 CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
@@ -75,22 +65,20 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
   --prefix-cache --question-batch-size 3 --output outputs/motion-demo.json
 ```
 
-This example uses HF, without Docker, vLLM installation or custom CUDA compilation. `demo_hf.py` is the HF entry point. The root `Dockerfile` is an optional vLLM demo image; the [experimental AV image](experiments/av/README.md) is for evaluation and the experimental runtime.
+🎉 Find your results in `outputs/motion-demo.json`. The default is **HF + causal + stable**; no vLLM installation or custom CUDA compilation needed.
 
-**Choose your GPUs.** HF automatically places the model on visible devices: use `CUDA_VISIBLE_DEVICES=0` for one GPU or `CUDA_VISIBLE_DEVICES=0,1` for two. Capacity depends on the model, input length and concurrency. vLLM exposes `--tensor-parallel-size`, defaulting to 1 for 4B and 4 for Omni.
+Choose your GPUs with `CUDA_VISIBLE_DEVICES`. More options: [HF deployment](docs/hf.md) · [vLLM deployment](docs/vllm.md).
 
-Need audio or the 30B model? See [model selection and installation](docs/models.md) and [Omni HF deployment](docs/hf.md). Use `python` in the activated virtual environment and `python3` inside Docker.
-
-## Choose your model
+## 🧩 Pick your teammate
 
 | Model | Inputs | Start here |
 | --- | --- | --- |
-| **[mJev (Qwen3-VL-4B)](https://huggingface.co/SoMarkAI/mJev)** | Image + text, video + text | [Weights](https://huggingface.co/SoMarkAI/mJev) · [Installation, demo and evaluation](docs/models.md) |
+| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | Image + text, video + text | [Weights](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [Installation, demo and evaluation](docs/models.md) |
 | **Qwen3-Omni-30B-A3B-Instruct** | Image, audio, video, video with audio + text | [Omni deployment guide](docs/hf.md) |
 
 The official config selects the model family automatically. Start with 4B for image/video; choose Omni for audio. Keep the same question and candidate format.
 
-## How it works
+## 🔎 Curious about the moving parts?
 
 ```text
 Media + shared context → official processor / chat template → native model prefix prefill
@@ -100,13 +88,16 @@ Media + shared context → official processor / chat template → native model p
 Candidate-label logits → softmax over supplied candidates → argmax decision
 ```
 
-Each question has its own candidate set. `causal` uses ordinary causal visibility. In `isolated` mode, each candidate can attend to the shared context, question and its own preceding tokens; the final `Answer:` position can attend to all candidates. Use `causal` by default, or select `isolated` for controlled attention experiments.
+Every question brings its own little crew of choices 🧩
 
-HF calls `forward` directly; vLLM pooling calls `AsyncLLM.encode`. Neither main path calls `generate()`.
+- **Default: `causal`.** Choices arrive in order; later choices can read what came before.
+- **Running a comparison? Try `isolated`.** Each choice gets its own booth: shared context and question, no peeking at the neighbors. The final decision still considers information from all the choices.
+
+The model’s existing output layer does the scoring; you get a decision and candidate probabilities. Curious about the HF and vLLM plumbing? [Here are the technical details](docs/development.md).
 
 ## Training and reward
 
-The released mJev model is fine-tuned with [GRPO](https://arxiv.org/abs/2402.03300) for candidate selection. Before training, a frozen scorer assigns each example a target probability $p^{\ast}$: the probability of the correct option within its candidate set. Each sampled answer receives:
+The released **mJev-Qwen3-VL-4B-RLCD** model is fine-tuned with [GRPO](https://arxiv.org/abs/2402.03300) for candidate selection. Before training, a frozen scorer assigns each example a target probability $p^{\ast}$: the probability of the correct option within its candidate set. Each sampled answer receives:
 
 ```math
 r(\hat{y}) = \begin{cases}
@@ -117,17 +108,15 @@ r(\hat{y}) = \begin{cases}
 
 Here $y^{\ast}$ is the correct label; incorrect or invalid answers receive the negative reward. Rewards lie in $[-1, 1]$, with higher target probabilities producing stronger signals. Outputs are constrained to one candidate label, so no separate format reward is used. Reward scaling is disabled to preserve this weighting, and a separate KL penalty limits drift from the reference model. Training updates the language model while freezing the vision tower and aligner.
 
-## Evidence behind the features
+## ⚡ Same context. Keep the questions coming.
 
-| Feature | What was verified |
-| --- | --- |
-| Single-GPU entry point | 4B HF/vLLM image and video inference on one 24 GB NVIDIA GPU; clean HF installation and documented demo passed. |
-| Cache/batch consistency | In the fixed small-scale tests, 32 repeated comparisons per backend had a maximum logit difference of zero. This measures numerical consistency. |
-| Multi-question runtime | The controlled study below compares ordinary batching and prefix reuse across input lengths and question counts. |
+Same video, 16 questions: in the recorded controlled test, prefix reuse cut total latency from **32.62 s to 6.29 s — a 5.19× speedup**.
 
-**Reuse the context. Spend less time answering the next question.**
+[![HF cache latency comparison: ordinary batching versus prefix KV reuse](assets/cache-latency.svg)](docs/cache_scaling.md)
 
-In our controlled 16-question video test, prefix reuse reduced total latency from **32.62 s to 6.29 s**, including prefix construction. The benefit depends on how much context the questions share:
+Caching has a sweet spot: longer shared context and more questions. One question can be slower. For the long-prefix, 16-question case, peak allocated memory rose from **15.80 to 20.60 GiB**. This is a controlled result on one project-created video, not a universal speed guarantee.
+
+### 📏 The numbers and measurement conditions
 
 | Shared prefix | Questions | Ordinary batch | Prefix KV reuse | Speedup |
 | --- | ---: | ---: | ---: | ---: |
@@ -138,9 +127,20 @@ In our controlled 16-question video test, prefix reuse reduced total latency fro
 
 One 24 GB NVIDIA GPU, Qwen3-VL-4B, HF `stable` (BF16 weights, FP32 text computation), `causal`, full projection; five-run means after two warmups, with the allocator cleared before each call. Timings include media processing and fresh prefix prefill, excluding model loading. Speedup is ordinary-batch time divided by cached time; below 1 means slower.
 
-For 16 questions with the long prefix, peak allocated GPU memory increased from **15.80 to 20.60 GiB**, including model weights. These are controlled results on one project-generated video, not a general speed guarantee. [All eight configurations, raw results and reproduction](docs/cache_scaling.md) · [Earlier three-question fixture](docs/cache_scaling.md#earlier-three-question-fixture)
+[All eight configurations and raw records](docs/cache_scaling.md)
 
-## Input and output
+## 🎯 Put it to the test
+
+On a **195-question evaluation subset** of [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA), GRPO fine-tuning improves accuracy from **77.95% to 80.00% (+2.05 percentage points)**, with four more questions answered correctly.
+
+| Model | Correct / total | Accuracy |
+| --- | ---: | ---: |
+| Qwen3-VL-4B-Instruct (before GRPO) | 152 / 195 | 77.95% |
+| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) (after GRPO)** | **156 / 195** | **80.00%** |
+
+Both models were evaluated on the same 195 questions, held out from RL training. Accuracy is the number of correct answers divided by the total number of questions. The public dataset provides images, questions, candidate choices and reference answers.
+
+## 📝 Bring your own input
 
 Media paths resolve relative to the input JSON file. See [examples/single.json](examples/single.json) for one question. Multiple questions share the media and context:
 
@@ -163,50 +163,22 @@ Actual results also include token IDs, tie metadata, input length and cache diag
 
 Candidate counts may vary between 2 and 128, subject to single-token label validation in the actual template; not every count is guaranteed to work. Empty or duplicate candidates and invalid control tokens are rejected. HF limits the complete input to 4000 tokens by default. Overlength inputs raise an error rather than being silently truncated.
 
-## Deployment and developer documentation
+## 📚 Take the shortcut
 
-| Goal | Documentation |
+| Looking to… | Start here |
 | --- | --- |
-| Run the HF demo / Python API without vLLM | [HF installation, inputs and caching](docs/hf.md) |
-| Docker, configurable GPU parallelism and vLLM pooling | [vLLM deployment and validation](docs/vllm.md) |
-| Understand implementation responsibilities and extend scoring | [Developer guide](docs/development.md) |
-| Numerical profiles and cache consistency | [Stability and validation scope](docs/stability.md) |
-| Load datasets and evaluate Accuracy / NLL / Brier / ECE | [Benchmark guide](docs/benchmark.md) |
-| Explore HTTP and Tree-KV implementations | [Experimental runtime](docs/integrated.md) |
-| Review release checks and limitations | [Current validation](docs/validation_current.md) |
+| Deploy or choose a model | [HF](docs/hf.md) · [vLLM](docs/vllm.md) · [Models](docs/models.md) |
+| Explore the code or run tests | [Developer guide](docs/development.md) · [pytest](docs/testing.md) |
+| Prepare data or reproduce an evaluation | [Benchmarks](docs/benchmark.md) · [Public mini](docs/reproduce.md) |
+| Check evidence and boundaries | [Current validation](docs/validation_current.md) · [Installation checks](docs/installation_validation.md) · [Numerics](docs/stability.md) |
+| Explore experimental features | [HTTP / Tree-KV](docs/integrated.md) · [AV Docker image](experiments/av/README.md) |
 
-## Runtime notes
+## 🤝 Pull up a chair
 
-mJev is a research toolkit. The default path uses HF, `causal` attention and `stable` numerics. The stable profile adds compute and memory overhead; cache benefits depend on input length and question count. HF copies prefix KV into question branches; vLLM uses pinned versions and custom hooks.
+Found a bug? Have a use case? Even a two-line docs fix is welcome. [Open an issue](https://github.com/SoMarkAI/mJev/issues) · [Send a PR](https://github.com/SoMarkAI/mJev/pulls) · [Contribution guide](CONTRIBUTING.md). For bug reports, bring your environment, settings and a minimal reproduction.
 
-For hardware configurations, numerical differences, experimental options and historical results, see [current validation](docs/validation_current.md) and [numerical profiles](docs/stability.md).
+Thanks to [Immortal-Zhang](https://github.com/Immortal-Zhang), [Kyousuke661](https://github.com/Kyousuke661) and [BinyangQiu](https://github.com/BinyangQiu). There's room for your name here, too ✨
 
-## Community and contributions
+## 📜 License
 
-Contributions are welcome: reproducible bug reports, documentation fixes, mechanism tests and controlled performance comparisons. Read the [contribution guide](CONTRIBUTING.md) and [developer documentation](docs/development.md).
-
-When reporting a problem, include the commit, environment, backend, numerical profile, minimal input and reproduction command. For code contributions, use a focused branch, run relevant checks and describe validation and limitations in your merge request. Keep credentials, private media and model weights out of submissions.
-
-- Issues: open the repository’s Issues tab for bug reports and feature discussions
-- Pull Requests: open the repository’s Pull Requests tab to contribute
-
-## License and third-party assets
-
-mJev code is licensed under [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for upstream attribution. Download official [Qwen3-VL](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct) or [Qwen3-Omni](https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct) weights separately under their respective licenses.
-
-Third-party annotations, audio and video retain their original rights and restrictions; **this project does not relicense them under Apache-2.0**. See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md). Model weights and benchmark media are not distributed in this repository.
-
-## Reproduction and current validation
-
-- [Public mini: prepare → infer → report](docs/reproduce.md)
-- [Current validation and backend boundaries](docs/validation_current.md)
-- [pytest test suites](docs/testing.md)
-- [Isolated installation checks and limitations](docs/installation_validation.md)
-
-## Contributors
-
-Thanks to everyone contributing to mJev. Listed in no particular order:
-
-- [Immortal-Zhang](https://github.com/Immortal-Zhang)
-- [Kyousuke661](https://github.com/Kyousuke661)
-- [BinyangQiu](https://github.com/BinyangQiu)
+Code: [Apache-2.0](LICENSE); upstream attribution: [NOTICE](NOTICE). Download official model weights separately under their own licenses. Third-party data keeps its original terms and **is not relicensed with the code**; see [third-party licenses](THIRD_PARTY_LICENSES.md). Model weights and third-party evaluation media are not distributed in this repository.
