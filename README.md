@@ -32,6 +32,20 @@ mJev turns shared context into explicit choices. Supply the context, ask multipl
 - **Defined outputs:** keep a candidate set per question so every decision maps to a supplied choice.
 - **Runnable workflow:** combine input processing, candidate scoring and cache-consistency checks on HF/vLLM. Start with standalone HF.
 
+## Reinforcement learning for better decisions
+
+mJev uses [GRPO](https://arxiv.org/abs/2402.03300) with a target-probability-weighted correctness reward. For each training example, a frozen pre-RL candidate scorer records $p^* = p(y^* \mid x, q, C)$: the probability assigned to the ground-truth option given the media, question and candidate set. A label-only rollout receives
+
+$$
+r(\hat{y}) =
+\begin{cases}
++p^*, & \hat{y} = y^* \\
+-p^*, & \hat{y} \ne y^*.
+\end{cases}
+$$
+
+The reward is verifiable and bounded in $[-1, 1]$: correct labels receive a positive signal, while incorrect or invalid labels receive an equally sized negative signal. Examples with a higher frozen target probability therefore carry more weight without allowing any one example to produce an unbounded reward. Rollouts are constrained to one candidate label, so no separate format reward is needed. Reward scaling is disabled to preserve the magnitude of $p^*$, while a small reference-model KL penalty is applied separately to limit policy drift. The vision tower and aligner remain frozen; GRPO updates the language model.
+
 ## From motion to sequence: see an actual run
 
 [![Motion preview: a red ball moves right, then a blue square rises](examples/motion-demo/preview.gif)](examples/motion-demo/motion.mp4)
