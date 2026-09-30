@@ -5,7 +5,7 @@
 <h1 align="center">mJev</h1>
 <p align="center"><strong>简体中文</strong> · <a href="README.md">English</a></p>
 <p align="center"><strong>Jev, with senses.</strong></p>
-<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev">🤗 Hugging Face 模型</a></p>
+<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 Hugging Face 模型</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
   <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
@@ -56,8 +56,8 @@ source .venv/bin/activate
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
 
-export MODEL_DIR="$HOME/models/mJev"
-hf download SoMarkAI/mJev --local-dir "$MODEL_DIR"
+export MODEL_DIR="$HOME/models/mJev-Qwen3-VL-4B-RLCD"
+hf download SoMarkAI/mJev-Qwen3-VL-4B-RLCD --local-dir "$MODEL_DIR"
 
 # 运行上面的同一段视频与三个问题
 CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
@@ -73,7 +73,7 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 
 | 模型 | 输入 | 从这里开始 |
 | --- | --- | --- |
-| **[mJev（Qwen3-VL-4B）](https://huggingface.co/SoMarkAI/mJev)** | 图片＋文本、视频＋文本 | [模型权重](https://huggingface.co/SoMarkAI/mJev) · [安装、示例与评测](docs/models.zh-CN.md) |
+| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | 图片＋文本、视频＋文本 | [模型权重](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [安装、示例与评测](docs/models.zh-CN.md) |
 | **Qwen3-Omni-30B-A3B-Instruct** | 图片、音频、视频、带音轨视频＋文本 | [Omni 部署教程](docs/hf.zh-CN.md) |
 
 根据官方配置自动识别模型。图片／视频从 4B 开始；需要音频时切换到 Omni。两者使用相同的问题与候选项格式。
@@ -97,7 +97,7 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 
 ## 训练与奖励设计
 
-发布的 mJev 模型使用 [GRPO](https://arxiv.org/abs/2402.03300) 针对候选选择进行微调。训练前，冻结的评分器为每条样本计算目标概率 $p^{\ast}$，即正确选项在候选集合内的概率。每次采样的回答按下式获得奖励：
+发布的 **mJev-Qwen3-VL-4B-RLCD** 模型使用 [GRPO](https://arxiv.org/abs/2402.03300) 针对候选选择进行微调。训练前，冻结的评分器为每条样本计算目标概率 $p^{\ast}$，即正确选项在候选集合内的概率。每次采样的回答按下式获得奖励：
 
 ```math
 r(\hat{y}) = \begin{cases}
@@ -136,7 +136,7 @@ r(\hat{y}) = \begin{cases}
 | 模型 | 正确 / 总题数 | 准确率 |
 | --- | ---: | ---: |
 | Qwen3-VL-4B-Instruct（GRPO 训练前） | 152 / 195 | 77.95% |
-| **[mJev](https://huggingface.co/SoMarkAI/mJev)（GRPO 训练后）** | **156 / 195** | **80.00%** |
+| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)（GRPO 训练后）** | **156 / 195** | **80.00%** |
 
 两组模型使用相同的 195 道题进行评测，评测题独立于 RL 训练数据。准确率按正确题数除以总题数计算。公开数据集包含图片、问题、候选项与参考答案。
 

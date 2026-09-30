@@ -5,7 +5,7 @@
 <h1 align="center">mJev</h1>
 <p align="center"><a href="README.zh-CN.md">简体中文</a> · <strong>English</strong></p>
 <p align="center"><strong>Jev, with senses.</strong></p>
-<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev">🤗 Hugging Face Model</a></p>
+<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 Hugging Face Model</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
   <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
@@ -56,8 +56,8 @@ source .venv/bin/activate
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
 
-export MODEL_DIR="$HOME/models/mJev"
-hf download SoMarkAI/mJev --local-dir "$MODEL_DIR"
+export MODEL_DIR="$HOME/models/mJev-Qwen3-VL-4B-RLCD"
+hf download SoMarkAI/mJev-Qwen3-VL-4B-RLCD --local-dir "$MODEL_DIR"
 
 # Run the video and three questions shown above
 CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
@@ -73,7 +73,7 @@ Choose your GPUs with `CUDA_VISIBLE_DEVICES`. More options: [HF deployment](docs
 
 | Model | Inputs | Start here |
 | --- | --- | --- |
-| **[mJev (Qwen3-VL-4B)](https://huggingface.co/SoMarkAI/mJev)** | Image + text, video + text | [Weights](https://huggingface.co/SoMarkAI/mJev) · [Installation, demo and evaluation](docs/models.md) |
+| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | Image + text, video + text | [Weights](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [Installation, demo and evaluation](docs/models.md) |
 | **Qwen3-Omni-30B-A3B-Instruct** | Image, audio, video, video with audio + text | [Omni deployment guide](docs/hf.md) |
 
 The official config selects the model family automatically. Start with 4B for image/video; choose Omni for audio. Keep the same question and candidate format.
@@ -97,7 +97,7 @@ The model’s existing output layer does the scoring; you get a decision and can
 
 ## Training and reward
 
-The released mJev model is fine-tuned with [GRPO](https://arxiv.org/abs/2402.03300) for candidate selection. Before training, a frozen scorer assigns each example a target probability $p^{\ast}$: the probability of the correct option within its candidate set. Each sampled answer receives:
+The released **mJev-Qwen3-VL-4B-RLCD** model is fine-tuned with [GRPO](https://arxiv.org/abs/2402.03300) for candidate selection. Before training, a frozen scorer assigns each example a target probability $p^{\ast}$: the probability of the correct option within its candidate set. Each sampled answer receives:
 
 ```math
 r(\hat{y}) = \begin{cases}
@@ -136,7 +136,7 @@ On a **195-question evaluation subset** of [mJev-Compositional-VQA](https://hugg
 | Model | Correct / total | Accuracy |
 | --- | ---: | ---: |
 | Qwen3-VL-4B-Instruct (before GRPO) | 152 / 195 | 77.95% |
-| **[mJev](https://huggingface.co/SoMarkAI/mJev) (after GRPO)** | **156 / 195** | **80.00%** |
+| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) (after GRPO)** | **156 / 195** | **80.00%** |
 
 Both models were evaluated on the same 195 questions, held out from RL training. Accuracy is the number of correct answers divided by the total number of questions. The public dataset provides images, questions, candidate choices and reference answers.
 
