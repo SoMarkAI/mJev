@@ -5,15 +5,7 @@
 <h1 align="center">mJev</h1>
 <p align="center"><strong>简体中文</strong> · <a href="README.md">English</a></p>
 <p align="center"><strong>Jev, with senses.</strong></p>
-<p align="center">
-  <a href="https://huggingface.co/SoMarkAI/mJev">🤗 Hugging Face 模型</a> ·
-  <a href="docs/index.zh-CN.md">项目介绍</a> ·
-  <a href="#quick-start">快速开始</a> ·
-  <a href="docs/hf.zh-CN.md">部署教程</a> ·
-  <a href="docs/development.zh-CN.md">开发者文档</a> ·
-  <a href="docs/validation_current.zh-CN.md">最新验证</a> ·
-  <a href="CONTRIBUTING.zh-CN.md">参与贡献</a>
-</p>
+<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev">🤗 Hugging Face 模型</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
   <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
