@@ -26,7 +26,7 @@ mJev 将共享上下文转化为明确的选择：输入上下文，提出多个
 
 <a id="quick-start"></a>
 
-## 🚀 跑起来，轮到你了
+## 🚀 快速开始
 
 **已在单张 24 GB NVIDIA GPU 上验证。** 需要 Linux、Python 3.11+、兼容的 NVIDIA 驱动和系统 FFmpeg。
 
@@ -51,7 +51,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
 
 GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配置见 [HF 部署](docs/hf.zh-CN.md) · [vLLM 部署](docs/vllm.zh-CN.md)。
 
-## 🧩 选个搭档
+## 🧩 模型选择
 
 | 模型 | 输入 | 从这里开始 |
 | --- | --- | --- |
@@ -94,7 +94,7 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 
 发布的模型使用 GRPO 针对候选选择微调，详见[训练与奖励设计](docs/training.zh-CN.md)。
 
-## 📝 换成自己的输入
+## 📝 使用自己的数据
 
 媒体路径相对于输入 JSON 文件解析。单问题示例见 [examples/single.json](examples/single.json)；多个问题共享媒体与上下文：
 
@@ -117,7 +117,7 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 
 候选数可变，接口边界为 2–128；所有标签必须在实际模板下通过单 token 校验，因此不保证每个数量都可用。空候选、重复候选和不合法控制 token 会被拒绝。HF 默认限制完整输入为 4000 tokens，超限报错，不静默截断。
 
-## 🔎 好奇里面怎么转？
+## 🔎 工作方式
 
 ```text
 媒体 + 公共上下文 → 官方 processor / chat template → 原生模型前缀 prefill
@@ -127,14 +127,11 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 候选标签 logits → 候选集合内 softmax → argmax 决策
 ```
 
-每道题，都带着自己的选项小队 🧩
+多道题共享媒体，每道题有自己的候选集合。默认模式 `causal` 按顺序读取候选。实验模式 `isolated` 让每个候选读取共享上下文和问题，不读取其他候选；最终答案仍考虑全部候选。
 
-- **默认 `causal`**：选项按顺序入场，后面的可以读到前面的内容。
-- **想做对照实验？试试 `isolated`**：给每个选项一间“小隔间”，共享上下文和问题，互不偷看；最后的决策仍会综合所有选项的信息。
+模型原有输出层提供分数，mJev 返回所选答案与候选概率。HF／vLLM 的实现细节见[开发者指南](docs/development.zh-CN.md)。
 
-评分交给模型原有的输出层，你拿到选择和候选概率。好奇 HF 与 vLLM 怎么实现？[技术细节在这里](docs/development.zh-CN.md)。
-
-## 📚 按需翻阅，不用从头啃
+## 📚 文档
 
 | 你想做什么 | 去这里 |
 | --- | --- |
@@ -145,11 +142,11 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 | 查证据、看边界 | [最新验证](docs/validation_current.zh-CN.md) · [安装检查](docs/installation_validation.zh-CN.md) · [数值配置](docs/stability.zh-CN.md) |
 | 探索实验功能 | [HTTP / Tree-KV](docs/integrated.zh-CN.md) · [音视频 Docker 镜像](experiments/av/README.zh-CN.md) |
 
-## 🤝 来，一起添块积木
+## 🤝 贡献与交流
 
-发现 bug、想到新场景、想改两行文档？都欢迎！[提 Issue](https://github.com/SoMarkAI/mJev/issues) · [发 PR](https://github.com/SoMarkAI/mJev/pulls) · [贡献指南](CONTRIBUTING.zh-CN.md)。报告问题时，记得带上环境、配置和最小复现步骤。
+欢迎提交 bug、使用示例和改进建议。[提 Issue](https://github.com/SoMarkAI/mJev/issues) · [发 PR](https://github.com/SoMarkAI/mJev/pulls) · [贡献指南](CONTRIBUTING.zh-CN.md)。报告问题时，请附上环境、配置和最小复现步骤。
 
-感谢 [Immortal-Zhang](https://github.com/Immortal-Zhang)、[Kyousuke661](https://github.com/Kyousuke661)、[BinyangQiu](https://github.com/BinyangQiu)，也期待你的名字出现在这里 ✨
+感谢 [Immortal-Zhang](https://github.com/Immortal-Zhang)、[Kyousuke661](https://github.com/Kyousuke661) 和 [BinyangQiu](https://github.com/BinyangQiu)。
 
 ## 📜 许可证
 

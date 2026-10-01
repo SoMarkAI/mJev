@@ -9,7 +9,7 @@ Both main backends completed real **Qwen3-VL-4B-Instruct** image/video inference
 - Official revision: `ebb281ec70b05090aa6165b016eac8ec08e71b17`. Both weight shards independently matched the pinned Hub SHA-256 metadata: [receipts](validation_evidence/qwen3-vl-weight-integrity.json).
 - HF: fresh Linux Python 3.11.16 virtualenv, no system-site packages; `.[hf-vl,test]` and the official TorchCodec 0.11.0+cpu wheel. Pip downloads were cached. Neither vLLM nor `qwen_omni_utils` was installed. `pip check`, seeded CUDA computation and 123 CPU tests passed; 3 optional-vLLM modules skipped.
 - vLLM: existing pinned 0.25.1 / Transformers 5.13.1 runtime, Python 3.12; 130 CPU tests passed. This was **not** a new vLLM image build. Its decoder version differs from the HF environment; full dependencies are included in each report.
-- A fresh reviewer independently executed the documented HF preflight and cached demo in the new installed environment. Both passed. The reviewer did not repeat installation or model downloading.
+- The documented HF preflight and cached demo were repeated in the newly installed environment; both passed. Installation and model downloading were not repeated.
 - Code base: `2e75abf` plus the adapter changes. Reports record actual dirty-tree source hashes and available Git metadata; vLLM's minimal image has no Git executable, so its Git fields are explicitly null. The source hashes remain available. Documentation and the later worker-bootstrap fix must not be retroactively attributed to earlier HF runs.
 
 [Machine-readable validation summary](validation_evidence/qwen3-vl-validation-summary.json).

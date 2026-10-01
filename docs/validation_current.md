@@ -6,7 +6,7 @@ Latest controlled performance evidence: [HF prefix-cache scaling](cache_scaling.
 
 Latest software fixes and regression checks: [reliability review](reliability_review.md). Attention defaults are now consistently `causal`; prior GPU records retain their own configurations.
 
-This is the authoritative **index of evidence and its scope**, not a blanket success certificate. The latest model expansion is the [Qwen3-VL-4B HF/vLLM validation](qwen3_vl_validation.md), including cache/batch checks and an Omni HF regression. The earlier [clean Linux HF verification](clean_linux_validation.md) completed the public six-question workflow. Its code base is `04cc2e0a8fd723d678f44b0c69c2e74b4fe94ea4` plus the installation/provenance fixes identified by actual source hashes; the unmodified commit is not claimed to pass.
+This page lists completed checks and their scope. The latest model expansion is the [Qwen3-VL-4B HF/vLLM validation](qwen3_vl_validation.md), including cache/batch checks and an Omni HF regression. The earlier [clean Linux HF verification](clean_linux_validation.md) completed the public six-question workflow. Its code base is `04cc2e0a8fd723d678f44b0c69c2e74b4fe94ea4` plus the installation/provenance fixes identified by actual source hashes; the unmodified commit is not claimed to pass.
 
 ## Implementation boundaries
 

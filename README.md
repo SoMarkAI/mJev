@@ -26,7 +26,7 @@ mJev turns shared context into explicit choices. Supply the context, ask multipl
 
 <a id="quick-start"></a>
 
-## 🚀 Your turn
+## 🚀 Quick Start
 
 **Validated on one 24 GB NVIDIA GPU.** Requires Linux, Python 3.11+, compatible NVIDIA drivers and system FFmpeg.
 
@@ -51,7 +51,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
 
 Choose your GPUs with `CUDA_VISIBLE_DEVICES`. More options: [HF deployment](docs/hf.md) · [vLLM deployment](docs/vllm.md).
 
-## 🧩 Pick your teammate
+## 🧩 Choose a model
 
 | Model | Inputs | Start here |
 | --- | --- | --- |
@@ -94,7 +94,7 @@ Both models were evaluated on the same 195 questions, held out from RL training.
 
 The released checkpoint uses GRPO for candidate selection. See [training and reward design](docs/training.md).
 
-## 📝 Bring your own input
+## 📝 Use your own data
 
 Media paths resolve relative to the input JSON file. See [examples/single.json](examples/single.json) for one question. Multiple questions share the media and context:
 
@@ -117,7 +117,7 @@ Actual results also include token IDs, tie metadata, input length and cache diag
 
 Candidate counts may vary between 2 and 128, subject to single-token label validation in the actual template; not every count is guaranteed to work. Empty or duplicate candidates and invalid control tokens are rejected. HF limits the complete input to 4000 tokens by default. Overlength inputs raise an error rather than being silently truncated.
 
-## 🔎 Curious about the moving parts?
+## 🔎 How it works
 
 ```text
 Media + shared context → official processor / chat template → native model prefix prefill
@@ -127,14 +127,11 @@ Media + shared context → official processor / chat template → native model p
 Candidate-label logits → softmax over supplied candidates → argmax decision
 ```
 
-Every question brings its own little crew of choices 🧩
+Questions share the media, but each has its own set of choices. By default (`causal`), the model reads the choices in order. For experiments, `isolated` gives each choice the shared context and question while keeping the other choices out of view. The final answer still considers all choices.
 
-- **Default: `causal`.** Choices arrive in order; later choices can read what came before.
-- **Running a comparison? Try `isolated`.** Each choice gets its own booth: shared context and question, no peeking at the neighbors. The final decision still considers information from all the choices.
+The model's output layer provides the scores. mJev returns the selected answer and candidate probabilities. See the [implementation guide](docs/development.md) for the HF and vLLM details.
 
-The model’s existing output layer does the scoring; you get a decision and candidate probabilities. Curious about the HF and vLLM plumbing? [Here are the technical details](docs/development.md).
-
-## 📚 Take the shortcut
+## 📚 Documentation
 
 | Looking to… | Start here |
 | --- | --- |
@@ -145,11 +142,11 @@ The model’s existing output layer does the scoring; you get a decision and can
 | Check evidence and boundaries | [Current validation](docs/validation_current.md) · [Installation checks](docs/installation_validation.md) · [Numerics](docs/stability.md) |
 | Explore experimental features | [HTTP / Tree-KV](docs/integrated.md) · [AV Docker image](experiments/av/README.md) |
 
-## 🤝 Pull up a chair
+## 🤝 Contribute
 
-Found a bug? Have a use case? Even a two-line docs fix is welcome. [Open an issue](https://github.com/SoMarkAI/mJev/issues) · [Send a PR](https://github.com/SoMarkAI/mJev/pulls) · [Contribution guide](CONTRIBUTING.md). For bug reports, bring your environment, settings and a minimal reproduction.
+Bug reports, examples and small fixes are welcome. [Open an issue](https://github.com/SoMarkAI/mJev/issues) · [Send a PR](https://github.com/SoMarkAI/mJev/pulls) · [Contribution guide](CONTRIBUTING.md). Include your environment, settings and a minimal reproduction when reporting a bug.
 
-Thanks to [Immortal-Zhang](https://github.com/Immortal-Zhang), [Kyousuke661](https://github.com/Kyousuke661) and [BinyangQiu](https://github.com/BinyangQiu). There's room for your name here, too ✨
+Thanks to [Immortal-Zhang](https://github.com/Immortal-Zhang), [Kyousuke661](https://github.com/Kyousuke661) and [BinyangQiu](https://github.com/BinyangQiu).
 
 ## 📜 License
 

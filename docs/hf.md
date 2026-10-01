@@ -4,6 +4,15 @@
 
 Commands outside Docker assume an activated Python 3.11+ virtual environment: create it with `python3 -m venv .venv`, then run `source .venv/bin/activate`. Use `python` for installation and execution in that environment; Docker commands use `python3`. Shell scripts also accept `PYTHON=/path/to/venv/bin/python`. Historical execution records retain their original commands.
 
+# Transformers backend (no vLLM required)
+
+> Historical results use their recorded configurations. See [current validation](validation_current.md) for later checks and settings that remain unverified.
+
+This backend uses `Qwen3OmniMoeThinkerForConditionalGeneration` directly. It never
+loads Talker, invokes `generate()`, adds a learned head, updates weights, or
+requires vLLM. PyTorch SDPA uses its installed kernels; no custom compilation
+step is required. Use official local Qwen3-Omni weights unchanged.
+
 ## Numerical profile and batching
 
 The default is `--numerics stable`: official BF16 weights remain unchanged;
@@ -18,15 +27,6 @@ Details and measured scope: [stability](stability.md).
 python demo_hf.py --model /path/to/model --input task.json \
   --numerics stable --question-batch-size 3 --prefix-cache --projection full
 ```
-
-# Transformers backend (no vLLM required)
-
-> See the [current validation index](validation_current.md) for backend boundaries and latest checks. Historical results retain their recorded configuration; missing model revisions, complete dependencies or run settings are unverified, never inferred from current defaults.
-
-This backend uses `Qwen3OmniMoeThinkerForConditionalGeneration` directly. It never
-loads Talker, invokes `generate()`, adds a learned head, updates weights, or
-requires vLLM. PyTorch SDPA uses its installed kernels; no custom compilation
-step is required. Use official local Qwen3-Omni weights unchanged.
 
 ## Install
 
@@ -90,8 +90,9 @@ Duplicate candidates are rejected consistently with the main reference protocol.
 
 Official processing and MRoPE run on the original 2D attention mask. A temporary
 hook injects a 4D additive visibility mask at the Thinker text-model boundary,
-after MRoPE is computed. Candidates see the common prefix and their own causal
-history; decision suffix tokens see all candidates. Only eager/SDPA text
+after MRoPE is computed. The mask follows the selected mode: `causal` retains
+ordinary causal visibility; `isolated` lets candidates see the common prefix and
+their own causal history. Decision suffix tokens see all candidates. Only eager/SDPA text
 attention is supported, not FlashAttention for this custom mask path.
 
 At the unchanged LM head, only the final hidden position is read. Default
