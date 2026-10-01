@@ -68,7 +68,7 @@ Same video, 16 questions: in the recorded controlled test, prefix reuse cut tota
 
 Caching has a sweet spot: longer shared context and more questions. One question can be slower. For the long-prefix, 16-question case, peak allocated memory rose from **15.80 to 20.60 GiB**. This is a controlled result on one project-created video, not a universal speed guarantee.
 
-### 📏 The numbers and measurement conditions
+### 📏 Performance test details
 
 | Shared prefix | Questions | Ordinary batch | Prefix KV reuse | Speedup |
 | --- | ---: | ---: | ---: | ---: |
