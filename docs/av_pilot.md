@@ -30,7 +30,7 @@ docker run --rm -v "$MODEL_DIR:/model:ro" -v "$BENCH_ROOT:/bench:ro" \
 Only with **four available GPUs**, run the seeded kernel witness and GPU pilot:
 
 ```bash
-docker run --rm --gpus all --entrypoint python3 mjev-av-pilot:0.1 -m mjev.av_witness
+docker run --rm --gpus all --entrypoint python3 mjev-av-pilot:0.1 experiments/av/av_witness.py
 
 docker run --rm --gpus all --ipc=host -e VLLM_BATCH_INVARIANT=0 \
   -v "$MODEL_DIR:/model:ro" -v "$BENCH_ROOT:/bench:ro" \

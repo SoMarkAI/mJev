@@ -41,10 +41,10 @@ This is a preflight check, **not inference**. For actual scoring, reserve four a
 docker run --rm --gpus all --ipc=host -e VLLM_BATCH_INVARIANT=1 \
   -v "$MODEL_DIR:/model:ro" -v "$PWD/outputs:/app/outputs" \
   mjev:0.1.0 --model /model --input examples/single.json \
-  --mode isolated --output outputs/isolated.json
+  --mode causal --output outputs/causal.json
 ```
 
-The recommended launch enables stable numerical kernels with `VLLM_BATCH_INVARIANT=1`; keep this setting for batch/cache comparisons. See [numerical profiles](stability.md). Use `--mode causal` for the ordinary causal comparison. Use `--input examples/multiple.json` for concurrent questions on the same image. Common prefix blocks can be reused across requests; concurrent cold requests are not guaranteed to hit each other's cache. Candidate-dependent cache blocks include mask metadata to prevent reuse across incompatible masks. Output reports `num_cached_tokens`.
+The recommended launch enables stable numerical kernels with `VLLM_BATCH_INVARIANT=1`; keep this setting for batch/cache comparisons. See [numerical profiles](stability.md). Candidate isolation is an explicit experiment selected with `--mode isolated`. Use `--input examples/multiple.json` for concurrent questions on the same image. Common prefix blocks can be reused across requests; concurrent cold requests are not guaranteed to hit each other's cache. Candidate-dependent cache blocks include mask metadata to prevent reuse across incompatible masks. Output reports `num_cached_tokens`.
 
 For your own input, mount its directory read-only at `/inputs` and pass `--input /inputs/task.json`. Image paths resolve relative to the input JSON file.
 
