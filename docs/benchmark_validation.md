@@ -2,7 +2,7 @@
 
 # AV mini benchmark validation — 2026-09-25
 
-> See the [current validation index](validation_current.md) for backend boundaries and latest checks. Historical results retain their recorded configuration; missing model revisions, complete dependencies or run settings are unverified, never inferred from current defaults.
+> Historical results use their recorded configurations. See [current validation](validation_current.md) for later checks and settings that remain unverified.
 
 > Historical data audit only. Subsequent model results are documented in [paired evaluation](paired_backends.md).
 

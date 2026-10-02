@@ -6,7 +6,7 @@
 
 最新软件修复与回归检查见 [可靠性修复记录](reliability_review.zh-CN.md)。默认注意力已统一为 `causal`；原始 GPU 验证仍保留各自配置。
 
-本页统一索引**证据及适用范围**，不是整体“全部通过”声明。最新模型扩展见 [Qwen3-VL-4B HF/vLLM 验证](qwen3_vl_validation.zh-CN.md)，包含缓存／批处理和 Omni HF 回归。此前的[干净 Linux HF 验证](clean_linux_validation.zh-CN.md)已跑通公开六题全流程。代码基线为 `04cc2e0a8fd723d678f44b0c69c2e74b4fe94ea4` 加本次安装／来源记录修复，实际源码哈希已记录，不声称未修改的原 commit 已通过。
+本页列出已完成的检查及适用范围。最新模型扩展见 [Qwen3-VL-4B HF/vLLM 验证](qwen3_vl_validation.zh-CN.md)，包含缓存／批处理和 Omni HF 回归。此前的[干净 Linux HF 验证](clean_linux_validation.zh-CN.md)已跑通公开六题全流程。代码基线为 `04cc2e0a8fd723d678f44b0c69c2e74b4fe94ea4` 加本次安装／来源记录修复，实际源码哈希已记录，不声称未修改的原 commit 已通过。
 
 ## 实现边界
 

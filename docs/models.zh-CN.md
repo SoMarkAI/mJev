@@ -1,12 +1,12 @@
 [English](models.md) · **简体中文**
 
-[真实模型验证记录](qwen3_vl_validation.zh-CN.md)
+[官方模型历史验证记录](qwen3_vl_validation.zh-CN.md)
 
-# 两个模型，同一套决策接口
+# 模型选择与部署
 
-mJev 根据本地官方 `config.json` 自动识别模型家族，保留各模型原生 processor、chat template、视觉特征、位置编码与 LM Head。不训练、不加 LoRA、不新增决策头、不调用 `generate()`。
+mJev 根据本地 `config.json` 自动识别模型家族。图片／视频从已发布的 [mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) 开始，需要音频时选择官方 Qwen3-Omni Thinker 权重。两条路径保留原生 processor、chat template、视觉特征、位置编码与 LM Head，通过 `forward` 或 vLLM pooling 读取现有输出层进行评分。
 
-| 能力 | Qwen3-Omni-30B-A3B-Instruct | Qwen3-VL-4B-Instruct |
+| 能力 | Qwen3-Omni-30B-A3B-Instruct | Qwen3-VL 家族（4B） |
 | --- | --- | --- |
 | 图片＋文本 | 支持 | 支持 |
 | 视频＋文本 | 支持 | 支持 |
@@ -16,7 +16,9 @@ mJev 根据本地官方 `config.json` 自动识别模型家族，保留各模型
 | HF 公共前缀 KV 与真实问题批处理 | 支持 | 支持 |
 | vLLM pooling、mask、prefix cache | 可选后端 | 可选后端 |
 | 默认 vLLM 张量并行度 | 4 卡 | 1 卡 |
-| 权重 | 单独下载官方权重 | 单独下载官方权重 |
+| 权重 | 单独下载官方权重 | 单独下载已发布 RLCD 或官方基础权重 |
+
+已发布的 RLCD 模型针对候选选择进行了微调，详见[训练与奖励设计](training.zh-CN.md)。归档的 GPU 验证记录与固定评测配置使用 **Qwen/Qwen3-VL-4B-Instruct**，每份结果应保留实际使用的模型身份。
 
 Qwen3-VL 是稠密视觉语言模型，参数较少不等于已经证明某个加速倍数。它不能替代 Omni 处理音频任务；尤其不能去掉音频相关 benchmark 的音轨后，将成绩当作同等条件的评测。
 
@@ -29,13 +31,12 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl,test]' huggingface_hub
-export MODEL_DIR="$HOME/models/Qwen3-VL-4B-Instruct"
-hf download Qwen/Qwen3-VL-4B-Instruct \
-  --revision ebb281ec70b05090aa6165b016eac8ec08e71b17 --local-dir "$MODEL_DIR"
+export MODEL_DIR="$HOME/models/mJev-Qwen3-VL-4B-RLCD"
+hf download SoMarkAI/mJev-Qwen3-VL-4B-RLCD --local-dir "$MODEL_DIR"
 python demo_hf.py --model "$MODEL_DIR" --input examples/multiple.json --check-only
 python demo_hf.py --model "$MODEL_DIR" --input examples/multiple.json \
   --mode causal --numerics stable --projection full \
-  --prefix-cache --question-batch-size 3 --output outputs/vl-image.json
+  --prefix-cache --question-batch-size 2 --output outputs/vl-image.json
 ```
 
 使用与 [HF 部署](hf.zh-CN.md) 相同的 `HFMJevEngine` API 和输入 JSON。模型类型由配置识别，不接受未经核对的 CLI 强行覆盖。VL 在解码前拒绝 `audio` 与 `audio_video`，视频保留原生时间戳与 `mm_token_type_ids`，不替换位置编码算法。
@@ -51,6 +52,13 @@ VLLM_BATCH_INVARIANT=1 python demo.py --model "$MODEL_DIR" \
 vLLM 使用已有的自定义 pooling／attention hooks，并非原版 OpenAI 兼容服务；容器内部命令使用 `python3`。
 
 ## 可复现的图片＋视频冒烟流程
+
+这条流程使用 `configs/qwen3_vl_4b_hf.json` 中固定的**官方基础模型**，与上方 demo 下载的权重独立。若要显式下载该基础模型的精确版本：
+
+```bash
+hf download Qwen/Qwen3-VL-4B-Instruct \
+  --revision ebb281ec70b05090aa6165b016eac8ec08e71b17
+```
 
 生成一张红色矩形图片和一段静态短视频，每份媒体有三道人工编写的合成题。不下载第三方媒体。**这是集成测试 fixture，分数不能用于宣传自然数据 benchmark 准确率。**
 

@@ -39,7 +39,7 @@ Model startup took **25.70 s**. The two media groups, containing two and four qu
 4. Decord could not decode the selected AV1 clip; its fallback used the removed `torchvision.io.read_video` API. That attempt produced only 2/6 predictions and no successful report. Original samples were retained; the documented run now uses the official TorchCodec reader.
 5. The default TorchCodec wheel required a missing CUDA video library. The final clean installation explicitly uses the official CPU wheel, keeping CUDA model inference. Its decoder choice and package version are recorded.
 
-Each failed attempt has separate logs and outputs; none is combined into the final score. Final commands were replayed by a reused reviewer, not a fresh blinded reviewer. Logs and raw outputs are retained outside Git; the public evidence contains configuration, dependency versions, metrics and hashes, without private server paths, media, annotations or weights.
+Each failed attempt has separate logs and outputs; none is combined into the final score. Final commands were repeated against the existing installation. Logs and raw outputs are retained outside Git; the public evidence contains configuration, dependency versions, metrics and hashes, without private server paths, media, annotations or weights.
 
 ## Remaining scope
 

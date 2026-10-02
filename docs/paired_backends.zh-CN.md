@@ -4,7 +4,7 @@ Docker 之外的命令均假定已激活 Python 3.11+ 虚拟环境：先用 `pyt
 
 # HF / vLLM 配对评测
 
-> 最新验证状态与后端边界统一见 [验证入口](validation_current.zh-CN.md)。本页历史结果保留原记录；未记录的模型 revision、完整依赖或运行配置标为未核实，不从当前默认值推断。
+> 历史结果按当时配置记录；后续检查与缺失的配置证据见[最新验证](validation_current.zh-CN.md)。
 
 使用官方本地 Qwen3-Omni Thinker，比较 HF 与主包 vLLM pooling，不是 HTTP runtime。未引入生成、训练权重或 Decision Head，测试 causal 与候选隔离两种模式。
 

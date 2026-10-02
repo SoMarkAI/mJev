@@ -1,12 +1,12 @@
 **English** · [简体中文](models.zh-CN.md)
 
-[Full model validation record](qwen3_vl_validation.md)
+[Recorded official-model validation](qwen3_vl_validation.md)
 
-# Two models, one decision interface
+# Model selection and deployment
 
-mJev selects the native model family from the local official `config.json`. Both models use their own processor, chat template, visual features, position encoding and original LM Head. Neither uses training, LoRA, a new decision head or `generate()`.
+mJev selects the native model family from the local `config.json`. Start with the released [mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) for image/video, or official Qwen3-Omni Thinker weights for audio. Both paths retain the native processor, chat template, visual features, position encoding and LM Head. Scoring uses the existing output layer through `forward` or vLLM pooling.
 
-| Capability | Qwen3-Omni-30B-A3B-Instruct | Qwen3-VL-4B-Instruct |
+| Capability | Qwen3-Omni-30B-A3B-Instruct | Qwen3-VL family (4B) |
 | --- | --- | --- |
 | Image + text | Yes | Yes |
 | Video + text | Yes | Yes |
@@ -16,7 +16,9 @@ mJev selects the native model family from the local official `config.json`. Both
 | HF shared-prefix KV + real question batches | Yes | Yes |
 | vLLM pooling + mask + prefix cache | Optional backend | Optional backend |
 | Default vLLM tensor parallelism | 4 GPUs | 1 GPU |
-| Weights | Official, downloaded separately | Official, downloaded separately |
+| Weights | Official, downloaded separately | Released RLCD or official base, downloaded separately |
+
+The released RLCD checkpoint is fine-tuned for candidate selection; its [training and reward design](training.md) is documented separately. The archived GPU validation records and pinned benchmark configurations use **Qwen/Qwen3-VL-4B-Instruct**. Keep the checkpoint identity with each result.
 
 Qwen3-VL is a dense vision-language model. Its smaller parameter count is not a measured speedup guarantee. It does not replace Omni on audio tasks. In particular, do not remove audio from an audio-dependent benchmark and report that as equivalent evaluation.
 
@@ -29,13 +31,12 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl,test]' huggingface_hub
-export MODEL_DIR="$HOME/models/Qwen3-VL-4B-Instruct"
-hf download Qwen/Qwen3-VL-4B-Instruct \
-  --revision ebb281ec70b05090aa6165b016eac8ec08e71b17 --local-dir "$MODEL_DIR"
+export MODEL_DIR="$HOME/models/mJev-Qwen3-VL-4B-RLCD"
+hf download SoMarkAI/mJev-Qwen3-VL-4B-RLCD --local-dir "$MODEL_DIR"
 python demo_hf.py --model "$MODEL_DIR" --input examples/multiple.json --check-only
 python demo_hf.py --model "$MODEL_DIR" --input examples/multiple.json \
   --mode causal --numerics stable --projection full \
-  --prefix-cache --question-batch-size 3 --output outputs/vl-image.json
+  --prefix-cache --question-batch-size 2 --output outputs/vl-image.json
 ```
 
 Use the same `HFMJevEngine` API and input JSON as [HF deployment](hf.md). The model family is detected, not supplied as an unchecked CLI override. `audio` and `audio_video` inputs fail before media decoding. Video sampling retains native frame timestamps and `mm_token_type_ids`; no synthetic replacement position encoding is introduced.
@@ -51,6 +52,13 @@ VLLM_BATCH_INVARIANT=1 python demo.py --model "$MODEL_DIR" \
 The vLLM environment uses the existing custom pooling/attention hooks. This is not a stock OpenAI-compatible vLLM server. Container commands use `python3`.
 
 ## Reproducible image + video smoke workflow
+
+This workflow uses the **official base model** pinned in `configs/qwen3_vl_4b_hf.json`, independently of the checkpoint downloaded for the demo above. To download that exact base revision explicitly:
+
+```bash
+hf download Qwen/Qwen3-VL-4B-Instruct \
+  --revision ebb281ec70b05090aa6165b016eac8ec08e71b17
+```
 
 This workflow creates a red rectangle image and a short static video, with three authored questions per media item. It downloads **no third-party media**. The questions and labels are deliberately synthetic integration fixtures; their scores must never be presented as natural-data benchmark accuracy.
 

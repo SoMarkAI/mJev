@@ -2,7 +2,7 @@
 
 # 音视频试运行（历史实验记录）
 
-> 最新验证状态与后端边界统一见 [验证入口](validation_current.zh-CN.md)。本页历史结果保留原记录；未记录的模型 revision、完整依赖或运行配置标为未核实，不从当前默认值推断。
+> 历史结果按当时配置记录；后续检查与缺失的配置证据见[最新验证](validation_current.zh-CN.md)。
 
 > 这是早期 GPU 验证尚未执行时的记录。后续全权重结果见 [配对评测](paired_backends.zh-CN.md) 和 [稳定性回归](stability.zh-CN.md)。
 
@@ -32,7 +32,7 @@ docker run --rm -v "$MODEL_DIR:/model:ro" -v "$BENCH_ROOT:/bench:ro" \
 仅在四张 GPU 可用时运行固定种子的内核检查和 GPU pilot：
 
 ```bash
-docker run --rm --gpus all --entrypoint python3 mjev-av-pilot:0.1 -m mjev.av_witness
+docker run --rm --gpus all --entrypoint python3 mjev-av-pilot:0.1 experiments/av/av_witness.py
 
 docker run --rm --gpus all --ipc=host -e VLLM_BATCH_INVARIANT=0 \
   -v "$MODEL_DIR:/model:ro" -v "$BENCH_ROOT:/bench:ro" \

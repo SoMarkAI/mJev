@@ -16,9 +16,7 @@
 | vLLM attention and cache hooks | [`patch.py`](../mjev/patch.py) |
 | Decisions and tie handling | [`decision.py`](../mjev/decision.py) |
 
-The public project name is **mJev**, with this exact capitalization. The lowercase import/package identifiers and uppercase environment-variable names below are compatibility-sensitive technical names.
-
-The Python package and import namespace are `mjev`. Project environment variables use the `MJEV_` prefix. Integrations should use these current names.
+Use **mJev** in documentation, `mjev` for Python imports and `MJEV_` for project environment variables.
 
 ## Local development
 

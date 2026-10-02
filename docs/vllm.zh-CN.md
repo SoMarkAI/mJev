@@ -43,10 +43,10 @@ docker run --rm \
 docker run --rm --gpus all --ipc=host -e VLLM_BATCH_INVARIANT=1 \
   -v "$MODEL_DIR:/model:ro" -v "$PWD/outputs:/app/outputs" \
   mjev:0.1.0 --model /model --input examples/single.json \
-  --mode isolated --output outputs/isolated.json
+  --mode causal --output outputs/causal.json
 ```
 
-推荐保持 `VLLM_BATCH_INVARIANT=1`，batch/cache 对照也应一致，见 [数值模式](stability.zh-CN.md)。`--mode causal` 为普通可见性对照，`--input examples/multiple.json` 对同图并发提问。公共前缀块可跨请求复用，但同时到达的冷请求不保证彼此命中。候选相关缓存块包含 mask 元数据，避免不兼容 mask 复用；输出 `num_cached_tokens`。
+推荐保持 `VLLM_BATCH_INVARIANT=1`，batch/cache 对照也应一致，见 [数值模式](stability.zh-CN.md)。候选隔离需显式选择 `--mode isolated`；`--input examples/multiple.json` 对同图并发提问。公共前缀块可跨请求复用，但同时到达的冷请求不保证彼此命中。候选相关缓存块包含 mask 元数据，避免不兼容 mask 复用；输出 `num_cached_tokens`。
 
 自有输入目录只读挂载到 `/inputs`，传 `--input /inputs/task.json`；图片路径相对 JSON：
 

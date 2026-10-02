@@ -4,7 +4,7 @@
 
 One shared media context. Multiple questions. Direct candidate probabilities.
 
-mJev uses the official Qwen3-VL-4B and Qwen3-Omni Thinker models to provide a common scoring interface for image, video and audio questions with dynamic candidate sets. It reads candidate-label scores directly from the original LM Head.
+mJev provides a common scoring interface for image, video and audio questions with dynamic candidate sets. Start with the released **mJev-Qwen3-VL-4B-RLCD** for image/video; choose official Qwen3-Omni Thinker weights for audio. Candidate-label scores come directly from the native LM Head.
 
 ## When to use it
 
@@ -12,11 +12,13 @@ mJev uses the official Qwen3-VL-4B and Qwen3-Omni Thinker models to provide a co
 - Obtain raw scores, normalized candidate probabilities and a reproducible decision rule.
 - Compare ordinary causal attention, candidate isolation and prefix caching under controlled conditions.
 
-Start with the Qwen3-VL-4B image/video example validated on one GPU; switch to Omni when you need audio. Reuse the shared media prefix while keeping each question's scoring independent.
+Reuse the shared media prefix while keeping each question's scoring independent. Check [current validation](validation_current.md) for the exact model and configuration behind recorded results.
 
 ## Get started
 
 - [README and Quick Start](../README.md#quick-start)
+- [Model selection and deployment](models.md)
+- [Runnable examples and recorded outputs](../examples/README.md)
 - [HF deployment without vLLM](hf.md)
 - [vLLM Docker deployment](vllm.md)
 - [Developer guide](development.md)
@@ -29,3 +31,10 @@ Start with the Qwen3-VL-4B image/video example validated on one GPU; switch to O
 - [Current validation and backend boundaries](validation_current.md)
 - [pytest suites and test entry points](testing.md)
 - [Isolated installation checks and limitations](installation_validation.md)
+
+## Explore further
+
+- [Released model: training and reward design](training.md)
+- [Cache scaling: timings and measurement conditions](cache_scaling.md)
+- [Experimental HTTP / Tree-KV](integrated.md)
+- [Historical AV tools and Docker image](../experiments/av/README.md)
