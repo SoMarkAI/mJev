@@ -171,3 +171,5 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 代码采用 [Apache-2.0](LICENSE)，上游署名见 [NOTICE](NOTICE)。官方模型权重单独下载，遵循各自许可证。第三方数据保留原始许可，**不随代码重授权**；详见 [第三方许可](THIRD_PARTY_LICENSES.zh-CN.md)。仓库不分发模型权重或完整第三方数据集。
 
 DocJev 示例表格保留 CC-BY-2.0 许可及署名，见 [第三方许可](THIRD_PARTY_LICENSES.zh-CN.md)。
+
+旋转／纸质专项的参考标签分别来自已知旋转角度与筛选后的纸质外观判断；这部分分数按固定参考标签计算。

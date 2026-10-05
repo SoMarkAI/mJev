@@ -82,7 +82,7 @@ python demo_docjev.py --model /path/to/DocJev-Qwen3-VL-4B-RLCD \
 | Multitask diagnostic · 2,984 language records | 82.21% | 84.65% |
 | Rotation / paper diagnostic · 40 language records | 70.0% | 62.5% |
 
-The 40-record diagnostic includes only positive paper examples and derives from the 200-image cohort; it is reported separately. [Counts and protocol →](docs/docjev/results.md)
+Scores measure reference-label agreement; the visual diagnostic combines deterministic rotation targets with screened paper references. The 40-record diagnostic includes only positive paper examples and derives from the 200-image cohort; it is reported separately. [Counts and protocol →](docs/docjev/results.md)
 
 DocJev weights are loaded locally; they are not bundled or published by this repository. You can also try this demo with the official Qwen3-VL base model. [Get started with documents →](docs/docjev/README.md)
 

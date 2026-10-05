@@ -50,7 +50,7 @@ The first DocJev training run consumed **15,658 language records / 7,829 bilingu
 | Multitask diagnostic: 2,984 language records | 82.21% | 84.65% |
 | Rotation / paper diagnostic: 40 language records | 70.0% | 62.5% |
 
-These are separate cohorts and reference-label agreement measurements. The bilingual versions are paired observations, not independent questions. [Detailed results and visual diagnostics →](results.md)
+These are separate cohorts and reference-label agreement measurements. The visual diagnostic combines deterministic rotation targets with generated-and-screened paper references. The bilingual versions are paired observations, not independent questions. [Detailed results and visual diagnostics →](results.md)
 
 - [Installation](installation.md) · [Input/output and API](input-output.md)
 - [Shared attention, logits and caching](architecture.md)
