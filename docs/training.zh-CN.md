@@ -17,4 +17,4 @@ r(\hat{y}) = \begin{cases}
 
 ## 文档模型训练
 
-DocJev 使用独立的文档数据与 checkpoint。[DocJev 训练说明](docjev/training.md)包含完整阶段与奖励定义；入口为 `scripts/train_docjev.sh`，配置为 `configs/docjev_rlcd.json`。代码整合不会重新训练或改变已发布的 mJev 模型。
+mjev-doc 使用独立的文档数据与 checkpoint。[mjev-doc 训练说明](docjev/training.md)包含完整阶段与奖励定义；入口为 `scripts/train_docjev.sh`，配置为 `configs/docjev_rlcd.json`。代码整合不会重新训练或改变已发布的 mJev 模型。

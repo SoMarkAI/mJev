@@ -1,14 +1,54 @@
-# DocJev-Qwen3-VL-4B-RLCD
-
-First DocJev training study.
+# mjev-doc · Training and evaluation
 
 [Project](../../README.md) · [Machine-readable results](../validation_evidence/docjev-rlcd-first-epoch.json) · [DocJev-Bench](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench)
 
-## Protocol
+## Unified 1,512-question evaluation
+
+The complete diagnostic includes **220 evaluated image files, 1,512 semantic questions and 3,024 aligned Chinese-English records**: all 1,492 original multitask questions plus all 20 added rotation/paper questions. Both checkpoints were freshly evaluated through the shared mJev HF core. Every record completed for both models with zero errors and identical actual processor tensors, prompts and candidate orders.
+
+Inference uses causal attention, native BF16, full LM Head projection, original candidate order, temperature 1, one question per forward and no prefix cache. Decisions use the highest raw candidate-label logit. No reference labels, OCR text or generation evidence enter either model's prompt.
+
+| Group | Original Qwen | mjev-doc | Delta |
+| --- | ---: | ---: | ---: |
+| All 3,024 records | 2,481/3,024 (82.04%) | 2,551/3,024 (84.36%) | +2.31 pp |
+| Chinese | 1,245/1,512 (82.34%) | 1,269/1,512 (83.93%) | +1.59 pp |
+| English | 1,236/1,512 (81.75%) | 1,282/1,512 (84.79%) | +3.04 pp |
+| Original 1,492 questions | 2,453/2,984 (82.21%) | 2,526/2,984 (84.65%) | +2.45 pp |
+| Added 20 questions | 28/40 (70.00%) | 25/40 (62.50%) | -7.50 pp |
+
+194 language records change from wrong to correct; 124 change from correct to wrong. Chinese and English are paired versions of the same semantic questions, not independent samples.
+
+### Candidate probabilities
+
+Every record retains each candidate's **raw logit and probability**. The same readout is used for both checkpoints: `p_i = exp(z_i - max(z)) / sum_j exp(z_j - max(z))`. Temperature is 1; subtracting the maximum only provides numerical stability. No variance normalization, additional scaling or calibration is applied.
+
+| Model | Mean reference-candidate probability | Mean selected-candidate probability | Maximum probability-sum error |
+| --- | ---: | ---: | ---: |
+| Original Qwen | 0.805995 | 0.917514 | 1.45e-07 |
+| mjev-doc | 0.842157 | 0.963156 | 1.34e-07 |
+
+The reference probability is the probability assigned to the stored answer; the selected probability is the largest candidate probability. Means cover all 3,024 records. These are candidate-restricted probabilities, not calibrated confidence or correctness guarantees. All candidate vectors were independently recomputed from the recorded logits within 1e-5 tolerance.
+
+### Added visual questions, included in the total
+
+| Added visual task | Original Qwen | mjev-doc | Delta |
+| --- | ---: | ---: | ---: |
+| orientation | 8/20 (40.00%) | 5/20 (25.00%) | -15.00 pp |
+| visual_quality | 20/20 (100.00%) | 20/20 (100.00%) | +0.00 pp |
+
+Ten questions use nonzero rotations (90°, 180°, 270°) and ten describe physical-paper appearance. Rotation references follow the recorded image transform. Paper references describe visible appearance rather than camera/scanner acquisition history; all ten paper examples are positives, so their score cannot establish balanced paper-vs-digital discrimination. The visual subset uses existing source images and separate rotation copies, rather than an independently collected test set.
+
+Exact image hashes, source paths and supplied paper IDs found no training overlap. Perceptual near-duplicates were not assessed. Reference labels combine generated-and-screened questions with transform-grounded rotation targets; the reported accuracy measures agreement with those references.
+
+[Unified aggregate results, candidate-probability summary and fingerprints](../validation_evidence/mjev-doc-unified1512.json). Raw per-record logits, probabilities, media and private run artifacts remain outside the code repository. Earlier source-cohort summaries are retained: [multitask200](../validation_evidence/docjev-multitask200.json) and [visual20](../validation_evidence/docjev-visual20.json).
+
+## First training study
+
+### Protocol
 
 | Item | Configuration |
 | :--- | :--- |
-| Trained model | DocJev-Qwen3-VL-4B-RLCD |
+| Trained model | mjev-doc |
 | Base | Official Qwen3-VL-4B-Instruct |
 | Base revision | `ebb281ec70b05090aa6165b016eac8ec08e71b17` |
 | Source | Infinity document images with paired Chinese/English candidate questions |
@@ -48,33 +88,3 @@ Dataset/reference hashes and configuration are retained in the machine-readable 
 Reference questions and labels were model-generated and screened. Reported scores measure agreement with those references, not independently established human ground truth. Validation did not enter the optimizer. One seed and one epoch were evaluated; there is no independent test set, confidence-interval claim, human-verified benchmark-wide result or measured permutation improvement in this study.
 
 Exact image and supplied paper IDs are separated across train/validation. Perceptual duplicate checks were not performed. One repeated question/candidate mapping on different images was observed across splits; this is not proof of answer leakage, and broader duplication checks remain necessary for a formal benchmark.
-
-## Expanded multitask diagnostic
-
-A separate frozen cohort contains **200 images** (100 Infinity, 100 OLM-TFR), **1,492 bilingual question pairs** and **2,984 language records** across 21 task types. Both models received identical image tensors, prompts and candidate orders. Inference used causal attention, native BF16, full LM Head projection, raw candidate-logit argmax, temperature 1, serial questions and no prefix cache. All 2,984 records completed for both models with zero errors.
-
-| Group | Base correct | DocJev correct | Base | DocJev | Delta |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Combined | 2,453/2,984 | 2,526/2,984 | 82.21% | 84.65% | +2.45 pp |
-| Chinese | 1,233/1,492 | 1,256/1,492 | 82.64% | 84.18% | +1.54 pp |
-| English | 1,220/1,492 | 1,270/1,492 | 81.77% | 85.12% | +3.35 pp |
-
-192 language records changed from wrong to right and 119 from right to wrong. Exact image hashes, source paths and supplied paper IDs found no training overlap; perceptual near-duplicates were not assessed. The questions use generated-and-screened references; this diagnostic is distinct from the first validation study and does not establish general superiority.
-
-[Aggregate results and hashes](../validation_evidence/docjev-multitask200.json). Raw media, questions and private run records remain outside the code repository.
-
-## Nonzero rotation and paper appearance
-
-This diagnostic uses **20 documents / 20 semantic questions / 40 aligned Chinese-English records**: ten nonzero rotations (90°, 180°, 270°) and ten paper-appearance questions. It derives from parent images in the 200-image diagnostic, so it is not another independent test set. Both models use the same controlled native protocol described above, with identical actual input tensors and zero errors.
-
-| Group | Records | Base | DocJev | Delta |
-| --- | ---: | ---: | ---: | ---: |
-| Combined | 40 | 28/40 (70.0%) | 25/40 (62.5%) | −7.5 pp |
-| Nonzero rotation | 20 | 8/20 (40.0%) | 5/20 (25.0%) | −15.0 pp |
-| Paper appearance, positives only | 20 | 20/20 (100.0%) | 20/20 (100.0%) | 0.0 pp |
-| Chinese | 20 | 12/20 (60.0%) | 13/20 (65.0%) | +5.0 pp |
-| English | 20 | 16/20 (80.0%) | 12/20 (60.0%) | −20.0 pp |
-
-Two language records improve and five regress. Two model-record outputs have tied top native-BF16 logits; ties follow the documented first-candidate policy. Rotation accuracy declines in this small cohort, while the paper questions match in both models. The rotation labels follow the recorded pixel transform; paper labels describe visible physical-paper appearance and do not establish camera/scanner acquisition history. All ten paper examples are positives, so their score cannot establish balanced paper-vs-digital discrimination.
-
-[Aggregate counts, model fingerprints and cohort hashes](../validation_evidence/docjev-visual20.json). Raw diagnostic media and questions are not distributed with the code.

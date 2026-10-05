@@ -2,7 +2,7 @@
 
 [Project](../../README.md) · [First study](results.md)
 
-**DocJev-Qwen3-VL-4B-RLCD** starts from official Qwen3-VL weights. Inference alone is training-free; the optional RLCD pipeline updates the full language model while freezing the visual tower and aligner. It adds no LoRA or decision head.
+**mjev-doc** starts from official Qwen3-VL weights. Inference alone is training-free; the optional RLCD pipeline updates the full language model while freezing the visual tower and aligner. It adds no LoRA or decision head.
 
 ## Reward and objective
 

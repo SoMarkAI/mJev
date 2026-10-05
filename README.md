@@ -4,8 +4,8 @@
 
 <h1 align="center">mJev</h1>
 <p align="center"><a href="README.zh-CN.md">简体中文</a> · <strong>English</strong></p>
-<p align="center"><strong>Jev, with senses. DocJev, with documents.</strong></p>
-<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev weights</a> · <a href="docs/docjev/README.md">📄 DocJev model guide</a></p>
+<p align="center"><strong>Jev, with senses. mjev-doc, with documents.</strong></p>
+<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev weights</a> · <a href="docs/docjev/README.md">📄 mjev-doc model guide</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
   <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
@@ -16,7 +16,7 @@
 
 **Jev-style decision intelligence beyond text — multimodal state in, typed decisions out.**
 
-Two trained 4B models, one candidate-scoring workflow: **mJev** for general visual decisions, **DocJev** for document understanding. The official Omni backend also supports audio/video experiments.
+Two trained 4B models, one candidate-scoring workflow: **mJev** for general visual decisions, **mjev-doc** for document understanding. The official Omni backend also supports audio/video experiments.
 
 mJev turns shared context into explicit choices. Supply the context, ask multiple questions, and define the candidates for each one. Each result includes a decision, candidate probabilities and raw logits, making the choice easy to inspect and use downstream.
 
@@ -56,35 +56,34 @@ Choose your GPUs with `CUDA_VISIBLE_DEVICES`. More options: [HF deployment](docs
 | Model | Inputs | Start here |
 | --- | --- | --- |
 | **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | Image + text, video + text | [Weights](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [Installation, demo and evaluation](docs/models.md) |
-| **DocJev-Qwen3-VL-4B-RLCD** | Document image + text | [Document demo, local checkpoint and results](docs/docjev/README.md) |
+| **mjev-doc** | Document image + text | [Document demo, local checkpoint and results](docs/docjev/README.md) |
 | **Qwen3-Omni-30B-A3B-Instruct** | Image, audio, video, video with audio + text | [Omni deployment guide](docs/hf.md) |
 
 The official config selects the model family automatically. Start with 4B for image/video; choose Omni for audio. Keep the same question and candidate format.
 
-## 📄 Meet DocJev
+## 📄 Meet mjev-doc
 
 *A page full of information. More than one question worth asking.*
 
-DocJev brings document images into the same Jev decision workflow. Ask about document categories, visible attributes, field relationships or explicit business criteria, and inspect every candidate score. The document adapter reuses **mJev's HF processor, attention, LM Head and prefix-cache core**; its training and evaluation modules stay separate.
+mjev-doc brings document images into the same Jev decision workflow. Ask about document categories, visible attributes, field relationships or explicit business criteria, and inspect every candidate score. The document adapter reuses **mJev's HF processor, attention, LM Head and prefix-cache core**; its training and evaluation modules stay separate.
 
-**DocJev-Qwen3-VL-4B-RLCD** starts from official Qwen3-VL-4B-Instruct and trains the language model on **1,223 document images / 15,658 bilingual language records**, with vision frozen. The first 500-record validation comparison improves from **73.0% to 77.8%**. [Training and results →](docs/docjev/results.md)
+**mjev-doc** starts from official Qwen3-VL-4B-Instruct and trains the language model on **1,223 document images / 15,658 bilingual language records**, with vision frozen. The first 500-record validation comparison improves from **73.0% to 77.8%**. [Training and results →](docs/docjev/results.md)
 
 ```bash
 python -m pip install -e '.[docjev]'
-# Supply your complete exported DocJev checkpoint directory.
-python demo_docjev.py --model /path/to/DocJev-Qwen3-VL-4B-RLCD \
+# Supply your complete exported mjev-doc checkpoint directory.
+python demo_docjev.py --model /path/to/mjev-doc \
   --input examples/docjev/multiple.json --output outputs/docjev.json
 ```
 
-| DocJev cohort | Base Qwen | Trained DocJev |
+| mjev-doc cohort | Base Qwen | Trained mjev-doc |
 | --- | ---: | ---: |
 | First validation · 500 language records | 73.0% | 77.8% |
-| Multitask diagnostic · 2,984 language records | 82.21% | 84.65% |
-| Rotation / paper diagnostic · 40 language records | 70.0% | 62.5% |
+| Unified diagnostic · 3,024 language records | 82.04% | 84.36% |
 
-Scores measure reference-label agreement; the visual diagnostic combines deterministic rotation targets with screened paper references. The 40-record diagnostic includes only positive paper examples and derives from the 200-image cohort; it is reported separately. [Counts and protocol →](docs/docjev/results.md)
+The unified evaluation includes **all 1,492 multitask questions plus the 20 added visual questions**, each in Chinese and English, with raw candidate logits and temperature-1 softmax probabilities saved for both models. Scores measure reference-label agreement; paper questions are positives only. [Counts, probabilities and protocol →](docs/docjev/results.md)
 
-DocJev weights are loaded locally; they are not bundled or published by this repository. You can also try this demo with the official Qwen3-VL base model. [Get started with documents →](docs/docjev/README.md)
+mjev-doc weights are loaded locally; they are not bundled or published by this repository. You can also try this demo with the official Qwen3-VL base model. [Get started with documents →](docs/docjev/README.md)
 
 ## ⚡ Same context. Keep the questions coming.
 
@@ -120,7 +119,7 @@ Both models were evaluated on the same 195 questions, held out from RL training.
 
 The released checkpoint uses GRPO for candidate selection. See [training and reward design](docs/training.md).
 
-The mJev numbers above are retained from the upstream study. DocJev evaluations use different cohorts and are reported separately; these scores do not rank the two trained models against each other.
+The mJev numbers above are retained from the upstream study. mjev-doc evaluations use different cohorts and are reported separately; these scores do not rank the two trained models against each other.
 
 ## 📝 Use your own data
 
@@ -137,7 +136,7 @@ Media paths resolve relative to the input JSON file. See [examples/single.json](
 }
 ```
 
-For audio/video, use `modality` and `media_path`. Supported modalities are `image`, `audio`, `video` and `audio_video`. Configure video sampling explicitly; see [audio/video inputs](docs/hf.md#demo). General mJev fixtures are project-created; the [DocJev example](examples/docjev/README.md) includes one attributed CC-BY-2.0 validation table.
+For audio/video, use `modality` and `media_path`. Supported modalities are `image`, `audio`, `video` and `audio_video`. Configure video sampling explicitly; see [audio/video inputs](docs/hf.md#demo). General mJev fixtures are project-created; the [mjev-doc example](examples/docjev/README.md) includes one attributed CC-BY-2.0 validation table.
 
 Output is a JSON array, one result per question, containing `candidates`, `decision` and `probability_sum`. Browse [runnable examples and recorded outputs](examples/README.md).
 
@@ -164,7 +163,7 @@ The model's output layer provides the scores. mJev returns the selected answer a
 | Looking to… | Start here |
 | --- | --- |
 | Deploy or choose a model | [HF](docs/hf.md) · [vLLM](docs/vllm.md) · [Models](docs/models.md) |
-| Run document tasks, RLCD or model comparisons | [DocJev](docs/docjev/README.md) · [Results](docs/docjev/results.md) |
+| Run document tasks, RLCD or model comparisons | [mjev-doc](docs/docjev/README.md) · [Results](docs/docjev/results.md) |
 | Browse runnable examples | [Example guide](examples/README.md) |
 | Explore the code or run tests | [Developer guide](docs/development.md) · [pytest](docs/testing.md) |
 | Prepare data or reproduce an evaluation | [Benchmarks](docs/benchmark.md) · [Public mini](docs/reproduce.md) |
@@ -179,4 +178,4 @@ Thanks to [Immortal-Zhang](https://github.com/Immortal-Zhang), [Kyousuke661](htt
 
 ## 📜 License
 
-Code: [Apache-2.0](LICENSE); upstream attribution: [NOTICE](NOTICE). Download official model weights separately under their own licenses. Third-party data keeps its original terms and **is not relicensed with the code**; see [third-party licenses](THIRD_PARTY_LICENSES.md). Model weights and full third-party datasets are not distributed here. The DocJev validation table retains its CC-BY-2.0 attribution.
+Code: [Apache-2.0](LICENSE); upstream attribution: [NOTICE](NOTICE). Download official model weights separately under their own licenses. Third-party data keeps its original terms and **is not relicensed with the code**; see [third-party licenses](THIRD_PARTY_LICENSES.md). Model weights and full third-party datasets are not distributed here. The mjev-doc validation table retains its CC-BY-2.0 attribution.

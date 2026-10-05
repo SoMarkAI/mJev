@@ -34,4 +34,4 @@ GPU 脚本通过 pytest GPU 套件执行原 tests/e2e.py，保留原断言；未
 
 ## 文档模型检查
 
-`tests/docjev/` 纳入 base suite，覆盖文档输入、双语分组、候选顺序映射、RLCD 奖励、collective padding 和 checkpoint/resume。实际双权重 GPU 推理入口见 [DocJev 评测](docjev/evaluation.md)。
+`tests/docjev/` 纳入 base suite，覆盖文档输入、双语分组、候选顺序映射、RLCD 奖励、collective padding 和 checkpoint/resume。实际双权重 GPU 推理入口见 [mjev-doc 评测](docjev/evaluation.md)。

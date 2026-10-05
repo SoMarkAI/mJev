@@ -30,7 +30,7 @@ hf download Qwen/Qwen3-VL-4B-Instruct \
 
 ## Local checkpoints
 
-The DocJev RLCD model is named **DocJev-Qwen3-VL-4B-RLCD**. To run it, pass the local exported checkpoint directory to `--model`.
+**mjev-doc** is the document RLCD checkpoint. Pass its complete local exported directory to `--model`.
 
 Both the base model and exported training checkpoint must contain complete model shards, the safetensors index, configuration, tokenizer, processor and chat template. Pass the directory to `--model`; loaders use `local_files_only=True`. A partial checkpoint will not work.
 

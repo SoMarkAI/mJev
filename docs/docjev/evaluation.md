@@ -60,8 +60,14 @@ Use the same labelled JSON/JSONL input for both complete local checkpoints:
 
 ```bash
 python -m docjev.compare --base-model models/Qwen3-VL-4B-Instruct \
-  --trained-model /path/to/DocJev-Qwen3-VL-4B-RLCD \
+  --trained-model /path/to/mjev-doc \
   --input examples/docjev/multiple.json --out outputs/docjev-comparison
 ```
 
 The comparison runs each model sequentially on one visible GPU. It freezes image/input hashes, checks every actual processor tensor and prompt for equality, saves raw candidate logits and probabilities, and recomputes paired Accuracy. It uses causal/native/full projection, temperature 1, original candidate order and no prefix cache. A failure preserves partial files without `_SUCCESS`; use a fresh output directory for a new run. Keep local outputs private when the input contains private media or questions.
+
+## Unified diagnostic probability readout
+
+The [unified 1,512-question report](results.md#unified-1512-question-evaluation) includes all 1,492 multitask questions and all 20 added visual questions, with both language versions: 3,024 records. Each model records every candidate's raw label logit and temperature-1 softmax probability. The combined report and subgroup counts are [machine-readable](../validation_evidence/mjev-doc-unified1512.json). This is one fixed diagnostic, separate from the original 500-record training-validation cohort.
+
+The package and console entrypoints retain their `docjev` names for compatibility; the trained document checkpoint is named **mjev-doc**.

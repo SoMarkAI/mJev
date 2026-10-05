@@ -394,7 +394,7 @@
   },
   "models": {
     "base": "Qwen3-VL-4B-Instruct",
-    "trained": "DocJev-Qwen3-VL-4B-RLCD"
+    "trained": "mjev-doc"
   },
   "controlled_protocol": {
     "attention": "causal",

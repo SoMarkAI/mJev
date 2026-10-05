@@ -1,6 +1,6 @@
 {
-  "model_name": "DocJev-Qwen3-VL-4B-RLCD",
-  "study": "DocJev Infinity first epoch",
+  "model_name": "mjev-doc",
+  "study": "mjev-doc Infinity first epoch",
   "base_model": "Qwen/Qwen3-VL-4B-Instruct",
   "base_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
   "config": {

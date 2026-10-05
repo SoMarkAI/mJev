@@ -39,6 +39,6 @@ mJev 为图片、音频和视频上的动态选择题提供统一评分接口。
 - [实验 HTTP / Tree-KV](integrated.zh-CN.md)
 - [历史音视频工具与 Docker 镜像](../experiments/av/README.zh-CN.md)
 
-## DocJev 文档模型
+## mjev-doc 文档模型
 
-同一项目还提供 **DocJev-Qwen3-VL-4B-RLCD** 文档候选决策模型，共享 mJev 的 HF 核心，并提供文档输入、双语评测和 RLCD 训练入口。[中文介绍](docjev/README.zh-CN.md) · [English](docjev/README.md) · [评测结果](docjev/results.md)。DocJev 需要完整本地 checkpoint；下载 mJev 权重不会得到 DocJev 权重。
+同一项目还提供 **mjev-doc** 文档候选决策模型，共享 mJev 的 HF 核心，并提供文档输入、双语评测和 RLCD 训练入口。[中文介绍](docjev/README.zh-CN.md) · [English](docjev/README.md) · [评测结果](docjev/results.md)。mjev-doc 需要完整本地 checkpoint；下载 mJev 权重不会得到 mjev-doc 权重。

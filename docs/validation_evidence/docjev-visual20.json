@@ -121,7 +121,7 @@
   },
   "models": {
     "base": "Qwen3-VL-4B-Instruct",
-    "trained": "DocJev-Qwen3-VL-4B-RLCD"
+    "trained": "mjev-doc"
   },
   "controlled_protocol": {
     "attention": "causal",
@@ -147,7 +147,7 @@
     "base": "0ddcc268c6a1d6013f1b9419f6f467627554fe1a21a5fd0f2d094c6e97adad9d",
     "trained": "6e70a79455a6db5e774b3aca9879bcfac8d6314a33d53dd5f936c6d71752b512"
   },
-  "cohort": "Derived diagnostic on existing full-200 parent images; not an additional independent test set.",
+  "cohort": "Derived diagnostic using existing source images and independent rotation copies; not an independently collected test set. The unified evaluation has 220 distinct evaluated image files.",
   "base_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
   "model_file_sha256": {
     "base": {

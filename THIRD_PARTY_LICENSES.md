@@ -56,6 +56,6 @@ The prepared bundle includes `license_evidence/` with retrieved upstream records
 
 No blanket dataset LICENSE is added. `grouped.jsonl` and `manifest.jsonl` remain mixed-license collections, and must not be published as a single Apache-2.0 dataset. Existing source bundles outside this current filtered benchmark are not relabeled by this update.
 
-## DocJev validation example
+## mjev-doc validation example
 
 `examples/docjev/validation-table.jpg` is Table 3 of Gupta et al. (2008), *Can subjective global assessment of nutritional status predict survival in ovarian cancer?*, Journal of Ovarian Research 1, 5. © 2008 Gupta et al., licensee BioMed Central Ltd. [Source](https://link.springer.com/article/10.1186/1757-2215-1-5) · [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). The crop is supplied by Infinity and its demo bytes are unchanged. It is not relicensed under Apache-2.0. See `examples/docjev/metadata.json` for attribution and hashes.

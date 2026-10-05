@@ -39,7 +39,7 @@
   },
   "annotation_provenance": "codex_generated_bilingual_model_screened_reference",
   "recorded_output": {
-    "model": "DocJev-Qwen3-VL-4B-RLCD",
+    "model": "mjev-doc",
     "backend": "transformers",
     "mode": "causal",
     "numerics": "native",

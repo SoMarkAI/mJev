@@ -17,4 +17,4 @@ Here $y^{\ast}$ is the correct label; incorrect or invalid answers receive the n
 
 ## Document training
 
-DocJev uses a separate document corpus and checkpoint. Its runnable stage pipeline and exact objective are in [DocJev training](docjev/training.md); use `scripts/train_docjev.sh` with `configs/docjev_rlcd.json`. Adding these modules does not rerun or change the released mJev model.
+mjev-doc uses a separate document corpus and checkpoint. Its runnable stage pipeline and exact objective are in [mjev-doc training](docjev/training.md); use `scripts/train_docjev.sh` with `configs/docjev_rlcd.json`. Adding these modules does not rerun or change the released mJev model.

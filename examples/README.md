@@ -28,6 +28,6 @@ Commands run from the repository root. Media paths resolve relative to their inp
 
 These synthetic fixtures exercise the workflow. Use original labeled datasets for accuracy evaluation; candidate probabilities are relative to each question's choices.
 
-## DocJev documents
+## mjev-doc documents
 
 [Real validation table with paired Chinese/English questions](docjev/README.md). Run `python demo_docjev.py --model /path/to/checkpoint --input examples/docjev/multiple.json`. The image retains its CC-BY-2.0 attribution.

@@ -1,17 +1,17 @@
-# DocJev · Give every page a decision
+# mjev-doc · Give every page a decision
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Back to mJev](../../README.md)
 
-Bring a document image, ask several questions and define meaningful choices. **DocJev-Qwen3-VL-4B-RLCD** specializes the Jev workflow for document understanding: visible attributes, document categories, content relationships and decisions under explicit criteria.
+Bring a document image, ask several questions and define meaningful choices. **mjev-doc** specializes the Jev workflow for document understanding: visible attributes, document categories, content relationships and decisions under explicit criteria.
 
 ## One project, two checkpoints
 
 | Model | Focus | Weights |
 | --- | --- | --- |
 | mJev-Qwen3-VL-4B-RLCD | General visual candidate decisions | [Hugging Face](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) |
-| DocJev-Qwen3-VL-4B-RLCD | Document-image candidate decisions | Complete local exported checkpoint |
+| mjev-doc | Document-image candidate decisions | Complete local exported checkpoint |
 
-Both start from Qwen3-VL-4B-Instruct. The DocJev adapter imports the shared `mjev/` HF core rather than maintaining another copy. It preserves the document study's RGB preprocessing, pixel limits and native BF16 readout. Checkpoint names identify different training runs; they are not aliases.
+Both start from Qwen3-VL-4B-Instruct. The mjev-doc adapter imports the shared `mjev/` HF core rather than maintaining another copy. It preserves the document study's RGB preprocessing, pixel limits and native BF16 readout. Checkpoint names identify different training runs; they are not aliases.
 
 ## Try a document
 
@@ -28,12 +28,12 @@ python demo_docjev.py --model models/Qwen3-VL-4B-Instruct \
   --input examples/docjev/multiple.json --output outputs/docjev-base.json
 ```
 
-To use trained DocJev, replace `--model` with your complete `DocJev-Qwen3-VL-4B-RLCD` checkpoint directory. This repository does not distribute that checkpoint. The example includes one real validation table, eight bilingual language records and a recorded trained-model output. [Browse the example →](../../examples/docjev/README.md)
+To use trained mjev-doc, replace `--model` with your complete `mjev-doc` checkpoint directory. This repository does not distribute that checkpoint. The example includes one real validation table, eight bilingual language records and a recorded trained-model output. [Browse the example →](../../examples/docjev/README.md)
 
 ## Keep asking
 
 ```bash
-python demo_docjev.py --model /path/to/DocJev-Qwen3-VL-4B-RLCD \
+python demo_docjev.py --model /path/to/mjev-doc \
   --input examples/docjev/multiple.json --numerics stable \
   --prefix-cache --question-batch-size 2 --output outputs/docjev-cached.json
 ```
@@ -42,15 +42,14 @@ The shared media/context prefix is prefetched once, then independent question br
 
 ## Learn and evaluate
 
-The first DocJev training run consumed **15,658 language records / 7,829 bilingual question pairs / 1,223 images** over one epoch on eight GPUs. It freezes vision and updates language parameters with candidate-restricted GRPO, without LoRA or a new decision head.
+The first mjev-doc training run consumed **15,658 language records / 7,829 bilingual question pairs / 1,223 images** over one epoch on eight GPUs. It freezes vision and updates language parameters with candidate-restricted GRPO, without LoRA or a new decision head.
 
-| Cohort | Base | DocJev |
+| Cohort | Base | mjev-doc |
 | --- | ---: | ---: |
 | First validation: 500 language records | 73.0% | 77.8% |
-| Multitask diagnostic: 2,984 language records | 82.21% | 84.65% |
-| Rotation / paper diagnostic: 40 language records | 70.0% | 62.5% |
+| Unified diagnostic: 3,024 language records | 82.04% | 84.36% |
 
-These are separate cohorts and reference-label agreement measurements. The visual diagnostic combines deterministic rotation targets with generated-and-screened paper references. The bilingual versions are paired observations, not independent questions. [Detailed results and visual diagnostics →](results.md)
+The unified diagnostic includes **all 1,492 multitask questions plus the 20 added visual questions**, across 220 evaluated image files. Every candidate has a recorded raw logit and temperature-1 softmax probability. Scores measure reference-label agreement; bilingual versions are paired observations and paper questions are positives only. [Results, probabilities and visual breakdown →](results.md)
 
 - [Installation](installation.md) · [Input/output and API](input-output.md)
 - [Shared attention, logits and caching](architecture.md)
