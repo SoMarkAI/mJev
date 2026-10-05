@@ -1,0 +1,182 @@
+{
+  "overall": {
+    "records": 40,
+    "base_correct": 28,
+    "trained_correct": 25,
+    "base_accuracy": 0.7,
+    "trained_accuracy": 0.625,
+    "delta_percentage_points": -7.5,
+    "wrong_to_right": 2,
+    "right_to_wrong": 5,
+    "both_correct": 23,
+    "both_wrong": 10,
+    "same_prediction": 30
+  },
+  "by_language": {
+    "zh": {
+      "records": 20,
+      "base_correct": 12,
+      "trained_correct": 13,
+      "base_accuracy": 0.6,
+      "trained_accuracy": 0.65,
+      "delta_percentage_points": 5.0,
+      "wrong_to_right": 2,
+      "right_to_wrong": 1,
+      "both_correct": 11,
+      "both_wrong": 6,
+      "same_prediction": 16
+    },
+    "en": {
+      "records": 20,
+      "base_correct": 16,
+      "trained_correct": 12,
+      "base_accuracy": 0.8,
+      "trained_accuracy": 0.6,
+      "delta_percentage_points": -20.0,
+      "wrong_to_right": 0,
+      "right_to_wrong": 4,
+      "both_correct": 12,
+      "both_wrong": 4,
+      "same_prediction": 14
+    }
+  },
+  "by_source_dataset": {
+    "Infinity": {
+      "records": 20,
+      "base_correct": 8,
+      "trained_correct": 5,
+      "base_accuracy": 0.4,
+      "trained_accuracy": 0.25,
+      "delta_percentage_points": -15.0,
+      "wrong_to_right": 2,
+      "right_to_wrong": 5,
+      "both_correct": 3,
+      "both_wrong": 10,
+      "same_prediction": 10
+    },
+    "olm_tfr": {
+      "records": 20,
+      "base_correct": 20,
+      "trained_correct": 20,
+      "base_accuracy": 1.0,
+      "trained_accuracy": 1.0,
+      "delta_percentage_points": 0.0,
+      "wrong_to_right": 0,
+      "right_to_wrong": 0,
+      "both_correct": 20,
+      "both_wrong": 0,
+      "same_prediction": 20
+    }
+  },
+  "by_task_type": {
+    "orientation": {
+      "records": 20,
+      "base_correct": 8,
+      "trained_correct": 5,
+      "base_accuracy": 0.4,
+      "trained_accuracy": 0.25,
+      "delta_percentage_points": -15.0,
+      "wrong_to_right": 2,
+      "right_to_wrong": 5,
+      "both_correct": 3,
+      "both_wrong": 10,
+      "same_prediction": 10
+    },
+    "visual_quality": {
+      "records": 20,
+      "base_correct": 20,
+      "trained_correct": 20,
+      "base_accuracy": 1.0,
+      "trained_accuracy": 1.0,
+      "delta_percentage_points": 0.0,
+      "wrong_to_right": 0,
+      "right_to_wrong": 0,
+      "both_correct": 20,
+      "both_wrong": 0,
+      "same_prediction": 20
+    }
+  },
+  "by_difficulty": {
+    "easy": {
+      "records": 40,
+      "base_correct": 28,
+      "trained_correct": 25,
+      "base_accuracy": 0.7,
+      "trained_accuracy": 0.625,
+      "delta_percentage_points": -7.5,
+      "wrong_to_right": 2,
+      "right_to_wrong": 5,
+      "both_correct": 23,
+      "both_wrong": 10,
+      "same_prediction": 30
+    }
+  },
+  "images": 20,
+  "qa_pairs": 20,
+  "language_records": 40,
+  "errors": 0,
+  "both_languages_correct_pairs": {
+    "base": 12,
+    "trained": 11
+  },
+  "models": {
+    "base": "Qwen3-VL-4B-Instruct",
+    "trained": "DocJev-Qwen3-VL-4B-RLCD"
+  },
+  "controlled_protocol": {
+    "attention": "causal",
+    "numerics": "native",
+    "temperature": 1,
+    "projection": "full native BF16 LM head then select label logits",
+    "prediction": "argmax raw candidate label logits",
+    "prefix_cache": false,
+    "batch_size": 1,
+    "max_input_tokens": 4000,
+    "image_max_pixels": 501760
+  },
+  "reference_basis": "Rotation: transform-grounded labels checked against pixels. Paper: generated and independently screened visible-appearance references, only physical-paper positives; not acquisition provenance.",
+  "training_overlap_image_ids": [],
+  "actual_model_inputs_match_all_records": true,
+  "scope": "One fixed 20-image diagnostic cohort with 20 bilingual semantic questions. Rotation labels follow the documented transform; paper labels describe visible appearance, with only physical-paper positives. Accuracy against generated-and-screened references; not a general superiority or human-ground-truth claim.",
+  "shared_hashes": {
+    "snapshot.documents.jsonl": "5d68e4d045d7b05b6a562f44b108c58beeb21ed2070f77e95aa01a9a572aa2ac",
+    "references.jsonl": "44291b85364d8ee610769b8433753892c5f9c5b0120b50b531bccb996b31c475",
+    "requests.jsonl": "5a1e19b5e9b64eefdd421c10e000198fe9b0756e39e22efca43818d04d64a5d8"
+  },
+  "prediction_hashes": {
+    "base": "0ddcc268c6a1d6013f1b9419f6f467627554fe1a21a5fd0f2d094c6e97adad9d",
+    "trained": "6e70a79455a6db5e774b3aca9879bcfac8d6314a33d53dd5f936c6d71752b512"
+  },
+  "cohort": "Derived diagnostic on existing full-200 parent images; not an additional independent test set.",
+  "base_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "model_file_sha256": {
+    "base": {
+      "chat_template.json": "6f8a6a55027e3da5160105556cda5dd69f6423f1c32645f6730d32de7773d0c4",
+      "config.json": "edac7703329133edfc53e46ac0081835144c99d7eebf28b71c732694d435224d",
+      "configuration.json": "f888421726665e8a84b738eed42a64875aed79de8be7daade851ac8bf4c0cef9",
+      "generation_config.json": "8469742d1fce0de951c8909b26a2c0c0d8490837ce476efb114da9e0cefc4d44",
+      "model-00001-of-00002.safetensors": "30a01a0556622645a3cce87b655bbbbbc1f170c196099f1b666c93202c3339a9",
+      "model-00002-of-00002.safetensors": "046296a2a387efb43b0c997d5833c789604d168834f6e0d3064bf7bb13d002a6",
+      "model.safetensors.index.json": "58a7841d7bff2548dd91577d216274a83cf1b500bc6a534b809d6c1b1707cf2b",
+      "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+      "tokenizer.json": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7",
+      "tokenizer_config.json": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399",
+      "video_preprocessor_config.json": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    "trained": {
+      "chat_template.jinja": "3636d0f0bd6bef02654cdffdc447b79cb2cef8ab02cc75267345946291a489e4",
+      "config.json": "2f19f00e4dcc0cc67b025a3b34c4a98e66a66dcd5d0a19ee93eef4f4bec9e817",
+      "generation_config.json": "56eec147893e692f8a320fa612e5c6338a81da0a2ddef1b5525c9224d4ab595e",
+      "model-00001-of-00005.safetensors": "d8a3448dafef06efc57bd6b26eabf91b5ebe167b95c852d573e339cc9414ec08",
+      "model-00002-of-00005.safetensors": "c94c9b35e205a4c9f7e0946f3c5af9c74a37fe763133b1530f224f2149b2fd20",
+      "model-00003-of-00005.safetensors": "dc2273fd75415f9146596db0f4e16692ca140062cade5e24f5b93200005f54af",
+      "model-00004-of-00005.safetensors": "acdf59b8598e2ec3e1597f35b5c72d1c6c297bfd554bee0a4536d972849cca6d",
+      "model-00005-of-00005.safetensors": "114407080db2901cb3c0b705c5cc0a493fc47d22e811d0d02f3cf52334eec0dc",
+      "model.safetensors.index.json": "c8327dc008a60be75c02e64b96d9124488756553f939fa3d0ec7d404b9222d62",
+      "processor_config.json": "ace6f23f1d1dd624e314a4386e3493fd2893e95ba36b4d2cda832657f78d9f71",
+      "tokenizer.json": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+      "tokenizer_config.json": "15d9c5ecb9cfd3c63e5be36629d00b7e21f32ce7c54037fc7fdb02033bca1d13"
+    }
+  }
+}

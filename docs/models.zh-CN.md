@@ -99,3 +99,7 @@ bash scripts/test.sh --suite hf -q
 两条主后端均默认 `causal`；题内候选隔离需显式指定 `isolated`。不同问题分支独立，与同一道题的候选隔离是两种机制。候选隔离可用于可控结构比较和后续训练实验，尚不能据此断言效果上限更高。
 
 CLI 预检查、正式推理和评分 API 共用结构校验：候选字典必须按 A/B/... 顺序排列，问题列表不能为空。分组评测逐媒体组保存到 `groups/`，同时更新 `progress.json` 和累计原始结果／预测；后续失败保留这些文件，但不生成 `_SUCCESS`。当前不支持自动断点续跑。
+
+## DocJev 文档模型
+
+同一项目还提供 **DocJev-Qwen3-VL-4B-RLCD** 文档候选决策模型，共享 mJev 的 HF 核心，并提供文档输入、双语评测和 RLCD 训练入口。[中文介绍](docjev/README.zh-CN.md) · [English](docjev/README.md) · [评测结果](docjev/results.md)。DocJev 需要完整本地 checkpoint；下载 mJev 权重不会得到 DocJev 权重。

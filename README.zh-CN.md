@@ -4,13 +4,31 @@
 
 <h1 align="center">mJev</h1>
 <p align="center"><strong>简体中文</strong> · <a href="README.md">English</a></p>
-<p align="center"><strong>Jev, with senses.</strong></p>
-<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 Hugging Face 模型</a></p>
+<p align="center"><strong>Jev, with senses. DocJev, with documents.</strong></p>
+<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev 权重</a> · <a href="docs/docjev/README.zh-CN.md">📄 DocJev 模型说明</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
   <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
   <img src="https://img.shields.io/badge/Backends-HF%20%7C%20vLLM-0891b2" alt="HF and vLLM">
 </p>
+
+## 📄 两个训练模型，一个决策工作流
+
+**mJev-Qwen3-VL-4B-RLCD** 面向通用视觉候选决策，**DocJev-Qwen3-VL-4B-RLCD** 面向文档理解。两者共享 HF 推理核心，分别保留训练与评测说明；官方 Omni 后端继续支持音视频实验。
+
+DocJev 使用 1,223 张文档、15,658 条中英文语言记录训练，冻结视觉参数、更新语言模型。首轮 500 条验证记录的准确率由 **73.0% 提升到 77.8%**。不同模型使用不同评测集，结果分别展示，不作直接排名。
+
+```bash
+python -m pip install -e '.[docjev]'
+python demo_docjev.py --model /path/to/DocJev-Qwen3-VL-4B-RLCD \
+  --input examples/docjev/multiple.json --output outputs/docjev.json
+```
+
+DocJev 从完整本地 checkpoint 加载，仓库不附带权重；也可以传入官方 Qwen3-VL 基础模型体验示例。
+
+专项诊断：20 道题、40 条中英文记录，原始模型 **70.0%**、DocJev **62.5%**。下降来自非零旋转题；纸质题仅包含纸质正例，两模型均答对。该集合复用多任务诊断的原图，单独列示。[完整对比](docs/docjev/results.md)
+
+[文档模型介绍](docs/docjev/README.zh-CN.md) · [训练](docs/docjev/training.md) · [评测结果](docs/docjev/results.md) · [真实验证集示例](examples/docjev/README.md)
 
 ## 超越文本的决策智能
 
@@ -31,8 +49,8 @@ mJev 将共享上下文转化为明确的选择：输入上下文，提出多个
 **已在单张 24 GB NVIDIA GPU 上验证。** 需要 Linux、Python 3.11+、兼容的 NVIDIA 驱动和系统 FFmpeg。
 
 ```bash
-git clone https://github.com/SoMarkAI/mJev.git
-cd mJev
+git clone https://gitlab.soulcode.cn/immortal/mjev.git
+cd mjev
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
@@ -109,7 +127,7 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 }
 ```
 
-音视频使用 `modality` 和 `media_path`：`modality` 可选 `image`、`audio`、`video`、`audio_video`。视频应明确配置采样参数，完整示例见 [音视频输入说明](docs/hf.zh-CN.md#demo)。仓库示例使用合成媒体，不包含第三方评测媒体。
+音视频使用 `modality` 和 `media_path`：`modality` 可选 `image`、`audio`、`video`、`audio_video`。视频应明确配置采样参数，完整示例见 [音视频输入说明](docs/hf.zh-CN.md#demo)。通用 mJev 示例使用项目自建媒体；DocJev 示例包含一张保留 CC-BY-2.0 署名的真实验证表格。
 
 输出为 JSON 数组，每题一个结果，含 `candidates`、`decision` 和 `probability_sum`。可浏览[运行示例与已有输出记录](examples/README.zh-CN.md)。
 
@@ -144,10 +162,12 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 
 ## 🤝 贡献与交流
 
-欢迎提交 bug、使用示例和改进建议。[提 Issue](https://github.com/SoMarkAI/mJev/issues) · [发 PR](https://github.com/SoMarkAI/mJev/pulls) · [贡献指南](CONTRIBUTING.zh-CN.md)。报告问题时，请附上环境、配置和最小复现步骤。
+欢迎提交 bug、使用示例和改进建议。[提 Issue](https://gitlab.soulcode.cn/immortal/mjev/-/issues) · [发 PR](https://gitlab.soulcode.cn/immortal/mjev/-/merge_requests) · [贡献指南](CONTRIBUTING.zh-CN.md)。报告问题时，请附上环境、配置和最小复现步骤。
 
 感谢 [Immortal-Zhang](https://github.com/Immortal-Zhang)、[Kyousuke661](https://github.com/Kyousuke661) 和 [BinyangQiu](https://github.com/BinyangQiu)。
 
 ## 📜 许可证
 
-代码采用 [Apache-2.0](LICENSE)，上游署名见 [NOTICE](NOTICE)。官方模型权重单独下载，遵循各自许可证。第三方数据保留原始许可，**不随代码重授权**；详见 [第三方许可](THIRD_PARTY_LICENSES.zh-CN.md)。仓库不分发模型权重和第三方评测媒体。
+代码采用 [Apache-2.0](LICENSE)，上游署名见 [NOTICE](NOTICE)。官方模型权重单独下载，遵循各自许可证。第三方数据保留原始许可，**不随代码重授权**；详见 [第三方许可](THIRD_PARTY_LICENSES.zh-CN.md)。仓库不分发模型权重或完整第三方数据集。
+
+DocJev 示例表格保留 CC-BY-2.0 许可及署名，见 [第三方许可](THIRD_PARTY_LICENSES.zh-CN.md)。

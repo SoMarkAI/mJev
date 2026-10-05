@@ -14,3 +14,7 @@ r(\hat{y}) = \begin{cases}
 ```
 
 其中 $y^{\ast}$ 为正确标签，错误或无效回答获得负奖励。奖励范围为 $[-1, 1]$，目标概率越高，训练信号越强。输出被限制为单个候选标签，因此不另加格式奖励；关闭 reward scaling 以保留这一权重，并通过独立的 KL 惩罚限制策略偏离参考模型。训练更新语言模型，视觉塔和对齐模块保持冻结。
+
+## 文档模型训练
+
+DocJev 使用独立的文档数据与 checkpoint。[DocJev 训练说明](docjev/training.md)包含完整阶段与奖励定义；入口为 `scripts/train_docjev.sh`，配置为 `configs/docjev_rlcd.json`。代码整合不会重新训练或改变已发布的 mJev 模型。

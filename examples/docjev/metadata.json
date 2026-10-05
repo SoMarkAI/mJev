@@ -1,0 +1,48 @@
+{
+  "dataset": "Infinity",
+  "split": "dev",
+  "image_sha256": "c5bc6f4e69f7b8bf446c1ae35e2e74904bc3dac2e2dcf58e2c7dba67c53fb595",
+  "original_image": "WPR/Infinity/img/b11c3f06b44f35fae3344cc59f713393.jpg",
+  "validation_jsonl_sha256": "2f77731e01b8151e8f2aecc540fa0f1b5cbe9b89a9dc5492e710c001bb5174aa",
+  "question_ids": [
+    "docjev:c5bc6f4e69f7b8bf_r0q03:zh",
+    "docjev:c5bc6f4e69f7b8bf_r0q03:en",
+    "docjev:c5bc6f4e69f7b8bf_r0q02:zh",
+    "docjev:c5bc6f4e69f7b8bf_r0q02:en",
+    "docjev:c5bc6f4e69f7b8bf_r0q00:zh",
+    "docjev:c5bc6f4e69f7b8bf_r0q00:en",
+    "docjev:c5bc6f4e69f7b8bf_r0q04:zh",
+    "docjev:c5bc6f4e69f7b8bf_r0q04:en"
+  ],
+  "pair_ids": [
+    "c5bc6f4e69f7b8bf_r0q03",
+    "c5bc6f4e69f7b8bf_r0q02",
+    "c5bc6f4e69f7b8bf_r0q00",
+    "c5bc6f4e69f7b8bf_r0q04"
+  ],
+  "media_source": {
+    "title": "Can subjective global assessment of nutritional status predict survival in ovarian cancer?",
+    "authors": [
+      "Digant Gupta",
+      "Carolyn A Lammersfeld",
+      "Pankaj G Vashi",
+      "Sadie L Dahlk",
+      "Christopher G Lis"
+    ],
+    "year": 2008,
+    "doi": "10.1186/1757-2215-1-5",
+    "source_url": "https://link.springer.com/article/10.1186/1757-2215-1-5",
+    "table": 3,
+    "media_license": "CC-BY-2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "changes": "Table crop as supplied by Infinity; demo image bytes unchanged."
+  },
+  "annotation_provenance": "codex_generated_bilingual_model_screened_reference",
+  "recorded_output": {
+    "model": "DocJev-Qwen3-VL-4B-RLCD",
+    "backend": "transformers",
+    "mode": "causal",
+    "numerics": "native",
+    "projection": "full"
+  }
+}

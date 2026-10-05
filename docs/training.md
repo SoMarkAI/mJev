@@ -14,3 +14,7 @@ r(\hat{y}) = \begin{cases}
 ```
 
 Here $y^{\ast}$ is the correct label; incorrect or invalid answers receive the negative reward. Rewards lie in $[-1, 1]$, with higher target probabilities producing stronger signals. Outputs are constrained to one candidate label, so no separate format reward is used. Reward scaling is disabled to preserve this weighting, and a separate KL penalty limits drift from the reference model. Training updates the language model while freezing the vision tower and aligner.
+
+## Document training
+
+DocJev uses a separate document corpus and checkpoint. Its runnable stage pipeline and exact objective are in [DocJev training](docjev/training.md); use `scripts/train_docjev.sh` with `configs/docjev_rlcd.json`. Adding these modules does not rerun or change the released mJev model.

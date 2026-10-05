@@ -55,3 +55,7 @@ CC-BY 保留署名/许可并标明修改；CC-BY-NC 还限制商业用途。Samp
 数据包 `license_evidence/` 保留已获取的上游记录、条款/cards、逐文件 Clotho 元信息、证据 URL 与 SHA256。`license_audit.json` 记录完整性，并核对原问题/候选/答案与媒体哈希不变。更新前 manifest 在 `provenance/pre_license_fields/` 单独留存，是历史证据，不是当前授权导出。
 
 不添加一份覆盖全部数据的 LICENSE。`grouped.jsonl` 和 `manifest.jsonl` 仍为混合许可集合，不得作为统一 Apache-2.0 数据集发布。本次不为其他源数据包重新标注许可证。
+
+## DocJev validation example
+
+`examples/docjev/validation-table.jpg` is Table 3 of Gupta et al. (2008), *Can subjective global assessment of nutritional status predict survival in ovarian cancer?*, Journal of Ovarian Research 1, 5. © 2008 Gupta et al., licensee BioMed Central Ltd. [Source](https://link.springer.com/article/10.1186/1757-2215-1-5) · [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). The crop is supplied by Infinity and its demo bytes are unchanged. It is not relicensed under Apache-2.0. See `examples/docjev/metadata.json` for attribution and hashes.

@@ -38,3 +38,7 @@ Reuse the shared media prefix while keeping each question's scoring independent.
 - [Cache scaling: timings and measurement conditions](cache_scaling.md)
 - [Experimental HTTP / Tree-KV](integrated.md)
 - [Historical AV tools and Docker image](../experiments/av/README.md)
+
+## DocJev document model
+
+The project also includes **DocJev-Qwen3-VL-4B-RLCD** for document-image decisions. It shares the HF core with mJev and adds a document adapter, bilingual benchmark evaluation and a validated RLCD stage pipeline. [English guide](docjev/README.md) · [中文介绍](docjev/README.zh-CN.md) · [Results](docjev/results.md). Supply complete local DocJev weights; the mJev Hugging Face download is a different checkpoint.
