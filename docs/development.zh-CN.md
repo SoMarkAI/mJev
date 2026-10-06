@@ -15,6 +15,7 @@
 | vLLM 请求与评分 | [`engine.py`](../mjev/engine.py) |
 | vLLM attention 与缓存 hooks | [`patch.py`](../mjev/patch.py) |
 | 决策与并列策略 | [`decision.py`](../mjev/decision.py) |
+| 文档适配、配对评测与 RLCD | [`docjev/`](../docjev/) · [文档指南](docjev/README.zh-CN.md) |
 
 文档中的项目名使用 **mJev**，Python 导入使用 `mjev`，项目环境变量使用 `MJEV_` 前缀。
 
@@ -23,7 +24,7 @@
 从仓库根目录执行；模型推理环境要求见 [HF 教程](hf.zh-CN.md)。
 
 ```bash
-python -m pip install -e '.[test]'
+python -m pip install -e '.[docjev,test]'
 bash scripts/test.sh -q
 ```
 

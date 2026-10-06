@@ -16,9 +16,7 @@
 
 **Jev-style decision intelligence beyond text — multimodal state in, typed decisions out.**
 
-Text and vision today. Audio, video, and more to come.
-
-mJev 将共享上下文转化为明确的选择：输入上下文，提出多个问题，并为每个问题定义候选项。每个结果包含最终选择、候选概率和原始 logits，便于检查决策并接入后续流程。当前聚焦文本与视觉，未来扩展到音频、视频及更多模态。
+mJev 将共享上下文转化为明确的选择：输入上下文，提出多个问题，并为每个问题定义候选项。每个结果包含最终选择、候选概率和原始 logits，便于检查决策并接入后续流程。训练模型聚焦通用视觉与文档理解；官方 Omni 后端支持音频、视频及带音轨视频。
 
 - **共享上下文**：跨问题复用前缀 KV，支持问题批处理。
 - **明确输出**：每道题拥有自己的候选集合，让每个决策对应一个预先定义的选项。
@@ -63,7 +61,7 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 
 <a id="mjev-doc"></a>
 
-## 📄 两个训练模型，一个决策工作流
+## 📄 认识 mjev-doc
 
 **mJev-Qwen3-VL-4B-RLCD** 面向通用视觉候选决策，**mjev-doc** 面向文档理解。两者共享 HF 推理核心，分别保留训练与评测说明；官方 Omni 后端继续支持音视频实验。
 
@@ -104,7 +102,7 @@ mjev-doc 权重将与 mJev 一样通过 **Hugging Face** 发布，代码、模�
 
 ## 🎯 给它出点题
 
-在 [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) 的 **195 题评测子集**上，经过 GRPO 微调，准确率从 **77.95% 提升至 80.00%（+2.05 个百分点）**，多答对 4 道题。
+在 [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) 的上游 **195 题历史评测集**上，经过 GRPO 微调，准确率从 **77.95% 提升至 80.00%（+2.05 个百分点）**，多答对 4 道题。
 
 | 模型 | 正确 / 总题数 | 准确率 |
 | --- | ---: | ---: |
@@ -157,6 +155,7 @@ mjev-doc 权重将与 mJev 一样通过 **Hugging Face** 发布，代码、模�
 | 你想做什么 | 去这里 |
 | --- | --- |
 | 部署、选模型 | [HF](docs/hf.zh-CN.md) · [vLLM](docs/vllm.zh-CN.md) · [模型选择](docs/models.zh-CN.md) |
+| 跑文档任务、RLCD 或模型对比 | [mjev-doc](docs/docjev/README.zh-CN.md) · [评测结果](docs/docjev/results.md) |
 | 找可运行示例 | [示例指南](examples/README.zh-CN.md) |
 | 看代码、跑测试 | [开发者指南](docs/development.zh-CN.md) · [pytest](docs/testing.zh-CN.md) |
 | 准备数据、复现评测 | [Benchmark](docs/benchmark.zh-CN.md) · [公开小型评测](docs/reproduce.zh-CN.md) |

@@ -15,6 +15,7 @@
 | vLLM requests and scoring | [`engine.py`](../mjev/engine.py) |
 | vLLM attention and cache hooks | [`patch.py`](../mjev/patch.py) |
 | Decisions and tie handling | [`decision.py`](../mjev/decision.py) |
+| Document adapter, paired evaluation and RLCD | [`docjev/`](../docjev/) · [document guide](docjev/README.md) |
 
 Use **mJev** in documentation, `mjev` for Python imports and `MJEV_` for project environment variables.
 
@@ -23,7 +24,7 @@ Use **mJev** in documentation, `mjev` for Python imports and `MJEV_` for project
 Run from the repository root. See the [HF guide](hf.md) for model inference environment requirements.
 
 ```bash
-python -m pip install -e '.[test]'
+python -m pip install -e '.[docjev,test]'
 bash scripts/test.sh -q
 ```
 

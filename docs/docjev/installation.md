@@ -16,7 +16,7 @@
 
 The native HF runtime is pinned to Transformers 5.13.1. Other versions are rejected rather than silently running an unvalidated attention/template path. vLLM, FlashAttention builds and FFmpeg are not required for image-only use. The package does not include or download model weights during inference.
 
-Install PyTorch for your hardware before installing the HF extra. The CUDA 13.0 command in the README describes the validated environment; use a driver-compatible PyTorch wheel if your system differs. CUDA availability is a separate check from package import.
+Install a driver-compatible PyTorch 2.11.0 wheel for your hardware before installing the document extra. The recorded document-model environment used CUDA 13.0 wheels. CUDA availability is a separate check from package import.
 
 ```bash
 python -m pip install -e '.[docjev]'
@@ -53,7 +53,7 @@ python -m docjev.evaluate --predictions /path/to/predictions.jsonl \
   --output outputs/metrics.json
 ```
 
-The complete test suite imports the HF and RLCD modules, so install both `hf` and `dev` for all tests. Local CPU kernels are sufficient for unit tests; actual model scoring is GPU-validated separately.
+For the CPU test suite, install `python -m pip install -e '.[docjev,test]'` and run `bash scripts/test.sh -q` from the checkout. Optional vLLM checks require the separate `vllm` extra. Local CPU kernels are sufficient for unit tests; actual model scoring is GPU-validated separately. See [test scopes](../testing.md).
 
 ## Troubleshooting
 

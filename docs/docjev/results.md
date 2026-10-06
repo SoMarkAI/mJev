@@ -29,7 +29,7 @@ The reference probability is the probability assigned to the stored answer; the 
 
 Exact image hashes, source paths and supplied paper IDs found no training overlap. Perceptual near-duplicates were not assessed. Reference labels combine generated-and-screened questions with transform-grounded rotation targets; the reported accuracy measures agreement with those references.
 
-[Complete task breakdown, candidate probabilities and fingerprints](../validation_evidence/mjev-doc-unified1512.json) includes improved, unchanged and regressed tasks; the overall gain does not imply improvement on every task. Raw per-record logits, probabilities, media and private run artifacts remain outside the code repository.
+[Complete task breakdown, probability summaries and fingerprints](../validation_evidence/mjev-doc-unified1512.json) includes improved, unchanged and regressed tasks; the overall gain does not imply improvement on every task. Raw per-record logits, probabilities, media and private run artifacts remain outside the code repository.
 
 ## First training study
 

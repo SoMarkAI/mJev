@@ -4,7 +4,7 @@
 
 [Back to mJev](../README.md) · [HF setup](../docs/models.md)
 
-All bundled media is project-created. Pick an input after setting `MODEL_DIR` to your downloaded checkpoint:
+General image and video fixtures are project-created. The document example uses an attributed CC-BY-2.0 validation image. Pick an input after setting `MODEL_DIR` to your downloaded checkpoint:
 
 | Example | Input | Questions |
 | --- | --- | ---: |
@@ -12,6 +12,7 @@ All bundled media is project-created. Pick an input after setting `MODEL_DIR` to
 | One image, multiple questions | [multiple.json](multiple.json) | 2 |
 | Static video: color, shape and background | [video-demo/input.json](video-demo/input.json) | 3 |
 | Animation: motion, object and event order | [motion-demo/input.json](motion-demo/input.json) | 3 |
+| Research table: four bilingual question pairs | [docjev/multiple.json](docjev/multiple.json) | 8 language records |
 
 ```bash
 python demo_hf.py --model "$MODEL_DIR" --input examples/multiple.json --check-only
