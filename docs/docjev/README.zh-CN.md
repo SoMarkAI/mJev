@@ -45,4 +45,4 @@ mjev-doc 首轮使用 **1,223 张图、7,829 对中英文题、15,658 条语言�
 
 [安装](installation.md) · [输入输出](input-output.md) · [架构](architecture.md) · [评测](evaluation.md) · [RLCD 训练](training.md)
 
-Benchmark：[Immortal-Zhang/DocJev-Bench](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench)。代码采用 Apache-2.0，示例图片保留 CC-BY-2.0 许可与署名。
+Benchmark：[Immortal-Zhang/docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench)。代码采用 Apache-2.0，示例图片保留 CC-BY-2.0 许可与署名。

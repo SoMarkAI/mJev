@@ -56,4 +56,4 @@ The evaluation covers **1,512 questions** across 220 image files, with Chinese a
 - [Evaluation, candidate permutations and paired model comparison](evaluation.md)
 - [RLCD reward, stages and resume](training.md)
 
-DocJev-Bench: [Immortal-Zhang/DocJev-Bench](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench). Code is Apache-2.0; the example table keeps its [CC-BY-2.0 terms](../../THIRD_PARTY_LICENSES.md).
+docjev-bench: [Immortal-Zhang/docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench). Code is Apache-2.0; the example table keeps its [CC-BY-2.0 terms](../../THIRD_PARTY_LICENSES.md).
