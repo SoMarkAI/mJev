@@ -12,24 +12,6 @@
   <img src="https://img.shields.io/badge/Backends-HF%20%7C%20vLLM-0891b2" alt="HF and vLLM">
 </p>
 
-## 📄 两个训练模型，一个决策工作流
-
-**mJev-Qwen3-VL-4B-RLCD** 面向通用视觉候选决策，**mjev-doc** 面向文档理解。两者共享 HF 推理核心，分别保留训练与评测说明；官方 Omni 后端继续支持音视频实验。
-
-mjev-doc 使用 1,223 张文档、15,658 条中英文语言记录训练，冻结视觉参数、更新语言模型。首轮 500 条验证记录的准确率由 **73.0% 提升到 77.8%**。不同模型使用不同评测集，结果分别展示，不作直接排名。
-
-```bash
-python -m pip install -e '.[docjev]'
-python demo_docjev.py --model /path/to/mjev-doc \
-  --input examples/docjev/multiple.json --output outputs/docjev.json
-```
-
-mjev-doc 从完整本地 checkpoint 加载，仓库不附带权重；也可以传入官方 Qwen3-VL 基础模型体验示例。
-
-统一评测：原有 1,492 道题加新增 20 道题，共 **1,512 道中英文对应题、3,024 条语言记录、220 张评测图片**。原始 Qwen 准确率 **82.04%**，mjev-doc **84.36%**（+2.31 个百分点）。逐题保存所有候选的 raw logit 与温度 1 softmax 概率；旋转／纸质题已包含在总分内，并提供分组结果。[完整对比与概率](docs/docjev/results.md)
-
-[文档模型介绍](docs/docjev/README.zh-CN.md) · [训练](docs/docjev/training.md) · [评测结果](docs/docjev/results.md) · [真实验证集示例](examples/docjev/README.md)
-
 ## 超越文本的决策智能
 
 **Jev-style decision intelligence beyond text — multimodal state in, typed decisions out.**
@@ -78,6 +60,24 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 | **Qwen3-Omni-30B-A3B-Instruct** | 图片、音频、视频、带音轨视频＋文本 | [Omni 部署教程](docs/hf.zh-CN.md) |
 
 根据官方配置自动识别模型。图片／视频从 4B 开始；需要音频时切换到 Omni。两者使用相同的问题与候选项格式。
+
+## 📄 两个训练模型，一个决策工作流
+
+**mJev-Qwen3-VL-4B-RLCD** 面向通用视觉候选决策，**mjev-doc** 面向文档理解。两者共享 HF 推理核心，分别保留训练与评测说明；官方 Omni 后端继续支持音视频实验。
+
+mjev-doc 使用 1,223 张文档、15,658 条中英文语言记录训练，冻结视觉参数、更新语言模型。首轮 500 条验证记录的准确率由 **73.0% 提升到 77.8%**。不同模型使用不同评测集，结果分别展示，不作直接排名。
+
+```bash
+python -m pip install -e '.[docjev]'
+python demo_docjev.py --model /path/to/mjev-doc \
+  --input examples/docjev/multiple.json --output outputs/docjev.json
+```
+
+mjev-doc 从完整本地 checkpoint 加载，仓库不附带权重；也可以传入官方 Qwen3-VL 基础模型体验示例。
+
+统一评测：原有 1,492 道题加新增 20 道题，共 **1,512 道中英文对应题、3,024 条语言记录、220 张评测图片**。原始 Qwen 准确率 **82.04%**，mjev-doc **84.36%**（+2.31 个百分点）。逐题保存所有候选的 raw logit 与温度 1 softmax 概率；旋转／纸质题已包含在总分内，并提供分组结果。[完整对比与概率](docs/docjev/results.md)
+
+[文档模型介绍](docs/docjev/README.zh-CN.md) · [训练](docs/docjev/training.md) · [评测结果](docs/docjev/results.md) · [真实验证集示例](examples/docjev/README.md)
 
 ## ⚡ 上下文不换，问题接着来
 

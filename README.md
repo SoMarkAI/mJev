@@ -16,8 +16,6 @@
 
 **Jev-style decision intelligence beyond text — multimodal state in, typed decisions out.**
 
-Two trained 4B models, one candidate-scoring workflow: **mJev** for general visual decisions, **mjev-doc** for document understanding. The official Omni backend also supports audio/video experiments.
-
 mJev turns shared context into explicit choices. Supply the context, ask multiple questions, and define the candidates for each one. Each result includes a decision, candidate probabilities and raw logits, making the choice easy to inspect and use downstream.
 
 - **Shared context:** reuse prefix KV across questions and batch question branches.
@@ -52,6 +50,8 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
 Choose your GPUs with `CUDA_VISIBLE_DEVICES`. More options: [HF deployment](docs/hf.md) · [vLLM deployment](docs/vllm.md).
 
 ## 🧩 Choose a model
+
+Two trained 4B models, one candidate-scoring workflow: **mJev** for general visual decisions, **mjev-doc** for document understanding. The official Omni backend also supports audio/video experiments.
 
 | Model | Inputs | Start here |
 | --- | --- | --- |
