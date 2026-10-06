@@ -41,10 +41,8 @@ mjev-doc 首轮使用 **1,223 张图、7,829 对中英文题、15,658 条语言�
 | 首轮验证，500 条语言记录 | 73.0% | 77.8% |
 | 统一诊断，3,024 条语言记录 | 82.04% | 84.36% |
 
-评测包含 **1,512 道题目**，覆盖 220 张评测图片，提供中英文版本。每个候选均保存原始 logit 与温度 1 softmax 概率。分数表示与参考标签的一致率，中英文不能视为独立样本；纸质专项仅含正例。[完整结果、概率与视觉分组](results.md)
+评测包含 **1,512 道题目**，覆盖 220 张评测图片，提供中英文版本。每个候选均保存原始 logit 与温度 1 softmax 概率。分数表示与参考标签的一致率，中英文不能视为独立样本。[完整结果与概率](results.md)
 
 [安装](installation.md) · [输入输出](input-output.md) · [架构](architecture.md) · [评测](evaluation.md) · [RLCD 训练](training.md)
 
 Benchmark：[Immortal-Zhang/DocJev-Bench](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench)。代码采用 Apache-2.0，示例图片保留 CC-BY-2.0 许可与署名。
-
-旋转／纸质专项的参考标签分别来自已知旋转角度与筛选后的纸质外观判断；这部分分数按固定参考标签计算。

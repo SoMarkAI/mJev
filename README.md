@@ -83,7 +83,7 @@ python demo_docjev.py --model /path/to/mjev-doc \
 | First validation · 500 language records | 73.0% | 77.8% |
 | Unified diagnostic · 3,024 language records | 82.04% | 84.36% |
 
-The evaluation covers **1,512 questions**, with Chinese and English versions. Both models provide raw candidate logits and temperature-1 softmax probabilities. Scores measure reference-label agreement; paper questions are positives only. [Counts, probabilities and protocol →](docs/docjev/results.md)
+The evaluation covers **1,512 questions**, with Chinese and English versions. Both models provide raw candidate logits and temperature-1 softmax probabilities. Scores measure reference-label agreement. [Counts, probabilities and protocol →](docs/docjev/results.md)
 
 mjev-doc weights will be released on **Hugging Face**, following the same distribution format as mJev. Its code, model introduction and evaluation are maintained in this repository. The demo currently accepts a complete checkpoint directory or the official Qwen3-VL base model. [Installation and document API →](docs/docjev/installation.md)
 

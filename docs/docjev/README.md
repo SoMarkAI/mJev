@@ -49,7 +49,7 @@ The first mjev-doc training run consumed **15,658 language records / 7,829 bilin
 | First validation: 500 language records | 73.0% | 77.8% |
 | Unified diagnostic: 3,024 language records | 82.04% | 84.36% |
 
-The evaluation covers **1,512 questions** across 220 image files, with Chinese and English versions. Every candidate has a recorded raw logit and temperature-1 softmax probability. Scores measure reference-label agreement; bilingual versions are paired observations and paper questions are positives only. [Results, probabilities and visual breakdown →](results.md)
+The evaluation covers **1,512 questions** across 220 image files, with Chinese and English versions. Every candidate has a recorded raw logit and temperature-1 softmax probability. Scores measure reference-label agreement; bilingual versions are paired observations. [Complete results and probabilities →](results.md)
 
 - [Installation](installation.md) · [Input/output and API](input-output.md)
 - [Shared attention, logits and caching](architecture.md)

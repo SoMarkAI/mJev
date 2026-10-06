@@ -27,18 +27,9 @@ Every record retains each candidate's **raw logit and probability**. The same re
 
 The reference probability is the probability assigned to the stored answer; the selected probability is the largest candidate probability. Means cover all 3,024 records. These are candidate-restricted probabilities, not calibrated confidence or correctness guarantees. All candidate vectors were independently recomputed from the recorded logits within 1e-5 tolerance.
 
-### Rotation and paper appearance
-
-| Visual task | Original Qwen | mjev-doc | Delta |
-| --- | ---: | ---: | ---: |
-| orientation | 8/20 (40.00%) | 5/20 (25.00%) | -15.00 pp |
-| visual_quality | 20/20 (100.00%) | 20/20 (100.00%) | +0.00 pp |
-
-Ten questions use nonzero rotations (90°, 180°, 270°) and ten describe physical-paper appearance. Rotation references follow the recorded image transform. Paper references describe visible appearance rather than camera/scanner acquisition history; all ten paper examples are positives, so their score cannot establish balanced paper-vs-digital discrimination. The visual subset uses existing source images and separate rotation copies, rather than an independently collected test set.
-
 Exact image hashes, source paths and supplied paper IDs found no training overlap. Perceptual near-duplicates were not assessed. Reference labels combine generated-and-screened questions with transform-grounded rotation targets; the reported accuracy measures agreement with those references.
 
-[Unified aggregate results, candidate-probability summary and fingerprints](../validation_evidence/mjev-doc-unified1512.json). Raw per-record logits, probabilities, media and private run artifacts remain outside the code repository.
+[Complete task breakdown, candidate probabilities and fingerprints](../validation_evidence/mjev-doc-unified1512.json) includes improved, unchanged and regressed tasks; the overall gain does not imply improvement on every task. Raw per-record logits, probabilities, media and private run artifacts remain outside the code repository.
 
 ## First training study
 
