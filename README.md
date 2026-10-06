@@ -27,7 +27,7 @@ mJev brings the Jev workflow to multimodal inputs, with trained models for gener
 | Model | Best for | Get started |
 | --- | --- | --- |
 | **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | General image and video decisions | [Weights](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [Model guide](docs/models.md) |
-| **mjev-doc** | Document categories, visible attributes, field relationships and decisions under explicit criteria | [Document guide](docs/docjev/README.md) · [Real example](examples/docjev/README.md) |
+| **[mjev-doc](https://huggingface.co/SoMarkAI/mjev-doc)** | Document categories, visible attributes, field relationships and decisions under explicit criteria | [Weights](https://huggingface.co/SoMarkAI/mjev-doc) · [Document guide](docs/docjev/README.md) · [Real example](examples/docjev/README.md) |
 
 Both models build on Qwen3-VL-4B-Instruct and share the HF scoring core. For audio or video with audio, use the official Qwen3-Omni Thinker backend with the [same question/candidate interface](docs/hf.md).
 
@@ -35,9 +35,13 @@ Both models build on Qwen3-VL-4B-Instruct and share the HF scoring core. For aud
 
 ### 📄 mjev-doc
 
+<!-- mjev-doc-publishing -->
+Weight shards are uploading. Run the download and inference commands once the complete model is published.
+<!-- /mjev-doc-publishing -->
+
 A page can support more than one useful decision. mjev-doc adapts the workflow to document understanding through RLCD training, freezing vision and updating language parameters. Its [training and evaluation](docs/docjev/results.md) stay in this project.
 
-Weights will be released on **Hugging Face**. The demo currently accepts a complete local mjev-doc checkpoint or the official Qwen3-VL base model.
+Download **[mjev-doc from Hugging Face](https://huggingface.co/SoMarkAI/mjev-doc)** and run the document demo with the complete local snapshot.
 
 ## 🎯 Results at a glance
 
@@ -85,11 +89,14 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
 
 ### Document understanding · mjev-doc
 
-Supply your complete mjev-doc checkpoint directory:
+Download mjev-doc and run the real document example:
 
 ```bash
 python -m pip install -e '.[docjev]'
-CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model /path/to/mjev-doc \
+hf auth login
+export DOC_MODEL_DIR="$HOME/models/mjev-doc"
+hf download SoMarkAI/mjev-doc --local-dir "$DOC_MODEL_DIR"
+CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model "$DOC_MODEL_DIR" \
   --input examples/docjev/multiple.json --device-map cuda:0 \
   --output outputs/document-demo.json
 ```

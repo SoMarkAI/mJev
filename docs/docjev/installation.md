@@ -1,5 +1,9 @@
 # Installation
 
+<!-- mjev-doc-publishing -->
+Weight shards are uploading. Run the download and inference commands once the complete model is published.
+<!-- /mjev-doc-publishing -->
+
 [Project](../../README.md) · [中文首页](../../README.zh-CN.md)
 
 ## Supported configuration
@@ -30,14 +34,19 @@ hf download Qwen/Qwen3-VL-4B-Instruct \
 
 ## mjev-doc weights
 
-**mjev-doc** weights will be released on Hugging Face, following the same distribution format as mJev. Model code, documentation and evaluation stay in this repository. The model download link will be added when the checkpoint is published.
+Download the complete **[mjev-doc checkpoint](https://huggingface.co/SoMarkAI/mjev-doc)** from Hugging Face. Model code, documentation and evaluation stay in this repository.
 
-To run a checkpoint now, pass its complete local exported directory to `--model`.
+Download the model and pass its complete local directory to `--model`:
+
+```bash
+hf auth login
+hf download SoMarkAI/mjev-doc --local-dir models/mjev-doc
+```
 
 Both the base model and exported training checkpoint must contain complete model shards, the safetensors index, configuration, tokenizer, processor and chat template. Pass the directory to `--model`; loaders use `local_files_only=True`. A partial checkpoint will not work.
 
 ```bash
-python demo_docjev.py --model /path/to/checkpoint-final \
+python demo_docjev.py --model models/mjev-doc \
   --input examples/docjev/multiple.json --output outputs/trained-demo.json
 ```
 

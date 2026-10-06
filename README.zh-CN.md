@@ -27,7 +27,7 @@ mJev 将 Jev 工作流带入多模态场景，提供通用视觉与文档理解�
 | 模型 | 适合的任务 | 从这里开始 |
 | --- | --- | --- |
 | **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | 通用图片与视频决策 | [模型权重](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [模型指南](docs/models.zh-CN.md) |
-| **mjev-doc** | 文档类别、视觉属性、字段关系与明确规则下的业务决策 | [文档模型介绍](docs/docjev/README.zh-CN.md) · [真实示例](examples/docjev/README.md) |
+| **[mjev-doc](https://huggingface.co/SoMarkAI/mjev-doc)** | 文档类别、视觉属性、字段关系与明确规则下的业务决策 | [模型权重](https://huggingface.co/SoMarkAI/mjev-doc) · [文档模型介绍](docs/docjev/README.zh-CN.md) · [真实示例](examples/docjev/README.md) |
 
 两个模型均基于 Qwen3-VL-4B-Instruct，共享 HF 评分核心。需要音频或带音轨视频时，可使用官方 Qwen3-Omni Thinker 后端，沿用[同一套问题与候选接口](docs/hf.zh-CN.md)。
 
@@ -35,9 +35,13 @@ mJev 将 Jev 工作流带入多模态场景，提供通用视觉与文档理解�
 
 ### 📄 mjev-doc
 
+<!-- mjev-doc-publishing -->
+权重分片正在上传，完整模型发布后即可运行下面的下载与推理命令。
+<!-- /mjev-doc-publishing -->
+
 一页文档，可以支持多个有价值的判断。mjev-doc 通过 RLCD 训练适配文档理解，冻结视觉参数、更新语言参数，[训练与评测](docs/docjev/results.md)统一维护在本项目。
 
-模型权重将通过 **Hugging Face** 发布；当前 demo 支持完整本地 mjev-doc checkpoint，也可使用官方 Qwen3-VL 基础模型。
+从 **[Hugging Face 下载 mjev-doc](https://huggingface.co/SoMarkAI/mjev-doc)**，即可使用完整本地快照运行文档 demo。
 
 ## 🎯 关键结果
 
@@ -85,11 +89,14 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
 
 ### 文档理解 · mjev-doc
 
-指定完整的 mjev-doc checkpoint 目录：
+下载 mjev-doc，运行真实文档示例：
 
 ```bash
 python -m pip install -e '.[docjev]'
-CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model /path/to/mjev-doc \
+hf auth login
+export DOC_MODEL_DIR="$HOME/models/mjev-doc"
+hf download SoMarkAI/mjev-doc --local-dir "$DOC_MODEL_DIR"
+CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model "$DOC_MODEL_DIR" \
   --input examples/docjev/multiple.json --device-map cuda:0 \
   --output outputs/document-demo.json
 ```

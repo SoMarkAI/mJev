@@ -1,5 +1,9 @@
 # mjev-doc · Give every page a decision
 
+<!-- mjev-doc-publishing -->
+Weight shards are uploading. Run the download and inference commands once the complete model is published.
+<!-- /mjev-doc-publishing -->
+
 [English](README.md) · [简体中文](README.zh-CN.md) · [Back to mJev](../../README.md)
 
 Bring a document image, ask several questions and define meaningful choices. **mjev-doc** specializes the Jev workflow for document understanding: visible attributes, document categories, content relationships and decisions under explicit criteria.
@@ -9,7 +13,7 @@ Bring a document image, ask several questions and define meaningful choices. **m
 | Model | Focus | Weights |
 | --- | --- | --- |
 | mJev-Qwen3-VL-4B-RLCD | General visual candidate decisions | [Hugging Face](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) |
-| mjev-doc | Document-image candidate decisions | Hugging Face release planned |
+| mjev-doc | Document-image candidate decisions | [Hugging Face](https://huggingface.co/SoMarkAI/mjev-doc) |
 
 Both start from Qwen3-VL-4B-Instruct. The mjev-doc adapter imports the shared `mjev/` HF core rather than maintaining another copy. It preserves the document study's RGB preprocessing, pixel limits and native BF16 readout. Checkpoint names identify different training runs; they are not aliases.
 
@@ -19,16 +23,15 @@ Use Linux, Python 3.11+ and an NVIDIA GPU. Install a driver-compatible PyTorch 2
 
 ```bash
 python -m pip install -e '.[docjev]'
-hf download Qwen/Qwen3-VL-4B-Instruct \
-  --revision ebb281ec70b05090aa6165b016eac8ec08e71b17 \
-  --local-dir models/Qwen3-VL-4B-Instruct
-python demo_docjev.py --model models/Qwen3-VL-4B-Instruct \
+hf auth login
+hf download SoMarkAI/mjev-doc --local-dir models/mjev-doc
+python demo_docjev.py --model models/mjev-doc \
   --input examples/docjev/multiple.json --check-only
-python demo_docjev.py --model models/Qwen3-VL-4B-Instruct \
-  --input examples/docjev/multiple.json --output outputs/docjev-base.json
+python demo_docjev.py --model models/mjev-doc \
+  --input examples/docjev/multiple.json --output outputs/mjev-doc.json
 ```
 
-mjev-doc weights will be released on Hugging Face, just like mJev. The code, model documentation and evaluation remain in this repository. Until the release link is available, use your complete `mjev-doc` checkpoint directory with `--model`. The example includes one real validation table, eight bilingual language records and a recorded trained-model output. [Browse the example →](../../examples/docjev/README.md)
+**[mjev-doc weights](https://huggingface.co/SoMarkAI/mjev-doc)** include the full checkpoint, tokenizer, processor and chat template. Code, model documentation and evaluation remain in this repository. The example includes one real validation table, eight bilingual language records and a recorded trained-model output. [Browse the example →](../../examples/docjev/README.md)
 
 ## Keep asking
 
