@@ -4,7 +4,7 @@
 
 # Training and reward
 
-The released **mJev-Qwen3-VL-4B-RLCD** model is fine-tuned with [GRPO](https://arxiv.org/abs/2402.03300) for candidate selection. Before training, a frozen scorer assigns each example a target probability $p^{\ast}$: the probability of the correct option within its candidate set. Each sampled answer receives:
+The released **mJev-Qwen3-VL-4B-RLCD** model uses RLCD training for candidate selection. Before training, a frozen scorer assigns each example a target probability $p^{\ast}$: the probability of the correct option within its candidate set. Each sampled answer receives:
 
 ```math
 r(\hat{y}) = \begin{cases}

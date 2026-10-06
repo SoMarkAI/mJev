@@ -1,6 +1,6 @@
 import unittest
 import torch
-from docjev.rlcd.objective import advantages, grpo_loss, rewards, sample_group
+from docjev.rlcd.objective import advantages, rlcd_loss, rewards, sample_group
 
 
 class RewardTests(unittest.TestCase):
@@ -21,7 +21,7 @@ class RewardTests(unittest.TestCase):
         old = logits.detach().log_softmax(-1).index_select(0, actions)
         advantage = advantages(rewards(actions, 0, 0.8))
         reference = logits.detach().log_softmax(-1)
-        loss, _ = grpo_loss(
+        loss, _ = rlcd_loss(
             logits, actions, old, advantage, reference, clip_epsilon=0.2, kl_beta=0.02
         )
         loss.backward()
@@ -42,7 +42,7 @@ class RewardTests(unittest.TestCase):
         reference = reference_logits.log_softmax(-1)
         actions = torch.tensor([0, 1])
         old = logits.detach().log_softmax(-1)[actions]
-        loss, stats = grpo_loss(
+        loss, stats = rlcd_loss(
             logits, actions, old, torch.zeros(2), reference, clip_epsilon=0.2, kl_beta=0.02
         )
         expected = (logits.softmax(-1) * (logits.log_softmax(-1) - reference)).sum()
@@ -55,7 +55,7 @@ class RewardTests(unittest.TestCase):
         logits = torch.tensor([2.0, -2.0], requires_grad=True)
         actions = torch.tensor([0])
         old = torch.tensor([-0.69314718])
-        loss, _ = grpo_loss(
+        loss, _ = rlcd_loss(
             logits,
             actions,
             old,

@@ -3,7 +3,7 @@ import unittest
 import torch
 from docjev.rlcd.prepare_infinity import exact_validation_groups
 from docjev.rlcd.distributed_eval import training_position
-from docjev.rlcd.objective import grpo_loss
+from docjev.rlcd.objective import rlcd_loss
 
 
 class InfinityTrainingTests(unittest.TestCase):
@@ -33,7 +33,7 @@ class InfinityTrainingTests(unittest.TestCase):
     def test_collective_padding_has_no_policy_or_kl_gradient(self):
         logits = torch.tensor([1.0, -1.0], requires_grad=True)
         actions = torch.tensor([0, 1])
-        loss, _ = grpo_loss(
+        loss, _ = rlcd_loss(
             logits,
             actions,
             torch.tensor([-0.7, -0.7]),

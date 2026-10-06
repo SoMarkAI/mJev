@@ -17,7 +17,7 @@ loss = clipped_candidate_policy_loss + beta × KL(policy || frozen_reference)
 
 There is no division by group standard deviation: that would cancel the intended `p*` weighting for binary signed rewards. All-correct and all-wrong groups have zero centered policy advantage. KL is computed exactly over the supplied candidate action space. Actions are sampled from the policy distribution without using the reference label.
 
-The validated first-epoch loop applies one optimizer update to each collected action group. The old/current policy coincide before that update, so PPO clipping is approximately inactive in this protocol. This is a single-decision on-policy policy-gradient update in GRPO form with a KL penalty, not multi-epoch PPO. Probabilities are computed directly from the LM Head; `generate()` is never called.
+The validated first-epoch loop applies one optimizer update to each collected action group. The old/current policy coincide before that update, so PPO clipping is approximately inactive in this protocol. RLCD uses a single-decision on-policy update with group-centered advantages and a KL penalty, rather than multi-epoch PPO. Probabilities are computed directly from the LM Head; `generate()` is never called.
 
 ## Frozen bilingual source
 

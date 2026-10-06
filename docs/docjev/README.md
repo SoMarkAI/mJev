@@ -42,7 +42,7 @@ The shared media/context prefix is prefetched once, then independent question br
 
 ## Learn and evaluate
 
-The first mjev-doc training run consumed **15,658 language records / 7,829 bilingual question pairs / 1,223 images** over one epoch on eight GPUs. It freezes vision and updates language parameters with candidate-restricted GRPO, without LoRA or a new decision head.
+The first mjev-doc training run consumed **15,658 language records / 7,829 bilingual question pairs / 1,223 images** over one epoch on eight GPUs. It freezes vision and updates language parameters with candidate-restricted RLCD training, without LoRA or a new decision head.
 
 | Cohort | Base | mjev-doc |
 | --- | ---: | ---: |

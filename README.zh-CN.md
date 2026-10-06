@@ -102,16 +102,16 @@ mjev-doc 权重将与 mJev 一样通过 **Hugging Face** 发布，代码、模�
 
 ## 🎯 给它出点题
 
-在 [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) 的上游 **195 题历史评测集**上，经过 GRPO 微调，准确率从 **77.95% 提升至 80.00%（+2.05 个百分点）**，多答对 4 道题。
+在 [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) 的上游 **195 题历史评测集**上，经过 RLCD 训练，准确率从 **77.95% 提升至 80.00%（+2.05 个百分点）**，多答对 4 道题。
 
 | 模型 | 正确 / 总题数 | 准确率 |
 | --- | ---: | ---: |
-| Qwen3-VL-4B-Instruct（GRPO 训练前） | 152 / 195 | 77.95% |
-| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)（GRPO 训练后）** | **156 / 195** | **80.00%** |
+| Qwen3-VL-4B-Instruct（训练前） | 152 / 195 | 77.95% |
+| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)（训练后）** | **156 / 195** | **80.00%** |
 
 两组模型使用相同的 195 道题进行评测，评测题独立于 RL 训练数据。准确率按正确题数除以总题数计算。公开数据集包含图片、问题、候选项与参考答案。
 
-发布的模型使用 GRPO 针对候选选择微调，详见[训练与奖励设计](docs/training.zh-CN.md)。
+发布的模型使用 RLCD 针对候选选择进行训练，详见[训练与奖励设计](docs/training.zh-CN.md)。
 
 ## 📝 使用自己的数据
 

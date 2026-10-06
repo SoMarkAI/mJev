@@ -27,7 +27,7 @@ def sample_group(logits, group_size, generator):
     return actions, log_probs.index_select(0, actions)
 
 
-def grpo_loss(logits, actions, old_log_probs, advantage, reference_log_probs,
+def rlcd_loss(logits, actions, old_log_probs, advantage, reference_log_probs,
               *, clip_epsilon, kl_beta):
     if not 0 < clip_epsilon < 1 or kl_beta < 0:
         raise ValueError('Invalid objective configuration')

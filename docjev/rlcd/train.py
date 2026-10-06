@@ -16,7 +16,7 @@ from .common import read_jsonl, sha256, write_json, write_jsonl
 from .checkpoint_index import inspect_index
 from .model import (Inputs, candidate_logits, cast_parameters_preserve_buffers,
                     load_model, move_batch, position_buffer_digest, visual_digest)
-from .objective import advantages, grpo_loss, rewards, sample_group
+from .objective import advantages, rlcd_loss, rewards, sample_group
 from .resume import inspect_resume, restore_rank, save_resume
 from .distributed_eval import evaluation_schedule
 
@@ -173,13 +173,13 @@ def train(model_path, data_root, references, config_path, out, resume=None, stop
         optimizer.zero_grad(set_to_none=True)
         logits = candidate_logits(model, batch, spec['label_ids'])
         reference_logp = torch.tensor(row['reference_log_probs'], device=device)
-        loss, details = grpo_loss(logits, actions, old_logp, advantage, reference_logp,
+        loss, details = rlcd_loss(logits, actions, old_logp, advantage, reference_logp,
                                   clip_epsilon=config['clip_epsilon'], kl_beta=config['kl_beta'])
         if is_padding:
             # All ranks participate in FSDP, but padded rows have zero gradient.
             loss = loss * 0.
         if not torch.isfinite(loss):
-            raise ValueError('Nonfinite GRPO loss')
+            raise ValueError('Nonfinite RLCD loss')
         loss.backward()
         gradient_norm = model.clip_grad_norm_(config['max_grad_norm'])
         if not torch.isfinite(gradient_norm):
@@ -311,7 +311,7 @@ def train(model_path, data_root, references, config_path, out, resume=None, stop
         write_json(out / 'run.json', {
             'scope': config['scope'], 'training_status': 'completed',
             'base_model': config['model_id'], 'base_revision': config['model_revision'],
-            'training_method': 'candidate_restricted_single_step_GRPO',
+            'training_method': 'candidate_restricted_single_step_RLCD',
             'implementation': f'HF/PyTorch FSDP{world}; no generate, vLLM, LoRA, or new head',
             'parameter_counts': counts, 'parameter_master_dtype': 'float32',
             'lm_head_tied_to_embedding': native.config.tie_word_embeddings,

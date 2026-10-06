@@ -110,16 +110,16 @@ One 24 GB NVIDIA GPU, Qwen3-VL-4B, HF `stable` (BF16 weights, FP32 text computat
 
 ## 🎯 Put it to the test
 
-On the upstream **195-question historical evaluation cohort** of [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA), GRPO fine-tuning improves accuracy from **77.95% to 80.00% (+2.05 percentage points)**, with four more questions answered correctly.
+On the upstream **195-question historical evaluation cohort** of [mJev-Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA), RLCD training improves accuracy from **77.95% to 80.00% (+2.05 percentage points)**, with four more questions answered correctly.
 
 | Model | Correct / total | Accuracy |
 | --- | ---: | ---: |
-| Qwen3-VL-4B-Instruct (before GRPO) | 152 / 195 | 77.95% |
-| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) (after GRPO)** | **156 / 195** | **80.00%** |
+| Qwen3-VL-4B-Instruct (before training) | 152 / 195 | 77.95% |
+| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) (after training)** | **156 / 195** | **80.00%** |
 
 Both models were evaluated on the same 195 questions, held out from RL training. Accuracy is the number of correct answers divided by the total number of questions. The public dataset provides images, questions, candidate choices and reference answers.
 
-The released checkpoint uses GRPO for candidate selection. See [training and reward design](docs/training.md).
+The released checkpoint uses RLCD training for candidate selection. See [training and reward design](docs/training.md).
 
 The mJev numbers above are retained from the upstream study. mjev-doc evaluations use different cohorts and are reported separately; these scores do not rank the two trained models against each other.
 

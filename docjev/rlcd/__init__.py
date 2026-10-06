@@ -1,1 +1,1 @@
-"""Single-decision, candidate-restricted GRPO for mJev image questions."""
+"""Single-decision, candidate-restricted RLCD training for mJev image questions."""
