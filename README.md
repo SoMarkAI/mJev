@@ -26,12 +26,7 @@ mJev turns shared context into explicit choices. Supply the context, ask multipl
 
 ## 🚀 Quick Start
 
-**mJev and mjev-doc share the HF inference core and support single-GPU execution.**
-
-| Inference entry point | Validated inference configuration |
-| --- | --- |
-| mJev | One 24 GB NVIDIA GPU |
-| mjev-doc | One 96 GB NVIDIA RTX PRO 6000 Blackwell |
+**mJev and mjev-doc share the HF inference core, with one 24 GB NVIDIA GPU as the common deployment configuration.**
 
 Requires Linux, Python 3.11+ and compatible NVIDIA drivers. Video inputs also require system FFmpeg.
 

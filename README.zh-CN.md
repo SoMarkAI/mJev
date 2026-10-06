@@ -26,12 +26,7 @@ mJev 将共享上下文转化为明确的选择：输入上下文，提出多个
 
 ## 🚀 快速开始
 
-**mJev 与 mjev-doc 共用 HF 推理核心，均支持单卡运行。**
-
-| 推理入口 | 已验证的推理配置 |
-| --- | --- |
-| mJev | 单张 24 GB NVIDIA GPU |
-| mjev-doc | 单张 96 GB NVIDIA RTX PRO 6000 Blackwell |
+**mJev 与 mjev-doc 共用 HF 推理核心，统一以单张 24 GB NVIDIA GPU 为部署配置。**
 
 需要 Linux、Python 3.11+ 和兼容的 NVIDIA 驱动。视频输入还需要系统 FFmpeg。
 
