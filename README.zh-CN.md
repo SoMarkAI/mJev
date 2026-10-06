@@ -43,7 +43,7 @@ mJev 将 Jev 工作流带入多模态场景，提供通用视觉与文档理解�
 
 | 模型 | 评测集 | 原始 Qwen | 训练后 | 提升 |
 | --- | --- | ---: | ---: | ---: |
-| mJev | [Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) · 195 道题 | 77.95% | **80.00%** | +2.05 个百分点 |
+| mJev-Qwen3-VL-4B-RLCD | [Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) · 195 道题 | 77.95% | **80.00%** | +2.05 个百分点 |
 | mjev-doc | 文档诊断评测 · 1,512 道题 | 82.04% | **84.36%** | +2.31 个百分点 |
 
 mJev 保留上游研究的 195 题评测结果。mjev-doc 的题目提供中英文版本，准确率按 3,024 条语言记录统计。两组使用各自的评测集，分数表示与参考答案的一致率。[mJev 训练](docs/training.zh-CN.md) · [mjev-doc 协议与完整结果](docs/docjev/results.md)
