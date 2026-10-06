@@ -26,13 +26,25 @@ mJev 将共享上下文转化为明确的选择：输入上下文，提出多个
 
 ## 🚀 快速开始
 
-**已在单张 24 GB NVIDIA GPU 上验证。** 需要 Linux、Python 3.11+、兼容的 NVIDIA 驱动和系统 FFmpeg。
+**mJev 与 mjev-doc 共用 HF 推理核心，均支持单卡运行。**
+
+| 推理入口 | 已验证的推理配置 |
+| --- | --- |
+| mJev | 单张 24 GB NVIDIA GPU |
+| mjev-doc | 单张 96 GB NVIDIA RTX PRO 6000 Blackwell |
+
+需要 Linux、Python 3.11+ 和兼容的 NVIDIA 驱动。视频输入还需要系统 FFmpeg。
 
 ```bash
 git clone https://gitlab.soulcode.cn/immortal/mjev.git
 cd mjev
 python3 -m venv .venv
 source .venv/bin/activate
+```
+
+### 通用视觉 · mJev
+
+```bash
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
 
@@ -45,7 +57,22 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
   --prefix-cache --question-batch-size 2 --output outputs/image-demo.json
 ```
 
-🎉 结果在 `outputs/image-demo.json`。默认走 **HF + causal + stable**，无需安装 vLLM 或编译自定义 CUDA 内核。
+🎉 结果在 `outputs/image-demo.json`，示例采用 **HF + causal + stable**。
+
+### 文档理解 · mjev-doc
+
+使用完整的 mjev-doc checkpoint 目录，在同一环境中运行真实文档与多道中英文问题：
+
+```bash
+python -m pip install -e '.[docjev]'
+CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model /path/to/mjev-doc \
+  --input examples/docjev/multiple.json --device-map cuda:0 \
+  --output outputs/document-demo.json
+```
+
+结果在 `outputs/document-demo.json`，默认采用 **HF + causal + native BF16**。[模型权重与文档说明](#mjev-doc)
+
+两个入口均无需安装 vLLM 或编译自定义 CUDA 内核。
 
 GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配置见 [HF 部署](docs/hf.zh-CN.md) · [vLLM 部署](docs/vllm.zh-CN.md)。
 

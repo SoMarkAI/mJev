@@ -26,13 +26,25 @@ mJev turns shared context into explicit choices. Supply the context, ask multipl
 
 ## 🚀 Quick Start
 
-**Validated on one 24 GB NVIDIA GPU.** Requires Linux, Python 3.11+, compatible NVIDIA drivers and system FFmpeg.
+**mJev and mjev-doc share the HF inference core and support single-GPU execution.**
+
+| Inference entry point | Validated inference configuration |
+| --- | --- |
+| mJev | One 24 GB NVIDIA GPU |
+| mjev-doc | One 96 GB NVIDIA RTX PRO 6000 Blackwell |
+
+Requires Linux, Python 3.11+ and compatible NVIDIA drivers. Video inputs also require system FFmpeg.
 
 ```bash
 git clone https://gitlab.soulcode.cn/immortal/mjev.git
 cd mjev
 python3 -m venv .venv
 source .venv/bin/activate
+```
+
+### General vision · mJev
+
+```bash
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
 
@@ -45,7 +57,22 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
   --prefix-cache --question-batch-size 2 --output outputs/image-demo.json
 ```
 
-🎉 Find your results in `outputs/image-demo.json`. The default is **HF + causal + stable**; no vLLM installation or custom CUDA compilation needed.
+🎉 Find your results in `outputs/image-demo.json`. This example uses **HF + causal + stable**.
+
+### Document understanding · mjev-doc
+
+Supply a complete mjev-doc checkpoint directory, then run a real document with multiple Chinese and English questions in the same environment:
+
+```bash
+python -m pip install -e '.[docjev]'
+CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model /path/to/mjev-doc \
+  --input examples/docjev/multiple.json --device-map cuda:0 \
+  --output outputs/document-demo.json
+```
+
+Results are saved to `outputs/document-demo.json`, using **HF + causal + native BF16** by default. [Model weights and document guide](#mjev-doc)
+
+Neither entry point requires vLLM installation or custom CUDA compilation.
 
 Choose your GPUs with `CUDA_VISIBLE_DEVICES`. More options: [HF deployment](docs/hf.md) · [vLLM deployment](docs/vllm.md).
 
