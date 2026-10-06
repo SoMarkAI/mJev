@@ -1,7 +1,7 @@
 # mjev-doc · 让文档信息变成清晰决策
 
 <!-- mjev-doc-publishing -->
-权重分片正在上传，完整模型发布后即可运行下面的下载与推理命令。
+模型配置和说明已发布，权重尚待完成发布。五个分片齐全后即可运行下面的下载与推理命令。
 <!-- /mjev-doc-publishing -->
 
 [English](README.md) · 简体中文 · [返回 mJev](../../README.zh-CN.md)

@@ -1,7 +1,7 @@
 # mjev-doc · Give every page a decision
 
 <!-- mjev-doc-publishing -->
-Weight shards are uploading. Run the download and inference commands once the complete model is published.
+Model configuration and documentation are available; weight publication is pending. Run the download and inference commands once all five shards are present.
 <!-- /mjev-doc-publishing -->
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Back to mJev](../../README.md)

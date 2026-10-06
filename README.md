@@ -36,7 +36,7 @@ Both models build on Qwen3-VL-4B-Instruct and share the HF scoring core. For aud
 ### 📄 mjev-doc
 
 <!-- mjev-doc-publishing -->
-Weight shards are uploading. Run the download and inference commands once the complete model is published.
+Model configuration and documentation are available; weight publication is pending. Run the download and inference commands once all five shards are present.
 <!-- /mjev-doc-publishing -->
 
 A page can support more than one useful decision. mjev-doc adapts the workflow to document understanding through RLCD training, freezing vision and updating language parameters. Its [training and evaluation](docs/docjev/results.md) stay in this project.
@@ -67,8 +67,8 @@ Measured with official Qwen3-VL-4B, HF stable/causal scoring and a 2,266-token s
 mJev and mjev-doc share the HF inference core, with **one 24 GB NVIDIA GPU** as the common deployment configuration. Use Linux, Python 3.11+ and compatible NVIDIA drivers; video inputs also need system FFmpeg.
 
 ```bash
-git clone https://gitlab.soulcode.cn/immortal/mjev.git
-cd mjev
+git clone --branch docs/streamline-project-20261001 https://github.com/SoMarkAI/mJev.git
+cd mJev
 python3 -m venv .venv
 source .venv/bin/activate
 ```
@@ -148,7 +148,7 @@ Browse the [full documentation](docs/index.md) for numerical profiles and experi
 
 ## 🤝 Contribute
 
-Bug reports, examples and improvements are welcome. [Open an issue](https://gitlab.soulcode.cn/immortal/mjev/-/issues) · [Send a merge request](https://gitlab.soulcode.cn/immortal/mjev/-/merge_requests) · [Contribution guide](CONTRIBUTING.md)
+Bug reports, examples and improvements are welcome. [Open an issue](https://github.com/SoMarkAI/mJev/issues) · [Open a pull request](https://github.com/SoMarkAI/mJev/pulls) · [Contribution guide](CONTRIBUTING.md)
 
 Thanks to [Immortal-Zhang](https://github.com/Immortal-Zhang), [Kyousuke661](https://github.com/Kyousuke661) and [BinyangQiu](https://github.com/BinyangQiu).
 

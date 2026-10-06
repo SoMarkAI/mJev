@@ -36,7 +36,7 @@ mJev 将 Jev 工作流带入多模态场景，提供通用视觉与文档理解�
 ### 📄 mjev-doc
 
 <!-- mjev-doc-publishing -->
-权重分片正在上传，完整模型发布后即可运行下面的下载与推理命令。
+模型配置和说明已发布，权重尚待完成发布。五个分片齐全后即可运行下面的下载与推理命令。
 <!-- /mjev-doc-publishing -->
 
 一页文档，可以支持多个有价值的判断。mjev-doc 通过 RLCD 训练适配文档理解，冻结视觉参数、更新语言参数，[训练与评测](docs/docjev/results.md)统一维护在本项目。
@@ -67,8 +67,8 @@ mJev 保留上游研究的 195 题评测结果。mjev-doc 的题目提供中英�
 mJev 与 mjev-doc 共用 HF 推理核心，统一以**单张 24 GB NVIDIA GPU**为部署配置。需要 Linux、Python 3.11+ 和兼容的 NVIDIA 驱动；视频输入还需要系统 FFmpeg。
 
 ```bash
-git clone https://gitlab.soulcode.cn/immortal/mjev.git
-cd mjev
+git clone --branch docs/streamline-project-20261001 https://github.com/SoMarkAI/mJev.git
+cd mJev
 python3 -m venv .venv
 source .venv/bin/activate
 ```
@@ -148,7 +148,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model "$DOC_MODEL_DIR" \
 
 ## 🤝 贡献与交流
 
-欢迎提交 bug、使用示例和改进建议。[提 Issue](https://gitlab.soulcode.cn/immortal/mjev/-/issues) · [提交合并请求](https://gitlab.soulcode.cn/immortal/mjev/-/merge_requests) · [贡献指南](CONTRIBUTING.zh-CN.md)
+欢迎提交 bug、使用示例和改进建议。[提 Issue](https://github.com/SoMarkAI/mJev/issues) · [提交 Pull Request](https://github.com/SoMarkAI/mJev/pulls) · [贡献指南](CONTRIBUTING.zh-CN.md)
 
 感谢 [Immortal-Zhang](https://github.com/Immortal-Zhang)、[Kyousuke661](https://github.com/Kyousuke661) 和 [BinyangQiu](https://github.com/BinyangQiu)。
 
