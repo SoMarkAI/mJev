@@ -81,7 +81,7 @@ python demo_docjev.py --model /path/to/mjev-doc \
 | First validation · 500 language records | 73.0% | 77.8% |
 | Unified diagnostic · 3,024 language records | 82.04% | 84.36% |
 
-The unified evaluation includes **all 1,492 multitask questions plus the 20 added visual questions**, each in Chinese and English, with raw candidate logits and temperature-1 softmax probabilities saved for both models. Scores measure reference-label agreement; paper questions are positives only. [Counts, probabilities and protocol →](docs/docjev/results.md)
+The evaluation covers **1,512 questions**, with Chinese and English versions. Both models provide raw candidate logits and temperature-1 softmax probabilities. Scores measure reference-label agreement; paper questions are positives only. [Counts, probabilities and protocol →](docs/docjev/results.md)
 
 mjev-doc weights are loaded locally; they are not bundled or published by this repository. You can also try this demo with the official Qwen3-VL base model. [Get started with documents →](docs/docjev/README.md)
 

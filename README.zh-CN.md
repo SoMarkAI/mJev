@@ -75,7 +75,7 @@ python demo_docjev.py --model /path/to/mjev-doc \
 
 mjev-doc 从完整本地 checkpoint 加载，仓库不附带权重；也可以传入官方 Qwen3-VL 基础模型体验示例。
 
-统一评测：原有 1,492 道题加新增 20 道题，共 **1,512 道中英文对应题、3,024 条语言记录、220 张评测图片**。原始 Qwen 准确率 **82.04%**，mjev-doc **84.36%**（+2.31 个百分点）。逐题保存所有候选的 raw logit 与温度 1 softmax 概率；旋转／纸质题已包含在总分内，并提供分组结果。[完整对比与概率](docs/docjev/results.md)
+评测包含 **1,512 道题目**。原始 Qwen 准确率 **82.04%**，mjev-doc **84.36%**（+2.31 个百分点）。每个候选均提供 raw logit 与 softmax 概率。[评测结果](docs/docjev/results.md)
 
 [文档模型介绍](docs/docjev/README.zh-CN.md) · [训练](docs/docjev/training.md) · [评测结果](docs/docjev/results.md) · [真实验证集示例](examples/docjev/README.md)
 

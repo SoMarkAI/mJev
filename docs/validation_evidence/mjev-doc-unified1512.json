@@ -454,7 +454,7 @@
   "reference_basis": "Original generated-and-screened multitask references plus 10 deterministic rotation questions and 10 screened paper-appearance questions (paper positives only), all bilingual.",
   "training_overlap_image_ids": [],
   "actual_model_inputs_match_all_records": true,
-  "scope": "One unified 220-image evaluation of all 1492 multitask questions plus all 20 added visual questions, each in Chinese and English. The visual subset uses existing source images and separate rotated copies; paper examples are positives only. Reference-label agreement on this fixed diagnostic does not establish general superiority or independently human-verified ground truth.",
+  "scope": "Evaluation of 1512 questions across 220 images, with Chinese and English versions. The visual subset uses existing source images and separate rotated copies; paper examples are positives only. Reference-label agreement on this fixed diagnostic does not establish general superiority or independently human-verified ground truth.",
   "shared_hashes": {
     "snapshot.documents.jsonl": "5a7de09bcff56527edc7b5a00363703101c724a757714c26de894993db9d4a6b",
     "references.jsonl": "586b442f3bd8ca08de5b67a8d88ac138305b83ba5961cfc74a9bbdcd6b996423",
