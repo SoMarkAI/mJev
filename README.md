@@ -44,7 +44,7 @@ Weights will be released on **Hugging Face**. The demo currently accepts a compl
 | Model | Evaluation cohort | Base Qwen | After training | Gain |
 | --- | --- | ---: | ---: | ---: |
 | mJev-Qwen3-VL-4B-RLCD | [Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) · 195 questions | 77.95% | **80.00%** | +2.05 pp |
-| mjev-doc | Document diagnostic · 1,512 questions | 82.04% | **84.36%** | +2.31 pp |
+| mjev-doc | [DocJev-Bench](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench) · 1,512 questions | 82.04% | **84.36%** | +2.31 pp |
 
 The mJev row retains the upstream study's 195-question cohort. mjev-doc questions have Chinese and English versions; accuracy is measured over 3,024 language records. These are separate evaluation sets, and the scores measure agreement with their reference answers. [mJev training](docs/training.md) · [mjev-doc protocol and complete results](docs/docjev/results.md)
 

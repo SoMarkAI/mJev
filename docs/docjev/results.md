@@ -43,7 +43,7 @@ Exact image hashes, source paths and supplied paper IDs found no training overla
 | Source | Infinity document images with paired Chinese/English candidate questions |
 | Total | 1,263 images, 8,079 semantic pairs, 16,158 language records |
 | Training | 1,223 images, 7,829 pairs, 15,658 language records |
-| Validation | [DocJev-Bench · pilot-v1](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench): 40 images, 250 pairs, 500 language records |
+| Validation | [DocJev-Bench · pilot-v1](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench/tree/f3848f96b0553d08c80cf6115dd3db0d64e2bc4e): 40 images, 250 pairs, 500 language records |
 | Independent test | Not included in this study |
 | Split | Complete connected paper/exact-image groups; bilingual pairs kept together |
 | Parameters | 4,022,468,096 trainable language parameters; 415,347,712 frozen visual parameters |
@@ -54,7 +54,7 @@ Exact image hashes, source paths and supplied paper IDs found no training overla
 
 All 15,658 training language records were consumed once. Six additional forwards were collective padding with zero loss and gradient, not extra training examples. Eight sampled candidate labels per record are actions, not newly generated questions.
 
-The benchmark's `validation` split preserves this study's validation images and annotations. It is the study’s validation cohort, rather than an additional independent test set. See the [evaluation guide](evaluation.md#docjev-bench) for the input file.
+The pinned pilot-v1 revision's `validation` split preserves this study's validation images and annotations. It is the study’s validation cohort, rather than an additional independent test set. The default dataset branch hosts the 1,512-question v2 diagnostic. See the [evaluation guide](evaluation.md#docjev-bench) for the input file and revision selection.
 
 ## Accuracy
 

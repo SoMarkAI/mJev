@@ -22,9 +22,11 @@ python -m docjev.evaluate --predictions outputs/evaluation.predictions.jsonl \
 
 ## DocJev-Bench
 
-[DocJev-Bench · pilot-v1](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench) contains the first RLCD study's validation cohort: 40 document images, 250 paired Chinese/English questions and 500 language records.
+[DocJev-Bench · v2](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench) contains the unified document diagnostic: 220 images, 1,512 paired Chinese/English questions and 3,024 language records. Images come from Infinity and OLM-TFR.
 
-Use its `grouped.jsonl` as `--input`, keeping the accompanying `images/` directory beside it. The Hugging Face dataset also exposes a `validation` split in both the default `questions` configuration (500 records) and the `documents` configuration (40 image groups). Use `--protocol none` for the original candidate order reported in the [study](results.md), or `--protocol circular` for a separate candidate-order evaluation.
+Use its `grouped.jsonl` as `--input`, keeping the accompanying `images/` directory beside it. The Hugging Face dataset exposes a `validation` split in both the default `questions` configuration (3,024 records) and the `documents` configuration (220 image groups). Use `--protocol none` for the original candidate order reported in the [comparison](results.md#unified-1512-question-evaluation), or `--protocol circular` for a separate candidate-order evaluation.
+
+The first RLCD study's 40-image / 500-record validation cohort remains available at the pinned [pilot-v1 revision](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench/tree/f3848f96b0553d08c80cf6115dd3db0d64e2bc4e). Set `revision="f3848f96b0553d08c80cf6115dd3db0d64e2bc4e"` when loading that specific cohort; the default branch contains v2.
 
 ## Metrics
 
