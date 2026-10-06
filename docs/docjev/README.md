@@ -9,7 +9,7 @@ Bring a document image, ask several questions and define meaningful choices. **m
 | Model | Focus | Weights |
 | --- | --- | --- |
 | mJev-Qwen3-VL-4B-RLCD | General visual candidate decisions | [Hugging Face](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) |
-| mjev-doc | Document-image candidate decisions | Complete local exported checkpoint |
+| mjev-doc | Document-image candidate decisions | Hugging Face release planned |
 
 Both start from Qwen3-VL-4B-Instruct. The mjev-doc adapter imports the shared `mjev/` HF core rather than maintaining another copy. It preserves the document study's RGB preprocessing, pixel limits and native BF16 readout. Checkpoint names identify different training runs; they are not aliases.
 
@@ -28,7 +28,7 @@ python demo_docjev.py --model models/Qwen3-VL-4B-Instruct \
   --input examples/docjev/multiple.json --output outputs/docjev-base.json
 ```
 
-To use trained mjev-doc, replace `--model` with your complete `mjev-doc` checkpoint directory. This repository does not distribute that checkpoint. The example includes one real validation table, eight bilingual language records and a recorded trained-model output. [Browse the example →](../../examples/docjev/README.md)
+mjev-doc weights will be released on Hugging Face, just like mJev. The code, model documentation and evaluation remain in this repository. Until the release link is available, use your complete `mjev-doc` checkpoint directory with `--model`. The example includes one real validation table, eight bilingual language records and a recorded trained-model output. [Browse the example →](../../examples/docjev/README.md)
 
 ## Keep asking
 

@@ -5,7 +5,7 @@
 <h1 align="center">mJev</h1>
 <p align="center"><a href="README.zh-CN.md">简体中文</a> · <strong>English</strong></p>
 <p align="center"><strong>Jev, with senses. mjev-doc, with documents.</strong></p>
-<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev weights</a> · <a href="docs/docjev/README.md">📄 mjev-doc model guide</a></p>
+<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev weights</a> · <a href="#mjev-doc">📄 mjev-doc model guide</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
   <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
@@ -56,10 +56,12 @@ Two trained 4B models, one candidate-scoring workflow: **mJev** for general visu
 | Model | Inputs | Start here |
 | --- | --- | --- |
 | **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | Image + text, video + text | [Weights](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [Installation, demo and evaluation](docs/models.md) |
-| **mjev-doc** | Document image + text | [Document demo, local checkpoint and results](docs/docjev/README.md) |
+| **mjev-doc** | Document image + text | [Introduction, demo and results](#mjev-doc) |
 | **Qwen3-Omni-30B-A3B-Instruct** | Image, audio, video, video with audio + text | [Omni deployment guide](docs/hf.md) |
 
 The official config selects the model family automatically. Start with 4B for image/video; choose Omni for audio. Keep the same question and candidate format.
+
+<a id="mjev-doc"></a>
 
 ## 📄 Meet mjev-doc
 
@@ -83,7 +85,7 @@ python demo_docjev.py --model /path/to/mjev-doc \
 
 The evaluation covers **1,512 questions**, with Chinese and English versions. Both models provide raw candidate logits and temperature-1 softmax probabilities. Scores measure reference-label agreement; paper questions are positives only. [Counts, probabilities and protocol →](docs/docjev/results.md)
 
-mjev-doc weights are loaded locally; they are not bundled or published by this repository. You can also try this demo with the official Qwen3-VL base model. [Get started with documents →](docs/docjev/README.md)
+mjev-doc weights will be released on **Hugging Face**, following the same distribution format as mJev. Its code, model introduction and evaluation are maintained in this repository. The demo currently accepts a complete checkpoint directory or the official Qwen3-VL base model. [Installation and document API →](docs/docjev/installation.md)
 
 ## ⚡ Same context. Keep the questions coming.
 

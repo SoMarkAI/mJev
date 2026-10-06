@@ -41,4 +41,4 @@ Reuse the shared media prefix while keeping each question's scoring independent.
 
 ## mjev-doc document model
 
-The project also includes **mjev-doc** for document-image decisions. It shares the HF core with mJev and adds a document adapter, bilingual benchmark evaluation and a validated RLCD stage pipeline. [English guide](docjev/README.md) · [中文介绍](docjev/README.zh-CN.md) · [Results](docjev/results.md). Supply complete local mjev-doc weights; the mJev Hugging Face download is a different checkpoint.
+The project also includes **mjev-doc** for document-image decisions. It shares the HF core with mJev and adds a document adapter, bilingual benchmark evaluation and a validated RLCD stage pipeline. [English guide](docjev/README.md) · [中文介绍](docjev/README.zh-CN.md) · [Results](docjev/results.md). mjev-doc weights will be released on Hugging Face, following the same distribution format as mJev. Both models share this code repository; the demo currently accepts a complete local checkpoint.

@@ -5,7 +5,7 @@
 <h1 align="center">mJev</h1>
 <p align="center"><strong>简体中文</strong> · <a href="README.md">English</a></p>
 <p align="center"><strong>Jev, with senses. mjev-doc, with documents.</strong></p>
-<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev 权重</a> · <a href="docs/docjev/README.zh-CN.md">📄 mjev-doc 模型说明</a></p>
+<p align="center"><a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev 权重</a> · <a href="#mjev-doc">📄 mjev-doc 模型说明</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
   <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
@@ -56,10 +56,12 @@ GPU 数量由你选：用 `CUDA_VISIBLE_DEVICES` 指定可见设备。更多配�
 | 模型 | 输入 | 从这里开始 |
 | --- | --- | --- |
 | **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | 图片＋文本、视频＋文本 | [模型权重](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [安装、示例与评测](docs/models.zh-CN.md) |
-| **mjev-doc** | 文档图片＋文本 | [文档示例、本地权重与结果](docs/docjev/README.zh-CN.md) |
+| **mjev-doc** | 文档图片＋文本 | [模型介绍、示例与结果](#mjev-doc) |
 | **Qwen3-Omni-30B-A3B-Instruct** | 图片、音频、视频、带音轨视频＋文本 | [Omni 部署教程](docs/hf.zh-CN.md) |
 
 根据官方配置自动识别模型。图片／视频从 4B 开始；需要音频时切换到 Omni。两者使用相同的问题与候选项格式。
+
+<a id="mjev-doc"></a>
 
 ## 📄 两个训练模型，一个决策工作流
 
@@ -73,7 +75,7 @@ python demo_docjev.py --model /path/to/mjev-doc \
   --input examples/docjev/multiple.json --output outputs/docjev.json
 ```
 
-mjev-doc 从完整本地 checkpoint 加载，仓库不附带权重；也可以传入官方 Qwen3-VL 基础模型体验示例。
+mjev-doc 权重将与 mJev 一样通过 **Hugging Face** 发布，代码、模型介绍与评测统一维护在本仓库。当前示例支持完整 checkpoint 目录，也可使用官方 Qwen3-VL 基础模型。
 
 评测包含 **1,512 道题目**。原始 Qwen 准确率 **82.04%**，mjev-doc **84.36%**（+2.31 个百分点）。每个候选均提供 raw logit 与 softmax 概率。[评测结果](docs/docjev/results.md)
 

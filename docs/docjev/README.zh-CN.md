@@ -9,9 +9,9 @@
 | 模型 | 定位 | 权重 |
 | --- | --- | --- |
 | mJev-Qwen3-VL-4B-RLCD | 通用视觉候选决策 | [Hugging Face](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) |
-| mjev-doc | 文档理解与候选决策 | 完整本地导出 checkpoint |
+| mjev-doc | 文档理解与候选决策 | Hugging Face，待发布 |
 
-两者均以 Qwen3-VL-4B-Instruct 为基础，来自不同训练数据和训练任务。mjev-doc 直接复用 `mjev/` 的 HF processor、模板、attention、LM Head 和 prefix cache；文档预处理、训练及评测入口独立保留。下载 mJev 权重不会得到 mjev-doc 权重。
+两者均以 Qwen3-VL-4B-Instruct 为基础，来自不同训练数据和训练任务。mjev-doc 直接复用 `mjev/` 的 HF processor、模板、attention、LM Head 和 prefix cache；文档预处理、训练及评测入口独立保留。两个模型的权重分别发布，代码和说明统一维护在本仓库。
 
 ## 开始使用
 
@@ -28,7 +28,7 @@ python demo_docjev.py --model /path/to/mjev-doc \
   --input examples/docjev/multiple.json --output outputs/docjev.json
 ```
 
-仓库不附带 mjev-doc 权重；原始模型也能运行相同示例。[真实验证集示例](../../examples/docjev/README.md)包含一张研究表格、四对中英文题目及训练后模型的实际输出。
+mjev-doc 权重将与 mJev 一样通过 Hugging Face 发布。当前可使用完整训练 checkpoint 或原始 Qwen 模型运行示例。[真实验证集示例](../../examples/docjev/README.md)包含一张研究表格、四对中英文题目及训练后模型的实际输出。
 
 同页多题可以使用 `--numerics stable --prefix-cache --question-batch-size 2`。这与准确率评测使用的 `native`、串行、无缓存设置不同，比较时需保持协议一致。
 

@@ -28,9 +28,11 @@ hf download Qwen/Qwen3-VL-4B-Instruct \
 
 `hf` is supplied by the Hugging Face Hub dependency. Official model access may require your own Hugging Face authentication. Never put access tokens in input JSON, scripts or commits.
 
-## Local checkpoints
+## mjev-doc weights
 
-**mjev-doc** is the document RLCD checkpoint. Pass its complete local exported directory to `--model`.
+**mjev-doc** weights will be released on Hugging Face, following the same distribution format as mJev. Model code, documentation and evaluation stay in this repository. The model download link will be added when the checkpoint is published.
+
+To run a checkpoint now, pass its complete local exported directory to `--model`.
 
 Both the base model and exported training checkpoint must contain complete model shards, the safetensors index, configuration, tokenizer, processor and chat template. Pass the directory to `--model`; loaders use `local_files_only=True`. A partial checkpoint will not work.
 
