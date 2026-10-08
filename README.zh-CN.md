@@ -35,10 +35,6 @@ mJev 将 Jev 工作流带入多模态场景，提供通用视觉与文档理解�
 
 ### 📄 mjev-doc
 
-<!-- mjev-doc-publishing -->
-模型配置和说明已发布，权重尚待完成发布。五个分片齐全后即可运行下面的下载与推理命令。
-<!-- /mjev-doc-publishing -->
-
 一页文档，可以支持多个有价值的判断。mjev-doc 通过 RLCD 训练适配文档理解，冻结视觉参数、更新语言参数，[训练与评测](docs/docjev/results.md)统一维护在本项目。
 
 从 **[Hugging Face 下载 mjev-doc](https://huggingface.co/SoMarkAI/mjev-doc)**，即可使用完整本地快照运行文档 demo。

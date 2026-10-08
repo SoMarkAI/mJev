@@ -1,9 +1,5 @@
 # Installation
 
-<!-- mjev-doc-publishing -->
-Model configuration and documentation are available; weight publication is pending. Run the download and inference commands once all five shards are present.
-<!-- /mjev-doc-publishing -->
-
 [Project](../../README.md) · [中文首页](../../README.zh-CN.md)
 
 ## Supported configuration

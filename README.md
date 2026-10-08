@@ -35,10 +35,6 @@ Both models build on Qwen3-VL-4B-Instruct and share the HF scoring core. For aud
 
 ### 📄 mjev-doc
 
-<!-- mjev-doc-publishing -->
-Model configuration and documentation are available; weight publication is pending. Run the download and inference commands once all five shards are present.
-<!-- /mjev-doc-publishing -->
-
 A page can support more than one useful decision. mjev-doc adapts the workflow to document understanding through RLCD training, freezing vision and updating language parameters. Its [training and evaluation](docs/docjev/results.md) stay in this project.
 
 Download **[mjev-doc from Hugging Face](https://huggingface.co/SoMarkAI/mjev-doc)** and run the document demo with the complete local snapshot.
