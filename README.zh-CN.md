@@ -39,6 +39,12 @@ mJev 将 Jev 工作流带入多模态场景，提供通用视觉与文档理解�
 
 从 **[Hugging Face 下载 mJev-Doc](https://huggingface.co/SoMarkAI/mjev-doc)**，即可使用完整本地快照运行文档 demo。
 
+### 📚 DocJev-bench · 文档证据驱动的业务决策评测
+
+[DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) 是可单独使用的文档决策 benchmark：**220 张图片、1,512 对中英文题目、21 种题型**。它将感知与字段关系连接到明确规则下的条件筛选、完整性检查、业务路由和行动选择，同一文档可以评估多个不同判断环节。
+
+**一份文档，多个判断，明确规则，可比较的决策。** [业务方向与现有样例 →](docs/docjev/benchmark.zh-CN.md)
+
 ## 🎯 关键结果
 
 | 模型 | 评测集 | 原始 Qwen | 训练后 | 提升 |

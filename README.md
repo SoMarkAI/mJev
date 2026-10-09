@@ -39,6 +39,12 @@ A page can support more than one useful decision. mJev-Doc adapts the workflow t
 
 Download **[mJev-Doc from Hugging Face](https://huggingface.co/SoMarkAI/mjev-doc)** and run the document demo with the complete local snapshot.
 
+### 📚 DocJev-bench · Document evidence, business decisions
+
+[DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) is a separately usable benchmark for document decision components: **220 images, 1,512 bilingual question pairs and 21 task types**. It connects perception and field relationships to explicit-rule screening, completeness checks, routing and action selection. The same document can support several distinct decisions.
+
+**One document. Several decisions. Clear rules.** [Business directions and actual examples →](docs/docjev/benchmark.md)
+
 ## 🎯 Results at a glance
 
 | Model | Evaluation cohort | Base Qwen | After training | Gain |

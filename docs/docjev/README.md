@@ -13,6 +13,12 @@ Bring a document image, ask several questions and define meaningful choices. **m
 
 Both start from Qwen3-VL-4B-Instruct. The mJev-Doc adapter imports the shared `mjev/` HF core rather than maintaining another copy. It preserves the document study's RGB preprocessing, pixel limits and native BF16 readout. Checkpoint names identify different training runs; they are not aliases.
 
+## DocJev-bench · Evaluate the decisions around a document
+
+The companion [DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) is a separately usable evaluation asset for document-processing components. It spans perception, field relationships, explicit-rule screening, completeness, routing and action selection, with **1,512 bilingual question pairs across 220 images**.
+
+Its business direction is document evidence driving a useful next step. [Design strengths, task coverage and an actual financial-statement example →](benchmark.md)
+
 ## Try a document
 
 Use Linux, Python 3.11+ and an NVIDIA GPU. Install a driver-compatible PyTorch 2.11 wheel first; the recorded document setup used CUDA 13.0 and a 96 GB Blackwell GPU.

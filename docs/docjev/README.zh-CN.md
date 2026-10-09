@@ -13,6 +13,12 @@
 
 两者均以 Qwen3-VL-4B-Instruct 为基础，来自不同训练数据和训练任务。mJev-Doc 直接复用 `mjev/` 的 HF processor、模板、attention、LM Head 和 prefix cache；文档预处理、训练及评测入口独立保留。两个模型的权重分别发布，代码和说明统一维护在本仓库。
 
+## DocJev-bench · 评测文档中的业务判断
+
+配套的 [DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) 是可单独使用的评测资产，覆盖感知、字段关系、条件筛选、完整性、业务路由和行动选择，包含 **220 张图片上的 1,512 对中英文题目**。
+
+它的业务方向是让文档证据支持明确的下一步处理。[设计亮点、任务覆盖与现有财务报表样例 →](benchmark.zh-CN.md)
+
 ## 开始使用
 
 Linux、Python 3.11+、NVIDIA GPU，先安装适合驱动的 PyTorch 2.11。文档实测环境为 CUDA 13.0、96 GB Blackwell GPU。
