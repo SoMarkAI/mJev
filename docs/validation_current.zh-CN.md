@@ -2,9 +2,9 @@
 
 # 最新验证统一入口
 
-## mjev-doc 文档评测
+## mJev-Doc 文档评测
 
-统一文档评测覆盖 **1,512 道题目／3,024 条中英文记录**。原始 Qwen 准确率 **82.04%**，mjev-doc **84.36%**；使用相同的处理后输入、causal/native BF16、完整 LM Head 投影和温度为 1 的候选 softmax。这是固定诊断评测集，与训练时的 500 条验证记录分开展示。
+统一文档评测覆盖 **1,512 道题目／3,024 条中英文记录**。原始 Qwen 准确率 **82.04%**，mJev-Doc **84.36%**；使用相同的处理后输入、causal/native BF16、完整 LM Head 投影和温度为 1 的候选 softmax。这是固定诊断评测集，与训练时的 500 条验证记录分开展示。
 
 [协议与结果](docjev/results.md) · [完整题型统计及指纹](validation_evidence/mjev-doc-unified1512.json) · [配对模型评测](docjev/evaluation.md)
 

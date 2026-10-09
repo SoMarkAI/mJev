@@ -4,8 +4,8 @@
 
 <h1 align="center">mJev</h1>
 <p align="center"><a href="README.zh-CN.md">简体中文</a> · <strong>English</strong></p>
-<p align="center"><strong>Jev, with senses. mjev-doc, with documents.</strong></p>
-<p align="center"><a href="#quick-start">🚀 Quick Start</a> · <a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev weights</a> · <a href="#mjev-doc">📄 mjev-doc model guide</a></p>
+<p align="center"><strong>Jev, with senses. mJev-Doc, with documents.</strong></p>
+<p align="center"><a href="#quick-start">🚀 Quick Start</a> · <a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev weights</a> · <a href="#mjev-doc">📄 mJev-Doc model guide</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
   <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
@@ -27,26 +27,26 @@ mJev brings the Jev workflow to multimodal inputs, with trained models for gener
 | Model | Best for | Get started |
 | --- | --- | --- |
 | **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | General image and video decisions | [Weights](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [Model guide](docs/models.md) |
-| **[mjev-doc](https://huggingface.co/SoMarkAI/mjev-doc)** | Document categories, visible attributes, field relationships and decisions under explicit criteria | [Weights](https://huggingface.co/SoMarkAI/mjev-doc) · [Document guide](docs/docjev/README.md) · [Real example](examples/docjev/README.md) |
+| **[mJev-Doc](https://huggingface.co/SoMarkAI/mjev-doc)** | Document categories, visible attributes, field relationships and decisions under explicit criteria | [Weights](https://huggingface.co/SoMarkAI/mjev-doc) · [Document guide](docs/docjev/README.md) · [Real example](examples/docjev/README.md) |
 
 Both models build on Qwen3-VL-4B-Instruct and share the HF scoring core. For audio or video with audio, use the official Qwen3-Omni Thinker backend with the [same question/candidate interface](docs/hf.md).
 
 <a id="mjev-doc"></a>
 
-### 📄 mjev-doc
+### 📄 mJev-Doc
 
-A page can support more than one useful decision. mjev-doc adapts the workflow to document understanding through RLCD training, freezing vision and updating language parameters. Its [training and evaluation](docs/docjev/results.md) stay in this project.
+A page can support more than one useful decision. mJev-Doc adapts the workflow to document understanding through RLCD training, freezing vision and updating language parameters. Its [training and evaluation](docs/docjev/results.md) stay in this project.
 
-Download **[mjev-doc from Hugging Face](https://huggingface.co/SoMarkAI/mjev-doc)** and run the document demo with the complete local snapshot.
+Download **[mJev-Doc from Hugging Face](https://huggingface.co/SoMarkAI/mjev-doc)** and run the document demo with the complete local snapshot.
 
 ## 🎯 Results at a glance
 
 | Model | Evaluation cohort | Base Qwen | After training | Gain |
 | --- | --- | ---: | ---: | ---: |
 | mJev-Qwen3-VL-4B-RLCD | [Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) · 195 questions | 77.95% | **80.00%** | +2.05 pp |
-| mjev-doc | [docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) · 1,512 questions | 82.04% | **84.36%** | +2.31 pp |
+| mJev-Doc | [docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) · 1,512 questions | 82.04% | **84.36%** | +2.31 pp |
 
-The mJev row retains the upstream study's 195-question cohort. mjev-doc questions have Chinese and English versions; accuracy is measured over 3,024 language records. These are separate evaluation sets, and the scores measure agreement with their reference answers. [mJev training](docs/training.md) · [mjev-doc protocol and complete results](docs/docjev/results.md)
+The mJev row retains the upstream study's 195-question cohort. mJev-Doc questions have Chinese and English versions; accuracy is measured over 3,024 language records. These are separate evaluation sets, and the scores measure agreement with their reference answers. [mJev training](docs/training.md) · [mJev-Doc protocol and complete results](docs/docjev/results.md)
 
 ### ⚡ Same context. Keep the questions coming.
 
@@ -60,7 +60,7 @@ Measured with official Qwen3-VL-4B, HF stable/causal scoring and a 2,266-token s
 
 ## 🚀 Quick Start
 
-mJev and mjev-doc share the HF inference core, with **one 24 GB NVIDIA GPU** as the common deployment configuration. Use Linux, Python 3.11+ and compatible NVIDIA drivers; video inputs also need system FFmpeg.
+mJev and mJev-Doc share the HF inference core, with **one 24 GB NVIDIA GPU** as the common deployment configuration. Use Linux, Python 3.11+ and compatible NVIDIA drivers; video inputs also need system FFmpeg.
 
 ```bash
 git clone --branch docs/streamline-project-20261001 https://github.com/SoMarkAI/mJev.git
@@ -83,9 +83,9 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
   --prefix-cache --question-batch-size 2 --output outputs/image-demo.json
 ```
 
-### Document understanding · mjev-doc
+### Document understanding · mJev-Doc
 
-Download mjev-doc and run the real document example:
+Download mJev-Doc and run the real document example:
 
 ```bash
 python -m pip install -e '.[docjev]'
@@ -135,7 +135,7 @@ The model's existing LM Head provides the scores. HF uses direct forward calls; 
 | Looking to… | Start here |
 | --- | --- |
 | Deploy or choose a model | [Models](docs/models.md) · [HF](docs/hf.md) · [vLLM](docs/vllm.md) |
-| Train or evaluate document models | [mjev-doc](docs/docjev/README.md) · [Training](docs/docjev/training.md) · [Results](docs/docjev/results.md) |
+| Train or evaluate document models | [mJev-Doc](docs/docjev/README.md) · [Training](docs/docjev/training.md) · [Results](docs/docjev/results.md) |
 | Prepare data or reproduce evaluations | [Benchmarks](docs/benchmark.md) · [Public mini](docs/reproduce.md) |
 | Explore the code or run tests | [Developer guide](docs/development.md) · [Tests](docs/testing.md) |
 | Check performance and evidence | [Cache scaling](docs/cache_scaling.md) · [Current validation](docs/validation_current.md) |

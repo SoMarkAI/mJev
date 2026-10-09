@@ -4,8 +4,8 @@
 
 <h1 align="center">mJev</h1>
 <p align="center"><strong>简体中文</strong> · <a href="README.md">English</a></p>
-<p align="center"><strong>Jev, with senses. mjev-doc, with documents.</strong></p>
-<p align="center"><a href="#quick-start">🚀 快速开始</a> · <a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev 权重</a> · <a href="#mjev-doc">📄 mjev-doc 模型说明</a></p>
+<p align="center"><strong>Jev, with senses. mJev-Doc, with documents.</strong></p>
+<p align="center"><a href="#quick-start">🚀 快速开始</a> · <a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev 权重</a> · <a href="#mjev-doc">📄 mJev-Doc 模型说明</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
   <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
@@ -27,26 +27,26 @@ mJev 将 Jev 工作流带入多模态场景，提供通用视觉与文档理解�
 | 模型 | 适合的任务 | 从这里开始 |
 | --- | --- | --- |
 | **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | 通用图片与视频决策 | [模型权重](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [模型指南](docs/models.zh-CN.md) |
-| **[mjev-doc](https://huggingface.co/SoMarkAI/mjev-doc)** | 文档类别、视觉属性、字段关系与明确规则下的业务决策 | [模型权重](https://huggingface.co/SoMarkAI/mjev-doc) · [文档模型介绍](docs/docjev/README.zh-CN.md) · [真实示例](examples/docjev/README.md) |
+| **[mJev-Doc](https://huggingface.co/SoMarkAI/mjev-doc)** | 文档类别、视觉属性、字段关系与明确规则下的业务决策 | [模型权重](https://huggingface.co/SoMarkAI/mjev-doc) · [文档模型介绍](docs/docjev/README.zh-CN.md) · [真实示例](examples/docjev/README.md) |
 
 两个模型均基于 Qwen3-VL-4B-Instruct，共享 HF 评分核心。需要音频或带音轨视频时，可使用官方 Qwen3-Omni Thinker 后端，沿用[同一套问题与候选接口](docs/hf.zh-CN.md)。
 
 <a id="mjev-doc"></a>
 
-### 📄 mjev-doc
+### 📄 mJev-Doc
 
-一页文档，可以支持多个有价值的判断。mjev-doc 通过 RLCD 训练适配文档理解，冻结视觉参数、更新语言参数，[训练与评测](docs/docjev/results.md)统一维护在本项目。
+一页文档，可以支持多个有价值的判断。mJev-Doc 通过 RLCD 训练适配文档理解，冻结视觉参数、更新语言参数，[训练与评测](docs/docjev/results.md)统一维护在本项目。
 
-从 **[Hugging Face 下载 mjev-doc](https://huggingface.co/SoMarkAI/mjev-doc)**，即可使用完整本地快照运行文档 demo。
+从 **[Hugging Face 下载 mJev-Doc](https://huggingface.co/SoMarkAI/mjev-doc)**，即可使用完整本地快照运行文档 demo。
 
 ## 🎯 关键结果
 
 | 模型 | 评测集 | 原始 Qwen | 训练后 | 提升 |
 | --- | --- | ---: | ---: | ---: |
 | mJev-Qwen3-VL-4B-RLCD | [Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) · 195 道题 | 77.95% | **80.00%** | +2.05 个百分点 |
-| mjev-doc | [docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) · 1,512 道题 | 82.04% | **84.36%** | +2.31 个百分点 |
+| mJev-Doc | [docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) · 1,512 道题 | 82.04% | **84.36%** | +2.31 个百分点 |
 
-mJev 保留上游研究的 195 题评测结果。mjev-doc 的题目提供中英文版本，准确率按 3,024 条语言记录统计。两组使用各自的评测集，分数表示与参考答案的一致率。[mJev 训练](docs/training.zh-CN.md) · [mjev-doc 协议与完整结果](docs/docjev/results.md)
+mJev 保留上游研究的 195 题评测结果。mJev-Doc 的题目提供中英文版本，准确率按 3,024 条语言记录统计。两组使用各自的评测集，分数表示与参考答案的一致率。[mJev 训练](docs/training.zh-CN.md) · [mJev-Doc 协议与完整结果](docs/docjev/results.md)
 
 ### ⚡ 上下文不换，问题接着来
 
@@ -60,7 +60,7 @@ mJev 保留上游研究的 195 题评测结果。mjev-doc 的题目提供中英�
 
 ## 🚀 快速开始
 
-mJev 与 mjev-doc 共用 HF 推理核心，统一以**单张 24 GB NVIDIA GPU**为部署配置。需要 Linux、Python 3.11+ 和兼容的 NVIDIA 驱动；视频输入还需要系统 FFmpeg。
+mJev 与 mJev-Doc 共用 HF 推理核心，统一以**单张 24 GB NVIDIA GPU**为部署配置。需要 Linux、Python 3.11+ 和兼容的 NVIDIA 驱动；视频输入还需要系统 FFmpeg。
 
 ```bash
 git clone --branch docs/streamline-project-20261001 https://github.com/SoMarkAI/mJev.git
@@ -83,9 +83,9 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
   --prefix-cache --question-batch-size 2 --output outputs/image-demo.json
 ```
 
-### 文档理解 · mjev-doc
+### 文档理解 · mJev-Doc
 
-下载 mjev-doc，运行真实文档示例：
+下载 mJev-Doc，运行真实文档示例：
 
 ```bash
 python -m pip install -e '.[docjev]'
@@ -135,7 +135,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model "$DOC_MODEL_DIR" \
 | 你想做什么 | 去这里 |
 | --- | --- |
 | 部署、选模型 | [模型指南](docs/models.zh-CN.md) · [HF](docs/hf.zh-CN.md) · [vLLM](docs/vllm.zh-CN.md) |
-| 训练或评测文档模型 | [mjev-doc](docs/docjev/README.zh-CN.md) · [训练](docs/docjev/training.md) · [结果](docs/docjev/results.md) |
+| 训练或评测文档模型 | [mJev-Doc](docs/docjev/README.zh-CN.md) · [训练](docs/docjev/training.md) · [结果](docs/docjev/results.md) |
 | 准备数据、复现评测 | [Benchmark](docs/benchmark.zh-CN.md) · [公开小型评测](docs/reproduce.zh-CN.md) |
 | 阅读代码、运行测试 | [开发者指南](docs/development.zh-CN.md) · [测试](docs/testing.zh-CN.md) |
 | 查看性能与验证证据 | [缓存性能](docs/cache_scaling.zh-CN.md) · [最新验证](docs/validation_current.zh-CN.md) |

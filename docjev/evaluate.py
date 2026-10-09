@@ -144,7 +144,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     source = parser.add_mutually_exclusive_group(required=True)
     source.add_argument("--input", type=Path, help="Labelled JSON or JSONL benchmark")
-    source.add_argument("--predictions", type=Path, help="Saved DocJev evaluation JSONL")
+    source.add_argument("--predictions", type=Path, help="Saved mJev-Doc evaluation JSONL")
     parser.add_argument("--model", help="Local official model or trained checkpoint")
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--protocol", choices=["none", "circular", "random"], default="none")

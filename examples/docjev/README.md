@@ -20,7 +20,7 @@ python demo_docjev.py --model models/Qwen3-VL-4B-Instruct --input examples/docje
   --numerics stable --prefix-cache --question-batch-size 2
 ```
 
-The commands use official pretrained weights. The recorded output uses **mjev-doc**, so scores can differ. To reproduce it, pass your local trained `checkpoint-final` to `--model`. No checkpoint is bundled or publicly hosted by this repository.
+The commands use official pretrained weights. The recorded output uses **mJev-Doc**, so scores can differ. To reproduce it, pass your local trained `checkpoint-final` to `--model`. No checkpoint is bundled or publicly hosted by this repository.
 
 Reference labels are ignored by inference. These annotations are the existing model-generated, screened validation references, not official human-authored Infinity QA annotations. The recorded run matches the reference labels on 6 of 8 language records; both mismatches are retained. One table demonstrates the API; its result is not the full validation accuracy. Keep this held-out example out of training.
 

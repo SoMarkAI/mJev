@@ -72,4 +72,4 @@ The comparison runs each model sequentially on one visible GPU. It freezes image
 
 The [1,512-question report](results.md#unified-1512-question-evaluation) covers Chinese and English versions of each question, totaling 3,024 language records. Each model records every candidate's raw label logit and temperature-1 softmax probability. The combined report and subgroup counts are [machine-readable](../validation_evidence/mjev-doc-unified1512.json). This is one fixed diagnostic, separate from the original 500-record training-validation cohort.
 
-The package and console entrypoints retain their `docjev` names for compatibility; the trained document checkpoint is named **mjev-doc**.
+The package and console entrypoints retain their `docjev` names for compatibility; the document project is displayed as **mJev-Doc**, with published weights at `SoMarkAI/mjev-doc`.

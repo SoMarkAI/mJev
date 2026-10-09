@@ -39,6 +39,6 @@ Reuse the shared media prefix while keeping each question's scoring independent.
 - [Experimental HTTP / Tree-KV](integrated.md)
 - [Historical AV tools and Docker image](../experiments/av/README.md)
 
-## mjev-doc document model
+## mJev-Doc document model
 
-The project also includes **mjev-doc** for document-image decisions. It shares the HF core with mJev and adds a document adapter, bilingual benchmark evaluation and a validated RLCD stage pipeline. [English guide](docjev/README.md) · [中文介绍](docjev/README.zh-CN.md) · [Results](docjev/results.md). mjev-doc weights will be released on Hugging Face, following the same distribution format as mJev. Both models share this code repository; the demo currently accepts a complete local checkpoint.
+The project also includes **mJev-Doc** for document-image decisions. It shares the HF core with mJev and adds a document adapter, bilingual benchmark evaluation and a validated RLCD stage pipeline. [English guide](docjev/README.md) · [中文介绍](docjev/README.zh-CN.md) · [Results](docjev/results.md). mJev-Doc weights will be released on Hugging Face, following the same distribution format as mJev. Both models share this code repository; the demo currently accepts a complete local checkpoint.

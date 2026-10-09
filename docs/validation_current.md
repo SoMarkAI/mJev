@@ -2,9 +2,9 @@
 
 # Current validation entry point
 
-## mjev-doc document evaluation
+## mJev-Doc document evaluation
 
-The unified document evaluation covers **1,512 questions / 3,024 Chinese and English records**. Base Qwen scores **82.04%** and mjev-doc **84.36%**, using identical processed inputs, causal/native BF16, full LM Head projection and temperature-1 candidate softmax. This is a fixed diagnostic cohort, separate from the 500-record training-validation comparison.
+The unified document evaluation covers **1,512 questions / 3,024 Chinese and English records**. Base Qwen scores **82.04%** and mJev-Doc **84.36%**, using identical processed inputs, causal/native BF16, full LM Head projection and temperature-1 candidate softmax. This is a fixed diagnostic cohort, separate from the 500-record training-validation comparison.
 
 [Protocol and results](docjev/results.md) · [Complete task breakdown and fingerprints](validation_evidence/mjev-doc-unified1512.json) · [Paired checkpoint runner](docjev/evaluation.md)
 

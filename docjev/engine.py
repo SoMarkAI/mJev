@@ -21,7 +21,7 @@ class DocJevEngine(HFMJevEngine):
         max_pixels=501760,
     ):
         if detect(model_path) != VL:
-            raise ValueError("DocJev v0.1 requires a Qwen3-VL checkpoint")
+            raise ValueError("mJev-Doc v0.1 requires a Qwen3-VL checkpoint")
         validate_limits(max_input_tokens, min_pixels, max_pixels)
         super().__init__(
             model_path,
@@ -47,7 +47,7 @@ class DocJevEngine(HFMJevEngine):
         decoded=None,
     ):
         if modality != "image" or video_options:
-            raise ValueError("DocJev v0.1 supports document images only")
+            raise ValueError("mJev-Doc v0.1 supports document images only")
         # Match the validated RLCD pipeline exactly: PIL RGB, no silent EXIF rotation.
         if decoded is None:
             with Image.open(Path(media)) as image:
@@ -83,7 +83,7 @@ def preflight(model_path, document, *, max_input_tokens=4000, min_pixels=3136, m
     """Check the actual processor/template/token labels without loading model weights."""
     validate_limits(max_input_tokens, min_pixels, max_pixels)
     if detect(model_path) != VL:
-        raise ValueError("DocJev v0.1 requires a Qwen3-VL checkpoint")
+        raise ValueError("mJev-Doc v0.1 requires a Qwen3-VL checkpoint")
     engine = DocJevEngine.__new__(DocJevEngine)
     engine.builder = PromptBuilder(model_path)
     engine.max_input_tokens = max_input_tokens

@@ -69,7 +69,7 @@ A JSON array contains one result per question, in input order. Its schema is:
 
 The `raw_logit` is the selected label's uncalibrated LM Head value. `probability` is softmax over supplied labels only. `decision.index` is zero-based; ties choose the first candidate in input order. Token counts include the full processor-expanded image input. `--check-only` returns prepared spans, label token IDs and token counts without loading weights.
 
-See `examples/docjev/recorded-output.json` for a real mjev-doc native BF16 output on the held-out validation table.
+See `examples/docjev/recorded-output.json` for a real mJev-Doc native BF16 output on the held-out validation table.
 
 ## Python API
 

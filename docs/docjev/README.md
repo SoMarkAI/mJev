@@ -1,17 +1,17 @@
-# mjev-doc · Give every page a decision
+# mJev-Doc · Give every page a decision
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Back to mJev](../../README.md)
 
-Bring a document image, ask several questions and define meaningful choices. **mjev-doc** specializes the Jev workflow for document understanding: visible attributes, document categories, content relationships and decisions under explicit criteria.
+Bring a document image, ask several questions and define meaningful choices. **mJev-Doc** specializes the Jev workflow for document understanding: visible attributes, document categories, content relationships and decisions under explicit criteria.
 
 ## One project, two checkpoints
 
 | Model | Focus | Weights |
 | --- | --- | --- |
 | mJev-Qwen3-VL-4B-RLCD | General visual candidate decisions | [Hugging Face](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) |
-| mjev-doc | Document-image candidate decisions | [Hugging Face](https://huggingface.co/SoMarkAI/mjev-doc) |
+| mJev-Doc | Document-image candidate decisions | [Hugging Face](https://huggingface.co/SoMarkAI/mjev-doc) |
 
-Both start from Qwen3-VL-4B-Instruct. The mjev-doc adapter imports the shared `mjev/` HF core rather than maintaining another copy. It preserves the document study's RGB preprocessing, pixel limits and native BF16 readout. Checkpoint names identify different training runs; they are not aliases.
+Both start from Qwen3-VL-4B-Instruct. The mJev-Doc adapter imports the shared `mjev/` HF core rather than maintaining another copy. It preserves the document study's RGB preprocessing, pixel limits and native BF16 readout. Checkpoint names identify different training runs; they are not aliases.
 
 ## Try a document
 
@@ -27,7 +27,7 @@ python demo_docjev.py --model models/mjev-doc \
   --input examples/docjev/multiple.json --output outputs/mjev-doc.json
 ```
 
-**[mjev-doc weights](https://huggingface.co/SoMarkAI/mjev-doc)** include the full checkpoint, tokenizer, processor and chat template. Code, model documentation and evaluation remain in this repository. The example includes one real validation table, eight bilingual language records and a recorded trained-model output. [Browse the example →](../../examples/docjev/README.md)
+**[mJev-Doc weights](https://huggingface.co/SoMarkAI/mjev-doc)** include the full checkpoint, tokenizer, processor and chat template. Code, model documentation and evaluation remain in this repository. The example includes one real validation table, eight bilingual language records and a recorded trained-model output. [Browse the example →](../../examples/docjev/README.md)
 
 ## Keep asking
 
@@ -41,9 +41,9 @@ The shared media/context prefix is prefetched once, then independent question br
 
 ## Learn and evaluate
 
-The first mjev-doc training run consumed **15,658 language records / 7,829 bilingual question pairs / 1,223 images** over one epoch on eight GPUs. It freezes vision and updates language parameters with candidate-restricted RLCD training, without LoRA or a new decision head.
+The first mJev-Doc training run consumed **15,658 language records / 7,829 bilingual question pairs / 1,223 images** over one epoch on eight GPUs. It freezes vision and updates language parameters with candidate-restricted RLCD training, without LoRA or a new decision head.
 
-| Cohort | Base | mjev-doc |
+| Cohort | Base | mJev-Doc |
 | --- | ---: | ---: |
 | First validation: 500 language records | 73.0% | 77.8% |
 | Unified diagnostic: 3,024 language records | 82.04% | 84.36% |

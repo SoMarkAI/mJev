@@ -1,4 +1,4 @@
-# mjev-doc · Training and evaluation
+# mJev-Doc · Training and evaluation
 
 [Project](../../README.md) · [Machine-readable results](../validation_evidence/docjev-rlcd-first-epoch.json) · [docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench)
 
@@ -8,7 +8,7 @@ The evaluation covers **1,512 questions** across 220 image files. Chinese and En
 
 Inference uses causal attention, native BF16, full LM Head projection, original candidate order, temperature 1, one question per forward and no prefix cache. Decisions use the highest raw candidate-label logit. No reference labels, OCR text or generation evidence enter either model's prompt.
 
-| Group | Original Qwen | mjev-doc | Delta |
+| Group | Original Qwen | mJev-Doc | Delta |
 | --- | ---: | ---: | ---: |
 | All 3,024 records | 2,481/3,024 (82.04%) | 2,551/3,024 (84.36%) | +2.31 pp |
 | Chinese | 1,245/1,512 (82.34%) | 1,269/1,512 (83.93%) | +1.59 pp |
@@ -23,7 +23,7 @@ Every record retains each candidate's **raw logit and probability**. The same re
 | Model | Mean reference-candidate probability | Mean selected-candidate probability | Maximum probability-sum error |
 | --- | ---: | ---: | ---: |
 | Original Qwen | 0.805995 | 0.917514 | 1.45e-07 |
-| mjev-doc | 0.842157 | 0.963156 | 1.34e-07 |
+| mJev-Doc | 0.842157 | 0.963156 | 1.34e-07 |
 
 The reference probability is the probability assigned to the stored answer; the selected probability is the largest candidate probability. Means cover all 3,024 records. These are candidate-restricted probabilities, not calibrated confidence or correctness guarantees. All candidate vectors were independently recomputed from the recorded logits within 1e-5 tolerance.
 
@@ -37,7 +37,7 @@ Exact image hashes, source paths and supplied paper IDs found no training overla
 
 | Item | Configuration |
 | :--- | :--- |
-| Trained model | mjev-doc |
+| Trained model | mJev-Doc |
 | Base | Official Qwen3-VL-4B-Instruct |
 | Base revision | `ebb281ec70b05090aa6165b016eac8ec08e71b17` |
 | Source | Infinity document images with paired Chinese/English candidate questions |

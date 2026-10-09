@@ -11,7 +11,7 @@ def normalize_document(value, base_dir="."):
     if not isinstance(value, dict):
         raise ValueError("A document must be a JSON object")
     if value.get("modality", "image") != "image":
-        raise ValueError("DocJev v0.1 supports document images only")
+        raise ValueError("mJev-Doc v0.1 supports document images only")
     image = value.get("image", value.get("media_path"))
     if not isinstance(image, str) or not image.strip():
         raise ValueError("image or media_path must be a nonempty local path")

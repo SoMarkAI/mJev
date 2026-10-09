@@ -29,7 +29,7 @@ python demo_hf.py --model "$MODEL_DIR" --input examples/multiple.json \
 
 这些合成示例用于检查运行流程。准确率评测应使用保留原始标签的数据集；候选概率只在本题选项集合内比较。
 
-## mjev-doc 文档示例
+## mJev-Doc 文档示例
 
 [真实验证表格与中英文对应题](docjev/README.md)包含四对问题，候选数量各为 4、3、3、2，保留原始候选顺序与参考答案。文档图片保留 CC-BY-2.0 许可及署名。
 
@@ -38,4 +38,4 @@ python demo_docjev.py --model "$MODEL_DIR" \
   --input examples/docjev/multiple.json --output outputs/document-demo.json
 ```
 
-`MODEL_DIR` 可指向官方 Qwen3-VL 基础模型或完整 mjev-doc checkpoint。示例的已有输出来自 mjev-doc；完整模型权重另行下载。
+`MODEL_DIR` 可指向官方 Qwen3-VL 基础模型或完整 mJev-Doc checkpoint。示例的已有输出来自 mJev-Doc；完整模型权重另行下载。

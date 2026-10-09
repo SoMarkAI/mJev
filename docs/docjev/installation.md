@@ -28,9 +28,9 @@ hf download Qwen/Qwen3-VL-4B-Instruct \
 
 `hf` is supplied by the Hugging Face Hub dependency. Official model access may require your own Hugging Face authentication. Never put access tokens in input JSON, scripts or commits.
 
-## mjev-doc weights
+## mJev-Doc weights
 
-Download the complete **[mjev-doc checkpoint](https://huggingface.co/SoMarkAI/mjev-doc)** from Hugging Face. Model code, documentation and evaluation stay in this repository.
+Download the complete **[mJev-Doc checkpoint](https://huggingface.co/SoMarkAI/mjev-doc)** from Hugging Face. Model code, documentation and evaluation stay in this repository.
 
 Download the model and pass its complete local directory to `--model`:
 

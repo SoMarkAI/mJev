@@ -26,7 +26,7 @@ The model performs a forward pass. Only the last position is projected by its un
 
 **Isolated** additionally blocks candidate-to-other-candidate visibility. Each candidate sees the common context/question and its own preceding tokens. The answer suffix sees all candidates. The mask is inserted after native MRoPE construction and removed after the scoring call, including on exceptions. No model weights change when selecting this mode.
 
-Isolation is a controlled inference experiment, not a guaranteed accuracy improvement. The first mjev-doc training study used causal attention throughout.
+Isolation is a controlled inference experiment, not a guaranteed accuracy improvement. The first mJev-Doc training study used causal attention throughout.
 
 ## Multiple questions and cache
 
