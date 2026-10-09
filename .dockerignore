@@ -37,3 +37,7 @@ datasets
 .codex
 auth.json
 credentials*.json
+
+# Small project-created fixtures used by the documented Docker examples.
+!examples/video-demo/rectangle.mp4
+!examples/motion-demo/motion.mp4

@@ -4,7 +4,7 @@ Commands outside Docker assume an activated Python 3.11+ virtual environment: cr
 
 # Numerical profiles and multi-question scoring
 
-> See the [current validation index](validation_current.md) for backend boundaries and latest checks. Historical results retain their recorded configuration; missing model revisions, complete dependencies or run settings are unverified, never inferred from current defaults.
+> Historical results use their recorded configurations. See [current validation](validation_current.md) for later checks and settings that remain unverified.
 
 No model training, weight changes, score adjustment, or generated answer cache
 is used. A reference answer is never read by scoring. Stable execution preserves

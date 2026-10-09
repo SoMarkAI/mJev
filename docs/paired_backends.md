@@ -4,7 +4,7 @@ Commands outside Docker assume an activated Python 3.11+ virtual environment: cr
 
 # Paired HF / vLLM evaluation
 
-> See the [current validation index](validation_current.md) for backend boundaries and latest checks. Historical results retain their recorded configuration; missing model revisions, complete dependencies or run settings are unverified, never inferred from current defaults.
+> Historical results use their recorded configurations. See [current validation](validation_current.md) for later checks and settings that remain unverified.
 
 Run the official local Qwen3-Omni Thinker through HF and the main package's vLLM
 pooling backend, not the runtime HTTP server. No generation, trained weights or

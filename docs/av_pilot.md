@@ -2,7 +2,7 @@
 
 # AV pilot (historical pre-GPU validation record)
 
-> See the [current validation index](validation_current.md) for backend boundaries and latest checks. Historical results retain their recorded configuration; missing model revisions, complete dependencies or run settings are unverified, never inferred from current defaults.
+> Historical results use their recorded configurations. See [current validation](validation_current.md) for later checks and settings that remain unverified.
 
 > Historical pilot status. For subsequent full-weight results, see [paired evaluation](paired_backends.md) and [stability regression](stability.md).
 
@@ -30,7 +30,7 @@ docker run --rm -v "$MODEL_DIR:/model:ro" -v "$BENCH_ROOT:/bench:ro" \
 Only with **four available GPUs**, run the seeded kernel witness and GPU pilot:
 
 ```bash
-docker run --rm --gpus all --entrypoint python3 mjev-av-pilot:0.1 -m mjev.av_witness
+docker run --rm --gpus all --entrypoint python3 mjev-av-pilot:0.1 experiments/av/av_witness.py
 
 docker run --rm --gpus all --ipc=host -e VLLM_BATCH_INVARIANT=0 \
   -v "$MODEL_DIR:/model:ro" -v "$BENCH_ROOT:/bench:ro" \

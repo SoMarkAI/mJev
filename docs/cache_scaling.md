@@ -39,7 +39,7 @@ All reported successful runs passed finite-score, within-candidate probability s
 ## Limits
 No general threshold, accuracy improvement, native BF16 speed, vLLM speed, Qwen3-Omni-30B speed or audio performance is established. The initial intermediate 178-token-prefix run is retained in results/ but excluded from the short/long table; the corrected long configuration and harness are stored separately. Use raw timings rather than rounding to decide near ties.
 
-Raw evidence: [initial run](validation_evidence/hf-cache-scaling/results/raw.json), [corrected long run](validation_evidence/hf-cache-scaling/results-long/raw.json), [combined summary](validation_evidence/hf-cache-scaling/combined-summary.json). Each run directory includes configuration, dependency/source provenance and loading diagnostics. The intermediate 178-token case is retained transparently, not selected for the main table. A separate same-family read-only reviewer independently recomputed all aggregates and parity checks; this is a scoped integrity review, not independent hardware replication.
+Raw evidence: [initial run](validation_evidence/hf-cache-scaling/results/raw.json), [corrected long run](validation_evidence/hf-cache-scaling/results-long/raw.json), [combined summary](validation_evidence/hf-cache-scaling/combined-summary.json). Each run directory includes configuration, dependency/source provenance and loading diagnostics. The intermediate 178-token case is retained transparently, not selected for the main table. The CPU checker below recomputes the aggregates and compares the raw candidate scores. It checks the archived records without running GPU inference.
 
 ## Check the published evidence (CPU only)
 
@@ -51,29 +51,32 @@ python docs/validation_evidence/hf-cache-scaling/analyze.py
 
 This standard-library checker validates the frozen raw results, script hashes, cross-run settings, candidate mapping, normalization and same-input scores, then recomputes all eight rows. It does not run a model or modify evidence. Use `--out outputs/cache-scaling-check` to export the regenerated English report and summary. Completion markers alone do not establish correctness; the checker reads the actual scores.
 
-## Replay the GPU measurements
+## Run a new GPU measurement
 
-Install the [HF video environment](hf.md) first. The following uses a new output directory, the public motion fixture and the **recorded core commit**. The two archived harnesses are byte-identical to those that produced the records; `run-initial.py` includes the intermediate 178-token case and `run.py` measures the corrected long input. Their provenance strings describe the historical run; a replay is a new experiment and not an independent verification of the original hardware conditions.
+Install the [HF video environment](hf.md) first. The recorded core commit `af2215bec742de6d96af4ccb9fb83dd903b4d6c6` is absent from the public Git history. The commands below archive your current commit and record it for a new measurement. They use the public motion fixture and write to a separate output directory.
+
+The archived harnesses are unchanged: `run-initial.py` includes the intermediate 178-token case, and `run.py` measures the long input. Their provenance strings describe the historical run; verify model integrity separately for a new run. These commands reproduce the measurement procedure with the selected code commit, rather than the unavailable historical source archive.
 
 ```bash
 BENCHMARK_DIR="$PWD/docs/validation_evidence/hf-cache-scaling"
+CORE_COMMIT="$(git rev-parse HEAD)"
 CORE_DIR="$(mktemp -d)"
 RUN_DIR="$(mktemp -d)"
-git archive af2215bec742de6d96af4ccb9fb83dd903b4d6c6 | tar -x -C "$CORE_DIR"
+git archive "$CORE_COMMIT" | tar -x -C "$CORE_DIR"
 MODEL_DIR="$(python -c 'from huggingface_hub import snapshot_download; print(snapshot_download("Qwen/Qwen3-VL-4B-Instruct", revision="ebb281ec70b05090aa6165b016eac8ec08e71b17"))')"
 export CUDA_VISIBLE_DEVICES=0 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4
 export PYTHONPATH="$CORE_DIR"
 python "$BENCHMARK_DIR/run-initial.py" --model "$MODEL_DIR" \
   --source "$CORE_DIR/examples/motion-demo/motion.mp4" --out "$RUN_DIR/results" \
-  --commit af2215bec742de6d96af4ccb9fb83dd903b4d6c6 --repeats 5
+  --commit "$CORE_COMMIT" --repeats 5
 python "$BENCHMARK_DIR/run.py" --model "$MODEL_DIR" \
   --source "$CORE_DIR/examples/motion-demo/motion.mp4" --out "$RUN_DIR/results-long" \
-  --commit af2215bec742de6d96af4ccb9fb83dd903b4d6c6 --repeats 5
+  --commit "$CORE_COMMIT" --repeats 5
 ```
 
 Each harness writes raw scores/timings, its environment, per-cell summary and completion marker under `RUN_DIR`. Do not overwrite the frozen repository evidence with a replay. The CPU checker above is for the published five-repeat artifact, not an arbitrary new run. Select a free GPU; the recorded long/16 cache case peaked at 20.60 GiB allocated and 23.11 GiB reserved, excluding non-PyTorch GPU overhead. Smaller cards may report OOM. A completion marker means all cells were attempted; inspect cell status.
 
-The recorded model inference was executed before this documentation was packaged. During publication, the CPU evidence check and script help were rerun; this exact packaged GPU command sequence was **not** rerun. The core inference implementation is unchanged.
+The archived measurements predate this documentation update. The CPU evidence checker and script help were checked again; the new GPU command sequence has not been executed.
 
 ## Earlier three-question fixture
 

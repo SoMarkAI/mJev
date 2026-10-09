@@ -11,9 +11,15 @@ license = {file = "LICENSE"}
 dependencies = ["transformers==5.13.1", "torch==2.11.0", "Pillow>=10"]
 
 [tool.setuptools.packages.find]
-include = ["mjev*"]
+include = ["mjev*", "docjev*"]
+
+[project.scripts]
+docjev = "docjev.cli:main"
+docjev-eval = "docjev.evaluate:main"
+docjev-train = "docjev.training:main"
 
 [project.optional-dependencies]
+docjev = ["torchvision==0.26.0", "accelerate==1.14.0", "safetensors==0.8.0"]
 test = ["pytest>=8,<9", "requests>=2.31", "accelerate>=1.0"]
 vllm = ["vllm==0.25.1"]
 hf = ["torchvision==0.26.0", "torchcodec==0.11.0+cpu", "accelerate>=1.0", "qwen-omni-utils[decord]==0.0.9", "librosa==0.11.0", "soundfile==0.14.0", "av==18.1.0"]

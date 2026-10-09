@@ -1,0 +1,106 @@
+{
+  "model_name": "mjev-doc",
+  "study": "mjev-doc Infinity first epoch",
+  "base_model": "Qwen/Qwen3-VL-4B-Instruct",
+  "base_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "config": {
+    "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+    "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "context": "Inspect the supplied media carefully.",
+    "attention": "causal",
+    "min_pixels": 3136,
+    "max_pixels": 501760,
+    "max_input_tokens": 4000,
+    "seed": 20261004,
+    "steps": 1958,
+    "group_size": 8,
+    "learning_rate": 2e-06,
+    "clip_epsilon": 0.2,
+    "kl_beta": 0.02,
+    "max_grad_norm": 1.0,
+    "weight_decay": 0.0,
+    "reward_scaling": false,
+    "freeze_visual": true,
+    "lora": false,
+    "gradient_checkpointing": true,
+    "prefix_cache": false,
+    "save_optimizer": true,
+    "scope": "docjev_infinity_first_epoch",
+    "reference_provenance": "codex_generated_bilingual_model_screened_reference",
+    "world_size": 8,
+    "epochs": 1,
+    "validation_pairs": 250,
+    "prepare_workers": 8,
+    "post_training_witness_rows": 8,
+    "resume_checkpoint_step": 200
+  },
+  "image_split": {
+    "train": 1223,
+    "dev": 40,
+    "test": 0
+  },
+  "semantic_pairs": {
+    "train": 7829,
+    "dev": 250,
+    "test": 0
+  },
+  "language_records": {
+    "train": 15658,
+    "dev": 500,
+    "test": 0
+  },
+  "accuracy_comparison": {
+    "zh": {
+      "questions": 250,
+      "before_correct": 185,
+      "after_correct": 195,
+      "before_accuracy": 0.74,
+      "after_accuracy": 0.78,
+      "delta_percentage_points": 4.0,
+      "wrong_to_correct": 27,
+      "correct_to_wrong": 17
+    },
+    "en": {
+      "questions": 250,
+      "before_correct": 180,
+      "after_correct": 194,
+      "before_accuracy": 0.72,
+      "after_accuracy": 0.776,
+      "delta_percentage_points": 5.6,
+      "wrong_to_correct": 22,
+      "correct_to_wrong": 8
+    },
+    "combined": {
+      "questions": 500,
+      "before_correct": 365,
+      "after_correct": 389,
+      "before_accuracy": 0.73,
+      "after_accuracy": 0.778,
+      "delta_percentage_points": 4.8,
+      "wrong_to_correct": 49,
+      "correct_to_wrong": 25
+    }
+  },
+  "before_metrics": {
+    "count": 500,
+    "accuracy": 0.73
+  },
+  "after_metrics": {
+    "count": 500,
+    "accuracy": 0.778
+  },
+  "optimizer_steps": 1958,
+  "trainable_parameters": 4022468096,
+  "frozen_parameters": 415347712,
+  "checkpoint_reload_witnesses": 8,
+  "checkpoint_reload_max_logit_error": 0.0,
+  "dataset_manifest_sha256": "1e172f279be7806f0f4c444aa78820e302e0a7bd8809d55279c09c9b348b98fa",
+  "reference_metadata_sha256": "4e1058c21b3bc74444a601c6c246538668de179325da300671fc9d154efaa2b1",
+  "reference_status": "agreement with model-generated/model-screened reference labels",
+  "validation_used_for_optimizer": false,
+  "independent_test_set": false,
+  "candidate_order": "original only; permutation evaluation not part of this study",
+  "visual_tensors_unchanged": 315,
+  "changed_language_tensors": 371,
+  "language_tensors_compared": 398
+}

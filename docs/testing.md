@@ -4,7 +4,7 @@ Commands outside Docker assume an activated Python 3.11+ virtual environment: cr
 
 # Test entry points
 
-From a fresh Python 3.11+ environment, run `python -m pip install -e '.[test]'`. This installs pinned torch/Transformers plus pytest, requests and accelerate for tiny CPU checkpoint tests. It is **not** the complete HF media/deployment extra. Run from the checkout:
+From a fresh Python 3.11+ environment, run `python -m pip install -e '.[docjev,test]'`. This installs pinned torch/Transformers plus pytest, requests and accelerate for tiny CPU checkpoint tests. It is **not** the complete HF media/deployment extra. Run from the checkout:
 
 ```bash
 bash scripts/test.sh --suite base -q
@@ -31,3 +31,7 @@ MJEV_MODEL=/path/to/official/model bash scripts/test_gpu.sh -q
 The GPU script invokes pytest's GPU suite, which runs the existing `tests/e2e.py` assertions unchanged. It sets `VLLM_BATCH_INVARIANT=1` unless explicitly overridden. It does not stop services. HF full-weight and concurrent-cache studies remain separate experiment commands in `benchmarks/integrated/`; they are **not** silently included in CPU pytest or claimed by the GPU wrapper. Their local datasets and explicit numerics/revision requirements are documented separately.
 
 Inspect collection without running tests with `bash scripts/test.sh --collect-only -q`. `--suite` filters before imports, so a base run does not require optional HF/runtime/vLLM modules. Do not use unittest discovery as the repository test gate: it misses function tests and nested suites. Actual results and unavailable checks are in [the validation index](validation_current.md).
+
+## Document adapter checks
+
+`tests/docjev/` is part of the base suite. It covers document input/reference separation, grouped bilingual splitting, candidate order remapping, RLCD rewards, collective padding and checkpoint/resume metadata. `python -m docjev.compare --help` exposes the paired checkpoint runner; a real pretrained model comparison is a separate GPU command in [the document evaluation guide](docjev/evaluation.md).

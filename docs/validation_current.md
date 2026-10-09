@@ -2,11 +2,19 @@
 
 # Current validation entry point
 
+## mJev-Doc document evaluation
+
+The unified document evaluation covers **1,512 questions / 3,024 Chinese and English records**. Base Qwen scores **82.04%** and mJev-Doc **84.36%**, using identical processed inputs, causal/native BF16, full LM Head projection and temperature-1 candidate softmax. This is a fixed diagnostic cohort, separate from the 500-record training-validation comparison.
+
+[Protocol and results](docjev/results.md) · [Complete task breakdown and fingerprints](validation_evidence/mjev-doc-unified1512.json) · [Paired checkpoint runner](docjev/evaluation.md)
+
+## HF and vLLM mechanism validation
+
 Latest controlled performance evidence: [HF prefix-cache scaling](cache_scaling.md): one public animation, 63/2,266-token prefixes, 1/3/8/16 questions, five repeats per configuration. Includes full prefill, memory and same-input parity checks; not an accuracy benchmark.
 
 Latest software fixes and regression checks: [reliability review](reliability_review.md). Attention defaults are now consistently `causal`; prior GPU records retain their own configurations.
 
-This is the authoritative **index of evidence and its scope**, not a blanket success certificate. The latest model expansion is the [Qwen3-VL-4B HF/vLLM validation](qwen3_vl_validation.md), including cache/batch checks and an Omni HF regression. The earlier [clean Linux HF verification](clean_linux_validation.md) completed the public six-question workflow. Its code base is `04cc2e0a8fd723d678f44b0c69c2e74b4fe94ea4` plus the installation/provenance fixes identified by actual source hashes; the unmodified commit is not claimed to pass.
+This page lists completed checks and their scope. The latest model expansion is the [Qwen3-VL-4B HF/vLLM validation](qwen3_vl_validation.md), including cache/batch checks and an Omni HF regression. The earlier [clean Linux HF verification](clean_linux_validation.md) completed the public six-question workflow. Its code base is `04cc2e0a8fd723d678f44b0c69c2e74b4fe94ea4` plus the installation/provenance fixes identified by actual source hashes; the unmodified commit is not claimed to pass.
 
 ## Implementation boundaries
 

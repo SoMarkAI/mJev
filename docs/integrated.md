@@ -2,7 +2,7 @@
 
 # Integrated experimental runtime
 
-> See the [current validation index](validation_current.md) for backend boundaries and latest checks. Historical results retain their recorded configuration; missing model revisions, complete dependencies or run settings are unverified, never inferred from current defaults.
+> Historical results use their recorded configurations. See [current validation](validation_current.md) for later checks and settings that remain unverified.
 
 Composition: main `ca755f8` reference package/evaluator plus mJev `59b38ea`
 service/Tree-KV runtime, with shared deterministic decision and stable candidate

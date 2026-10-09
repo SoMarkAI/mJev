@@ -6,7 +6,7 @@ Docker 之外的命令均假定已激活 Python 3.11+ 虚拟环境：先用 `pyt
 
 # Transformers 后端：无需 vLLM
 
-> 最新验证状态与后端边界统一见 [验证入口](validation_current.zh-CN.md)。本页历史结果保留原记录；未记录的模型 revision、完整依赖或运行配置标为未核实，不从当前默认值推断。
+> 历史结果按当时配置记录；后续检查与缺失的配置证据见[最新验证](validation_current.zh-CN.md)。
 
 直接使用 `Qwen3OmniMoeThinkerForConditionalGeneration`，不加载 Talker、不调用 `generate()`、不添加可训练 head、不更新权重、不依赖 vLLM。SDPA 使用已安装的 PyTorch 内核，无需自定义编译。使用原样的本地官方 Qwen3-Omni 权重。
 
@@ -66,7 +66,7 @@ python demo_hf.py --model /path/to/Qwen3-Omni-30B-A3B-Instruct --input examples/
 
 ## 实现与边界
 
-官方预处理和 MRoPE 在原始 2D attention mask 上运行；临时 hook 在 MRoPE 计算完成后的 Thinker 文本模型边界注入 4D 加性可见性 mask。候选看公共前缀及自身历史，决策后缀看全部候选。此自定义 mask 路径仅支持 eager/SDPA 文本 attention，不支持 FlashAttention。
+官方预处理和 MRoPE 在原始 2D attention mask 上运行；临时 hook 在 MRoPE 计算完成后的 Thinker 文本模型边界注入 4D 加性可见性 mask。mask 遵循所选模式：`causal` 保留普通因果可见性；`isolated` 让候选看公共前缀及自身历史。决策后缀看全部候选。此自定义 mask 路径仅支持 eager/SDPA 文本 attention，不支持 FlashAttention。
 
 只读取最后位置的原 LM Head。默认 `--projection selected` 用原始权重的选定行进行 FP32 乘法；`--projection full` 在最后位置算完整 head 后选标签。BF16 投影舍入可能不同，该选项用于诊断，不保证所有设备逐位一致。异常时也会移除 hooks，同一 engine 的调用串行执行。
 

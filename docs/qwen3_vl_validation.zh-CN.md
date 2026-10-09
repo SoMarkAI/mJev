@@ -9,7 +9,7 @@
 - 官方 revision：`ebb281ec70b05090aa6165b016eac8ec08e71b17`。两个权重分片逐个核对 SHA-256，与固定 Hub 元数据一致：[校验记录](validation_evidence/qwen3-vl-weight-integrity.json)。
 - HF：全新 Linux Python 3.11.16 venv，不继承系统 site-packages；安装 `.[hf-vl,test]` 和官方 TorchCodec 0.11.0+cpu。复用 pip 下载缓存，未安装 vLLM 或 `qwen_omni_utils`。依赖检查、固定随机种子的 CUDA 运算、123 项 CPU 测试通过，3 个可选 vLLM 模块跳过。
 - vLLM：复用固定 0.25.1／Transformers 5.13.1 的现有运行环境，Python 3.12，130 项 CPU 测试通过。**没有重新构建干净 vLLM 镜像**。解码器版本与 HF 不同，各报告记录完整依赖。
-- 新的独立 reviewer 在新装环境中执行文档的 HF 预检与缓存 demo，均通过；reviewer 没有重复安装或下载权重。
+- 文档中的 HF 预检与缓存 demo 在新装环境中再次执行，均通过；安装与权重下载没有重复执行。
 - 代码基线 `2e75abf` 加本次适配改动。报告记录实际 dirty-tree 源码哈希和可用的 Git 信息；vLLM 精简镜像没有 Git 可执行文件，相关字段显式为 null，源码哈希仍保留。后续文档和 worker 启动修复不能倒算为早期 HF 运行时已包含的改动。
 
 [机器可读汇总](validation_evidence/qwen3-vl-validation-summary.json)。

@@ -15,17 +15,16 @@
 | vLLM 请求与评分 | [`engine.py`](../mjev/engine.py) |
 | vLLM attention 与缓存 hooks | [`patch.py`](../mjev/patch.py) |
 | 决策与并列策略 | [`decision.py`](../mjev/decision.py) |
+| 文档适配、配对评测与 RLCD | [`docjev/`](../docjev/) · [文档指南](docjev/README.zh-CN.md) |
 
-对外项目名统一为 **mJev**，大小写固定。下方的小写包名／导入标识符及大写环境变量名属于需要保持兼容的技术名称。
-
-Python 包与导入路径统一为 `mjev`，环境变量统一为 `MJEV_` 前缀；调用方需使用当前命名。
+文档中的项目名使用 **mJev**，Python 导入使用 `mjev`，项目环境变量使用 `MJEV_` 前缀。
 
 ## 本地开发
 
 从仓库根目录执行；模型推理环境要求见 [HF 教程](hf.zh-CN.md)。
 
 ```bash
-python -m pip install -e '.[test]'
+python -m pip install -e '.[docjev,test]'
 bash scripts/test.sh -q
 ```
 
