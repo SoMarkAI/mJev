@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/mjev-hero-story.svg" alt="mJev-Doc — See once. Decide many. One visual input, multiple inspectable decisions." width="100%">
+  <img src="assets/mjev-hero-story.svg" alt="SoMark | mJev — Decision intelligence beyond text. One visual input, multiple inspectable decisions." width="100%">
 </p>
 
 <h1 align="center">SoMark｜mJev</h1>

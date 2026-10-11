@@ -1,63 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" width="1280" height="380" role="img" aria-labelledby="title description">
-  <title id="title">mJev-Doc — See once. Decide many.</title>
-  <desc id="description">One shared visual input supports questions about document type, field relationships and decisions under explicit rules.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="560" viewBox="0 0 1440 560" role="img" aria-labelledby="title description">
+  <title id="title">SoMark | mJev — Decision intelligence beyond text</title>
+  <desc id="description">A charcoal and orange illustration of a shared document feeding classification, verification and decision tasks. Featuring mJev-Doc.</desc>
   <defs>
-    <radialGradient id="glow" cx="0" cy="0" r="1">
-      <stop offset="0" stop-color="#ff8c00" stop-opacity=".18"/>
+    <linearGradient id="background" x2="1" y2="1">
+      <stop stop-color="#191917"/><stop offset="1" stop-color="#0b0c0c"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop stop-color="#ff8c00" stop-opacity=".22"/>
+      <stop offset=".58" stop-color="#ff8c00" stop-opacity=".06"/>
       <stop offset="1" stop-color="#ff8c00" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="paper" x2="1" y2="1">
-      <stop stop-color="#ffcb86"/>
-      <stop offset="1" stop-color="#ff9b26"/>
+    <linearGradient id="paper" x2=".7" y2="1">
+      <stop stop-color="#fff7e9"/><stop offset="1" stop-color="#eadbca"/>
     </linearGradient>
+    <linearGradient id="orange" x2="1" y2="1">
+      <stop stop-color="#ffbd64"/><stop offset="1" stop-color="#ff8c00"/>
+    </linearGradient>
+    <linearGradient id="line">
+      <stop stop-color="#ff8c00" stop-opacity=".25"/><stop offset="1" stop-color="#ffad48"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#e9c698" opacity=".10"/>
+    </pattern>
+    <clipPath id="frame"><rect width="1440" height="560" rx="28"/></clipPath>
+    <filter id="shadow" x="-35%" y="-30%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity=".35"/>
+    </filter>
   </defs>
-  <rect width="1280" height="380" rx="24" fill="#0b0d0e"/>
-  <rect width="1280" height="380" rx="24" fill="url(#glow)"/>
-  <g font-family="Arial, Helvetica, sans-serif">
-    <text x="64" y="57" fill="#a0a7b0" font-size="13" letter-spacing="3" font-weight="700">DECISIONS BEYOND TEXT</text>
-    <text x="58" y="173" fill="#f0f6fc" font-size="108" letter-spacing="-5" font-weight="800">mJev-Doc<tspan fill="#ff8c00">.</tspan></text>
-    <text x="65" y="238" fill="#f0f6fc" font-size="35" font-weight="700" letter-spacing="-.8">See once. Decide many.</text>
-    <text x="67" y="273" fill="#a0a7b0" font-size="18">Jev, with senses. Built for documents.</text>
-    <text x="67" y="333" fill="#a0a7b0" font-size="12" letter-spacing="2.5" font-weight="700">DOCUMENTS · RULES · DECISIONS</text>
-  </g>
-  <g stroke="#ff8c00" stroke-width="2" fill="none" opacity=".65">
-    <path d="M854 190H894V99H934"/>
-    <path d="M854 190H934"/>
-    <path d="M894 190V281H934"/>
-  </g>
-  <circle cx="894" cy="190" r="4" fill="#ff8c00"/>
-  <g transform="translate(680 100)">
-    <rect x="8" y="8" width="174" height="194" rx="18" fill="#000" opacity=".18"/>
-    <rect width="174" height="194" rx="18" fill="url(#paper)"/>
-    <g fill="none" stroke="#191b1e" stroke-width="3" stroke-linecap="round">
-      <path d="M25 29H105M25 44H145M25 57H126"/>
-      <rect x="25" y="80" width="124" height="58" rx="5"/>
-      <path d="M25 99H149M25 118H149M65 80V138M111 80V138"/>
-      <path d="M25 162H104M25 173H81"/>
-    </g>
+  <g clip-path="url(#frame)">
+    <rect width="1440" height="560" fill="url(#background)"/>
+    <ellipse cx="1120" cy="264" rx="500" ry="420" fill="url(#halo)"/>
+    <rect x="688" width="752" height="560" fill="url(#dots)"/>
+    <path d="M727 0V560" stroke="#f6e4c9" stroke-opacity=".06"/>
+    <path d="M0 1H1440" stroke="#fff" stroke-opacity=".10"/>
+    <circle cx="1100" cy="279" r="217" fill="none" stroke="#ffac46" stroke-opacity=".07"/>
+    <circle cx="1100" cy="279" r="269" fill="none" stroke="#ffac46" stroke-opacity=".045"/>
   </g>
   <g font-family="Arial, Helvetica, sans-serif">
-    <g transform="translate(934 61)">
-      <rect width="278" height="76" rx="14" fill="#181c20" stroke="#343a41"/>
-      <rect x="17" y="19" width="38" height="38" rx="10" fill="#ff8c00"/>
-      <text x="36" y="44" text-anchor="middle" font-size="15" fill="#0b0d0e" font-weight="700">01</text>
-      <text x="72" y="33" fill="#f0f6fc" font-size="19" font-weight="700">Classify</text>
-      <text x="72" y="54" fill="#a0a7b0" font-size="13">Document type</text>
+    <rect x="62" y="51" width="29" height="29" rx="8" fill="url(#orange)"/>
+    <path d="M70 61H83M70 67H79M74 73H83" stroke="#191917" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="104" y="74" fill="#f3eee7" font-size="23" font-weight="700" letter-spacing="-.5">SoMark</text>
+    <path d="M211 56V78" stroke="#62605a"/>
+    <text x="229" y="73" fill="#b1aba1" font-size="12" font-weight="600" letter-spacing="2.1">OPEN MULTIMODAL INTELLIGENCE</text>
+
+    <text x="58" y="225" fill="#faf6ee" font-size="140" font-weight="800" letter-spacing="-8">mJev<tspan fill="#ff9b22">.</tspan></text>
+    <text x="65" y="296" fill="#f3eee7" font-size="38" font-weight="600" letter-spacing="-1">Decision intelligence</text>
+    <text x="65" y="344" fill="#ffae4c" font-size="38" font-weight="600" letter-spacing="-1">beyond text.</text>
+    <text x="67" y="392" fill="#b1aba1" font-size="20">See once. Decide many.</text>
+
+    <rect x="65" y="453" width="186" height="42" rx="21" fill="#ff9b22"/>
+    <text x="87" y="480" fill="#161512" font-size="17" font-weight="700">Meet mJev-Doc</text>
+    <path d="M222 474H235M230 469L235 474L230 479" stroke="#161512" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="270" y="480" fill="#a9a499" font-size="15">Built for document decisions.</text>
+  </g>
+
+  <!-- Original vector illustration: one document, independent decisions. -->
+  <g transform="translate(798 157)" filter="url(#shadow)">
+    <rect x="-15" y="-15" width="190" height="246" rx="15" fill="#34302a" stroke="#62513b" transform="rotate(-9 80 100)"/>
+    <rect x="-2" y="-6" width="190" height="246" rx="15" fill="#544533" stroke="#997348" transform="rotate(-4 85 115)"/>
+    <rect width="190" height="246" rx="15" fill="url(#paper)"/>
+    <rect x="23" y="25" width="33" height="7" rx="3.5" fill="#ce7a1a"/>
+    <path d="M24 53H133M24 66H160" stroke="#59534b" stroke-width="5" stroke-linecap="round"/>
+    <path d="M24 85H156M24 96H120" stroke="#b6ab9e" stroke-width="3" stroke-linecap="round"/>
+    <rect x="23" y="117" width="144" height="69" rx="5" fill="#f8efe3" stroke="#c6b7a4"/>
+    <path d="M24 139H166M24 161H166M74 118V185M120 118V185" stroke="#c6b7a4"/>
+    <rect x="76" y="141" width="42" height="18" rx="3" fill="#ffb552"/>
+    <path d="M32 129H57M83 129H106M130 129H157M32 151H62M131 151H156M32 173H54M83 173H108M130 173H151" stroke="#92826e" stroke-width="3" stroke-linecap="round"/>
+    <path d="M24 207H118M24 219H87" stroke="#b6ab9e" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-8 109H198" stroke="#ffa52f" stroke-width="2"/>
+    <circle cx="198" cy="109" r="4" fill="#ffb552"/>
+  </g>
+  <g stroke="url(#line)" stroke-width="1.6" fill="none">
+    <path d="M996 266H1025Q1039 266 1039 252V174Q1039 160 1053 160H1085"/>
+    <path d="M996 266H1085"/>
+    <path d="M996 266H1025Q1039 266 1039 280V358Q1039 372 1053 372H1085"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="817" y="115" fill="#c6a47d" font-size="11" letter-spacing="2.3" font-weight="600">ONE SHARED CONTEXT</text>
+    <g transform="translate(1085 119)">
+      <rect width="278" height="82" rx="14" fill="#20201c" stroke="#514433"/>
+      <rect x="17" y="21" width="40" height="40" rx="11" fill="#ff9b22" fill-opacity=".13"/>
+      <g fill="none" stroke="#ffae4c" stroke-width="1.7"><rect x="28" y="31" width="7" height="7" rx="1"/><rect x="40" y="31" width="7" height="7" rx="1"/><rect x="28" y="43" width="7" height="7" rx="1"/><rect x="40" y="43" width="7" height="7" rx="1"/></g>
+      <text x="74" y="35" fill="#f3eee7" font-size="20" font-weight="600">Classify</text>
+      <text x="74" y="58" fill="#aaa397" font-size="13">Find the document type.</text>
     </g>
-    <g transform="translate(934 152)">
-      <rect width="278" height="76" rx="14" fill="#181c20" stroke="#343a41"/>
-      <rect x="17" y="19" width="38" height="38" rx="10" fill="#ffb45a"/>
-      <text x="36" y="44" text-anchor="middle" font-size="15" fill="#0b0d0e" font-weight="700">02</text>
-      <text x="72" y="33" fill="#f0f6fc" font-size="19" font-weight="700">Compare</text>
-      <text x="72" y="54" fill="#a0a7b0" font-size="13">Field relationships</text>
+    <g transform="translate(1085 225)">
+      <rect width="278" height="82" rx="14" fill="#20201c" stroke="#514433"/>
+      <rect x="17" y="21" width="40" height="40" rx="11" fill="#ff9b22" fill-opacity=".13"/>
+      <path d="M29 33H46M29 41H37M29 49H35M40 46L43 49L49 41" fill="none" stroke="#ffae4c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="74" y="35" fill="#f3eee7" font-size="20" font-weight="600">Verify</text>
+      <text x="74" y="58" fill="#aaa397" font-size="13">Check fields and relations.</text>
     </g>
-    <g transform="translate(934 243)">
-      <rect width="278" height="76" rx="14" fill="#181c20" stroke="#343a41"/>
-      <rect x="17" y="19" width="38" height="38" rx="10" fill="#ffcb86"/>
-      <text x="36" y="44" text-anchor="middle" font-size="15" fill="#0b0d0e" font-weight="700">03</text>
-      <text x="72" y="33" fill="#f0f6fc" font-size="19" font-weight="700">Decide</text>
-      <text x="72" y="54" fill="#a0a7b0" font-size="13">Apply explicit rules</text>
+    <g transform="translate(1085 331)">
+      <rect width="278" height="82" rx="14" fill="#2c2318" stroke="#d88726" stroke-opacity=".8"/>
+      <rect x="17" y="21" width="40" height="40" rx="11" fill="url(#orange)"/>
+      <path d="M28 41L35 48L47 34" fill="none" stroke="#242018" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="74" y="35" fill="#fff0d8" font-size="20" font-weight="600">Decide</text>
+      <text x="74" y="58" fill="#c5b095" font-size="13">Act on your explicit rules.</text>
     </g>
-    <text x="767" y="335" text-anchor="middle" fill="#a0a7b0" font-size="11" letter-spacing="2">SHARED INPUT</text>
+    <text x="802" y="479" fill="#958c80" font-size="12" letter-spacing="1.5">DOCUMENTS IN.</text>
+    <text x="1087" y="479" fill="#c6a47d" font-size="12" letter-spacing="1.5">DECISIONS OUT.</text>
   </g>
 </svg>

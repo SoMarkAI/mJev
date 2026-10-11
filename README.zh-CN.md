@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/mjev-hero-story.svg" alt="mJev-Doc — See once. Decide many. 一份视觉输入，多个可检查的决策" width="100%">
+  <img src="assets/mjev-hero-story.svg" alt="SoMark | mJev — Decision intelligence beyond text. 一份视觉输入，多个可检查的决策" width="100%">
 </p>
 
 <h1 align="center">SoMark｜mJev</h1>
