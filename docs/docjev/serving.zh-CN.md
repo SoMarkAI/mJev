@@ -100,7 +100,3 @@ py -3.12 -m venv .venv
 CUDA 安装包需与驱动兼容，其他选择见 [PyTorch 官方安装说明](https://pytorch.org/get-started/locally/)。
 BF16 GPU 推理需要支持 BF16 的硬件；`--devices cpu --dtype float32` 可走 CPU，
 但未测量完整4B的 CPU 延迟。
-
-跨图片前向由真实随机小模型的 CPU 测试验证；HTTP／spawn 调度由测试 worker 验证。
-尚未在 Windows CUDA 或完整4B线上服务上实测，不把 Linux 已有 benchmark 成绩当作
-Windows 服务的速度和精度证明。
