@@ -6,6 +6,4 @@
 | **mJev-Doc 4B** | **95.13%** | **98.70%** |
 | JEV-27B-VL | 94.07% | 99.67% |
 
-<sub>Model-outcome-selected collection</sub>
-
 [Dataset](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench) · [Back to README](../../README.md)

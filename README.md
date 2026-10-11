@@ -62,8 +62,6 @@ Both models use **Qwen3-VL-4B-Instruct**, with Hugging Face and vLLM inference. 
 
 One collection, covering **document understanding and decisions · cross-industry classification**. All 5,234 records are included.
 
-<sub>Model-outcome-selected collection</sub>
-
 [See evaluation results →](docs/docjev/results.md)
 
 <details>

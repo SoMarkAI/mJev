@@ -62,8 +62,6 @@
 
 覆盖 **文档理解与决策 · 跨行业分类**，按全部 5,234 条记录统一统计。
 
-<sub>模型结果筛选集</sub>
-
 [查看评测结果 →](docs/docjev/results.zh-CN.md)
 
 <details>
