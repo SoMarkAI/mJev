@@ -1,4 +1,4 @@
-[English](qwen3_vl_validation.md) · **简体中文**
+[English](qwen3_vl_validation.md) &nbsp;&nbsp; **简体中文**
 
 # Qwen3-VL-4B 验证记录 — 2026-09-26
 

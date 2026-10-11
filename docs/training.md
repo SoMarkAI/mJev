@@ -1,6 +1,6 @@
-**English** · [简体中文](training.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](training.zh-CN.md)
 
-[Back to mJev](../README.md) · [Model selection](models.md)
+[Back to mJev](../README.md) &nbsp;&nbsp; [Model selection](models.md)
 
 # Training and reward
 

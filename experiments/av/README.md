@@ -1,4 +1,4 @@
-**English** · [简体中文](README.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](README.zh-CN.md)
 
 # Experimental audio/video image
 

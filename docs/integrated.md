@@ -1,4 +1,4 @@
-**English** · [简体中文](integrated.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](integrated.zh-CN.md)
 
 # Integrated experimental runtime
 

@@ -1,6 +1,6 @@
 # Installation
 
-[Project](../../README.md) · [中文首页](../../README.zh-CN.md)
+[Project](../../README.md) &nbsp;&nbsp; [中文首页](../../README.zh-CN.md)
 
 ## Supported configuration
 

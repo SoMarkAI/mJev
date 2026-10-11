@@ -1,6 +1,6 @@
 # HF image scoring service
 
-[Document guide](README.md) · [中文](serving.zh-CN.md)
+[Document guide](README.md) &nbsp;&nbsp; [中文](serving.zh-CN.md)
 
 Serve independent image requests with **Transformers and PyTorch**. No vLLM,
 custom C++/CUDA build, NCCL process group, or `generate()` is required. Both

@@ -5,7 +5,7 @@
 <h1 align="center">SoMark｜mJev</h1>
 <p align="center"><b>Multimodal state in. Typed decisions out.</b></p>
 
-<p align="center"><b>简体中文</b> · <a href="README.md">English</a></p>
+<p align="center"><b>简体中文</b> &nbsp;&nbsp; <a href="README.md">English</a></p>
 <p align="center">
   <a href="https://huggingface.co/SoMarkAI/mjev-doc">🤗 获取 mJev-Doc</a> &nbsp;&nbsp;
   <a href="#start">🚀 快速开始</a> &nbsp;&nbsp;
@@ -99,7 +99,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model ./models/mjev-doc \
 
 🎉 你的第一组决策，在 `outputs/document-decisions.json` 等你。接下来，换成自己的文档和问题吧。
 
-[文档输入输出](docs/docjev/input-output.md) · [mJev-Doc 指南](docs/docjev/README.zh-CN.md) · [多图片服务](docs/docjev/serving.zh-CN.md)
+[文档输入输出](docs/docjev/input-output.md) &nbsp;&nbsp; [mJev-Doc 指南](docs/docjev/README.zh-CN.md) &nbsp;&nbsp; [多图片服务](docs/docjev/serving.zh-CN.md)
 
 <details>
 <summary><b>也想测试通用图片与视频？展开运行 mJev</b></summary>
@@ -115,7 +115,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model ./models/mJev \
   --prefix-cache --question-batch-size 2 --output outputs/image-decisions.json
 ```
 
-[输入输出示例](examples/README.zh-CN.md) · [Hugging Face 指南](docs/hf.zh-CN.md) · [vLLM 服务](docs/vllm.zh-CN.md)
+[输入输出示例](examples/README.zh-CN.md) &nbsp;&nbsp; [Hugging Face 指南](docs/hf.zh-CN.md) &nbsp;&nbsp; [vLLM 服务](docs/vllm.zh-CN.md)
 
 </details>
 
@@ -125,9 +125,9 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model ./models/mJev \
 
 <p><b>Build decisions, not just descriptions.</b></p>
 <p>
-  <a href="docs/index.zh-CN.md">完整文档</a> ·
-  <a href="docs/docjev/architecture.md">工作原理</a> ·
-  <a href="docs/docjev/training.md">训练方式</a> ·
+  <a href="docs/index.zh-CN.md">完整文档</a> &nbsp;&nbsp;
+  <a href="docs/docjev/architecture.md">工作原理</a> &nbsp;&nbsp;
+  <a href="docs/docjev/training.md">训练方式</a> &nbsp;&nbsp;
   <a href="CONTRIBUTING.zh-CN.md">参与贡献</a>
 </p>
-<p>Apache-2.0（代码） · <a href="NOTICE">NOTICE</a> · <a href="THIRD_PARTY_LICENSES.zh-CN.md">第三方与模型许可证</a><br>感谢 <a href="https://github.com/Immortal-Zhang">Immortal-Zhang</a>、<a href="https://github.com/Kyousuke661">Kyousuke661</a> 与 <a href="https://github.com/BinyangQiu">BinyangQiu</a>。</p>
+<p>Apache-2.0（代码） &nbsp;&nbsp; <a href="NOTICE">NOTICE</a> &nbsp;&nbsp; <a href="THIRD_PARTY_LICENSES.zh-CN.md">第三方与模型许可证</a><br>感谢 <a href="https://github.com/Immortal-Zhang">Immortal-Zhang</a>、<a href="https://github.com/Kyousuke661">Kyousuke661</a> 与 <a href="https://github.com/BinyangQiu">BinyangQiu</a>。</p>

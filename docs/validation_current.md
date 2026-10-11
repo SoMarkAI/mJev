@@ -1,4 +1,4 @@
-**English** · [简体中文](validation_current.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](validation_current.zh-CN.md)
 
 # Current validation entry point
 
@@ -6,7 +6,7 @@
 
 The unified document evaluation covers **1,512 questions / 3,024 Chinese and English records**. Base Qwen scores **82.04%** and mJev-Doc **84.36%**, using identical processed inputs, causal/native BF16, full LM Head projection and temperature-1 candidate softmax. This is a fixed diagnostic cohort, separate from the 500-record training-validation comparison.
 
-[Protocol and results](docjev/results.md) · [Complete task breakdown and fingerprints](validation_evidence/mjev-doc-unified1512.json) · [Paired checkpoint runner](docjev/evaluation.md)
+[Protocol and results](docjev/results.md) &nbsp;&nbsp; [Complete task breakdown and fingerprints](validation_evidence/mjev-doc-unified1512.json) &nbsp;&nbsp; [Paired checkpoint runner](docjev/evaluation.md)
 
 ## HF and vLLM mechanism validation
 

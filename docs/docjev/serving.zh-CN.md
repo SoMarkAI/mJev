@@ -1,6 +1,6 @@
 # HF 多图片推理服务
 
-[文档模型](README.zh-CN.md) · [English](serving.md)
+[文档模型](README.zh-CN.md) &nbsp;&nbsp; [English](serving.md)
 
 使用 Transformers＋PyTorch 接收多个独立图片请求，不需要 vLLM、自定义 C++／CUDA
 编译或 NCCL。适用于基于 Qwen3-VL 的 mJev 和 mJev-Doc 图文模型。

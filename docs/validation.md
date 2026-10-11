@@ -1,4 +1,4 @@
-**English** · [简体中文](validation.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](validation.zh-CN.md)
 
 # Validation record — 0.1.0
 

@@ -1,6 +1,6 @@
-[English](training.md) · **简体中文**
+[English](training.md) &nbsp;&nbsp; **简体中文**
 
-[返回 mJev](../README.zh-CN.md) · [模型选择](models.zh-CN.md)
+[返回 mJev](../README.zh-CN.md) &nbsp;&nbsp; [模型选择](models.zh-CN.md)
 
 # 训练与奖励设计
 

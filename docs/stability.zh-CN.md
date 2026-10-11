@@ -1,4 +1,4 @@
-[English](stability.md) · **简体中文**
+[English](stability.md) &nbsp;&nbsp; **简体中文**
 
 Docker 之外的命令均假定已激活 Python 3.11+ 虚拟环境：先用 `python3 -m venv .venv` 创建，再运行 `source .venv/bin/activate`。激活后安装和运行统一使用 `python`；Docker 内使用 `python3`。Shell 脚本也支持 `PYTHON=/path/to/venv/bin/python`。历史执行记录保留原始命令。
 

@@ -1,4 +1,4 @@
-**English** · [简体中文](models.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](models.zh-CN.md)
 
 [Recorded official-model validation](qwen3_vl_validation.md)
 
@@ -102,4 +102,4 @@ CLI preflight and inference share structural validation with the scoring APIs: c
 
 ## mJev-Doc document model
 
-The project also includes **mJev-Doc** for document-image decisions. It shares the HF core with mJev and adds a document adapter, bilingual benchmark evaluation and a validated RLCD stage pipeline. [English guide](docjev/README.md) · [中文介绍](docjev/README.zh-CN.md) · [Results](docjev/results.md). mJev-Doc weights will be released on Hugging Face, following the same distribution format as mJev. Both models share this code repository; the demo currently accepts a complete local checkpoint.
+The project also includes **mJev-Doc** for document-image decisions. It shares the HF core with mJev and adds a document adapter, bilingual benchmark evaluation and a validated RLCD stage pipeline. [English guide](docjev/README.md) &nbsp;&nbsp; [中文介绍](docjev/README.zh-CN.md) &nbsp;&nbsp; [Results](docjev/results.md). mJev-Doc weights will be released on Hugging Face, following the same distribution format as mJev. Both models share this code repository; the demo currently accepts a complete local checkpoint.

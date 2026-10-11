@@ -1,4 +1,4 @@
-[English](installation_validation.md) · **简体中文**
+[English](installation_validation.md) &nbsp;&nbsp; **简体中文**
 
 # 隔离环境安装验证：2026-09-26
 

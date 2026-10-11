@@ -1,4 +1,4 @@
-**English** · [简体中文](installation_validation.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](installation_validation.zh-CN.md)
 
 # Isolated installation check — 2026-09-26
 

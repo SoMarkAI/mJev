@@ -1,6 +1,6 @@
 # mJev-Doc · Give every page a decision
 
-[English](README.md) · [简体中文](README.zh-CN.md) · [Back to mJev](../../README.md)
+[English](README.md) &nbsp;&nbsp; [简体中文](README.zh-CN.md) &nbsp;&nbsp; [Back to mJev](../../README.md)
 
 Bring a document image, ask several questions and define meaningful choices. **mJev-Doc** specializes the Jev workflow for document understanding: visible attributes, document categories, content relationships and decisions under explicit criteria.
 
@@ -56,7 +56,7 @@ The first mJev-Doc training run consumed **15,658 language records / 7,829 bilin
 
 The evaluation covers **1,512 questions** across 220 image files, with Chinese and English versions. Every candidate has a recorded raw logit and temperature-1 softmax probability. Scores measure reference-label agreement; bilingual versions are paired observations. [Complete results and probabilities →](results.md)
 
-- [Installation](installation.md) · [Input/output and API](input-output.md)
+- [Installation](installation.md) &nbsp;&nbsp; [Input/output and API](input-output.md)
 - [Shared attention, logits and caching](architecture.md)
 - [Evaluation, candidate permutations and paired model comparison](evaluation.md)
 - [HF image service: dynamic batches, GPU replicas and Windows setup](serving.md)

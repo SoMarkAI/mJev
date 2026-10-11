@@ -1,4 +1,4 @@
-[English](README.md) · **简体中文**
+[English](README.md) &nbsp;&nbsp; **简体中文**
 
 # 实验音视频镜像
 

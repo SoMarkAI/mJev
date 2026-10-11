@@ -1,4 +1,4 @@
-[English](validation.md) · **简体中文**
+[English](validation.md) &nbsp;&nbsp; **简体中文**
 
 # 0.1.0 验证记录
 

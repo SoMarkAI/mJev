@@ -1,4 +1,4 @@
-[English](CONTRIBUTING.md) · **简体中文**
+[English](CONTRIBUTING.md) &nbsp;&nbsp; **简体中文**
 
 # 参与 mJev
 

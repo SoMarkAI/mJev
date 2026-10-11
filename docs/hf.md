@@ -1,4 +1,4 @@
-**English** · [简体中文](hf.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](hf.zh-CN.md)
 
 [Qwen3-VL-4B uses the same HF API; see the model guide for installation and image/video-only capabilities.](models.md)
 

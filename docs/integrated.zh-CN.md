@@ -1,4 +1,4 @@
-[English](integrated.md) · **简体中文**
+[English](integrated.md) &nbsp;&nbsp; **简体中文**
 
 # 集成实验 runtime
 

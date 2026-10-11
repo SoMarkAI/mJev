@@ -1,8 +1,8 @@
-**English** · [简体中文](README.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](README.zh-CN.md)
 
 # Small inputs, ready to run
 
-[Back to mJev](../README.md) · [HF setup](../docs/models.md)
+[Back to mJev](../README.md) &nbsp;&nbsp; [HF setup](../docs/models.md)
 
 General image and video fixtures are project-created. The document example uses an attributed CC-BY-2.0 validation image. Pick an input after setting `MODEL_DIR` to your downloaded checkpoint:
 

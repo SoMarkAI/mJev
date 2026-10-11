@@ -1,4 +1,4 @@
-[English](index.md) · **简体中文**
+[English](index.md) &nbsp;&nbsp; **简体中文**
 
 # mJev · Multimodal Decisions
 
@@ -41,4 +41,4 @@ mJev 为图片、音频和视频上的动态选择题提供统一评分接口。
 
 ## mJev-Doc 文档模型
 
-同一项目还提供 **mJev-Doc** 文档候选决策模型，共享 mJev 的 HF 核心，并提供文档输入、双语评测和 RLCD 训练入口。[中文介绍](docjev/README.zh-CN.md) · [English](docjev/README.md) · [评测结果](docjev/results.md)。mJev-Doc 权重将与 mJev 一样通过 Hugging Face 发布，两个模型的代码和说明统一维护在本仓库。当前示例支持完整本地 checkpoint。
+同一项目还提供 **mJev-Doc** 文档候选决策模型，共享 mJev 的 HF 核心，并提供文档输入、双语评测和 RLCD 训练入口。[中文介绍](docjev/README.zh-CN.md) &nbsp;&nbsp; [English](docjev/README.md) &nbsp;&nbsp; [评测结果](docjev/results.md)。mJev-Doc 权重将与 mJev 一样通过 Hugging Face 发布，两个模型的代码和说明统一维护在本仓库。当前示例支持完整本地 checkpoint。

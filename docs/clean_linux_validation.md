@@ -1,4 +1,4 @@
-**English** · [简体中文](clean_linux_validation.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](clean_linux_validation.zh-CN.md)
 
 # Clean Linux public workflow — 2026-09-26
 

@@ -1,4 +1,4 @@
-**English** · [简体中文](reliability_review.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](reliability_review.zh-CN.md)
 
 # Reliability fixes — 2026-09-26
 

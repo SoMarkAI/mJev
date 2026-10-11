@@ -1,4 +1,4 @@
-**English** · [简体中文](benchmark_validation.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](benchmark_validation.zh-CN.md)
 
 # AV mini benchmark validation — 2026-09-25
 

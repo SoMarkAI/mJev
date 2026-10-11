@@ -28,6 +28,6 @@ Reference labels are ignored by inference. These annotations are the existing mo
 
 Table 3 from Digant Gupta, Carolyn A Lammersfeld, Pankaj G Vashi, Sadie L Dahlk and Christopher G Lis, *Can subjective global assessment of nutritional status predict survival in ovarian cancer?*, **Journal of Ovarian Research 1, 5 (2008)**. © 2008 Gupta et al.; licensee BioMed Central Ltd.
 
-[Original article](https://link.springer.com/article/10.1186/1757-2215-1-5) · [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
+[Original article](https://link.springer.com/article/10.1186/1757-2215-1-5) &nbsp;&nbsp; [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
 
 The document image is a table crop supplied by Infinity. We retain those image bytes unchanged; the cover scales this same crop for display. The source table and its appearance in the cover retain CC BY 2.0, separately from the Apache-2.0 code license.

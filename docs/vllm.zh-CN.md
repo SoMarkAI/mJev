@@ -1,4 +1,4 @@
-[English](vllm.md) · **简体中文**
+[English](vllm.md) &nbsp;&nbsp; **简体中文**
 
 本页四卡配置描述 Omni；Qwen3-VL-4B 默认 TP=1，可通过 `--tensor-parallel-size` 显式指定。见[模型选择](models.zh-CN.md)。
 

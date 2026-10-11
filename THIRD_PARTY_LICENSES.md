@@ -1,4 +1,4 @@
-**English** · [简体中文](THIRD_PARTY_LICENSES.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](THIRD_PARTY_LICENSES.zh-CN.md)
 
 # Third-party benchmark licenses
 
@@ -58,4 +58,4 @@ No blanket dataset LICENSE is added. `grouped.jsonl` and `manifest.jsonl` remain
 
 ## mJev-Doc validation example
 
-`examples/docjev/validation-table.jpg` is Table 3 of Gupta et al. (2008), *Can subjective global assessment of nutritional status predict survival in ovarian cancer?*, Journal of Ovarian Research 1, 5. © 2008 Gupta et al., licensee BioMed Central Ltd. [Source](https://link.springer.com/article/10.1186/1757-2215-1-5) · [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). The crop is supplied by Infinity and its demo bytes are unchanged. It is not relicensed under Apache-2.0. See `examples/docjev/metadata.json` for attribution and hashes.
+`examples/docjev/validation-table.jpg` is Table 3 of Gupta et al. (2008), *Can subjective global assessment of nutritional status predict survival in ovarian cancer?*, Journal of Ovarian Research 1, 5. © 2008 Gupta et al., licensee BioMed Central Ltd. [Source](https://link.springer.com/article/10.1186/1757-2215-1-5) &nbsp;&nbsp; [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). The crop is supplied by Infinity and its demo bytes are unchanged. It is not relicensed under Apache-2.0. See `examples/docjev/metadata.json` for attribution and hashes.

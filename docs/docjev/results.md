@@ -1,6 +1,6 @@
 # mJev-Doc · Training and evaluation
 
-[Project](../../README.md) · [Machine-readable results](../validation_evidence/docjev-rlcd-first-epoch.json) · [docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench)
+[Project](../../README.md) &nbsp;&nbsp; [Machine-readable results](../validation_evidence/docjev-rlcd-first-epoch.json) &nbsp;&nbsp; [docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench)
 
 ## Unified 1,512-question evaluation
 

@@ -1,4 +1,4 @@
-[English](reproduce.md) · **简体中文**
+[English](reproduce.md) &nbsp;&nbsp; **简体中文**
 
 # 公开小型评测：准备 → 推理 → 报告
 

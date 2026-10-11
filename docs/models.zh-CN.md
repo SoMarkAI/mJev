@@ -1,4 +1,4 @@
-[English](models.md) · **简体中文**
+[English](models.md) &nbsp;&nbsp; **简体中文**
 
 [官方模型历史验证记录](qwen3_vl_validation.zh-CN.md)
 
@@ -102,4 +102,4 @@ CLI 预检查、正式推理和评分 API 共用结构校验：候选字典必�
 
 ## mJev-Doc 文档模型
 
-同一项目还提供 **mJev-Doc** 文档候选决策模型，共享 mJev 的 HF 核心，并提供文档输入、双语评测和 RLCD 训练入口。[中文介绍](docjev/README.zh-CN.md) · [English](docjev/README.md) · [评测结果](docjev/results.md)。mJev-Doc 权重将与 mJev 一样通过 Hugging Face 发布，两个模型的代码和说明统一维护在本仓库。当前示例支持完整本地 checkpoint。
+同一项目还提供 **mJev-Doc** 文档候选决策模型，共享 mJev 的 HF 核心，并提供文档输入、双语评测和 RLCD 训练入口。[中文介绍](docjev/README.zh-CN.md) &nbsp;&nbsp; [English](docjev/README.md) &nbsp;&nbsp; [评测结果](docjev/results.md)。mJev-Doc 权重将与 mJev 一样通过 Hugging Face 发布，两个模型的代码和说明统一维护在本仓库。当前示例支持完整本地 checkpoint。

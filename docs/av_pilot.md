@@ -1,4 +1,4 @@
-**English** · [简体中文](av_pilot.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](av_pilot.zh-CN.md)
 
 # AV pilot (historical pre-GPU validation record)
 

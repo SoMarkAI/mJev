@@ -5,7 +5,7 @@
 <h1 align="center">SoMark｜mJev</h1>
 <p align="center"><b>Multimodal state in. Typed decisions out.</b></p>
 
-<p align="center"><a href="README.zh-CN.md">简体中文</a> · <b>English</b></p>
+<p align="center"><a href="README.zh-CN.md">简体中文</a> &nbsp;&nbsp; <b>English</b></p>
 <p align="center">
   <a href="https://huggingface.co/SoMarkAI/mjev-doc">🤗 Get mJev-Doc</a> &nbsp;&nbsp;
   <a href="#start">🚀 Quick start</a> &nbsp;&nbsp;
@@ -99,7 +99,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model ./models/mjev-doc \
 
 🎉 Your first decisions will be in `outputs/document-decisions.json`. Next, bring your own document and questions.
 
-[Document inputs & outputs](docs/docjev/input-output.md) · [mJev-Doc guide](docs/docjev/README.md) · [Multi-image serving](docs/docjev/serving.md)
+[Document inputs & outputs](docs/docjev/input-output.md) &nbsp;&nbsp; [mJev-Doc guide](docs/docjev/README.md) &nbsp;&nbsp; [Multi-image serving](docs/docjev/serving.md)
 
 <details>
 <summary><b>Want general images and video too? Run mJev</b></summary>
@@ -115,7 +115,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model ./models/mJev \
   --prefix-cache --question-batch-size 2 --output outputs/image-decisions.json
 ```
 
-[Input/output examples](examples/README.md) · [Hugging Face guide](docs/hf.md) · [vLLM serving](docs/vllm.md)
+[Input/output examples](examples/README.md) &nbsp;&nbsp; [Hugging Face guide](docs/hf.md) &nbsp;&nbsp; [vLLM serving](docs/vllm.md)
 
 </details>
 
@@ -125,9 +125,9 @@ Found a bug, a new use case, or a good example to share? [Come say hello](https:
 
 <p><b>Build decisions, not just descriptions.</b></p>
 <p>
-  <a href="docs/index.md">Documentation</a> ·
-  <a href="docs/docjev/architecture.md">How it works</a> ·
-  <a href="docs/docjev/training.md">Training</a> ·
+  <a href="docs/index.md">Documentation</a> &nbsp;&nbsp;
+  <a href="docs/docjev/architecture.md">How it works</a> &nbsp;&nbsp;
+  <a href="docs/docjev/training.md">Training</a> &nbsp;&nbsp;
   <a href="CONTRIBUTING.md">Contribute</a>
 </p>
-<p>Apache-2.0 (code) · <a href="NOTICE">NOTICE</a> · <a href="THIRD_PARTY_LICENSES.md">Third-party &amp; model licenses</a><br>Thanks to <a href="https://github.com/Immortal-Zhang">Immortal-Zhang</a>, <a href="https://github.com/Kyousuke661">Kyousuke661</a> and <a href="https://github.com/BinyangQiu">BinyangQiu</a>.</p>
+<p>Apache-2.0 (code) &nbsp;&nbsp; <a href="NOTICE">NOTICE</a> &nbsp;&nbsp; <a href="THIRD_PARTY_LICENSES.md">Third-party &amp; model licenses</a><br>Thanks to <a href="https://github.com/Immortal-Zhang">Immortal-Zhang</a>, <a href="https://github.com/Kyousuke661">Kyousuke661</a> and <a href="https://github.com/BinyangQiu">BinyangQiu</a>.</p>

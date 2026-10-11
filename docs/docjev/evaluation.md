@@ -1,6 +1,6 @@
 # Evaluation
 
-[Project](../../README.md) · [Recorded study](results.md)
+[Project](../../README.md) &nbsp;&nbsp; [Recorded study](results.md)
 
 ## Run
 

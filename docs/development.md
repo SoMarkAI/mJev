@@ -1,8 +1,8 @@
-**English** · [简体中文](development.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](development.zh-CN.md)
 
 # mJev Developer Guide
 
-[Back to README](../README.md) · [Contributing](../CONTRIBUTING.md)
+[Back to README](../README.md) &nbsp;&nbsp; [Contributing](../CONTRIBUTING.md)
 
 ## Entry points and responsibilities
 
@@ -15,7 +15,7 @@
 | vLLM requests and scoring | [`engine.py`](../mjev/engine.py) |
 | vLLM attention and cache hooks | [`patch.py`](../mjev/patch.py) |
 | Decisions and tie handling | [`decision.py`](../mjev/decision.py) |
-| Document adapter, paired evaluation and RLCD | [`docjev/`](../docjev/) · [document guide](docjev/README.md) |
+| Document adapter, paired evaluation and RLCD | [`docjev/`](../docjev/) &nbsp;&nbsp; [document guide](docjev/README.md) |
 
 Use **mJev** in documentation, `mjev` for Python imports and `MJEV_` for project environment variables.
 

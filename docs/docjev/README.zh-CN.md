@@ -1,6 +1,6 @@
 # mJev-Doc · 让文档信息变成清晰决策
 
-[English](README.md) · 简体中文 · [返回 mJev](../../README.zh-CN.md)
+[English](README.md) &nbsp;&nbsp; 简体中文 &nbsp;&nbsp; [返回 mJev](../../README.zh-CN.md)
 
 给一张文档，提出多个问题，为每题定义有意义的候选答案。**mJev-Doc** 面向文档视觉属性、类别、字段关系和明确规则下的业务决策，返回每个候选的原始分数、概率和最终选择。
 
@@ -48,7 +48,7 @@ mJev-Doc 首轮使用 **1,223 张图、7,829 对中英文题、15,658 条语言�
 
 评测包含 **1,512 道题目**，覆盖 220 张评测图片，提供中英文版本。每个候选均保存原始 logit 与温度 1 softmax 概率。分数表示与参考标签的一致率，中英文不能视为独立样本。[完整结果与概率](results.md)
 
-[安装](installation.md) · [输入输出](input-output.md) · [架构](architecture.md) · [评测](evaluation.md) · [RLCD 训练](training.md)
+[安装](installation.md) &nbsp;&nbsp; [输入输出](input-output.md) &nbsp;&nbsp; [架构](architecture.md) &nbsp;&nbsp; [评测](evaluation.md) &nbsp;&nbsp; [RLCD 训练](training.md)
 
 [HF 多图片服务：动态 batch、多 GPU 副本和 Windows 原生安装](serving.zh-CN.md)
 

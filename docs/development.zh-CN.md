@@ -1,8 +1,8 @@
-[English](development.md) · **简体中文**
+[English](development.md) &nbsp;&nbsp; **简体中文**
 
 # mJev 开发者指南
 
-[返回 README](../README.zh-CN.md) · [参与贡献](../CONTRIBUTING.zh-CN.md)
+[返回 README](../README.zh-CN.md) &nbsp;&nbsp; [参与贡献](../CONTRIBUTING.zh-CN.md)
 
 ## 入口与职责
 
@@ -15,7 +15,7 @@
 | vLLM 请求与评分 | [`engine.py`](../mjev/engine.py) |
 | vLLM attention 与缓存 hooks | [`patch.py`](../mjev/patch.py) |
 | 决策与并列策略 | [`decision.py`](../mjev/decision.py) |
-| 文档适配、配对评测与 RLCD | [`docjev/`](../docjev/) · [文档指南](docjev/README.zh-CN.md) |
+| 文档适配、配对评测与 RLCD | [`docjev/`](../docjev/) &nbsp;&nbsp; [文档指南](docjev/README.zh-CN.md) |
 
 文档中的项目名使用 **mJev**，Python 导入使用 `mjev`，项目环境变量使用 `MJEV_` 前缀。
 

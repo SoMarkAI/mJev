@@ -1,8 +1,8 @@
-[English](README.md) · **简体中文**
+[English](README.md) &nbsp;&nbsp; **简体中文**
 
 # 小输入，直接跑
 
-[返回 mJev](../README.zh-CN.md) · [HF 环境准备](../docs/models.zh-CN.md)
+[返回 mJev](../README.zh-CN.md) &nbsp;&nbsp; [HF 环境准备](../docs/models.zh-CN.md)
 
 通用图片与视频示例使用项目自制媒体；文档示例使用保留 CC-BY-2.0 署名的真实验证图片。将 `MODEL_DIR` 指向已下载模型后，选一个输入即可：
 

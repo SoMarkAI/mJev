@@ -1,4 +1,4 @@
-[English](clean_linux_validation.md) · **简体中文**
+[English](clean_linux_validation.md) &nbsp;&nbsp; **简体中文**
 
 # 干净 Linux 公开流程验证：2026-09-26
 

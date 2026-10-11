@@ -1,4 +1,4 @@
-**English** · [简体中文](testing.zh-CN.md)
+**English** &nbsp;&nbsp; [简体中文](testing.zh-CN.md)
 
 Commands outside Docker assume an activated Python 3.11+ virtual environment: create it with `python3 -m venv .venv`, then run `source .venv/bin/activate`. Use `python` for installation and execution in that environment; Docker commands use `python3`. Shell scripts also accept `PYTHON=/path/to/venv/bin/python`. Historical execution records retain their original commands.
 
