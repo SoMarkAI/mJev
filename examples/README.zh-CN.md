@@ -2,7 +2,7 @@
 
 # 小输入，直接跑
 
-[返回 mJev](../README.zh-CN.md) &nbsp;&nbsp; [HF 环境准备](../docs/models.zh-CN.md)
+[返回 mJev](../README.zh-CN.md) &nbsp;&nbsp; [HF 环境准备](../docs/hf.zh-CN.md#models)
 
 通用图片与视频示例使用项目自制媒体；文档示例使用保留 CC-BY-2.0 署名的真实验证图片。将 `MODEL_DIR` 指向已下载模型后，选一个输入即可：
 
@@ -21,7 +21,7 @@ python demo_hf.py --model "$MODEL_DIR" --input examples/multiple.json \
   --prefix-cache --question-batch-size 2 --output outputs/image-demo.json
 ```
 
-命令在仓库根目录执行，媒体路径相对于输入 JSON 解析。视频示例需要系统 FFmpeg 与[环境指南](../docs/models.zh-CN.md)中的 HF 视频依赖。
+命令在仓库根目录执行，媒体路径相对于输入 JSON 解析。视频示例需要系统 FFmpeg 与[环境指南](../docs/hf.zh-CN.md#models)中的 HF 视频依赖。
 
 ## 已有输出记录
 

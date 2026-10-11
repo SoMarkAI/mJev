@@ -20,13 +20,11 @@ python -m docjev.evaluate --predictions outputs/evaluation.predictions.jsonl \
   --output outputs/recomputed.json
 ```
 
-## docjev-bench
+## DocJev-Bench
 
-[docjev-bench · v2](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) contains the unified document diagnostic: 220 images, 1,512 paired Chinese/English questions and 3,024 language records. Images come from Infinity and OLM-TFR.
+[DocJev-Bench](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench) contains 608 images, 2617 bilingual pairs and 5234 language records. Use `grouped.jsonl` as `--input`, with the downloaded `images/` directory alongside it. The default Hugging Face `questions` configuration exposes validation and test splits.
 
-Use its `grouped.jsonl` as `--input`, keeping the accompanying `images/` directory beside it. The Hugging Face dataset exposes a `validation` split in both the default `questions` configuration (3,024 records) and the `documents` configuration (220 image groups). Use `--protocol none` for the original candidate order reported in the [comparison](results.md#unified-1512-question-evaluation), or `--protocol circular` for a separate candidate-order evaluation.
-
-The first RLCD study's 40-image / 500-record validation cohort remains available at the pinned [pilot-v1 revision](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench/tree/f3848f96b0553d08c80cf6115dd3db0d64e2bc4e). Set `revision="f3848f96b0553d08c80cf6115dd3db0d64e2bc4e"` when loading that specific cohort; the default branch contains v2.
+Use `--protocol none` for original-order accuracy or `--protocol circular` for a separate candidate-order experiment. [Current scores](results.md) are archived-prediction aggregation on the model-outcome-selected collection, not a fresh blind test.
 
 ## Metrics
 
@@ -42,7 +40,7 @@ Consistency is not accuracy: consistently selecting the wrong candidate scores 1
 
 ## Candidate order
 
-- `--protocol none`: original order only; appropriate for reproducing the first study.
+- `--protocol none`: original order only; original-order scoring.
 - `--protocol circular`: all K cyclic rotations, including identity. Every semantic candidate visits every position. This is not all K! permutations.
 - `--protocol random --random-count 4 --seed 42`: identity plus up to four distinct seeded random orders. Small candidate sets may exhaust the available permutations first.
 
@@ -54,7 +52,7 @@ Split by exact image content and document/paper components. All questions and la
 
 Inspect label histograms by candidate count. A global A/B histogram can hide biases caused by varying candidate counts. Use CircularEval to evaluate position effects rather than silently rewriting existing annotations.
 
-The public repository includes one Infinity validation image and its eight language records as a demo; it does not distribute the full training or validation dataset. Recorded validation pairs are correlated language versions; 500 rows are not 500 independent semantic questions.
+The repository includes one licensed document image and eight language records as a runnable example. The full dataset is hosted separately on Hugging Face; bilingual records are correlated.
 
 ## Compare original and trained weights
 
@@ -68,8 +66,4 @@ python -m docjev.compare --base-model models/Qwen3-VL-4B-Instruct \
 
 The comparison runs each model sequentially on one visible GPU. It freezes image/input hashes, checks every actual processor tensor and prompt for equality, saves raw candidate logits and probabilities, and recomputes paired Accuracy. It uses causal/native/full projection, temperature 1, original candidate order and no prefix cache. A failure preserves partial files without `_SUCCESS`; use a fresh output directory for a new run. Keep local outputs private when the input contains private media or questions.
 
-## Unified diagnostic probability readout
-
-The [1,512-question report](results.md#unified-1512-question-evaluation) covers Chinese and English versions of each question, totaling 3,024 language records. Each model records every candidate's raw label logit and temperature-1 softmax probability. The combined report and subgroup counts are [machine-readable](../validation_evidence/mjev-doc-unified1512.json). This is one fixed diagnostic, separate from the original 500-record training-validation cohort.
-
-The package and console entrypoints retain their `docjev` names for compatibility; the document project is displayed as **mJev-Doc**, with published weights at `SoMarkAI/mjev-doc`.
+The package and CLI entrypoints retain `docjev` for compatibility; the model display name is mJev-Doc.

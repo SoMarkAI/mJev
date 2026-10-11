@@ -1,58 +1,88 @@
-# mJev-Doc · Give every page a decision
+# mJev-Doc · Installation and use
 
-[English](README.md) &nbsp;&nbsp; [简体中文](README.zh-CN.md) &nbsp;&nbsp; [Back to mJev](../../README.md)
+[简体中文](README.zh-CN.md) · [Project](../../README.md)
 
-Bring a document image, ask several questions and define meaningful choices. **mJev-Doc** specializes the Jev workflow for document understanding: visible attributes, document categories, content relationships and decisions under explicit criteria.
+Give the model a document image, a question and candidates. The shared HF runtime returns candidate logits, relative probabilities and a decision.
 
-The model is based on Qwen3-VL-4B-Instruct. It shares the [general mJev](../models.md) HF inference core and uses its own document-trained weights.
+[Input/output](input-output.md) · [Image service](serving.md) · [Benchmark](benchmark.md) · [Results](results.md) · [Training](training.md)
 
-## DocJev-bench · Evaluate the decisions around a document
+<a id="installation"></a>
 
-The companion [DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) can compare document-processing models. It spans perception, field relationships, explicit-rule screening, completeness, routing and action selection, with **1,512 bilingual question pairs across 220 images**.
+## Supported configuration
 
-[Task coverage and a financial-statement example →](benchmark.md)
+| Component | Validated version |
+| :--- | :--- |
+| Python | 3.12 (package requires 3.11+) |
+| PyTorch | 2.11.0+cu130 |
+| Transformers | 5.13.1 |
+| Accelerate | 1.14.0 |
+| Safetensors | 0.8.0 |
+| Model | Qwen3-VL-4B-Instruct, revision `ebb281ec70b05090aa6165b016eac8ec08e71b17` |
+| GPU | NVIDIA RTX PRO 6000 Blackwell, 96 GB |
 
-## Try a document
+The native HF runtime is pinned to Transformers 5.13.1. Other versions are rejected rather than silently running an unvalidated attention/template path. vLLM, FlashAttention builds and FFmpeg are not required for image-only use. The package does not include or download model weights during inference.
 
-Use Linux, Python 3.11+ and an NVIDIA GPU. Install a driver-compatible PyTorch 2.11 wheel first; the recorded document setup used CUDA 13.0 and a 96 GB Blackwell GPU.
+Install a driver-compatible PyTorch 2.11.0 wheel for your hardware before installing the document extra. The recorded document-model environment used CUDA 13.0 wheels. CUDA availability is a separate check from package import.
 
 ```bash
 python -m pip install -e '.[docjev]'
-hf auth login
-hf download SoMarkAI/mjev-doc --local-dir models/mjev-doc
-python demo_docjev.py --model models/mjev-doc \
-  --input examples/docjev/multiple.json --check-only
-python demo_docjev.py --model models/mjev-doc \
-  --input examples/docjev/multiple.json --output outputs/mjev-doc.json
+python -c 'import torch, transformers; print(torch.__version__, transformers.__version__, torch.cuda.is_available())'
+hf download Qwen/Qwen3-VL-4B-Instruct \
+  --revision ebb281ec70b05090aa6165b016eac8ec08e71b17 \
+  --local-dir models/Qwen3-VL-4B-Instruct
 ```
 
-**[mJev-Doc weights](https://huggingface.co/SoMarkAI/mjev-doc)** include the full checkpoint, tokenizer, processor and chat template. Code, model documentation and evaluation remain in this repository. The example includes one real validation table, eight bilingual language records and a recorded trained-model output. [Browse the example →](../../examples/docjev/README.md)
+`hf` is supplied by the Hugging Face Hub dependency. Official model access may require your own Hugging Face authentication. Never put access tokens in input JSON, scripts or commits.
 
-## Keep asking
+## mJev-Doc weights
+
+Download the complete **[mJev-Doc checkpoint](https://huggingface.co/SoMarkAI/mjev-doc)** from Hugging Face. Model code, documentation and evaluation stay in this repository.
+
+Download the model and pass its complete local directory to `--model`:
 
 ```bash
-python demo_docjev.py --model /path/to/mjev-doc \
-  --input examples/docjev/multiple.json --numerics stable \
-  --prefix-cache --question-batch-size 2 --output outputs/docjev-cached.json
+hf auth login
+hf download SoMarkAI/mjev-doc --local-dir models/mjev-doc
 ```
 
-The shared media/context prefix is prefetched once, then independent question branches are scored. Cache/batch comparisons use `stable` numerics; reported accuracy studies use `native`, serial, uncached inference. Keep these protocols distinct.
+Both the base model and exported training checkpoint must contain complete model shards, the safetensors index, configuration, tokenizer, processor and chat template. Pass the directory to `--model`; loaders use `local_files_only=True`. A partial checkpoint will not work.
 
-## Learn and evaluate
+```bash
+python demo_docjev.py --model models/mjev-doc \
+  --input examples/docjev/multiple.json --output outputs/trained-demo.json
+```
 
-The first mJev-Doc training run consumed **15,658 language records / 7,829 bilingual question pairs / 1,223 images** over one epoch on eight GPUs. It freezes vision and updates language parameters with candidate-restricted RLCD training, without LoRA or a new decision head.
+For a single GPU, `--device-map cuda:0` explicitly places inference there. `CUDA_VISIBLE_DEVICES` controls which devices the process can see. Automatic placement can distribute weights, but multi-device inference performance is not measured by the first release.
 
-| Cohort | Base | mJev-Doc |
-| --- | ---: | ---: |
-| First validation: 500 language records | 73.0% | 77.8% |
-| Unified diagnostic: 3,024 language records | 82.04% | 84.36% |
+## Lightweight tools
 
-The evaluation covers **1,512 questions** across 220 image files, with Chinese and English versions. Every candidate has a recorded raw logit and temperature-1 softmax probability. Scores measure reference-label agreement; bilingual versions are paired observations. [Complete results and probabilities →](results.md)
+For offline probability evaluation, input validation and development without model inference:
 
-- [Installation](installation.md) &nbsp;&nbsp; [Input/output and API](input-output.md)
-- [Shared attention, logits and caching](architecture.md)
-- [Evaluation, candidate permutations and paired model comparison](evaluation.md)
-- [HF image service: dynamic batches, GPU replicas and Windows setup](serving.md)
-- [RLCD reward, stages and resume](training.md)
+```bash
+python -m pip install -e '.[test]'
+python -m docjev.evaluate --predictions /path/to/predictions.jsonl \
+  --output outputs/metrics.json
+```
 
-docjev-bench: [Immortal-Zhang/docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench). Code is Apache-2.0; the example table keeps its [CC-BY-2.0 terms](../../THIRD_PARTY_LICENSES.md).
+For the CPU test suite, install `python -m pip install -e '.[docjev,test]'` and run `bash scripts/test.sh -q` from the checkout. Optional vLLM checks require the separate `vllm` extra. Local CPU kernels are sufficient for unit tests; actual model scoring is GPU-validated separately. See [test scopes](../development.md#tests).
+
+## Troubleshooting
+
+| Symptom | Check |
+| :--- | :--- |
+| Model/config not found | Download the complete model to the exact local directory. |
+| Transformers version error | Use the pinned HF extra in a clean environment. |
+| CUDA unavailable | Verify the driver, CUDA-compatible torch wheel and GPU visibility. |
+| Out of memory | Use batch size 1, native numerics and no prefix cache; reduce image pixel budget if needed. |
+| Input exceeds 4,000 tokens | Reduce image budget or task text explicitly; inputs are never silently truncated. |
+| Candidate label not a single token | Reduce candidate count. Alphabetical labels beyond Z are model/template dependent. |
+| Cache/batch CLI rejected | Add `--numerics stable`; compare against an uncached stable baseline. |
+
+Changing pixel limits or numerics changes the evaluation protocol. Record it when reporting results.
+
+## Online image scoring and Windows
+
+The [HF service](serving.md) adds bounded request queues, cross-image dynamic
+batches and one spawn model replica per device. It requires only the existing
+document extra. Native Windows PowerShell setup and the exact validation scope
+are documented there; no vLLM, Bash or custom C++ build is needed for image serving.

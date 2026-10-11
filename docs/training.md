@@ -1,6 +1,6 @@
 **English** &nbsp;&nbsp; [简体中文](training.zh-CN.md)
 
-[Back to mJev](../README.md) &nbsp;&nbsp; [Model selection](models.md)
+[Back to mJev](../README.md) &nbsp;&nbsp; [Model selection](hf.md#models)
 
 # Training and reward
 
@@ -17,4 +17,4 @@ Here $y^{\ast}$ is the correct label; incorrect or invalid answers receive the n
 
 ## Document training
 
-mJev-Doc uses a separate document corpus and checkpoint. Its runnable stage pipeline and exact objective are in [mJev-Doc training](docjev/training.md); use `scripts/train_docjev.sh` with `configs/docjev_rlcd.json`. Adding these modules does not rerun or change the released mJev model.
+mJev-Doc selects a full-SFT checkpoint at step 990. Its [training guide](docjev/training.md) distinguishes this model from the optional RLCD tools in the repository. The general mJev RLCD model above is a separate checkpoint.

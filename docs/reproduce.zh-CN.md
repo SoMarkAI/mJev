@@ -6,7 +6,7 @@
 
 ## 安装与固定配置
 
-使用 [Linux HF 安装](hf.zh-CN.md)、FFmpeg 及 `pip install -e '.[hf,test]'`。vLLM 另需固定的可选依赖与 [部署环境](vllm.zh-CN.md)。所有命令从 checkout 执行。请先查看 [本次实际安装验证](installation_validation.zh-CN.md)，不要把步骤说明等同于所有平台实测通过。
+使用 [Linux HF 安装](hf.zh-CN.md)、FFmpeg 及 `pip install -e '.[hf,test]'`。vLLM 另需固定的可选依赖与 [部署环境](vllm.zh-CN.md)。所有命令从 checkout 执行。请先查看 [本次实际安装验证](https://github.com/SoMarkAI/mJev/blob/9ff8af6e91c46c04b2984b1a05f637ecb599ed7a/docs/installation_validation.zh-CN.md)，不要把步骤说明等同于所有平台实测通过。
 
 `configs/public_mini_hf.json` 和 `configs/public_mini_vllm.json` 明确记录 numerics、模式、BF16 权重、投影、缓存、问题 batch、完整输入上限、seed、上下文与视频处理。新流程固定官方模型 commit `26291f793822fb6be9555850f06dfe95f2d7e695`，由本次公开 API 查询得到，**不说明历史试验曾使用该版本**。infer 用这个精确 revision 调用 snapshot_download，可复用 Hub 缓存；可能需要下载约 70.5 GB 权重。不接受浮动分支/tag，也不静默使用其他本地模型目录。
 
@@ -63,4 +63,4 @@ python -m mjev.benchmark.public_mini report --out outputs/public-mmou-vllm
 
 ## 历史实验
 
-保留依赖原外部数据包的 benchmarks/integrated runner。新运行必须明确 --numerics 和 40 字符 --model-revision；evaluate_hf.py 还必须明确 projection 和 question batch size，并写运行证据。vLLM stable 启动设置 VLLM_BATCH_INVARIANT=1，native 设置 0。缺少配置证据的历史产物标为**未核实**，不套用今天默认值。历史成绩不改，见 [最新验证入口](validation_current.zh-CN.md)。
+保留依赖原外部数据包的 benchmarks/integrated runner。新运行必须明确 --numerics 和 40 字符 --model-revision；evaluate_hf.py 还必须明确 projection 和 question batch size，并写运行证据。vLLM stable 启动设置 VLLM_BATCH_INVARIANT=1，native 设置 0。缺少配置证据的历史产物标为**未核实**，不套用今天默认值。历史成绩不改，见 [最新验证入口](development.zh-CN.md#validation-evidence)。

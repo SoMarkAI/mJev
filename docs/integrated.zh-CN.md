@@ -2,7 +2,7 @@
 
 # 集成实验 runtime
 
-> 历史结果按当时配置记录；后续检查与缺失的配置证据见[最新验证](validation_current.zh-CN.md)。
+> 历史结果按当时配置记录；后续检查与缺失的配置证据见[最新验证](development.zh-CN.md#validation-evidence)。
 
 组合 main `ca755f8` 参考包/评估器与 mJev `59b38ea` 服务/Tree-KV runtime，共用确定性决策和稳定的候选 softmax。`mjev/` dense-SDPA 参考路径仍保留。服务默认 causal，带 mask 的 Tree-KV 为实验模式；runtime 与参考 hooks 不得同时启用。
 

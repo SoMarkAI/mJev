@@ -90,4 +90,4 @@ python docs/validation_evidence/hf-cache-scaling/analyze.py
 | 三题 batch，无 KV 复用 | 0.301 s |
 | 三题 batch，前缀 KV 复用 | 0.326 s |
 
-条件：单张 24 GB NVIDIA GPU、Qwen3-VL-4B、`causal`、`stable`、BF16 权重、完整投影；预热一次后重复两次，包含媒体解码、处理及评分，缓存路径包含新建前缀的耗时，不计模型加载。这个短输入上直接 batch 更快，缓存收益取决于任务；不据此推断生产吞吐或普遍加速倍数。[原始逐次计时](validation_evidence/qwen3-vl-vl-hf-cache-report.json) &nbsp;&nbsp; [完整验证记录](qwen3_vl_validation.zh-CN.md)
+条件：单张 24 GB NVIDIA GPU、Qwen3-VL-4B、`causal`、`stable`、BF16 权重、完整投影；预热一次后重复两次，包含媒体解码、处理及评分，缓存路径包含新建前缀的耗时，不计模型加载。这个短输入上直接 batch 更快，缓存收益取决于任务；不据此推断生产吞吐或普遍加速倍数。[原始逐次计时](validation_evidence/qwen3-vl-vl-hf-cache-report.json) &nbsp;&nbsp; [完整验证记录](https://github.com/SoMarkAI/mJev/blob/9ff8af6e91c46c04b2984b1a05f637ecb599ed7a/docs/qwen3_vl_validation.zh-CN.md)

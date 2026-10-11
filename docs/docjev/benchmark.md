@@ -1,6 +1,6 @@
 # DocJev-bench · Document evidence, business decisions
 
-[Dataset](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) &nbsp;&nbsp; [简体中文](benchmark.zh-CN.md) &nbsp;&nbsp; [mJev-Doc](README.md)
+[Dataset](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench) &nbsp;&nbsp; [简体中文](benchmark.zh-CN.md) &nbsp;&nbsp; [mJev-Doc](README.md)
 
 **One document. Several decisions. Clear rules.**
 
@@ -10,7 +10,7 @@ DocJev-bench evaluates the capabilities that connect document understanding to a
 Document image + question-level criteria + candidate actions → decision
 ```
 
-The current collection contains 220 images, 1,512 bilingual question pairs and 21 task types. Each page can support multiple distinct questions; candidate sets vary with the task.
+The current collection contains 608 images, 2,617 bilingual question pairs and 5,234 language records. Each page can support multiple distinct questions; candidate sets vary with the task.
 
 ## Where it fits in a business workflow
 
@@ -27,33 +27,16 @@ These are evaluation targets for document-processing components. The benchmark m
 
 ## Task design
 
-Each page supports several distinct questions grounded in its content and the stated rules. Questions have 2, 3, 4, 5 or 7 candidates. Chinese and English versions share the image and reference answer, allowing comparisons by language or task type.
+Each page supports several distinct questions grounded in its content and the stated rules. Candidate counts vary by question. Chinese and English versions share the image and reference answer, allowing comparisons by language or task type.
 
-## Current decision-task coverage
+## Dataset groups
 
-| Task type | Question pairs |
-| --- | ---: |
-| Conditional reasoning | 92 |
-| Action decisions | 72 |
-| Routing | 64 |
-| Completeness | 46 |
-| Compliance with stated requirements | 8 |
-| Priority | 8 |
-| **Total for these six task types** | **290** |
+| Group | Images | Question pairs | Language records |
+|---|---:|---:|---:|
+| Document understanding and decisions | 388 | 1848 | 3696 |
+| Cross-industry classification | 220 | 769 | 1538 |
 
-The collection also includes 476 field-relation questions and 70 consistency questions, alongside perception, classification and other understanding tasks. Counts refer to semantic question pairs, not the two language records separately.
-
-## A page with several business decisions
-
-Document `000002` is a financial-statement page in the current benchmark. Its questions illustrate distinct steps on the same evidence:
-
-| Question pair | Stated decision rule | Reference choice |
-| --- | --- | --- |
-| `000002_08` | Select years from 2022E–2024E with a quick ratio ≥ 1 and a debt-to-assets ratio < 35% | 2023E and 2024E |
-| `000002_09` | For 2023E, route to cash-flow review when operating cash flow is below net profit and the working-capital change is negative; the question defines the other branches | Cash Flow Review Team |
-| `000002_10` | Use 2024E operating cash flow to cover investing and financing outflows, then choose the action based on the remaining funds | Retain the balance |
-
-The rules are benchmark assumptions written in the questions. The full wording, candidate sets and bilingual versions are available in the [dataset](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench); the page is `images/000002.jpg`.
+[Current results](results.md) · [Dataset notes](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench/blob/main/DATASET_NOTES.md)
 
 ## Use it to evaluate a document decision component
 

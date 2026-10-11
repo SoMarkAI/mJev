@@ -1,8 +1,16 @@
-# RLCD training
+# mJev-Doc training
 
-[Project](../../README.md) &nbsp;&nbsp; [First study](results.md)
+[Project](../../README.md) &nbsp;&nbsp; [Current results](results.md)
 
-**mJev-Doc** starts from official Qwen3-VL weights. Inference alone is training-free; the optional RLCD pipeline updates the full language model while freezing the visual tower and aligner. It adds no LoRA or decision head.
+## Selected checkpoint
+
+The selected mJev-Doc checkpoint is the full-SFT route at optimizer step 990, including visual merger updates. It is a complete checkpoint without an RL adapter. The Hub model card and revision identify which weights are currently published.
+
+The commands below describe the repository's optional candidate-restricted RLCD implementation. They do not reproduce the selected full-SFT run. Its separate training pipeline has not been added to this public checkout.
+
+## Optional RLCD pipeline
+
+The existing RLCD tools update language parameters while freezing vision and the aligner; no LoRA or new decision head is added.
 
 ## Reward and objective
 

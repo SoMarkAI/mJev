@@ -1,6 +1,6 @@
 [English](vllm.md) &nbsp;&nbsp; **简体中文**
 
-本页四卡配置描述 Omni；Qwen3-VL-4B 默认 TP=1，可通过 `--tensor-parallel-size` 显式指定。见[模型选择](models.zh-CN.md)。
+本页四卡配置描述 Omni；Qwen3-VL-4B 默认 TP=1，可通过 `--tensor-parallel-size` 显式指定。见[模型选择](hf.zh-CN.md#models)。
 
 # vLLM 部署与验证
 
@@ -99,7 +99,7 @@ docker run --rm --gpus all --ipc=host --entrypoint bash \
 
 GPU 套件检查隐藏状态干预隔离、causal 正对照、stock Triton 对比、候选重排、并发问题、概率和及 mask 感知缓存。全部断言通过才写 `outputs/e2e/runs/<run>/_SUCCESS`。候选重排不一定保持预测，位置编码和标签效应仍存在。
 
-发布前原型在参考环境通过该套件；打包独立验证，见 [历史发布记录](validation.zh-CN.md)。仅 CPU/预检不称为新 GPU 结果，后续回归见 [稳定性文档](stability.zh-CN.md)。
+发布前原型在参考环境通过该套件；打包独立验证，见 [历史发布记录](https://github.com/SoMarkAI/mJev/blob/9ff8af6e91c46c04b2984b1a05f637ecb599ed7a/docs/validation.zh-CN.md)。仅 CPU/预检不称为新 GPU 结果，后续回归见 [稳定性文档](stability.zh-CN.md)。
 
 ## 范围与限制
 

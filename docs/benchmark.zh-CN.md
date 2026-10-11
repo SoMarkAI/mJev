@@ -105,7 +105,7 @@ prompt, label_token_ids = qwen_vllm_input(
     use_audio_in_video=(record["modality"] == "audio_video"),
     video_options=None,  # set and record an explicit policy for video runs
 )
-# Pass prompt to an AV-capable scoring backend; see av_pilot.md for the experimental mJev path.
+# Pass prompt to an AV-capable scoring backend; see experiments/av/README.md for the experimental mJev path.
 ```
 
 遵守 [官方 audio-in-video 合约](https://github.com/QwenLM/Qwen3-Omni#use-audio-in-video)，预处理与后端 `use_audio_in_video` 必须一致。patch 大小读官方 processor，传入工具实际采样 FPS，不用默认值静默覆盖时间元信息。label_token_ids 对应精确 `Answer:\n` prefill 后下一 token。
@@ -134,7 +134,7 @@ python -m mjev.benchmark.run \
 
 每行输出必须含 id 和 logits 或 probabilities，覆盖全部原标签。`adapters.from_mjev_result` 校验选项文本/顺序后转换；`adapters.from_qwen_logits` 从原始下一 token 词表向量选标签，并在精确模板/prefill 验证单 token。均不 generate 或改变权重。
 
-**历史边界：**最初 mJev 0.1 的 MJevEngine 仅支持图片，当时此工具包只建立音视频数据与接口，不认证 GPU 音视频隔离。后续已扩展，当前能力见 [HF 文档](hf.zh-CN.md) 与 [配对评测](paired_backends.zh-CN.md)；数据/工具测试本身仍不代表模型准确率。
+**历史边界：**最初 mJev 0.1 的 MJevEngine 仅支持图片，当时此工具包只建立音视频数据与接口，不认证 GPU 音视频隔离。后续已扩展，当前能力见 [HF 文档](hf.zh-CN.md) 与 [配对评测](https://github.com/SoMarkAI/mJev/blob/9ff8af6e91c46c04b2984b1a05f637ecb599ed7a/docs/paired_backends.zh-CN.md)；数据/工具测试本身仍不代表模型准确率。
 
 ## 评估
 
@@ -163,4 +163,4 @@ python -m pytest tests/test_benchmark.py -q
 
 审计逐题重建原题/选项/答案，检查冻结 manifest 哈希、文件大小/SHA256 回执，用 ffprobe 检查流和时长，发现缺失/额外媒体并记录无音轨视频。`_SUCCESS` 只说明数据审计通过，不是推理完成。仅容器/流检查，不是每个音频样本/视频帧的完整解码。
 
-原数据包统计与来源限制见 [数据验证](benchmark_validation.zh-CN.md)。时长差异另存 `duration_warnings.json`，不覆盖原元信息。
+原数据包统计与来源限制见 [数据验证](https://github.com/SoMarkAI/mJev/blob/9ff8af6e91c46c04b2984b1a05f637ecb599ed7a/docs/benchmark_validation.zh-CN.md)。时长差异另存 `duration_warnings.json`，不覆盖原元信息。

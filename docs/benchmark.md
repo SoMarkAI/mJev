@@ -4,7 +4,7 @@ Commands outside Docker assume an activated Python 3.11+ virtual environment: cr
 
 # Small audio/video benchmark
 
-> The image-only runtime boundary below describes the initial release. For subsequent audio/video support and full-weight validation, see [HF](hf.md) and [paired evaluation](paired_backends.md).
+> The image-only runtime boundary below describes the initial release. For subsequent audio/video support and full-weight validation, see [HF](hf.md) and [paired evaluation](https://github.com/SoMarkAI/mJev/blob/9ff8af6e91c46c04b2984b1a05f637ecb599ed7a/docs/paired_backends.md).
 
 The `mjev.benchmark` package builds a frozen, original-label evaluation suite. It does not train a model or regenerate annotations. Media and annotations stay outside Git. Dataset licenses remain separate from the mJev code license.
 
@@ -109,7 +109,7 @@ prompt, label_token_ids = qwen_vllm_input(
     use_audio_in_video=(record["modality"] == "audio_video"),
     video_options=None,  # set and record an explicit policy for video runs
 )
-# Pass prompt to an AV-capable scoring backend; see av_pilot.md for the experimental mJev path.
+# Pass prompt to an AV-capable scoring backend; see experiments/av/README.md for the experimental mJev path.
 ```
 
 This follows the [official Qwen audio/video processor contract](https://github.com/QwenLM/Qwen3-Omni#use-audio-in-video). `use_audio_in_video` must agree between preprocessing and backend processor configuration. The adapter reads patch size from the official processor and forwards the utility's actual sampled FPS, so temporal metadata is not silently replaced by a default FPS. `label_token_ids` refer to the next-token position after the exact `Answer:\n` prefill.
@@ -138,7 +138,7 @@ Supply your own run config JSON identifying model revision, mode, precision and 
 
 Each output record must contain `id` and either `logits` or `probabilities`, keyed by **all** original labels. `adapters.from_mjev_result` converts mJev-style candidate results after checking text/order. `adapters.from_qwen_logits` selects label logits from the raw next-token vocabulary vector and verifies single-token labels against the exact rendered template/prefill. Neither adapter calls `generate()` or changes model weights.
 
-**Runtime boundary (historical):** the initial image-only release did not certify AV inference. Current HF and pooling paths support AV; see [paired evaluation](paired_backends.md) and [stable regression](stability.md). Dataset/tool checks alone still imply no model accuracy.
+**Runtime boundary (historical):** the initial image-only release did not certify AV inference. Current HF and pooling paths support AV; see [paired evaluation](https://github.com/SoMarkAI/mJev/blob/9ff8af6e91c46c04b2984b1a05f637ecb599ed7a/docs/paired_backends.md) and [stable regression](stability.md). Dataset/tool checks alone still imply no model accuracy.
 
 ## Evaluate
 
@@ -168,5 +168,5 @@ python -m pytest tests/test_benchmark.py -q
 The audit reconstructs every original question/options/answer, checks the frozen manifest hash, validates file size/SHA256 receipts and inspects media streams and duration with ffprobe. It detects missing/unexpected media and records videos without audio. `_SUCCESS` means the data audit passed, not that inference ran. This is container/stream inspection, not a complete decode of every audio sample or video frame.
 
 The initial bundle's exact counts, checks and source caveats are recorded in
-[benchmark_validation.md](benchmark_validation.md). Duration discrepancies remain
+[benchmark_validation.md](https://github.com/SoMarkAI/mJev/blob/9ff8af6e91c46c04b2984b1a05f637ecb599ed7a/docs/benchmark_validation.md). Duration discrepancies remain
 in a separate `duration_warnings.json`; they do not overwrite original metadata.

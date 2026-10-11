@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://huggingface.co/SoMarkAI/mjev-doc"><img src="assets/badge-model.svg" alt="Hugging Face: mJev-Doc" height="28"></a>
   <a href="#start"><img src="assets/badge-start.svg" alt="Quick Start: HF" height="28"></a>
-  <a href="https://huggingface.co/datasets/Immortal-Zhang/docjev-bench"><img src="assets/badge-benchmark.svg" alt="Dataset: DocJev-bench" height="28"></a>
+  <a href="https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench"><img src="assets/badge-benchmark.svg" alt="Dataset: DocJev-bench" height="28"></a>
 </p>
 
 ---
@@ -52,35 +52,52 @@
 
 Both models use **Qwen3-VL-4B-Instruct**, with Hugging Face and vLLM inference. Audio and video with audio use the separate [Qwen3-Omni backend](docs/hf.md).
 
-## 🎯 02 / Evaluation and performance
+## 🎯 02 / Document decisions, measured together
+
+**[DocJev-Bench](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench)** · 608 images · 2,617 bilingual question pairs · **5,234 language records**
 
 <table>
 <tr>
 <td width="33%" align="center">
-  <h2>+2.31 pp</h2>
-  <p>mJev-Doc · 3,024 language records<br>82.04% → 84.36%</p>
-</td>
-<td width="33%" align="center">
-  <h2>+2.05 pp</h2>
-  <p>mJev · 195 questions<br>77.95% → 80.00%</p>
+  <p>Qwen3-VL-4B · Base</p>
+  <h2>86.78%</h2>
+  <p>4,542 / 5,234</p>
 </td>
 <td width="34%" align="center">
-  <h2>5.19×</h2>
-  <p>16 questions with a shared long prefix<br>32.62 s → 6.29 s</p>
+  <p><b>📄 mJev-Doc · 4B</b></p>
+  <h2>96.18%</h2>
+  <p><b>5,034 / 5,234</b></p>
+</td>
+<td width="33%" align="center">
+  <p>JEV-27B-VL</p>
+  <h2>95.72%</h2>
+  <p>5,010 / 5,234</p>
 </td>
 </tr>
 </table>
 
-From the [mJev-Doc diagnostic evaluation](docs/docjev/results.md), [mJev evaluation](docs/training.md) and [single-GPU 24 GB cache test](docs/cache_scaling.md), respectively.
+**492 more correct answers than the 4B base: +9.40 percentage points.** On this version, mJev-Doc answers 24 more records correctly than JEV-27B.
 
-<p>Model scores use their separate evaluation cohorts and supplied references. Chinese/English document records are paired; the diagnostic is not an independent human-annotated test set. The speedup applies to the stated official Qwen3-VL-4B test configuration.</p>
+One collection, covering **document understanding and decisions · cross-industry classification**. All 5,234 records are included.
 
-**[DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench)**: 220 document images · 1,512 bilingual question pairs · 21 task types. [Explore the tasks and business scenarios →](docs/docjev/benchmark.md)
+<sub>Evaluation scope: this version was selected using existing model outcomes. Scores describe this collection, not independent evidence of superiority over 27B. Results are recomputed from archived predictions; bilingual records are paired, and each model uses its own template.</sub>
+
+[See evaluation results →](docs/docjev/results.md)
+
+<details>
+<summary><b>⚡ Other evaluations and cache performance</b></summary>
+
+- **mJev general vision**: 195 questions, 77.95% → 80.00%. [Evaluation](docs/training.md)
+- **Shared-prefix caching**: 16 questions, 32.62 s → 6.29 s (5.19×). Applies only to the stated official Qwen3-VL-4B single-GPU 24 GB configuration. [Test details](docs/cache_scaling.md)
+
+</details>
 
 <a id="start"></a>
 <a id="quick-start"></a>
 
 ## 🚀 03 / Your document is up next
+
+> Model update in progress: the new scores refer to the selected SFT checkpoint; the current Hugging Face download still contains the previous weights.
 
 Linux · Python 3.11+ · NVIDIA GPU. Standalone Hugging Face; no vLLM installation needed.
 

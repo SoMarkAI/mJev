@@ -1,6 +1,6 @@
 [English](training.md) &nbsp;&nbsp; **简体中文**
 
-[返回 mJev](../README.zh-CN.md) &nbsp;&nbsp; [模型选择](models.zh-CN.md)
+[返回 mJev](../README.zh-CN.md) &nbsp;&nbsp; [模型选择](hf.zh-CN.md#models)
 
 # 训练与奖励设计
 
@@ -17,4 +17,4 @@ r(\hat{y}) = \begin{cases}
 
 ## 文档模型训练
 
-mJev-Doc 使用独立的文档数据与 checkpoint。[mJev-Doc 训练说明](docjev/training.md)包含完整阶段与奖励定义；入口为 `scripts/train_docjev.sh`，配置为 `configs/docjev_rlcd.json`。代码整合不会重新训练或改变已发布的 mJev 模型。
+mJev-Doc 选用全参 SFT 第 990 步 checkpoint。[训练指南](docjev/training.md)区分该权重与仓库内可选的 RLCD 工具；上方通用 mJev 的 RLCD 权重是另一模型。

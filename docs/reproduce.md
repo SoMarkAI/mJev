@@ -6,7 +6,7 @@ This is a new, deliberately small **MMOU short-video subset**, not a reproductio
 
 ## Installation and fixed configuration
 
-Use the Linux HF installation in [hf.md](hf.md), FFmpeg and `pip install -e '.[hf,test]'`. vLLM additionally requires the pinned optional backend and its [deployment environment](vllm.md). All commands run from the checkout. See [actual installation checks](installation_validation.md) before interpreting these instructions as validated on your platform.
+Use the Linux HF installation in [hf.md](hf.md), FFmpeg and `pip install -e '.[hf,test]'`. vLLM additionally requires the pinned optional backend and its [deployment environment](vllm.md). All commands run from the checkout. See [actual installation checks](https://github.com/SoMarkAI/mJev/blob/9ff8af6e91c46c04b2984b1a05f637ecb599ed7a/docs/installation_validation.md) before interpreting these instructions as validated on your platform.
 
 `configs/public_mini_hf.json` and `configs/public_mini_vllm.json` specify numerics, mode, BF16 weight dtype, projection, cache policy, batch size, full-input limit, seed, context and video preprocessing. The official model is pinned to `26291f793822fb6be9555850f06dfe95f2d7e695`, resolved from the public model API for this new workflow. This is **not evidence of the revision used by historical experiments**. `infer` uses `snapshot_download` with this exact revision, reusing its Hub cache if present; it may download approximately 70.5 GB of model files. It does not accept a floating branch/tag or silently use an unrelated local model directory.
 
@@ -63,4 +63,4 @@ Produces `report.json`, `REPORT.md` and `_SUCCESS` only after complete coverage 
 
 ## Historical experiments
 
-The legacy `benchmarks/integrated/` runners remain available for their original external bundles. New runs require explicit `--numerics` and a 40-character `--model-revision`; `evaluate_hf.py` also requires projection and question batch size. They write run evidence. vLLM must be launched with `VLLM_BATCH_INVARIANT=1` for stable or `0` for native. Historical artifacts without configuration evidence are reported as **unverified**, never assigned today's defaults. The old reported scores are unchanged; see [current validation index](validation_current.md).
+The legacy `benchmarks/integrated/` runners remain available for their original external bundles. New runs require explicit `--numerics` and a 40-character `--model-revision`; `evaluate_hf.py` also requires projection and question batch size. They write run evidence. vLLM must be launched with `VLLM_BATCH_INVARIANT=1` for stable or `0` for native. Historical artifacts without configuration evidence are reported as **unverified**, never assigned today's defaults. The old reported scores are unchanged; see [current validation index](development.md#validation-evidence).

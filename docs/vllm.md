@@ -6,7 +6,7 @@
 
 ## vLLM requirements and installation
 
-The supported reference environment is Linux x86-64, NVIDIA CUDA, **4 × 24 GB NVIDIA GPUs**, BF16 tensor parallelism 4. This paragraph describes the Omni reference; Qwen3-VL-4B defaults to TP=1 and supports an explicit `--tensor-parallel-size` override. See [model selection](models.md). Other hardware configurations have not been validated. The model is approximately 70.5 GB; allow additional disk space for the Docker image and download cache.
+The supported reference environment is Linux x86-64, NVIDIA CUDA, **4 × 24 GB NVIDIA GPUs**, BF16 tensor parallelism 4. This paragraph describes the Omni reference; Qwen3-VL-4B defaults to TP=1 and supports an explicit `--tensor-parallel-size` override. See [model selection](hf.md#models). Other hardware configurations have not been validated. The model is approximately 70.5 GB; allow additional disk space for the Docker image and download cache.
 
 Requires Docker with NVIDIA Container Toolkit. The image pins vLLM **0.25.1**, PyTorch **2.11.0+cu130** and Transformers **5.13.1**. The hooks intentionally reject other vLLM versions. An ordinary stock vLLM server does not implement this custom attention mask.
 
@@ -97,7 +97,7 @@ docker run --rm --gpus all --ipc=host --entrypoint bash \
 
 The GPU suite checks mask isolation with hidden-state interventions, a causal positive control, comparison to stock Triton attention, candidate permutations, concurrent questions, probability sums and mask-aware prefix-cache reuse. It writes `outputs/e2e/runs/<run>/_SUCCESS` only after every assertion passes. Reordering choices need not preserve predictions: original position encoding and label effects remain.
 
-The pre-release prototype passed this GPU suite on the reference environment. Release packaging is checked separately; see [validation](validation.md) for exact scope. We do not claim a new GPU run where only CPU/preflight checks were performed.
+The pre-release prototype passed this GPU suite on the reference environment. Release packaging is checked separately; see [validation](https://github.com/SoMarkAI/mJev/blob/9ff8af6e91c46c04b2984b1a05f637ecb599ed7a/docs/validation.md) for exact scope. We do not claim a new GPU run where only CPU/preflight checks were performed.
 
 ## Scope and limitations
 

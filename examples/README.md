@@ -2,7 +2,7 @@
 
 # Small inputs, ready to run
 
-[Back to mJev](../README.md) &nbsp;&nbsp; [HF setup](../docs/models.md)
+[Back to mJev](../README.md) &nbsp;&nbsp; [HF setup](../docs/hf.md#models)
 
 General image and video fixtures are project-created. The document example uses an attributed CC-BY-2.0 validation image. Pick an input after setting `MODEL_DIR` to your downloaded checkpoint:
 
@@ -21,7 +21,7 @@ python demo_hf.py --model "$MODEL_DIR" --input examples/multiple.json \
   --prefix-cache --question-batch-size 2 --output outputs/image-demo.json
 ```
 
-Commands run from the repository root. Media paths resolve relative to their input JSON. Video examples require system FFmpeg and the HF video dependencies in the [setup guide](../docs/models.md).
+Commands run from the repository root. Media paths resolve relative to their input JSON. Video examples require system FFmpeg and the HF video dependencies in the [setup guide](../docs/hf.md#models).
 
 ## Recorded outputs
 

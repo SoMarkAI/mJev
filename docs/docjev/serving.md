@@ -14,7 +14,7 @@ out of order. Different images never share visual prefix KV.
 
 ## Start
 
-Install the document extra as described in [installation](installation.md), and
+Install the document extra as described in [installation](README.md#installation), and
 download a complete local checkpoint. Single NVIDIA GPU:
 
 ```bash

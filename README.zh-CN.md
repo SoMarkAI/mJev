@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://huggingface.co/SoMarkAI/mjev-doc"><img src="assets/badge-model.svg" alt="Hugging Face: mJev-Doc" height="28"></a>
   <a href="#start"><img src="assets/badge-start.svg" alt="Quick Start: HF" height="28"></a>
-  <a href="https://huggingface.co/datasets/Immortal-Zhang/docjev-bench"><img src="assets/badge-benchmark.svg" alt="Dataset: DocJev-bench" height="28"></a>
+  <a href="https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench"><img src="assets/badge-benchmark.svg" alt="Dataset: DocJev-bench" height="28"></a>
 </p>
 
 ---
@@ -52,35 +52,52 @@
 
 两个模型均基于 **Qwen3-VL-4B-Instruct**。支持 Hugging Face 与 vLLM 推理；音频和带音轨视频可使用独立的 [Qwen3-Omni 后端](docs/hf.zh-CN.md)。
 
-## 🎯 02 / 评测与性能
+## 🎯 02 / 文档决策，放到同一张答卷上
+
+**[DocJev-Bench](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench)** · 608 张图片 · 2,617 对中英文题目 · **5,234 条语言记录**
 
 <table>
 <tr>
 <td width="33%" align="center">
-  <h2>+2.31 pp</h2>
-  <p>mJev-Doc · 3,024 条语言记录<br>82.04% → 84.36%</p>
-</td>
-<td width="33%" align="center">
-  <h2>+2.05 pp</h2>
-  <p>mJev · 195 道题<br>77.95% → 80.00%</p>
+  <p>原始 Qwen3-VL-4B</p>
+  <h2>86.78%</h2>
+  <p>4,542 / 5,234</p>
 </td>
 <td width="34%" align="center">
-  <h2>5.19×</h2>
-  <p>16 问题、共享长前缀场景<br>32.62 秒 → 6.29 秒</p>
+  <p><b>📄 mJev-Doc · 4B</b></p>
+  <h2>96.18%</h2>
+  <p><b>5,034 / 5,234</b></p>
+</td>
+<td width="33%" align="center">
+  <p>JEV-27B-VL</p>
+  <h2>95.72%</h2>
+  <p>5,010 / 5,234</p>
 </td>
 </tr>
 </table>
 
-分别来自 [mJev-Doc 诊断评测](docs/docjev/results.md)、[mJev 评测](docs/training.zh-CN.md) 与 [24 GB 单卡缓存测试](docs/cache_scaling.zh-CN.md)。
+**比 4B 基座多答对 492 条，准确率提高 9.40 个百分点。** 在当前版本上，比 JEV-27B 多答对 24 条。
 
-<p>两组模型分数对应各自的评测集，与其参考答案比较；mJev-Doc 的中英文记录成对对应，当前结果不代表独立的人类标注测试集。速度提升仅适用于所述官方 Qwen3-VL-4B 测试配置。</p>
+覆盖 **文档理解与决策 · 跨行业分类**，按全部 5,234 条记录统一统计。
 
-**[DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench)**：220 张文档图片 · 1,512 对中英文问题 · 21 种任务类型。[浏览任务与业务场景 →](docs/docjev/benchmark.zh-CN.md)
+<sub>评测范围：本版按已有模型预测结果筛选，分数仅描述当前集合，不代表独立测试中超过 27B。以上为历史预测复算；中英文记录成对对应，各模型使用自身模板。</sub>
+
+[查看评测结果 →](docs/docjev/results.zh-CN.md)
+
+<details>
+<summary><b>⚡ 其他评测与缓存性能</b></summary>
+
+- **mJev 通用视觉**：195 道题，77.95% → 80.00%。[评测记录](docs/training.zh-CN.md)
+- **共享前缀缓存**：16 个问题，32.62 秒 → 6.29 秒（5.19×）。仅对应官方 Qwen3-VL-4B 的所述 24 GB 单卡配置。[测试记录](docs/cache_scaling.zh-CN.md)
+
+</details>
 
 <a id="start"></a>
 <a id="quick-start"></a>
 
 ## 🚀 03 / 跑起来，轮到你的文档了
+
+> 模型更新上传中：本页新成绩对应最佳 SFT 权重，当前 Hugging Face 下载仍为旧版。
 
 Linux · Python 3.11+ · NVIDIA GPU。直接使用 Hugging Face，无需安装 vLLM。
 
