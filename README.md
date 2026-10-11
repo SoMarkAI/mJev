@@ -1,160 +1,133 @@
 <p align="center">
-  <img src="assets/mjev-cover-somark.svg" alt="mJev — Jev, with senses." width="100%">
+  <img src="assets/mjev-hero-story.svg" alt="mJev-Doc — See once. Decide many. One visual input, multiple inspectable decisions." width="100%">
 </p>
 
-<h1 align="center">mJev</h1>
-<p align="center"><a href="README.zh-CN.md">简体中文</a> · <strong>English</strong></p>
-<p align="center"><strong>Jev, with senses. mJev-Doc, with documents.</strong></p>
-<p align="center"><a href="#quick-start">🚀 Quick Start</a> · <a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev weights</a> · <a href="#mjev-doc">📄 mJev-Doc model guide</a></p>
+<h1 align="center">SoMark｜mJev</h1>
+<p align="center"><b>Multimodal state in. Typed decisions out.</b></p>
+
+<p align="center"><a href="README.zh-CN.md">简体中文</a> · <b>English</b></p>
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
-  <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
-  <img src="https://img.shields.io/badge/Backends-HF%20%7C%20vLLM-0891b2" alt="HF and vLLM">
+  <a href="https://huggingface.co/SoMarkAI/mjev-doc">🤗 Get mJev-Doc</a> &nbsp;&nbsp;
+  <a href="#start">🚀 Quick start</a> &nbsp;&nbsp;
+  <a href="https://huggingface.co/datasets/Immortal-Zhang/docjev-bench">DocJev-bench</a>
 </p>
 
-## Decision intelligence beyond text
+---
 
-Bring an image, a document or a video. Ask several questions, define the choices, and get a decision for each one — together with every candidate's raw logit and probability.
+## 👀 Decision intelligence beyond text
 
-mJev brings the Jev workflow to multimodal inputs, with trained models for general vision and document understanding. Questions share the media context while keeping their own candidate sets.
+**Understand the content. Make a clear choice.** mJev brings Jev-style decisions beyond text: share an image, document or video across multiple questions, each with its own candidates. The model returns a choice, relative candidate probabilities and raw logits, connecting visual understanding to practical workflows.
 
-- **One context, multiple decisions:** reuse prefix KV and batch question branches.
-- **Choices you define:** variable candidate sets, direct LM Head scoring and structured outputs.
-- **Start with HF:** run without vLLM or custom CUDA compilation; an optional vLLM backend is available.
-- **Serve independent images:** [HF request queues, dynamic batches and GPU replicas](docs/docjev/serving.md), with Windows-native image setup.
+**mJev-Doc focuses on documents.** What is this page? Do its fields agree? Are the stated conditions met? What happens next? Keep asking about the same document.
 
-## 🧩 Choose your model
+- **⚡ Keep the context**: reuse prefix KV across questions and batch them together.
+- **🧩 Bring your choices**: every question gets its own little crew of candidates.
+- **🔎 Inspect the decision**: the selected answer, every candidate probability, and raw logits.
 
-| Model | Best for | Get started |
-| --- | --- | --- |
-| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | General image and video decisions | [Weights](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [Model guide](docs/models.md) |
-| **[mJev-Doc](https://huggingface.co/SoMarkAI/mjev-doc)** | Document categories, visible attributes, field relationships and decisions under explicit criteria | [Weights](https://huggingface.co/SoMarkAI/mjev-doc) · [Document guide](docs/docjev/README.md) · [Real example](examples/docjev/README.md) |
+---
 
-Both models build on Qwen3-VL-4B-Instruct and share the HF scoring core. For audio or video with audio, use the official Qwen3-Omni Thinker backend with the [same question/candidate interface](docs/hf.md).
+> If this project helps you, please click the ⭐ Star in the top right corner — it's the greatest encouragement for the developers!
 
+<a id="models"></a>
 <a id="mjev-doc"></a>
 
-### 📄 mJev-Doc
+## 🧩 01 / For documents, start with mJev-Doc
 
-A page can support more than one useful decision. mJev-Doc adapts the workflow to document understanding through RLCD training, freezing vision and updating language parameters. Its [training and evaluation](docs/docjev/results.md) stay in this project.
+<table>
+<tr>
+<td width="50%" valign="top">
+  <h3>📄 mJev-Doc</h3>
+  <p><b>Take document understanding into business decisions.</b></p>
+  <p>Classification, field relationships, completeness, and review or routing under <strong>explicitly supplied rules</strong>.</p>
+  <a href="https://huggingface.co/SoMarkAI/mjev-doc"><b>Get the model ↗</b></a>
+</td>
+<td width="50%" valign="top">
+  <h3>🖼️ mJev</h3>
+  <p><b>Turn images and video into choices.</b></p>
+  <p>Scenes, objects, actions, order. Ask multiple questions about shared visual context, each with its own candidates.</p>
+  <a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD"><b>Get the model ↗</b></a>
+</td>
+</tr>
+</table>
 
-Download **[mJev-Doc from Hugging Face](https://huggingface.co/SoMarkAI/mjev-doc)** and run the document demo with the complete local snapshot.
+Both models use **Qwen3-VL-4B-Instruct**, with Hugging Face and vLLM inference. Audio and video with audio use the separate [Qwen3-Omni backend](docs/hf.md).
 
-### 📚 DocJev-bench · Document evidence, business decisions
+## 🎯 02 / Results you can check
 
-[DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) is a separately usable benchmark for document decision components: **220 images, 1,512 bilingual question pairs and 21 task types**. It connects perception and field relationships to explicit-rule screening, completeness checks, routing and action selection. The same document can support several distinct decisions.
+<table>
+<tr>
+<td width="33%" align="center">
+  <h2>+2.31 pp</h2>
+  <p>mJev-Doc · 3,024 language records<br>82.04% → 84.36%</p>
+</td>
+<td width="33%" align="center">
+  <h2>+2.05 pp</h2>
+  <p>mJev · 195 questions<br>77.95% → 80.00%</p>
+</td>
+<td width="34%" align="center">
+  <h2>5.19×</h2>
+  <p>16 questions with a shared long prefix<br>32.62 s → 6.29 s</p>
+</td>
+</tr>
+</table>
 
-**One document. Several decisions. Clear rules.** [Business directions and actual examples →](docs/docjev/benchmark.md)
+From the [mJev-Doc diagnostic evaluation](docs/docjev/results.md), [mJev evaluation](docs/training.md) and [single-GPU 24 GB cache test](docs/cache_scaling.md), respectively.
 
-## 🎯 Results at a glance
+<p>Model scores use their separate evaluation cohorts and supplied references. Chinese/English document records are paired; the diagnostic is not an independent human-annotated test set. The speedup applies to the stated official Qwen3-VL-4B test configuration.</p>
 
-| Model | Evaluation cohort | Base Qwen | After training | Gain |
-| --- | --- | ---: | ---: | ---: |
-| mJev-Qwen3-VL-4B-RLCD | [Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) · 195 questions | 77.95% | **80.00%** | +2.05 pp |
-| mJev-Doc | [docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) · 1,512 questions | 82.04% | **84.36%** | +2.31 pp |
+**[DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench)**: 220 document images · 1,512 bilingual question pairs · 21 task types. [Explore the tasks and business scenarios →](docs/docjev/benchmark.md)
 
-The mJev row retains the upstream study's 195-question cohort. mJev-Doc questions have Chinese and English versions; accuracy is measured over 3,024 language records. These are separate evaluation sets, and the scores measure agreement with their reference answers. [mJev training](docs/training.md) · [mJev-Doc protocol and complete results](docs/docjev/results.md)
-
-### ⚡ Same context. Keep the questions coming.
-
-For one video and 16 questions, prefix KV reuse reduced total latency from **32.62 s to 6.29 s — 5.19× faster** in the recorded controlled experiment.
-
-[![HF prefix-cache latency comparison](assets/cache-latency.svg)](docs/cache_scaling.md)
-
-Measured with official Qwen3-VL-4B, HF stable/causal scoring and a 2,266-token shared prefix on one 24 GB GPU. Timings include media processing and fresh prefill, excluding model loading. [All configurations, memory usage and raw records](docs/cache_scaling.md)
-
+<a id="start"></a>
 <a id="quick-start"></a>
 
-## 🚀 Quick Start
+## 🚀 03 / Your document is up next
 
-mJev and mJev-Doc share the HF inference core, with **one 24 GB NVIDIA GPU** as the common deployment configuration. Use Linux, Python 3.11+ and compatible NVIDIA drivers; video inputs also need system FFmpeg.
+Linux · Python 3.11+ · NVIDIA GPU. Standalone Hugging Face; no vLLM installation needed.
 
 ```bash
 git clone --branch docs/streamline-project-20261001 https://github.com/SoMarkAI/mJev.git
 cd mJev
 python3 -m venv .venv
 source .venv/bin/activate
+python -m pip install -e '.[docjev]' huggingface_hub
+hf auth login
+hf download SoMarkAI/mjev-doc --local-dir ./models/mjev-doc
+CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model ./models/mjev-doc \
+  --input examples/docjev/multiple.json --device-map cuda:0 \
+  --output outputs/document-decisions.json
 ```
 
-### General vision · mJev
+🎉 Your first decisions will be in `outputs/document-decisions.json`. Next, bring your own document and questions.
+
+[Document inputs & outputs](docs/docjev/input-output.md) · [mJev-Doc guide](docs/docjev/README.md) · [Multi-image serving](docs/docjev/serving.md)
+
+<details>
+<summary><b>Want general images and video too? Run mJev</b></summary>
+
+Video inputs need FFmpeg.
 
 ```bash
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
-
-export MODEL_DIR="$HOME/models/mJev-Qwen3-VL-4B-RLCD"
-hf download SoMarkAI/mJev-Qwen3-VL-4B-RLCD --local-dir "$MODEL_DIR"
-
-CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
+hf download SoMarkAI/mJev-Qwen3-VL-4B-RLCD --local-dir ./models/mJev
+CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model ./models/mJev \
   --input examples/multiple.json --mode causal --numerics stable --projection full \
-  --prefix-cache --question-batch-size 2 --output outputs/image-demo.json
+  --prefix-cache --question-batch-size 2 --output outputs/image-decisions.json
 ```
 
-### Document understanding · mJev-Doc
+[Input/output examples](examples/README.md) · [Hugging Face guide](docs/hf.md) · [vLLM serving](docs/vllm.md)
 
-Download mJev-Doc and run the real document example:
+</details>
 
-```bash
-python -m pip install -e '.[docjev]'
-hf auth login
-export DOC_MODEL_DIR="$HOME/models/mjev-doc"
-hf download SoMarkAI/mjev-doc --local-dir "$DOC_MODEL_DIR"
-CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model "$DOC_MODEL_DIR" \
-  --input examples/docjev/multiple.json --device-map cuda:0 \
-  --output outputs/document-demo.json
-```
+---
 
-🎉 Results are saved in `outputs/`. The image example uses stable numerics and prefix reuse; the document example uses native BF16 scoring. For document caching, add `--numerics stable --prefix-cache --question-batch-size 2`. [More examples](examples/README.md) · [HF deployment](docs/hf.md) · [vLLM deployment](docs/vllm.md)
+Found a bug, a new use case, or a good example to share? [Come say hello](https://github.com/SoMarkAI/mJev/issues). We would love to see your name among the contributors ✨
 
-## 📝 Bring your own questions
-
-One media input, a shared context and a list of questions:
-
-```json
-{
-  "image": "rectangle.png",
-  "context": "Inspect the supplied picture.",
-  "questions": [
-    {"question": "What color is the rectangle?", "candidates": ["Red", "Blue", "Green"]},
-    {"question": "Which shape is shown?", "candidates": ["Rectangle", "Circle"]}
-  ]
-}
-```
-
-Media paths resolve relative to the input JSON file. Each output contains `candidates`, `decision` and `probability_sum`. See the [runnable inputs and recorded outputs](examples/README.md), including a [real document with bilingual questions](examples/docjev/README.md).
-
-Candidate probabilities use softmax over the supplied labels; the decision selects the highest raw logit. They are relative to the question's choices, not calibrated confidence scores. Labels are checked as single tokens in the actual template. [Document input/output](docs/docjev/input-output.md) · [Audio/video inputs](docs/hf.md#demo)
-
-## 🔎 Under the hood
-
-```text
-Media + shared context → official processor and chat template → shared prefix
-                                                              ├─ Question 1 + candidates → Answer logits
-                                                              ├─ Question 2 + candidates → Answer logits
-                                                              └─ Question N + candidates → Answer logits
-Candidate-label logits → candidate softmax → decision
-```
-
-The model's existing LM Head provides the scores. HF uses direct forward calls; vLLM uses pooling. Ordinary causal attention is the default. Candidate isolation is available explicitly for controlled experiments. [Architecture and caching](docs/docjev/architecture.md) · [Implementation guide](docs/development.md)
-
-## 📚 Go further
-
-| Looking to… | Start here |
-| --- | --- |
-| Deploy or choose a model | [Models](docs/models.md) · [HF](docs/hf.md) · [vLLM](docs/vllm.md) |
-| Train or evaluate document models | [mJev-Doc](docs/docjev/README.md) · [Training](docs/docjev/training.md) · [Results](docs/docjev/results.md) |
-| Prepare data or reproduce evaluations | [Benchmarks](docs/benchmark.md) · [Public mini](docs/reproduce.md) |
-| Explore the code or run tests | [Developer guide](docs/development.md) · [Tests](docs/testing.md) |
-| Check performance and evidence | [Cache scaling](docs/cache_scaling.md) · [Current validation](docs/validation_current.md) |
-
-Browse the [full documentation](docs/index.md) for numerical profiles and experimental backends.
-
-## 🤝 Contribute
-
-Bug reports, examples and improvements are welcome. [Open an issue](https://github.com/SoMarkAI/mJev/issues) · [Open a pull request](https://github.com/SoMarkAI/mJev/pulls) · [Contribution guide](CONTRIBUTING.md)
-
-Thanks to [Immortal-Zhang](https://github.com/Immortal-Zhang), [Kyousuke661](https://github.com/Kyousuke661) and [BinyangQiu](https://github.com/BinyangQiu).
-
-## 📜 License
-
-Code is [Apache-2.0](LICENSE), with attribution in [NOTICE](NOTICE). Model weights and third-party data retain their own licenses. The document example keeps its CC-BY-2.0 attribution; see [third-party licenses](THIRD_PARTY_LICENSES.md).
+<p><b>Build decisions, not just descriptions.</b></p>
+<p>
+  <a href="docs/index.md">Documentation</a> ·
+  <a href="docs/docjev/architecture.md">How it works</a> ·
+  <a href="docs/docjev/training.md">Training</a> ·
+  <a href="CONTRIBUTING.md">Contribute</a>
+</p>
+<p>Apache-2.0 (code) · <a href="NOTICE">NOTICE</a> · <a href="THIRD_PARTY_LICENSES.md">Third-party &amp; model licenses</a><br>Thanks to <a href="https://github.com/Immortal-Zhang">Immortal-Zhang</a>, <a href="https://github.com/Kyousuke661">Kyousuke661</a> and <a href="https://github.com/BinyangQiu">BinyangQiu</a>.</p>

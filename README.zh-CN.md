@@ -1,160 +1,133 @@
 <p align="center">
-  <img src="assets/mjev-cover-somark.svg" alt="mJev — Jev, with senses." width="100%">
+  <img src="assets/mjev-hero-story.svg" alt="mJev-Doc — See once. Decide many. 一份视觉输入，多个可检查的决策" width="100%">
 </p>
 
-<h1 align="center">mJev</h1>
-<p align="center"><strong>简体中文</strong> · <a href="README.md">English</a></p>
-<p align="center"><strong>Jev, with senses. mJev-Doc, with documents.</strong></p>
-<p align="center"><a href="#quick-start">🚀 快速开始</a> · <a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD">🤗 mJev 权重</a> · <a href="#mjev-doc">📄 mJev-Doc 模型说明</a></p>
+<h1 align="center">SoMark｜mJev</h1>
+<p align="center"><b>Multimodal state in. Typed decisions out.</b></p>
+
+<p align="center"><b>简体中文</b> · <a href="README.md">English</a></p>
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue" alt="Apache 2.0"></a>
-  <img src="https://img.shields.io/badge/Modalities-Text%20%7C%20Vision-8b5cf6" alt="Text and Vision">
-  <img src="https://img.shields.io/badge/Backends-HF%20%7C%20vLLM-0891b2" alt="HF and vLLM">
+  <a href="https://huggingface.co/SoMarkAI/mjev-doc">🤗 获取 mJev-Doc</a> &nbsp;&nbsp;
+  <a href="#start">🚀 快速开始</a> &nbsp;&nbsp;
+  <a href="https://huggingface.co/datasets/Immortal-Zhang/docjev-bench">DocJev-bench</a>
 </p>
 
-## 超越文本的决策智能
+---
 
-给一张图、一份文档或一段视频，提出多个问题，为每题定义候选项。mJev 返回清晰的决策，以及每个候选的原始 logit 和概率，方便检查结果并接入后续流程。
+## 👀 超越文本的决策智能
 
-mJev 将 Jev 工作流带入多模态场景，提供通用视觉与文档理解模型。多道题共享媒体上下文，每道题保留自己的候选集合。
+**让模型看懂内容，也做出明确选择。** mJev 将 Jev 式决策带到文本之外：以图片、文档和视频作为共享上下文，提出多个问题，为每个问题定义候选项。模型返回选择、候选相对概率和原始 logits，让视觉理解接上实际工作流程。
 
-- **一份上下文，多个决策**：复用前缀 KV，支持问题批处理。
-- **候选由你定义**：候选数量可变，直接读取原生 LM Head 分数，返回结构化结果。
-- **从 HF 开始**：无需安装 vLLM 或编译自定义 CUDA 内核，也可选择 vLLM 后端。
-- **多图片服务**：[请求队列、动态 batch、多 GPU 副本与 Windows 原生安装](docs/docjev/serving.zh-CN.md)。
+**mJev-Doc 专注文档。** 它是什么？字段能否对上？给定条件是否满足？下一步怎么处理？围绕同一份文档，可以接着问。
 
-## 🧩 选择适合的模型
+- **⚡ 上下文接着用**：跨问题复用前缀 KV，支持批处理。
+- **🧩 选项由你定**：每道题，带着自己的选项小队。
+- **🔎 决策看得见**：选择、候选概率、原始 logits，一起交给你。
 
-| 模型 | 适合的任务 | 从这里开始 |
-| --- | --- | --- |
-| **[mJev-Qwen3-VL-4B-RLCD](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD)** | 通用图片与视频决策 | [模型权重](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) · [模型指南](docs/models.zh-CN.md) |
-| **[mJev-Doc](https://huggingface.co/SoMarkAI/mjev-doc)** | 文档类别、视觉属性、字段关系与明确规则下的业务决策 | [模型权重](https://huggingface.co/SoMarkAI/mjev-doc) · [文档模型介绍](docs/docjev/README.zh-CN.md) · [真实示例](examples/docjev/README.md) |
+---
 
-两个模型均基于 Qwen3-VL-4B-Instruct，共享 HF 评分核心。需要音频或带音轨视频时，可使用官方 Qwen3-Omni Thinker 后端，沿用[同一套问题与候选接口](docs/hf.zh-CN.md)。
+> 如果这个项目对你有帮助，请点击右上角的 ⭐ Star——这是对开发者最大的鼓励！
 
+<a id="models"></a>
 <a id="mjev-doc"></a>
 
-### 📄 mJev-Doc
+## 🧩 01 / 文档判断，先找 mJev-Doc
 
-一页文档，可以支持多个有价值的判断。mJev-Doc 通过 RLCD 训练适配文档理解，冻结视觉参数、更新语言参数，[训练与评测](docs/docjev/results.md)统一维护在本项目。
+<table>
+<tr>
+<td width="50%" valign="top">
+  <h3>📄 mJev-Doc</h3>
+  <p><b>让文档理解走向业务判断。</b></p>
+  <p>分类、字段关系、完整性检查，以及依据<strong>明确给定规则</strong>的审核与分流。</p>
+  <a href="https://huggingface.co/SoMarkAI/mjev-doc"><b>获取模型 ↗</b></a>
+</td>
+<td width="50%" valign="top">
+  <h3>🖼️ mJev</h3>
+  <p><b>让图像与视频变成选择。</b></p>
+  <p>场景、目标、动作、顺序……围绕共享视觉上下文连续提问，并为每题设置不同候选。</p>
+  <a href="https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD"><b>获取模型 ↗</b></a>
+</td>
+</tr>
+</table>
 
-从 **[Hugging Face 下载 mJev-Doc](https://huggingface.co/SoMarkAI/mjev-doc)**，即可使用完整本地快照运行文档 demo。
+两个模型均基于 **Qwen3-VL-4B-Instruct**。支持 Hugging Face 与 vLLM 推理；音频和带音轨视频可使用独立的 [Qwen3-Omni 后端](docs/hf.zh-CN.md)。
 
-### 📚 DocJev-bench · 文档证据驱动的业务决策评测
+## 🎯 02 / 看表现，也看依据
 
-[DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) 是可单独使用的文档决策 benchmark：**220 张图片、1,512 对中英文题目、21 种题型**。它将感知与字段关系连接到明确规则下的条件筛选、完整性检查、业务路由和行动选择，同一文档可以评估多个不同判断环节。
+<table>
+<tr>
+<td width="33%" align="center">
+  <h2>+2.31 pp</h2>
+  <p>mJev-Doc · 3,024 条语言记录<br>82.04% → 84.36%</p>
+</td>
+<td width="33%" align="center">
+  <h2>+2.05 pp</h2>
+  <p>mJev · 195 道题<br>77.95% → 80.00%</p>
+</td>
+<td width="34%" align="center">
+  <h2>5.19×</h2>
+  <p>16 问题、共享长前缀场景<br>32.62 秒 → 6.29 秒</p>
+</td>
+</tr>
+</table>
 
-**一份文档，多个判断，明确规则，可比较的决策。** [业务方向与现有样例 →](docs/docjev/benchmark.zh-CN.md)
+分别来自 [mJev-Doc 诊断评测](docs/docjev/results.md)、[mJev 评测](docs/training.zh-CN.md) 与 [24 GB 单卡缓存测试](docs/cache_scaling.zh-CN.md)。
 
-## 🎯 关键结果
+<p>两组模型分数对应各自的评测集，与其参考答案比较；mJev-Doc 的中英文记录成对对应，当前结果不代表独立的人类标注测试集。速度提升仅适用于所述官方 Qwen3-VL-4B 测试配置。</p>
 
-| 模型 | 评测集 | 原始 Qwen | 训练后 | 提升 |
-| --- | --- | ---: | ---: | ---: |
-| mJev-Qwen3-VL-4B-RLCD | [Compositional-VQA](https://huggingface.co/datasets/Immortal-Zhang/mJev-Compositional-VQA) · 195 道题 | 77.95% | **80.00%** | +2.05 个百分点 |
-| mJev-Doc | [docjev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) · 1,512 道题 | 82.04% | **84.36%** | +2.31 个百分点 |
+**[DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench)**：220 张文档图片 · 1,512 对中英文问题 · 21 种任务类型。[浏览任务与业务场景 →](docs/docjev/benchmark.zh-CN.md)
 
-mJev 保留上游研究的 195 题评测结果。mJev-Doc 的题目提供中英文版本，准确率按 3,024 条语言记录统计。两组使用各自的评测集，分数表示与参考答案的一致率。[mJev 训练](docs/training.zh-CN.md) · [mJev-Doc 协议与完整结果](docs/docjev/results.md)
-
-### ⚡ 上下文不换，问题接着来
-
-同一视频、16 个问题，已有受控实验中，前缀 KV 复用将整组耗时从 **32.62 秒降到 6.29 秒，提速 5.19×**。
-
-[![HF 前缀缓存耗时对比](assets/cache-latency.svg)](docs/cache_scaling.zh-CN.md)
-
-实验使用官方 Qwen3-VL-4B、HF stable/causal 评分、2,266-token 公共前缀及单张 24 GB GPU。耗时包含媒体处理和首次 prefill，不计模型加载。[全部配置、显存与原始记录](docs/cache_scaling.zh-CN.md)
-
+<a id="start"></a>
 <a id="quick-start"></a>
 
-## 🚀 快速开始
+## 🚀 03 / 跑起来，轮到你的文档了
 
-mJev 与 mJev-Doc 共用 HF 推理核心，统一以**单张 24 GB NVIDIA GPU**为部署配置。需要 Linux、Python 3.11+ 和兼容的 NVIDIA 驱动；视频输入还需要系统 FFmpeg。
+Linux · Python 3.11+ · NVIDIA GPU。直接使用 Hugging Face，无需安装 vLLM。
 
 ```bash
 git clone --branch docs/streamline-project-20261001 https://github.com/SoMarkAI/mJev.git
 cd mJev
 python3 -m venv .venv
 source .venv/bin/activate
+python -m pip install -e '.[docjev]' huggingface_hub
+hf auth login
+hf download SoMarkAI/mjev-doc --local-dir ./models/mjev-doc
+CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model ./models/mjev-doc \
+  --input examples/docjev/multiple.json --device-map cuda:0 \
+  --output outputs/document-decisions.json
 ```
 
-### 通用视觉 · mJev
+🎉 你的第一组决策，在 `outputs/document-decisions.json` 等你。接下来，换成自己的文档和问题吧。
+
+[文档输入输出](docs/docjev/input-output.md) · [mJev-Doc 指南](docs/docjev/README.zh-CN.md) · [多图片服务](docs/docjev/serving.zh-CN.md)
+
+<details>
+<summary><b>也想测试通用图片与视频？展开运行 mJev</b></summary>
+
+视频需 FFmpeg。
 
 ```bash
 python -m pip install torchcodec==0.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -e '.[hf-vl]' huggingface_hub
-
-export MODEL_DIR="$HOME/models/mJev-Qwen3-VL-4B-RLCD"
-hf download SoMarkAI/mJev-Qwen3-VL-4B-RLCD --local-dir "$MODEL_DIR"
-
-CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model "$MODEL_DIR" \
+hf download SoMarkAI/mJev-Qwen3-VL-4B-RLCD --local-dir ./models/mJev
+CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model ./models/mJev \
   --input examples/multiple.json --mode causal --numerics stable --projection full \
-  --prefix-cache --question-batch-size 2 --output outputs/image-demo.json
+  --prefix-cache --question-batch-size 2 --output outputs/image-decisions.json
 ```
 
-### 文档理解 · mJev-Doc
+[输入输出示例](examples/README.zh-CN.md) · [Hugging Face 指南](docs/hf.zh-CN.md) · [vLLM 服务](docs/vllm.zh-CN.md)
 
-下载 mJev-Doc，运行真实文档示例：
+</details>
 
-```bash
-python -m pip install -e '.[docjev]'
-hf auth login
-export DOC_MODEL_DIR="$HOME/models/mjev-doc"
-hf download SoMarkAI/mjev-doc --local-dir "$DOC_MODEL_DIR"
-CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model "$DOC_MODEL_DIR" \
-  --input examples/docjev/multiple.json --device-map cuda:0 \
-  --output outputs/document-demo.json
-```
+---
 
-🎉 结果保存在 `outputs/`。通用图片示例采用 stable 数值配置并复用前缀；文档示例采用 native BF16。文档缓存模式可添加 `--numerics stable --prefix-cache --question-batch-size 2`。[更多示例](examples/README.zh-CN.md) · [HF 部署](docs/hf.zh-CN.md) · [vLLM 部署](docs/vllm.zh-CN.md)
+发现 bug、想到新场景，或者想补一个好例子？欢迎[来聊聊](https://github.com/SoMarkAI/mJev/issues)，也期待你的名字出现在贡献者里 ✨
 
-## 📝 使用自己的问题
-
-一份媒体、公共上下文和一组问题：
-
-```json
-{
-  "image": "rectangle.png",
-  "context": "Inspect the supplied picture.",
-  "questions": [
-    {"question": "What color is the rectangle?", "candidates": ["Red", "Blue", "Green"]},
-    {"question": "Which shape is shown?", "candidates": ["Rectangle", "Circle"]}
-  ]
-}
-```
-
-媒体路径相对于输入 JSON 文件解析。每题输出包含 `candidates`、`decision` 和 `probability_sum`。可浏览[运行输入与已有输出](examples/README.zh-CN.md)，其中也包含[真实文档与中英文问题](examples/docjev/README.md)。
-
-候选概率由标签 logits 在本题候选集合内做 softmax 得到，决策选择最高原始 logit。概率表示候选之间的相对偏好，不是校准后的置信度；标签会在实际模板下通过单 token 校验。[文档输入输出](docs/docjev/input-output.md) · [音视频输入](docs/hf.zh-CN.md#demo)
-
-## 🔎 工作方式
-
-```text
-媒体 + 公共上下文 → 官方 processor 与 chat template → 公共前缀
-                                                    ├─ 问题 1 + candidates → Answer logits
-                                                    ├─ 问题 2 + candidates → Answer logits
-                                                    └─ 问题 N + candidates → Answer logits
-候选标签 logits → 候选集合内 softmax → 决策
-```
-
-分数来自模型原有 LM Head：HF 直接调用 forward，vLLM 使用 pooling。默认采用普通 causal attention；候选隔离模式可显式启用，用于受控实验。[架构与缓存](docs/docjev/architecture.md) · [实现指南](docs/development.zh-CN.md)
-
-## 📚 继续探索
-
-| 你想做什么 | 去这里 |
-| --- | --- |
-| 部署、选模型 | [模型指南](docs/models.zh-CN.md) · [HF](docs/hf.zh-CN.md) · [vLLM](docs/vllm.zh-CN.md) |
-| 训练或评测文档模型 | [mJev-Doc](docs/docjev/README.zh-CN.md) · [训练](docs/docjev/training.md) · [结果](docs/docjev/results.md) |
-| 准备数据、复现评测 | [Benchmark](docs/benchmark.zh-CN.md) · [公开小型评测](docs/reproduce.zh-CN.md) |
-| 阅读代码、运行测试 | [开发者指南](docs/development.zh-CN.md) · [测试](docs/testing.zh-CN.md) |
-| 查看性能与验证证据 | [缓存性能](docs/cache_scaling.zh-CN.md) · [最新验证](docs/validation_current.zh-CN.md) |
-
-数值配置与实验后端等内容见[完整文档](docs/index.zh-CN.md)。
-
-## 🤝 贡献与交流
-
-欢迎提交 bug、使用示例和改进建议。[提 Issue](https://github.com/SoMarkAI/mJev/issues) · [提交 Pull Request](https://github.com/SoMarkAI/mJev/pulls) · [贡献指南](CONTRIBUTING.zh-CN.md)
-
-感谢 [Immortal-Zhang](https://github.com/Immortal-Zhang)、[Kyousuke661](https://github.com/Kyousuke661) 和 [BinyangQiu](https://github.com/BinyangQiu)。
-
-## 📜 许可证
-
-代码采用 [Apache-2.0](LICENSE)，署名见 [NOTICE](NOTICE)。模型权重与第三方数据保留各自许可证，文档示例保留 CC-BY-2.0 署名；详见[第三方许可](THIRD_PARTY_LICENSES.zh-CN.md)。
+<p><b>Build decisions, not just descriptions.</b></p>
+<p>
+  <a href="docs/index.zh-CN.md">完整文档</a> ·
+  <a href="docs/docjev/architecture.md">工作原理</a> ·
+  <a href="docs/docjev/training.md">训练方式</a> ·
+  <a href="CONTRIBUTING.zh-CN.md">参与贡献</a>
+</p>
+<p>Apache-2.0（代码） · <a href="NOTICE">NOTICE</a> · <a href="THIRD_PARTY_LICENSES.zh-CN.md">第三方与模型许可证</a><br>感谢 <a href="https://github.com/Immortal-Zhang">Immortal-Zhang</a>、<a href="https://github.com/Kyousuke661">Kyousuke661</a> 与 <a href="https://github.com/BinyangQiu">BinyangQiu</a>。</p>
