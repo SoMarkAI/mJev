@@ -7,9 +7,9 @@
 
 <p align="center"><b>简体中文</b> &nbsp;&nbsp; <a href="README.md">English</a></p>
 <p align="center">
-  <a href="https://huggingface.co/SoMarkAI/mjev-doc">🤗 获取 mJev-Doc</a> &nbsp;&nbsp;
-  <a href="#start">🚀 快速开始</a> &nbsp;&nbsp;
-  <a href="https://huggingface.co/datasets/Immortal-Zhang/docjev-bench">DocJev-bench</a>
+  <a href="https://huggingface.co/SoMarkAI/mjev-doc"><img src="assets/badge-model.svg" alt="Hugging Face: mJev-Doc" height="28"></a>
+  <a href="#start"><img src="assets/badge-start.svg" alt="Quick Start: HF" height="28"></a>
+  <a href="https://huggingface.co/datasets/Immortal-Zhang/docjev-bench"><img src="assets/badge-benchmark.svg" alt="Dataset: DocJev-bench" height="28"></a>
 </p>
 
 ---

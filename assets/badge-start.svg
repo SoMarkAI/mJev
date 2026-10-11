@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="148" height="28" viewBox="0 0 148 28" role="img" aria-label="Quick Start | HF">
+  <title>Quick Start | HF</title>
+  <path fill="#555" d="M0 0h104v28H0z"/>
+  <path fill="#2876c9" d="M104 0h44v28H104z"/>
+  <g fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle">
+    <text x="52" y="19">Quick Start</text>
+    <text x="126" y="19">HF</text>
+  </g>
+</svg>
