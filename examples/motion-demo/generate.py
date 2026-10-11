@@ -27,7 +27,5 @@ def main():
         for i, im in enumerate(frames): im.save(Path(tmp)/f'{i:03d}.png')
         subprocess.run(['ffmpeg','-y','-v','error','-framerate','12','-i',str(Path(tmp)/'%03d.png'),
                         '-c:v','libx264','-pix_fmt','yuv420p','-movflags','+faststart',str(root/'motion.mp4')],check=True)
-    frames[0].save(root/'poster.png')
-    frames[0].save(root/'preview.gif',save_all=True,append_images=frames[1:],duration=83,loop=0,optimize=True)
 
 if __name__ == '__main__': main()

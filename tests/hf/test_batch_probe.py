@@ -1,12 +1,9 @@
 """Tiny native-model witnesses, not full-weight performance claims."""
-import sys
-from pathlib import Path
 from copy import deepcopy
 import pytest,torch
 from test_forward import model
 from test_cache import setup,logits
-sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'benchmarks/integrated'))
-from hf_batch_probe import score_batch
+from mjev.hf_batch import score_batch
 
 @pytest.mark.parametrize('kind',['text','image','audio','video'])
 @pytest.mark.parametrize('mode',['causal','isolated'])

@@ -124,7 +124,7 @@ Report bugs, share use cases in [Issues](https://github.com/SoMarkAI/mJev/issues
 <p>
   <a href="docs/index.md">Documentation</a> &nbsp;&nbsp;
   <a href="docs/docjev/architecture.md">How it works</a> &nbsp;&nbsp;
-  <a href="docs/docjev/training.md">Training</a> &nbsp;&nbsp;
+  <a href="docs/docjev/training.md">Model background</a> &nbsp;&nbsp;
   <a href="CONTRIBUTING.md">Contribute</a>
 </p>
 <p>Apache-2.0 (code) &nbsp;&nbsp; <a href="NOTICE">NOTICE</a> &nbsp;&nbsp; <a href="THIRD_PARTY_LICENSES.md">Third-party &amp; model licenses</a><br>Thanks to <a href="https://github.com/Immortal-Zhang">Immortal-Zhang</a>, <a href="https://github.com/Kyousuke661">Kyousuke661</a> and <a href="https://github.com/BinyangQiu">BinyangQiu</a>.</p>

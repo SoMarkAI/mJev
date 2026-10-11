@@ -107,4 +107,4 @@ GPU 套件检查隐藏状态干预隔离、causal 正对照、stock Triton 对�
 - 保留官方多模态 processor、chat template、视觉编码器、位置编码、scheduler 和 paged KV cache。
 - 自定义 attention 将缓存 K/V 收集为 dense SDPA 张量，是正确性原型，不是优化内核或生产服务栈。
 - eager 执行、无 chunked prefill/异步调度、KV 未量化，最大序列 4096、最多八个调度序列、图片最大 262144 像素，配置见 `mjev/engine.py`。
-- 该分辨率可能丢失文档小字；不提供训练代码或权重。HTTP runtime 为独立实验实现。
+- 该分辨率可能丢失文档小字；文档图片服务见[服务指南](docjev/serving.zh-CN.md)。

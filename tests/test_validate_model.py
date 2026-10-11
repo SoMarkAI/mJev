@@ -5,7 +5,7 @@ from pathlib import Path
 from types import SimpleNamespace
 import pytest
 import validate_model
-from mjev.benchmark.prepare import write_jsonl
+from mjev.benchmark.artifacts import atomic_jsonl as write_jsonl
 
 
 @pytest.mark.parametrize('modality',['video','audio_video'])

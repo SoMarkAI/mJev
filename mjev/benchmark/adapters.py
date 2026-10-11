@@ -1,8 +1,7 @@
 """Output bridges for raw Qwen/mJev candidate scores.
 
-These functions do not instantiate a model or pretend the image-only mJev
-0.1 engine already implements audio/video attention. Use model_input() or
-qwen_messages() as the input contract of an AV-capable inference backend.
+These functions validate candidate order and token mappings without loading
+a model. Use model_input() or qwen_messages() to construct scorer inputs.
 """
 
 

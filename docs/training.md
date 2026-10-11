@@ -17,4 +17,4 @@ Here $y^{\ast}$ is the correct label; incorrect or invalid answers receive the n
 
 ## Document training
 
-mJev-Doc selects a full-SFT checkpoint at step 990. Its [training guide](docjev/training.md) distinguishes this model from the optional RLCD tools in the repository. The general mJev RLCD model above is a separate checkpoint.
+mJev-Doc selects a full-SFT checkpoint at step 990. Its [model background](docjev/training.md) distinguishes this checkpoint from the archived RLCD experiments. The general mJev RLCD model above is a separate checkpoint.

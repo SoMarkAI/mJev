@@ -1,11 +1,9 @@
 import asyncio
-import io
 import json
 import math
 from pathlib import Path
 import tempfile
 import unittest
-import zipfile
 from unittest.mock import patch
 from mjev.benchmark.dataset import MJevDataset, validate
 from mjev.benchmark.evaluate import evaluate
@@ -75,29 +73,8 @@ class LoaderRunnerTests(unittest.TestCase):
         with self.assertRaises(ValueError):validate(r)
 
 
-class ConversionTests(unittest.TestCase):
-    def test_option_text_preserved_and_sampling_stable(self):
-        from mjev.benchmark.prepare import parse_options,pick
-        text='A. First.\nB. Multi\nline.\nC. Last. '
-        self.assertEqual(parse_options(text),{'A':'First.','B':'Multi\nline.','C':'Last. '})
-        self.assertEqual(pick(list('abcd'),2,10,'x',str),pick(list('dcba'),2,10,'x',str))
 
 
-class SelectiveZipTests(unittest.TestCase):
-    def test_selected_only_and_crc(self):
-        from mjev.benchmark.download import extract_selected_zip
-        buffer=io.BytesIO()
-        with zipfile.ZipFile(buffer,'w',compression=zipfile.ZIP_DEFLATED) as z:
-            z.writestr('videos/001.mp4',b'chosen'*100)
-            z.writestr('videos/002.mp4',b'not-chosen'*100)
-        class FakeRange(io.BytesIO):
-            transferred=0
-        with tempfile.TemporaryDirectory() as d, patch('mjev.benchmark.download.HTTPRangeFile',lambda url:FakeRange(buffer.getvalue())):
-            dst=Path(d)/'001.mp4'
-            result=extract_selected_zip('https://example.test/file.zip',{'001.mp4':dst})
-            self.assertEqual(dst.read_bytes(),b'chosen'*100)
-            self.assertFalse((Path(d)/'002.mp4').exists())
-            self.assertEqual(result[0]['bytes'],600)
 
 
 class AdapterTests(unittest.TestCase):
@@ -127,17 +104,6 @@ class FailureTests(unittest.TestCase):
                 calls.append(payload['id']);raise RuntimeError('quota')
             with self.assertRaises(RuntimeError):asyncio.run(run(MJevDataset(root/'manifest.jsonl'),fail,root/'pred.jsonl',1))
             self.assertEqual(len(calls),1)
-    def test_range_200_refused(self):
-        from mjev.benchmark.download import HTTPRangeFile
-        class Response:
-            status_code=200;headers={}
-            def raise_for_status(self):pass
-            def __enter__(self):return self
-            def __exit__(self,*args):pass
-            @property
-            def content(self):raise AssertionError('Must not read full ZIP body')
-        with patch('requests.Session.get',return_value=Response()):
-            with self.assertRaises(ValueError):HTTPRangeFile('https://example.test/full.zip')
 
 
 class ProcessorBridgeTests(unittest.TestCase):
@@ -159,14 +125,5 @@ class ProcessorBridgeTests(unittest.TestCase):
             prompt,_=qwen_vllm_input(dataset,row(),processor,use_audio_in_video=True)
             self.assertEqual(prompt['mm_processor_kwargs']['fps'],.5)
 
-class QualityTests(unittest.TestCase):
-    def test_duration_warnings_preserve_reference(self):
-        from mjev.benchmark.audit import duration_warnings
-        a=row('x');a['metadata']['video_duration']=100
-        b=row('y');b['metadata']['video_duration']=100
-        self.assertEqual(duration_warnings([a],[{'media_path':a['media_path'],'duration_seconds':101}]),[])
-        warnings=duration_warnings([a,b],[{'media_path':a['media_path'],'duration_seconds':105}])
-        self.assertEqual(warnings[0]['question_ids'],['x','y'])
-        self.assertEqual(a['metadata']['video_duration'],100)
 
 if __name__=='__main__':unittest.main()

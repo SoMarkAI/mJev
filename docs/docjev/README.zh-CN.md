@@ -4,7 +4,7 @@
 
 输入文档图片、问题与候选项，使用共享 HF 推理核心返回候选 logits、相对概率和最终选择。
 
-[输入输出](input-output.md) · [图片服务](serving.zh-CN.md) · [Benchmark](benchmark.zh-CN.md) · [评测结果](results.zh-CN.md) · [训练](training.md)
+[输入输出](input-output.md) · [图片服务](serving.zh-CN.md) · [Benchmark](benchmark.zh-CN.md) · [评测结果](results.zh-CN.md) · [模型背景](training.md)
 
 <a id="installation"></a>
 
@@ -34,7 +34,7 @@ python demo_docjev.py --model models/mjev-doc \
   --prefix-cache --question-batch-size 2 --output outputs/cached.json
 ```
 
-缓存／批量模式使用 `stable`，与 `native` 的数值配置不同。模型发布身份以 Hugging Face 的 revision 和模型卡为准。当前拟发布模型为选出的全参 SFT checkpoint；[训练说明](training.md)区分当前权重与仓库内的 RLCD 工具。
+缓存／批量模式使用 `stable`，与 `native` 的数值配置不同。模型发布身份以 Hugging Face 的 revision 和模型卡为准。mJev-Doc 选用全参 SFT checkpoint；[模型背景](training.md)说明权重来源。
 
 ## 常见问题
 

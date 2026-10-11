@@ -4,7 +4,7 @@ import pytest
 
 
 def pytest_addoption(parser):
-    parser.addoption('--suite', choices=('all','base','hf','runtime','vllm','gpu'), default='all',
+    parser.addoption('--suite', choices=('all','base','hf','vllm','gpu'), default='all',
                      help='all includes every CPU suite; GPU requires --suite gpu')
 
 
@@ -12,7 +12,6 @@ def suite_for(path):
     path=Path(path)
     if 'gpu' in path.parts:return 'gpu'
     if 'hf' in path.parts:return 'hf'
-    if 'runtime' in path.parts:return 'runtime'
     if path.name in ('test_interleaved.py','test_prefix_bypass.py'):return 'vllm'
     return 'base'
 

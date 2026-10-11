@@ -124,7 +124,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model ./models/mJev \
 <p>
   <a href="docs/index.zh-CN.md">完整文档</a> &nbsp;&nbsp;
   <a href="docs/docjev/architecture.md">工作原理</a> &nbsp;&nbsp;
-  <a href="docs/docjev/training.md">训练方式</a> &nbsp;&nbsp;
+  <a href="docs/docjev/training.md">模型背景</a> &nbsp;&nbsp;
   <a href="CONTRIBUTING.zh-CN.md">参与贡献</a>
 </p>
 <p>Apache-2.0（代码） &nbsp;&nbsp; <a href="NOTICE">NOTICE</a> &nbsp;&nbsp; <a href="THIRD_PARTY_LICENSES.zh-CN.md">第三方与模型许可证</a><br>感谢 <a href="https://github.com/Immortal-Zhang">Immortal-Zhang</a>、<a href="https://github.com/Kyousuke661">Kyousuke661</a> 与 <a href="https://github.com/BinyangQiu">BinyangQiu</a>。</p>

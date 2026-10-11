@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import pytest
 from mjev.benchmark.grouped import config_load, run
-from mjev.benchmark.prepare import write_jsonl
+from mjev.benchmark.artifacts import atomic_jsonl as write_jsonl
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -61,11 +61,3 @@ def test_completed_groups_survive_later_failure(tmp_path,monkeypatch,fail_second
     assert len((out/'predictions.jsonl').read_text().splitlines())==(1 if fail_second else 2)
     assert (out/'_SUCCESS').exists()!=fail_second
     assert (out/'ERROR.json').exists()==fail_second
-
-
-def test_media_audit_revokes_success_before_manifest_validation(tmp_path):
-    from mjev.benchmark.audit import audit
-    (tmp_path/'_SUCCESS').touch()
-    (tmp_path/'selection.json').write_text('invalid JSON')
-    with pytest.raises(ValueError):audit(tmp_path)
-    assert not (tmp_path/'_SUCCESS').exists()

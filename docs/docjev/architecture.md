@@ -49,7 +49,6 @@ Stable results can differ from native BF16. Never compare a cached stable output
 | `docjev/io.py` | Public JSON/Jev schema and local media resolution |
 | `docjev/metrics.py` | Accuracy, score validation, semantic consistency |
 | `docjev/evaluate.py` | Label-free model requests, candidate permutations and reporting |
-| `docjev/rlcd/` | Frozen reference scoring, objective, FSDP, export/resume |
 | `mjev/` | Shared native HF runtime, processor, attention and caching |
 
 Processor pixel limits default to 3,136–501,760. The full processed input limit is 4,000 tokens and never silently truncates.

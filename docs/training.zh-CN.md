@@ -17,4 +17,4 @@ r(\hat{y}) = \begin{cases}
 
 ## 文档模型训练
 
-mJev-Doc 选用全参 SFT 第 990 步 checkpoint。[训练指南](docjev/training.md)区分该权重与仓库内可选的 RLCD 工具；上方通用 mJev 的 RLCD 权重是另一模型。
+mJev-Doc 选用全参 SFT 第 990 步 checkpoint。[模型背景](docjev/training.md)说明该权重与历史 RLCD 实验的区别；上方通用 mJev 的 RLCD 权重是另一模型。

@@ -31,9 +31,9 @@ def capture(settings, model_revision, model_dir=None):
         except (OSError, subprocess.CalledProcessError):
             return None
     # Hash actual source, including uncommitted/new source files. Commit alone is insufficient.
-    files = sorted(p for folder in ('mjev', 'runtime', 'benchmarks', 'scripts', 'configs', 'tests')
+    files = sorted(p for folder in ('mjev', 'docjev', 'benchmarks', 'scripts', 'configs', 'tests')
                    for p in (root / folder).rglob('*') if p.is_file() and p.suffix in ('.py', '.sh', '.json'))
-    files += [p for p in (root/'pyproject.toml', root/'sitecustomize.py', root/'demo.py', root/'demo_hf.py') if p.exists()]
+    files += [p for p in (root/'pyproject.toml', root/'sitecustomize.py', root/'demo.py', root/'demo_hf.py', root/'demo_docjev.py') if p.exists()]
     sources = {str(p.relative_to(root)): sha256(p) for p in files}
     dependencies = {d.metadata['Name']: d.version for d in importlib.metadata.distributions() if d.metadata['Name']}
     model_files = {}
@@ -55,17 +55,3 @@ def capture(settings, model_revision, model_dir=None):
 
 def write(path, value):
     Path(path).write_text(json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False)+'\n')
-
-
-def evaluation_arguments(parser, required=True):
-    parser.add_argument('--numerics', choices=('native','stable'), required=required,
-                        help='Explicit profile; old results cannot be inferred from current defaults')
-    parser.add_argument('--model-revision', type=revision, required=required,
-                        help='Official immutable model commit; local contents are separately marked unverified')
-
-
-def check_numerics(backend, numerics):
-    if backend=='vllm':
-        expected='1' if numerics=='stable' else '0'
-        if os.environ.get('VLLM_BATCH_INVARIANT')!=expected:
-            raise ValueError(f'Start vLLM with VLLM_BATCH_INVARIANT={expected} for numerics={numerics}')

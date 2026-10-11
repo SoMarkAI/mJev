@@ -1,4 +1,4 @@
-"""mJev-Doc: native document candidate scoring and RLCD tooling."""
+"""mJev-Doc: document candidate scoring, serving and evaluation."""
 __version__ = '0.1.0'
 
 

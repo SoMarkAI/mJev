@@ -9,7 +9,7 @@ import time
 from .dataset import MJevDataset
 from .evaluate import evaluate
 from .provenance import capture, revision, sha256, write
-from .prepare import write_jsonl
+from .artifacts import atomic_jsonl as write_jsonl
 from .artifacts import atomic_json, atomic_jsonl
 
 REQUIRED={'model_id','model_revision','backend','numerics','mode','dtype','projection',

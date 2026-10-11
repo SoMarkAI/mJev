@@ -10,9 +10,10 @@
 - [Dataset](docjev/benchmark.md)
 - [Results](docjev/results.md)
 - [Evaluation commands](docjev/evaluation.md)
-- [Training](training.md)
+- [Model background](training.md)
 - [Architecture](docjev/architecture.md)
 - [Cache performance](cache_scaling.md)
 - [Development and tests](development.md)
 
-Optional: [AV benchmark](benchmark.md) · [Public mini workflow](reproduce.md) · [Experimental runtime](integrated.md) · [Numerical stability](stability.md)
+- [General evaluation](benchmark.md)
+- [Numerics and caching](stability.md)

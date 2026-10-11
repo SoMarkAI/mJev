@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import subprocess
 from PIL import Image, ImageDraw
-from .prepare import write_jsonl
+from .artifacts import atomic_jsonl as write_jsonl
 from .provenance import sha256, write
 
 

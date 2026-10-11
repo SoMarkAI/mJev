@@ -145,7 +145,7 @@ class CommandTests(unittest.TestCase):
         import subprocess
         import sys
 
-        for module in ["docjev.cli", "docjev.evaluate", "docjev.training"]:
+        for module in ["docjev.cli", "docjev.evaluate", "docjev.compare", "docjev.service"]:
             with self.subTest(module=module):
                 result = subprocess.run(
                     [sys.executable, "-m", module, "--help"],

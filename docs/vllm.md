@@ -105,4 +105,4 @@ The pre-release prototype passed this GPU suite on the reference environment. Re
 - Official multimodal processor, chat template, vision encoder, position encoding, scheduler and paged KV cache are retained.
 - The custom attention path gathers cached K/V into dense SDPA tensors. This is a correctness prototype, not an optimized attention kernel or production serving stack.
 - Eager execution, no chunked prefill, no asynchronous scheduling, unquantized KV, maximum sequence length 4096, at most 8 scheduled sequences, image maximum 262144 pixels. These settings are in `mjev/engine.py`.
-- Small text in document images may be lost at this image resolution. No training code or weights are provided. The optional HTTP runtime is a separate experimental implementation.
+- Small text in document images may be lost at this image resolution. For the document-image HTTP service, see the [service guide](docjev/serving.md).

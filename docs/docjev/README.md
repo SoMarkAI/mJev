@@ -4,7 +4,7 @@
 
 Give the model a document image, a question and candidates. The shared HF runtime returns candidate logits, relative probabilities and a decision.
 
-[Input/output](input-output.md) · [Image service](serving.md) · [Benchmark](benchmark.md) · [Results](results.md) · [Training](training.md)
+[Input/output](input-output.md) · [Image service](serving.md) · [Benchmark](benchmark.md) · [Results](results.md) · [Model background](training.md)
 
 <a id="installation"></a>
 
