@@ -4,7 +4,7 @@
 
 **One document. Several decisions. Clear rules.**
 
-DocJev-bench evaluates the capabilities that connect document understanding to a useful next step: identifying evidence, comparing fields, checking stated requirements and choosing an action. It is a separately usable benchmark asset alongside the mJev-Doc model.
+DocJev-bench evaluates the capabilities that connect document understanding to a useful next step: identifying evidence, comparing fields, checking stated requirements and choosing an action. Use it to evaluate mJev-Doc or compare other document models.
 
 ```text
 Document image + question-level criteria + candidate actions → decision
@@ -25,13 +25,9 @@ The current collection contains 220 images, 1,512 bilingual question pairs and 2
 
 These are evaluation targets for document-processing components. The benchmark measures answers to individual questions; it does not execute an operational approval system. Rules are stated in each applicable question, rather than inferred as real organizational, legal or financial policy.
 
-## Design strengths
+## Task design
 
-- **Evidence and decision in one task.** An answer must connect the document's visible information to the requested judgment.
-- **Several decisions per page.** The same page is tested through different task types, helping expose strengths and weaknesses within a document.
-- **Rules as inputs.** Explicit criteria make conditional choices reproducible and let a reader inspect why a particular action is selected.
-- **Dynamic candidate sets.** Questions retain 2, 3, 4, 5 or 7 candidates, with reference answers suitable for Jev-style choice scoring.
-- **Paired languages.** Chinese and English versions use the same image and reference candidate, enabling language-specific and paired comparisons.
+Each page supports several distinct questions grounded in its content and the stated rules. Questions have 2, 3, 4, 5 or 7 candidates. Chinese and English versions share the image and reference answer, allowing comparisons by language or task type.
 
 ## Current decision-task coverage
 

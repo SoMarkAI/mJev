@@ -41,3 +41,13 @@ credentials*.json
 # Small project-created fixtures used by the documented Docker examples.
 !examples/video-demo/rectangle.mp4
 !examples/motion-demo/motion.mp4
+
+# Local test and inspection artifacts
+.pytest_cache
+.ruff_cache
+.mypy_cache
+htmlcov
+.coverage*
+coverage.xml
+*.prof
+*.trace

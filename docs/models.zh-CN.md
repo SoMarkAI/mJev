@@ -102,4 +102,4 @@ CLI 预检查、正式推理和评分 API 共用结构校验：候选字典必�
 
 ## mJev-Doc 文档模型
 
-同一项目还提供 **mJev-Doc** 文档候选决策模型，共享 mJev 的 HF 核心，并提供文档输入、双语评测和 RLCD 训练入口。[中文介绍](docjev/README.zh-CN.md) &nbsp;&nbsp; [English](docjev/README.md) &nbsp;&nbsp; [评测结果](docjev/results.md)。mJev-Doc 权重将与 mJev 一样通过 Hugging Face 发布，两个模型的代码和说明统一维护在本仓库。当前示例支持完整本地 checkpoint。
+文档分类、字段关系和规则判断可使用 **[mJev-Doc](https://huggingface.co/SoMarkAI/mjev-doc)**，它与通用 mJev 共用 HF 推理核心。[使用指南](docjev/README.zh-CN.md) &nbsp;&nbsp; [评测结果](docjev/results.md)

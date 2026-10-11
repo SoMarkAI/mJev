@@ -1,44 +1,30 @@
 **English** &nbsp;&nbsp; [简体中文](index.zh-CN.md)
 
-# mJev · Multimodal Decisions
+# mJev documentation
 
-One shared media context. Multiple questions. Direct candidate probabilities.
+mJev scores candidates against images, documents and video. mJev-Doc focuses on document classification, field verification and explicit rules. Both models share the inference interface; download their weights separately from Hugging Face.
 
-mJev provides a common scoring interface for image, video and audio questions with dynamic candidate sets. Start with the released **mJev-Qwen3-VL-4B-RLCD** for image/video; choose official Qwen3-Omni Thinker weights for audio. Candidate-label scores come directly from the native LM Head.
+## Use
 
-## When to use it
+| Task | Guide |
+| --- | --- |
+| Run the document model | [mJev-Doc](docjev/README.md) |
+| Prepare inputs and read outputs | [Document API](docjev/input-output.md), [examples](../examples/README.md) |
+| Process multiple images and questions | [HF service, dynamic batching and prefix caching](docjev/serving.md) |
+| Process general images, video or audio | [Model selection](models.md), [HF deployment](hf.md) |
+| Use vLLM | [vLLM deployment](vllm.md) |
 
-- Answer multiple fixed-choice questions about the same image, video or audio.
-- Obtain raw scores, normalized candidate probabilities and a reproducible decision rule.
-- Compare ordinary causal attention, candidate isolation and prefix caching under controlled conditions.
+## Evaluate and train
 
-Reuse the shared media prefix while keeping each question's scoring independent. Check [current validation](validation_current.md) for the exact model and configuration behind recorded results.
+- [DocJev-bench: tasks and business scenarios](docjev/benchmark.md)
+- [Document evaluation, candidate permutations and model comparison](docjev/evaluation.md)
+- [mJev-Doc training](docjev/training.md), [general mJev training](training.md)
+- [Public mini evaluation](reproduce.md)
+- [Results and validation scope](validation_current.md), [cache performance](cache_scaling.md)
 
-## Get started
+## Develop
 
-- [README and Quick Start](../README.md#quick-start)
-- [Model selection and deployment](models.md)
-- [Runnable examples and recorded outputs](../examples/README.md)
-- [HF deployment without vLLM](hf.md)
-- [vLLM Docker deployment](vllm.md)
-- [Developer guide](development.md)
-- [Numerical stability and validation scope](stability.md)
-- [Contribution guide](../CONTRIBUTING.md)
-
-## Reproduction and current validation
-
-- [Public mini evaluation: prepare → infer → report](reproduce.md)
-- [Current validation and backend boundaries](validation_current.md)
-- [pytest suites and test entry points](testing.md)
-- [Isolated installation checks and limitations](installation_validation.md)
-
-## Explore further
-
-- [Released model: training and reward design](training.md)
-- [Cache scaling: timings and measurement conditions](cache_scaling.md)
-- [Experimental HTTP / Tree-KV](integrated.md)
-- [Historical AV tools and Docker image](../experiments/av/README.md)
-
-## mJev-Doc document model
-
-The project also includes **mJev-Doc** for document-image decisions. It shares the HF core with mJev and adds a document adapter, bilingual benchmark evaluation and a validated RLCD stage pipeline. [English guide](docjev/README.md) &nbsp;&nbsp; [中文介绍](docjev/README.zh-CN.md) &nbsp;&nbsp; [Results](docjev/results.md). mJev-Doc weights will be released on Hugging Face, following the same distribution format as mJev. Both models share this code repository; the demo currently accepts a complete local checkpoint.
+- [Code entry points and implementation constraints](development.md)
+- [Test commands](testing.md), [numerical stability](stability.md)
+- [Contributing](../CONTRIBUTING.md)
+- [Experimental vLLM HTTP / Tree-KV](integrated.md), [audio/video tools](../experiments/av/README.md)

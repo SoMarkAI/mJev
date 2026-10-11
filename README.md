@@ -16,12 +16,12 @@
 
 ## 👀 Decision intelligence beyond text
 
-**Understand the content. Make a clear choice.** mJev brings Jev-style decisions beyond text: share an image, document or video across multiple questions, each with its own candidates. The model returns a choice, relative candidate probabilities and raw logits, connecting visual understanding to practical workflows.
+**One visual input, multiple decisions.** Give mJev an image, document or video, then define your questions and candidates. It returns a choice, relative candidate probabilities and raw logits for each question.
 
-**mJev-Doc focuses on documents.** What is this page? Do its fields agree? Are the stated conditions met? What happens next? Keep asking about the same document.
+**mJev-Doc focuses on documents:** classify pages, compare fields, check completeness, and route documents under rules you provide.
 
 - **⚡ Keep the context**: reuse prefix KV across questions and batch them together.
-- **🧩 Bring your choices**: every question gets its own little crew of candidates.
+- **🧩 Bring your choices**: set a different candidate list for each question.
 - **🔎 Inspect the decision**: the selected answer, every candidate probability, and raw logits.
 
 ---
@@ -52,7 +52,7 @@
 
 Both models use **Qwen3-VL-4B-Instruct**, with Hugging Face and vLLM inference. Audio and video with audio use the separate [Qwen3-Omni backend](docs/hf.md).
 
-## 🎯 02 / Results you can check
+## 🎯 02 / Evaluation and performance
 
 <table>
 <tr>
@@ -97,7 +97,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model ./models/mjev-doc \
   --output outputs/document-decisions.json
 ```
 
-🎉 Your first decisions will be in `outputs/document-decisions.json`. Next, bring your own document and questions.
+🎉 Results are saved to `outputs/document-decisions.json`. Replace the input file to try your own documents.
 
 [Document inputs & outputs](docs/docjev/input-output.md) &nbsp;&nbsp; [mJev-Doc guide](docs/docjev/README.md) &nbsp;&nbsp; [Multi-image serving](docs/docjev/serving.md)
 
@@ -121,7 +121,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model ./models/mJev \
 
 ---
 
-Found a bug, a new use case, or a good example to share? [Come say hello](https://github.com/SoMarkAI/mJev/issues). We would love to see your name among the contributors ✨
+Report bugs, share use cases in [Issues](https://github.com/SoMarkAI/mJev/issues), or contribute a fix ✨
 
 <p><b>Build decisions, not just descriptions.</b></p>
 <p>

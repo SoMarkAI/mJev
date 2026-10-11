@@ -4,20 +4,13 @@
 
 给一张文档，提出多个问题，为每题定义有意义的候选答案。**mJev-Doc** 面向文档视觉属性、类别、字段关系和明确规则下的业务决策，返回每个候选的原始分数、概率和最终选择。
 
-## 两个模型，共享推理核心
-
-| 模型 | 定位 | 权重 |
-| --- | --- | --- |
-| mJev-Qwen3-VL-4B-RLCD | 通用视觉候选决策 | [Hugging Face](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) |
-| mJev-Doc | 文档理解与候选决策 | [Hugging Face](https://huggingface.co/SoMarkAI/mjev-doc) |
-
-两者均以 Qwen3-VL-4B-Instruct 为基础，来自不同训练数据和训练任务。mJev-Doc 直接复用 `mjev/` 的 HF processor、模板、attention、LM Head 和 prefix cache；文档预处理、训练及评测入口独立保留。两个模型的权重分别发布，代码和说明统一维护在本仓库。
+模型基于 Qwen3-VL-4B-Instruct，与[通用 mJev](../models.zh-CN.md) 共用 HF 推理核心，使用独立的文档训练权重。
 
 ## DocJev-bench · 评测文档中的业务判断
 
-配套的 [DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) 是可单独使用的评测资产，覆盖感知、字段关系、条件筛选、完整性、业务路由和行动选择，包含 **220 张图片上的 1,512 对中英文题目**。
+配套的 [DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) 可用于比较不同文档模型，覆盖感知、字段关系、条件筛选、完整性、业务路由和行动选择，包含 **220 张图片上的 1,512 对中英文题目**。
 
-它的业务方向是让文档证据支持明确的下一步处理。[设计亮点、任务覆盖与现有财务报表样例 →](benchmark.zh-CN.md)
+[任务覆盖与财务报表样例 →](benchmark.zh-CN.md)
 
 ## 开始使用
 

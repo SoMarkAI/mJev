@@ -54,3 +54,13 @@ credentials*.json
 !docs/validation_evidence/hf-cache-scaling/results/**
 
 AGENTS.md
+
+# Local test and inspection artifacts
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+.coverage*
+coverage.xml
+*.prof
+*.trace

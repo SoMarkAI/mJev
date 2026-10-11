@@ -4,20 +4,13 @@
 
 Bring a document image, ask several questions and define meaningful choices. **mJev-Doc** specializes the Jev workflow for document understanding: visible attributes, document categories, content relationships and decisions under explicit criteria.
 
-## One project, two checkpoints
-
-| Model | Focus | Weights |
-| --- | --- | --- |
-| mJev-Qwen3-VL-4B-RLCD | General visual candidate decisions | [Hugging Face](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD) |
-| mJev-Doc | Document-image candidate decisions | [Hugging Face](https://huggingface.co/SoMarkAI/mjev-doc) |
-
-Both start from Qwen3-VL-4B-Instruct. The mJev-Doc adapter imports the shared `mjev/` HF core rather than maintaining another copy. It preserves the document study's RGB preprocessing, pixel limits and native BF16 readout. Checkpoint names identify different training runs; they are not aliases.
+The model is based on Qwen3-VL-4B-Instruct. It shares the [general mJev](../models.md) HF inference core and uses its own document-trained weights.
 
 ## DocJev-bench · Evaluate the decisions around a document
 
-The companion [DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) is a separately usable evaluation asset for document-processing components. It spans perception, field relationships, explicit-rule screening, completeness, routing and action selection, with **1,512 bilingual question pairs across 220 images**.
+The companion [DocJev-bench](https://huggingface.co/datasets/Immortal-Zhang/docjev-bench) can compare document-processing models. It spans perception, field relationships, explicit-rule screening, completeness, routing and action selection, with **1,512 bilingual question pairs across 220 images**.
 
-Its business direction is document evidence driving a useful next step. [Design strengths, task coverage and an actual financial-statement example →](benchmark.md)
+[Task coverage and a financial-statement example →](benchmark.md)
 
 ## Try a document
 

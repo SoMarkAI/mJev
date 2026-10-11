@@ -16,13 +16,13 @@
 
 ## 👀 超越文本的决策智能
 
-**让模型看懂内容，也做出明确选择。** mJev 将 Jev 式决策带到文本之外：以图片、文档和视频作为共享上下文，提出多个问题，为每个问题定义候选项。模型返回选择、候选相对概率和原始 logits，让视觉理解接上实际工作流程。
+**同一份视觉输入，可以回答多个决策问题。** 给 mJev 一张图片、一份文档或一段视频，定义问题和候选项，就能得到模型的选择、候选概率和原始 logits。
 
-**mJev-Doc 专注文档。** 它是什么？字段能否对上？给定条件是否满足？下一步怎么处理？围绕同一份文档，可以接着问。
+**mJev-Doc 专注文档。** 识别类别、核对字段、检查材料是否齐全，再按给定规则完成审核与分流。
 
 - **⚡ 上下文接着用**：跨问题复用前缀 KV，支持批处理。
-- **🧩 选项由你定**：每道题，带着自己的选项小队。
-- **🔎 决策看得见**：选择、候选概率、原始 logits，一起交给你。
+- **🧩 选项由你定**：每道题独立设置候选，数量不必相同。
+- **🔎 决策看得见**：同时返回选择、候选概率和原始 logits。
 
 ---
 
@@ -52,7 +52,7 @@
 
 两个模型均基于 **Qwen3-VL-4B-Instruct**。支持 Hugging Face 与 vLLM 推理；音频和带音轨视频可使用独立的 [Qwen3-Omni 后端](docs/hf.zh-CN.md)。
 
-## 🎯 02 / 看表现，也看依据
+## 🎯 02 / 评测与性能
 
 <table>
 <tr>
@@ -97,7 +97,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model ./models/mjev-doc \
   --output outputs/document-decisions.json
 ```
 
-🎉 你的第一组决策，在 `outputs/document-decisions.json` 等你。接下来，换成自己的文档和问题吧。
+🎉 结果保存在 `outputs/document-decisions.json`。替换输入文件，就能测试自己的文档。
 
 [文档输入输出](docs/docjev/input-output.md) &nbsp;&nbsp; [mJev-Doc 指南](docs/docjev/README.zh-CN.md) &nbsp;&nbsp; [多图片服务](docs/docjev/serving.zh-CN.md)
 
@@ -121,7 +121,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model ./models/mJev \
 
 ---
 
-发现 bug、想到新场景，或者想补一个好例子？欢迎[来聊聊](https://github.com/SoMarkAI/mJev/issues)，也期待你的名字出现在贡献者里 ✨
+欢迎通过 [Issues](https://github.com/SoMarkAI/mJev/issues) 反馈问题、分享用法，也欢迎提交改进 ✨
 
 <p><b>Build decisions, not just descriptions.</b></p>
 <p>
