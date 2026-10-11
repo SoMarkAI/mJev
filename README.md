@@ -56,31 +56,13 @@ Both models use **Qwen3-VL-4B-Instruct**, with Hugging Face and vLLM inference. 
 
 **[DocJev-Bench](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench)** · 608 images · 2,617 bilingual question pairs · **5,234 language records**
 
-<table>
-<tr>
-<td width="33%" align="center">
-  <p>Qwen3-VL-4B · Base</p>
-  <h2>86.78%</h2>
-  <p>4,542 / 5,234</p>
-</td>
-<td width="34%" align="center">
-  <p><b>📄 mJev-Doc · 4B</b></p>
-  <h2>96.18%</h2>
-  <p><b>5,034 / 5,234</b></p>
-</td>
-<td width="33%" align="center">
-  <p>JEV-27B-VL</p>
-  <h2>95.72%</h2>
-  <p>5,010 / 5,234</p>
-</td>
-</tr>
-</table>
-
-**492 more correct answers than the 4B base: +9.40 percentage points.** On this version, mJev-Doc answers 24 more records correctly than JEV-27B.
+<p align="center">
+  <img src="assets/docjev-benchmark-results.svg" alt="Current selected collection, 5,234 language records. Qwen3-VL-4B: 86.78%; mJev-Doc: 96.18%; JEV-27B-VL: 95.72%." width="100%">
+</p>
 
 One collection, covering **document understanding and decisions · cross-industry classification**. All 5,234 records are included.
 
-<sub>Evaluation scope: this version was selected using existing model outcomes. Scores describe this collection, not independent evidence of superiority over 27B. Results are recomputed from archived predictions; bilingual records are paired, and each model uses its own template.</sub>
+<sub>Model-outcome-selected collection · <a href="https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench/blob/main/EVALUATION_PROVENANCE.md">Evaluation scope</a></sub>
 
 [See evaluation results →](docs/docjev/results.md)
 

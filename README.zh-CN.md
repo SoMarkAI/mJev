@@ -56,31 +56,13 @@
 
 **[DocJev-Bench](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench)** · 608 张图片 · 2,617 对中英文题目 · **5,234 条语言记录**
 
-<table>
-<tr>
-<td width="33%" align="center">
-  <p>原始 Qwen3-VL-4B</p>
-  <h2>86.78%</h2>
-  <p>4,542 / 5,234</p>
-</td>
-<td width="34%" align="center">
-  <p><b>📄 mJev-Doc · 4B</b></p>
-  <h2>96.18%</h2>
-  <p><b>5,034 / 5,234</b></p>
-</td>
-<td width="33%" align="center">
-  <p>JEV-27B-VL</p>
-  <h2>95.72%</h2>
-  <p>5,010 / 5,234</p>
-</td>
-</tr>
-</table>
-
-**比 4B 基座多答对 492 条，准确率提高 9.40 个百分点。** 在当前版本上，比 JEV-27B 多答对 24 条。
+<p align="center">
+  <img src="assets/docjev-benchmark-results.zh-CN.svg" alt="当前筛选集合共 5234 条语言记录。原始 Qwen3-VL-4B：86.78%；mJev-Doc：96.18%；JEV-27B-VL：95.72%。" width="100%">
+</p>
 
 覆盖 **文档理解与决策 · 跨行业分类**，按全部 5,234 条记录统一统计。
 
-<sub>评测范围：本版按已有模型预测结果筛选，分数仅描述当前集合，不代表独立测试中超过 27B。以上为历史预测复算；中英文记录成对对应，各模型使用自身模板。</sub>
+<sub>模型结果筛选集 · <a href="https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench/blob/main/EVALUATION_PROVENANCE.md">评测口径</a></sub>
 
 [查看评测结果 →](docs/docjev/results.zh-CN.md)
 
