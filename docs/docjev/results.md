@@ -6,6 +6,6 @@
 | **mJev-Doc 4B** | **95.13%** | **98.70%** |
 | JEV-27B-VL | 94.07% | 99.67% |
 
-<sub>Recomputed on the current model-outcome-selected dataset version; not an independent blind-test result.</sub>
+<sub>Model-outcome-selected collection · <a href="https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench/blob/main/EVALUATION_PROVENANCE.md">Evaluation scope</a></sub>
 
 [Dataset](https://huggingface.co/datasets/Immortal-Zhang/DocJev-Bench) · [Back to README](../../README.md)
