@@ -73,3 +73,10 @@ For the CPU test suite, install `python -m pip install -e '.[docjev,test]'` and 
 | Cache/batch CLI rejected | Add `--numerics stable`; compare against an uncached stable baseline. |
 
 Changing pixel limits or numerics changes the evaluation protocol. Record it when reporting results.
+
+## Online image scoring and Windows
+
+The [HF service](serving.md) adds bounded request queues, cross-image dynamic
+batches and one spawn model replica per device. It requires only the existing
+document extra. Native Windows PowerShell setup and the exact validation scope
+are documented there; no vLLM, Bash or custom C++ build is needed for image serving.

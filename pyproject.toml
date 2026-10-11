@@ -17,6 +17,8 @@ include = ["mjev*", "docjev*"]
 docjev = "docjev.cli:main"
 docjev-eval = "docjev.evaluate:main"
 docjev-train = "docjev.training:main"
+docjev-serve = "docjev.service:main"
+mjev-serve = "docjev.service:main"
 
 [project.optional-dependencies]
 docjev = ["torchvision==0.26.0", "accelerate==1.14.0", "safetensors==0.8.0"]

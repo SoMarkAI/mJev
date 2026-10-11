@@ -286,3 +286,31 @@ class HFMJevEngine:
                 context=cache.context,video_options=cache.video_options,decoded=cache.decoded)
             prepared.append((batch,spec))
         return self._score_question_batches(prepared,questions,mode=mode,projection=projection,batch_size=batch_size,cache=cache)
+
+    def score_requests(self,requests,*,mode='causal',projection='full',batch_size=1):
+        """Score independent image requests in real cross-image batches.
+
+        One row is one image/question/candidate set. No visual KV is shared
+        between images. Existing score_many/score_questions keep their separate
+        same-media prefix-cache API. Results retain the original request order.
+        """
+        from pathlib import Path
+        if not isinstance(requests,list) or not requests:
+            raise ValueError('requests must be a nonempty list')
+        normalized=normalize_questions(requests)
+        prepared=[];decoded_by_image={}
+        for row in normalized:
+            image=row.get('image')
+            if not isinstance(image,(str,Path)):
+                raise ValueError('Each image request needs a local image path')
+            if row.get('modality','image')!='image':
+                raise ValueError('Cross-image requests currently support image only')
+            path=Path(image).resolve();stat=path.stat()
+            key=(str(path),stat.st_size,stat.st_mtime_ns)
+            batch,spec,decoded=self.prepare(str(path),row['question'],row['candidates'],
+                context=row.get('context','Inspect the supplied media carefully.'),
+                modality='image',decoded=decoded_by_image.get(key))
+            decoded_by_image[key]=decoded
+            prepared.append((batch,spec))
+        return self._score_question_batches(prepared,normalized,mode=mode,
+            projection=projection,batch_size=batch_size)

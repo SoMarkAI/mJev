@@ -6,6 +6,10 @@ Commands outside Docker assume an activated Python 3.11+ virtual environment: cr
 
 # Transformers backend (no vLLM required)
 
+For Qwen3-VL image requests, see the [HF service](docjev/serving.md): cross-image
+dynamic batching, one model replica per GPU, and native Windows setup. The
+audio/video instructions below keep their existing separate dependency scope.
+
 > Historical results use their recorded configurations. See [current validation](validation_current.md) for later checks and settings that remain unverified.
 
 This backend uses `Qwen3OmniMoeThinkerForConditionalGeneration` directly. It never

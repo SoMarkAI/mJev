@@ -21,6 +21,7 @@ mJev brings the Jev workflow to multimodal inputs, with trained models for gener
 - **One context, multiple decisions:** reuse prefix KV and batch question branches.
 - **Choices you define:** variable candidate sets, direct LM Head scoring and structured outputs.
 - **Start with HF:** run without vLLM or custom CUDA compilation; an optional vLLM backend is available.
+- **Serve independent images:** [HF request queues, dynamic batches and GPU replicas](docs/docjev/serving.md), with Windows-native image setup.
 
 ## 🧩 Choose your model
 
