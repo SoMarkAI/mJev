@@ -202,7 +202,7 @@ class HFMJevEngine:
         return HFContext(self,media,modality,context,deepcopy(video_options),decoded,
                          batch,past,positions,spec['prefix_length'])
 
-    def _cached_inputs(self,batch,spec,cache):
+    def _cached_inputs(self,batch,spec,cache,*,clone_cache=True):
         if cache.owner is not self:raise ValueError('Context belongs to another engine')
         n=cache.prefix_length
         if spec['prefix_length']!=n or not torch.equal(batch['input_ids'][:,:n],cache.batch['input_ids'][:,:n]):
@@ -228,7 +228,7 @@ class HFMJevEngine:
         native_positions=positions(self.model,batch)
         if not torch.equal(native_positions[:,:,:n],cache.position_ids):raise ValueError('Native prefix positions changed')
         return dict(input_ids=tensor('input_ids')[:,n:],attention_mask=tensor('attention_mask'),
-                    position_ids=native_positions[:,:,n:],past_key_values=deepcopy(cache.past_key_values))
+                    position_ids=native_positions[:,:,n:],past_key_values=deepcopy(cache.past_key_values) if clone_cache else cache.past_key_values)
 
     def score_prepared(self,batch,spec,*,mode='causal',projection='selected',cache=None):
         if mode not in ('causal','isolated'):raise ValueError('mode must be causal or isolated')

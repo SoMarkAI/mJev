@@ -81,8 +81,8 @@ existing FP32 text/shape-stable attention profile when comparing batched and
 serial scoring. Native low-precision results can vary with batch shape; neither
 profile is silently substituted. Record the profile when reporting results.
 
-The same-image prefix-cache API remains available separately in `DocJevEngine`.
-This cross-image service does not currently retain GPU KV between requests.
+The same-image prefix-cache API also remains available in `DocJevEngine`.
+With `--prefix-cache`, this service also retains worker-local GPU KV between requests.
 
 The queue has at most `--max-pending` outstanding questions. Overload or unready
 workers returns 503; request expiry returns 504. Invalid model inputs return
@@ -117,3 +117,32 @@ forwards; spawn/HTTP scheduling is checked with test workers. Windows CUDA,
 full-weight online-service parity and production throughput require separate
 hardware validation. Existing Linux benchmark scores are not a Windows-service
 performance claim.
+
+## Dynamic batches with prefix reuse
+
+```bash
+python -m docjev.service --model models/mjev-doc --devices cuda:0,cuda:1 \
+  --max-batch-size 4 --prefix-cache --numerics stable \
+  --cache-max-entries 8 --cache-max-tokens 8192
+```
+
+Cache keys use the image file content SHA-256 and shared context, not temporary
+filenames or questions/candidates. Model, processor settings and numerical mode
+must remain fixed during the worker lifetime. Independent KV rows are left-padded
+and masked for a real mixed-prefix batch; native per-row positions are retained.
+Reuse across HTTP requests requires reaching the same worker. There is no
+cross-device cache sharing or cache-affinity scheduling.
+
+Each worker evicts least recently used entries to respect both retained-entry and
+prefix-token limits. Oversized entries are reused only within the current batch.
+These budgets exclude temporary batch KV copies, model weights and activations;
+they are not hard VRAM limits. OOM clears retained entries and splits the batch.
+`prefix_cache_hit` indicates a prefix was already available for that question.
+`num_cached_tokens` is the prefix length used for suffix scoring, including a
+newly constructed prefix whose hit flag is false.
+
+Caching is opt-in. Use `stable` for comparisons; native BF16 remains sensitive to
+batch/cache shapes. Real tiny random-weight Qwen3-VL tests cover FP32/BF16 weights
+in stable mode, causal/isolated masks, unequal prefixes and candidate counts,
+ordering, eviction and error splitting. Full 4B GPU throughput and accuracy have
+not been validated for this combined service path.

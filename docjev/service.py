@@ -49,9 +49,9 @@ def create_engine(config, device):
         min_pixels=config['min_pixels'],max_pixels=config['max_pixels'])
 
 
-def _run_batch(engine, jobs, config, worker_id, outbox):
+def _run_batch(engine, jobs, config, worker_id, outbox, prefix_cache=None):
     try:
-        values=engine.score_requests([j['row'] for j in jobs],mode=config['mode'],
+        values=(prefix_cache or engine).score_requests([j['row'] for j in jobs],mode=config['mode'],
             projection='full',batch_size=len(jobs))
         if len(values)!=len(jobs):raise RuntimeError('Model returned wrong batch length')
     except Exception as error:
@@ -59,6 +59,7 @@ def _run_batch(engine, jobs, config, worker_id, outbox):
         # drop requests silently, truncate inputs or change the pixel budget.
         error_type=type(error).__name__;error_message=str(error)
         error.__traceback__=None
+        if prefix_cache is not None:prefix_cache.clear()
         if len(jobs)>1:
             if error_type=='OutOfMemoryError':
                 import gc
@@ -68,8 +69,8 @@ def _run_batch(engine, jobs, config, worker_id, outbox):
                     if torch.cuda.is_available():torch.cuda.empty_cache()
                 except ImportError:pass
             mid=len(jobs)//2
-            _run_batch(engine,jobs[:mid],config,worker_id,outbox)
-            _run_batch(engine,jobs[mid:],config,worker_id,outbox)
+            _run_batch(engine,jobs[:mid],config,worker_id,outbox,prefix_cache)
+            _run_batch(engine,jobs[mid:],config,worker_id,outbox,prefix_cache)
         else:
             outbox.put({'kind':'result','job_id':jobs[0]['job_id'],'error':
                 {'type':error_type,'message':error_message}})
@@ -82,6 +83,11 @@ def _run_batch(engine, jobs, config, worker_id, outbox):
 def _worker(worker_id, device, config, inbox, outbox, stopping, factory):
     try:
         engine=factory(config,device)
+        prefix_cache=None
+        if config.get('prefix_cache',False):
+            from mjev.hf_request_cache import RequestPrefixCache
+            prefix_cache=RequestPrefixCache(engine,max_entries=config.get('cache_max_entries',8),
+                                            max_tokens=config.get('cache_max_tokens',8192))
         outbox.put({'kind':'ready','worker_id':worker_id,'device':device})
     except Exception as error:
         outbox.put({'kind':'fatal','worker_id':worker_id,'error':str(error)})
@@ -101,7 +107,7 @@ def _worker(worker_id, device, config, inbox, outbox, stopping, factory):
                 outbox.put({'kind':'result','job_id':job['job_id'],'error':
                     {'type':'TimeoutError','message':'Request expired before inference'}})
             else:live.append(job)
-        if live:_run_batch(engine,live,config,worker_id,outbox)
+        if live:_run_batch(engine,live,config,worker_id,outbox,prefix_cache)
 
 
 class ReplicaPool:
@@ -156,7 +162,8 @@ class ReplicaPool:
             'backend':'transformers','workers':dict(self.workers),'expected_workers':len(self.devices),
             'pending_questions':len(self.pending),'max_pending':self.config['max_pending'],
             'max_batch_size':self.config['max_batch_size'],'batch_wait_ms':self.config['batch_wait_ms'],
-            'numerics':self.config['numerics'],'mode':self.config['mode'],'error':self.broken}
+            'numerics':self.config['numerics'],'mode':self.config['mode'],
+            'prefix_cache':self.config.get('prefix_cache',False),'error':self.broken}
 
     def wait_ready(self,timeout=900):
         deadline=time.monotonic()+timeout
@@ -319,6 +326,9 @@ def parser():
     p.add_argument('--numerics',choices=['native','stable'],default='native');p.add_argument('--mode',choices=['causal','isolated'],default='causal')
     p.add_argument('--dtype',choices=['bfloat16','float32'],default='bfloat16');p.add_argument('--cpu-threads',type=int,default=2)
     p.add_argument('--max-input-tokens',type=int,default=4000);p.add_argument('--min-pixels',type=int,default=3136);p.add_argument('--max-pixels',type=int,default=501760)
+    p.add_argument('--prefix-cache',action='store_true',help='Worker-local image/context KV cache')
+    p.add_argument('--cache-max-entries',type=int,default=8)
+    p.add_argument('--cache-max-tokens',type=int,default=8192)
     p.add_argument('--media-root',type=Path,help='Optional root for trusted local image paths; data URLs work without it')
     return p
 
@@ -330,7 +340,8 @@ def main():
     if a.cpu_threads<1 or not math.isfinite(a.request_timeout) or a.request_timeout<=0 or a.max_batch_size<1 or a.max_pending<a.max_batch_size or not math.isfinite(a.batch_wait_ms) or a.batch_wait_ms<0:p.error('Invalid worker/batch/timeout configuration')
     if min(a.max_input_tokens,a.min_pixels,a.max_pixels)<1 or a.min_pixels>a.max_pixels:
         p.error('Input limits must be positive; min-pixels <= max-pixels')
-    config={k:getattr(a,k) for k in ['model','dtype','numerics','mode','cpu_threads','max_input_tokens','min_pixels','max_pixels','max_batch_size','max_pending','batch_wait_ms']}
+    if min(a.cache_max_entries,a.cache_max_tokens)<1:p.error('Cache limits must be positive')
+    config={k:getattr(a,k) for k in ['model','dtype','numerics','mode','cpu_threads','max_input_tokens','min_pixels','max_pixels','max_batch_size','max_pending','batch_wait_ms','prefix_cache','cache_max_entries','cache_max_tokens']}
     pool=ReplicaPool(config,devices)
     try:
         server=ScoringServer((a.host,a.port),pool,media_root=a.media_root,request_timeout=a.request_timeout)

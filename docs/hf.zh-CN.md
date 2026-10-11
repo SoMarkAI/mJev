@@ -74,6 +74,8 @@ python demo_hf.py --model /path/to/Qwen3-Omni-30B-A3B-Instruct --input examples/
 
 默认多问题复用已解码媒体，但逐题重算完整输入。demo/评估器加 `--prefix-cache` 后仅 prefill 一次媒体和公共上下文，每题使用独立 KV 副本计算后缀。causal/isolated 都支持。`--question-batch-size 3` 是真实三行 forward；Python 的 `score_many`/`score_questions` 使用 `batch_size=3`。同一 engine 的调用/组仍串行，组内问题 batch。缓存是每媒体显式复用，不是全局自动缓存，也不声称具备 vLLM scheduler 或 Tree-KV。HF 脚本不会停止 GPU 服务。
 
+图片专用 [HTTP 服务](docjev/serving.zh-CN.md) 还可将跨图片动态 batch 与 worker 内自动前缀缓存结合使用；下方显式 API 保持不变。
+
 ## 显式前缀缓存接口
 
 ```python

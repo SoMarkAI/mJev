@@ -124,6 +124,8 @@ per-media reuse, not an automatic global cache.
 No vLLM scheduler or Tree-KV optimization is claimed for the HF backend.
 No GPU services are stopped by any HF script.
 
+The image-only [HTTP service](docjev/serving.md) can additionally combine cross-image dynamic batches with worker-local automatic prefix caching. The explicit APIs below are unchanged.
+
 ## Experimental explicit prefix cache
 
 ```python

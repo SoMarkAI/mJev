@@ -1,9 +1,10 @@
 """Real batched forward for independently scored questions sharing media.
 
-Each row is an independent question about the same media. Right padding is
+Each row is an independent question. Rows may refer to different images. Right padding is
 masked, original per-question MRoPE positions are retained, and the last *real*
 token is scored. Shared prefix KV is cloned and repeated across batch rows;
-this saves prefix compute but is not zero-copy Tree-KV. No thread concurrency.
+A list of per-row caches is left-padded to a common length with masked keys.
+This saves prefix compute but is not zero-copy Tree-KV. No thread concurrency.
 """
 from copy import deepcopy
 from unittest.mock import patch
@@ -24,21 +25,39 @@ def score_batch(engine, prepared, *, mode='causal', cache=None, projection='full
     if mode not in ('causal','isolated'):raise ValueError(mode)
     with engine.lock,engine.numerical_context(),torch.inference_mode():
         batches,specs=zip(*prepared)
-        prefix=cache.prefix_length if cache is not None else 0
-        if cache is not None:
-            # Retain all existing prefix/media/position validation. Release each
-            # temporary clone immediately; the actual batch has one KV clone.
+        multiple=isinstance(cache,(list,tuple))
+        caches=list(cache) if multiple else ([cache]*len(prepared) if cache is not None else [])
+        if caches and len(caches)!=len(prepared):raise ValueError('One cache per batch row required')
+        if multiple and not caches:raise ValueError('Empty cache list')
+        prefixes=[c.prefix_length for c in caches] if caches else [0]*len(prepared)
+        prefix=max(prefixes)
+        if caches:
             positions=[]
-            for batch,spec in prepared:
-                validated=engine._cached_inputs(batch,spec,cache)
+            for (batch,spec),c in zip(prepared,caches):
+                validated=engine._cached_inputs(batch,spec,c,clone_cache=False)
                 positions.append(validated['position_ids'])
-                del validated
-            past=deepcopy(cache.past_key_values)
-            past.batch_repeat_interleave(len(prepared))
+            if multiple:
+                from transformers.cache_utils import DynamicCache, DynamicLayer
+                layer_count=len(caches[0].past_key_values.layers)
+                if any(len(c.past_key_values.layers)!=layer_count for c in caches):
+                    raise ValueError('Cache layer count mismatch')
+                data=[]
+                for layer_index in range(layer_count):
+                    layers=[c.past_key_values.layers[layer_index] for c in caches]
+                    if any(type(layer) is not DynamicLayer for layer in layers):
+                        raise ValueError('Mixed-prefix batching requires full DynamicLayer caches')
+                    data.append(tuple(torch.cat([
+                        torch.nn.functional.pad(getattr(layer,name),(0,0,prefix-n,0))
+                        for layer,n in zip(layers,prefixes)],dim=0)
+                        for name in ('keys','values')))
+                past=DynamicCache(ddp_cache_data=data)
+            else:
+                past=deepcopy(cache.past_key_values)
+                past.batch_repeat_interleave(len(prepared))
         else:
             positions=[native_positions(engine,b) for b in batches]
             past=None
-        lengths=[b['input_ids'].shape[1]-prefix for b in batches]
+        lengths=[b['input_ids'].shape[1]-n for b,n in zip(batches,prefixes)]
         width=max(lengths);device=engine.model.get_input_embeddings().weight.device
         ids=torch.zeros((len(batches),width),dtype=torch.long,device=device)
         valid=torch.zeros((len(batches),prefix+width),dtype=torch.long,device=device)
@@ -48,8 +67,8 @@ def score_batch(engine, prepared, *, mode='causal', cache=None, projection='full
             raise ValueError('Mixed position dtypes are unsupported')
         pos=torch.zeros((3,len(batches),width),dtype=positions[0].dtype,device=device)
         for i,(b,n,p) in enumerate(zip(batches,lengths,positions)):
-            ids[i,:n]=b['input_ids'][0,prefix:].to(device)
-            valid[i,:prefix+n]=1
+            ids[i,:n]=b['input_ids'][0,prefixes[i]:].to(device)
+            valid[i,prefix-prefixes[i]:prefix+n]=1
             pos[:,i,:n]=p[:,0,:]
         packed=dict(input_ids=ids,attention_mask=valid,position_ids=pos)
         if past is not None:packed['past_key_values']=past
@@ -74,14 +93,22 @@ def score_batch(engine, prepared, *, mode='causal', cache=None, projection='full
             frames.append({'batch_size':embeddings.shape[0],
                            'query_tokens':embeddings.shape[1],
                            'valid_query_lengths':lengths,'prefix_tokens':prefix})
-            if mode=='isolated':
+            if mode=='isolated' or multiple:
                 mask=torch.full((len(batches),1,width,prefix+width),float('-inf'),
                                 dtype=embeddings.dtype,device=embeddings.device)
-                for i,(n,s) in enumerate(zip(lengths,specs)):
-                    mask[i:i+1,:,:n,:prefix+n]=isolated_mask(prefix+n,s['spans'],
-                        embeddings.device,embeddings.dtype,query_start=prefix)
-                    # Unused padding rows must not introduce NaNs.
-                    mask[i,0,n:,0]=0
+                for i,(n,s,p) in enumerate(zip(lengths,specs,prefixes)):
+                    offset=prefix-p
+                    if mode=='isolated':
+                        row_mask=isolated_mask(p+n,s['spans'],embeddings.device,
+                                              embeddings.dtype,query_start=p)
+                    else:
+                        visible=torch.arange(p+n,device=embeddings.device)[None,:] <= (
+                            p+torch.arange(n,device=embeddings.device)[:,None])
+                        row_mask=torch.zeros((n,p+n),device=embeddings.device,dtype=embeddings.dtype)
+                        row_mask.masked_fill_(~visible,float('-inf'))
+                    mask[i:i+1,:,:n,offset:prefix+n]=row_mask
+                    # Unused query padding must have one valid key to avoid NaNs.
+                    mask[i,0,n:,offset]=0
                 kwargs['attention_mask']=mask
             return args,kwargs
         head=engine.model.lm_head;original=head.forward
@@ -109,7 +136,7 @@ def score_batch(engine, prepared, *, mode='causal', cache=None, projection='full
         if len(frames)!=1 or frames[0]['batch_size']!=len(prepared):
             raise RuntimeError('Expected one real batched model forward')
         results=[]
-        for row,spec in zip(logits,specs):
+        for row,spec,row_prefix in zip(logits,specs,prefixes):
             selected=row[spec['label_ids']] if projection=='full' else row[:len(spec['label_ids'])]
             if not torch.isfinite(selected).all():raise ValueError('Nonfinite logits')
             probabilities=torch.softmax(selected,dim=-1)
@@ -118,8 +145,8 @@ def score_batch(engine, prepared, *, mode='causal', cache=None, projection='full
                                      spec['label_ids'],selected,probabilities)]
             results.append(dict(backend='transformers',model_family=family(engine.model.config),projection=projection,mode=mode,candidates=candidates,decision=choose(candidates),
                 probability_sum=sum(c['probability'] for c in candidates),
-                prompt_tokens=spec['prompt_tokens'],num_cached_tokens=prefix,
+                prompt_tokens=spec['prompt_tokens'],num_cached_tokens=row_prefix,
                 implementation='hf_real_batch',batch_size=len(prepared),numerics=engine.numerics))
-        if cache is not None and cache.past_key_values.get_seq_length()!=prefix:
+        if any(c.past_key_values.get_seq_length()!=n for c,n in zip(caches,prefixes)):
             raise RuntimeError('Base KV cache mutated')
         return results,frames

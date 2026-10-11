@@ -7,8 +7,8 @@
 
 每张指定 GPU 启动一个 `spawn` 模型进程。请求队列短暂收集输入后，组成真正的跨图片
 batch；每张图片保留自己的问题、候选项和位置编码。结果按原始输入顺序回传。
-不同图片不共享视觉 KV。已有的同图多题 prefix-cache API 保持可用，但本服务不跨请求
-保存 GPU KV。
+不同图片的视觉 KV 相互隔离。加 `--prefix-cache` 可在每个 worker 内复用同图同上下文
+的前缀，并把不同长度前缀对应的问题后缀组成同一个 batch。
 
 ## 启动与调用
 
@@ -57,6 +57,30 @@ native 低精度结果可能随 batch 形状出现数值差异；做准确率比
 OOM 会拆小 batch，不会偷偷降分辨率、删候选或截断输入。无效输入被隔离到具体任务，
 worker 崩溃会明确返回失败。显存较小时从 batch1 开始，实测2／4／8的吞吐和延迟，
 不能把请求并发数直接等同于提速倍数。
+
+## 动态 batch ＋前缀缓存
+
+```bash
+python -m docjev.service --model models/mjev-doc --devices cuda:0,cuda:1 \
+  --max-batch-size 4 --prefix-cache --numerics stable \
+  --cache-max-entries 8 --cache-max-tokens 8192
+```
+
+缓存按图片文件内容的 SHA-256 和公共 context 匹配，而非临时文件名；不同问题与候选
+不进入缓存键。模型、processor 配置和数值模式必须在 worker 生命周期内保持不变。
+不同图片的 KV 左侧补齐后合批，补齐位置被 mask 屏蔽，每题保留原生位置编码。
+同图缓存可跨 HTTP 请求复用，但仅限命中同一 worker；没有跨 GPU 共享或缓存亲和调度。
+
+每个 worker 最多保留指定条目数和前缀 token 总数，超出时按 LRU 淘汰。
+单项超过 token 预算时只在当前批次复用，不长期保留。预算不包含当前 batch 的 KV 副本、
+模型和激活，因此不是显存硬上限。OOM 清空保留缓存并拆小 batch 重试。
+`prefix_cache_hit` 表示该题准备时已有可用前缀，`num_cached_tokens` 报告后缀评分使用的
+前缀长度；首次构建前缀也会报告长度，但 hit 为 false。
+
+缓存默认关闭。推荐用 `stable` 核对与串行无缓存的结果；native BF16 的 batch/cache
+数值差异仍存在。跨图片缓存已用真实随机小型 Qwen3-VL 在 FP32/BF16 权重、stable
+模式下验证 causal/isolated、不同前缀长度、候选数量、顺序、缓存淘汰和异常拆批。
+这是实现检查，不是完整 4B GPU 吞吐或精度认证。
 
 ## Windows 原生使用
 
