@@ -15,6 +15,10 @@ r(\hat{y}) = \begin{cases}
 
 其中 $y^{\ast}$ 为正确标签，错误或无效回答获得负奖励。奖励范围为 $[-1, 1]$，目标概率越高，训练信号越强。输出被限制为单个候选标签，因此不另加格式奖励；关闭 reward scaling 以保留这一权重，并通过独立的 KL 惩罚限制策略偏离参考模型。训练更新语言模型，视觉塔和对齐模块保持冻结。
 
+## 已记录的评测
+
+在同一组 195 道 mJev-Compositional-VQA 子集题目上，模型卡记录基础模型答对 152/195（77.95%），训练后答对 156/195（80.00%）。这是已记录的子集结果，不是本次重跑或完整 benchmark 成绩。[模型卡记录](https://huggingface.co/SoMarkAI/mJev-Qwen3-VL-4B-RLCD/blob/7af7cda55ea36e76bce64e87a02c9faea1919d64/README.md#evaluation)。
+
 ## 文档模型训练
 
 mJev-Doc 选用全参 SFT 第 990 步 checkpoint。[模型背景](docjev/training.md)说明该权重与历史 RLCD 实验的区别；上方通用 mJev 的 RLCD 权重是另一模型。

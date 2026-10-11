@@ -1,1 +1,1 @@
-"""Inference-only candidate isolation for the official Qwen3 Omni Thinker."""
+"""Candidate scoring for Qwen3-VL and Qwen3-Omni with HF or vLLM."""

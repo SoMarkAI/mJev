@@ -34,7 +34,7 @@ python demo_hf.py --model models/mJev --input examples/motion-demo/input.json \
 
 Paths resolve relative to the input JSON; see [examples](../examples/README.md). `--check-only` loads the processor/tokenizer, decodes media and checks the actual input without loading model weights. The default limit is 4000 tokens; oversized inputs fail.
 
-Use the `audio`, `video` or `audio_video` input fields. `video_options` can specify `fps`, `min_pixels`, `max_pixels` and `max_frames`. Qwen3-VL rejects audio tasks rather than discarding their audio; `audio_video` requires Omni.
+Set `modality` to `audio`, `video` or `audio_video`, and put the file path in `media_path`. `video_options` can specify `fps`, `min_pixels`, `max_pixels` and `max_frames`. Qwen3-VL rejects audio tasks rather than discarding their audio; `audio_video` requires Omni.
 
 ## Scoring and caching
 

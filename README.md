@@ -99,6 +99,29 @@ CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model ./models/mjev-doc \
 [Document inputs & outputs](docs/docjev/input-output.md) &nbsp;&nbsp; [mJev-Doc guide](docs/docjev/README.md) &nbsp;&nbsp; [Multi-image serving](docs/docjev/serving.md)
 
 <details>
+<summary><b>Submit images over HTTP</b></summary>
+
+Use the environment and model directory above to start the service:
+
+```bash
+python -m docjev.service --model ./models/mjev-doc --devices cuda:0 \
+  --max-batch-size 4 --port 8000
+```
+
+In another terminal, enter the same checkout and activate `.venv`. Once the model is loaded, the health check returns 200 and `ready`; it returns 503 while loading:
+
+```bash
+curl --fail http://127.0.0.1:8000/health
+python examples/docjev/service_client.py \
+  --inputs examples/docjev/single.json examples/docjev/multiple.json \
+  --workers 2 --output outputs/service.json
+```
+
+The [service guide](docs/docjev/serving.md) covers multiple GPUs, dynamic batches and prefix caching.
+
+</details>
+
+<details>
 <summary><b>Want general images and video too? Run mJev</b></summary>
 
 Video inputs need FFmpeg.
@@ -112,7 +135,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model ./models/mJev \
   --prefix-cache --question-batch-size 2 --output outputs/image-decisions.json
 ```
 
-[Input/output examples](examples/README.md) &nbsp;&nbsp; [Hugging Face guide](docs/hf.md) &nbsp;&nbsp; [vLLM serving](docs/vllm.md)
+[Input/output examples](examples/README.md) &nbsp;&nbsp; [Hugging Face guide](docs/hf.md) &nbsp;&nbsp; [vLLM inference](docs/vllm.md)
 
 </details>
 

@@ -34,7 +34,7 @@ python demo_hf.py --model models/mJev --input examples/motion-demo/input.json \
 
 输入路径相对 JSON 文件，格式见[示例](../examples/README.zh-CN.md)。`--check-only` 加载 processor/tokenizer、解码媒体并检查实际输入，不加载模型权重；默认输入上限 4000 tokens，超限报错。
 
-音视频输入使用 `audio`、`video` 或 `audio_video` 字段。`video_options` 可明确 `fps`、`min_pixels`、`max_pixels` 和 `max_frames`。Qwen3-VL 拒绝音频任务，不静默丢弃音轨；`audio_video` 需 Omni。
+音视频输入使用 `modality: "audio"`、`"video"` 或 `"audio_video"`，文件路径放在 `media_path` 字段。`video_options` 可明确 `fps`、`min_pixels`、`max_pixels` 和 `max_frames`。Qwen3-VL 拒绝音频任务，不静默丢弃音轨；`audio_video` 需 Omni。
 
 ## 评分与缓存
 

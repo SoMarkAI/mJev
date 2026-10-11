@@ -99,6 +99,29 @@ CUDA_VISIBLE_DEVICES=0 python demo_docjev.py --model ./models/mjev-doc \
 [文档输入输出](docs/docjev/input-output.md) &nbsp;&nbsp; [mJev-Doc 指南](docs/docjev/README.zh-CN.md) &nbsp;&nbsp; [多图片服务](docs/docjev/serving.zh-CN.md)
 
 <details>
+<summary><b>通过 HTTP 提交图片请求</b></summary>
+
+沿用上面的环境和模型目录，启动服务：
+
+```bash
+python -m docjev.service --model ./models/mjev-doc --devices cuda:0 \
+  --max-batch-size 4 --port 8000
+```
+
+另开终端，进入同一仓库并激活 `.venv`。模型加载完成后，健康检查返回 200 和 `ready`；加载期间返回 503：
+
+```bash
+curl --fail http://127.0.0.1:8000/health
+python examples/docjev/service_client.py \
+  --inputs examples/docjev/single.json examples/docjev/multiple.json \
+  --workers 2 --output outputs/service.json
+```
+
+[服务指南](docs/docjev/serving.zh-CN.md)包含多 GPU、动态 batch 和前缀缓存配置。
+
+</details>
+
+<details>
 <summary><b>也想测试通用图片与视频？展开运行 mJev</b></summary>
 
 视频需 FFmpeg。
@@ -112,7 +135,7 @@ CUDA_VISIBLE_DEVICES=0 python demo_hf.py --model ./models/mJev \
   --prefix-cache --question-batch-size 2 --output outputs/image-decisions.json
 ```
 
-[输入输出示例](examples/README.zh-CN.md) &nbsp;&nbsp; [Hugging Face 指南](docs/hf.zh-CN.md) &nbsp;&nbsp; [vLLM 服务](docs/vllm.zh-CN.md)
+[输入输出示例](examples/README.zh-CN.md) &nbsp;&nbsp; [Hugging Face 指南](docs/hf.zh-CN.md) &nbsp;&nbsp; [vLLM 推理](docs/vllm.zh-CN.md)
 
 </details>
 

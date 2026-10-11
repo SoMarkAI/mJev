@@ -12,7 +12,7 @@ batch；每张图片保留自己的问题、候选项和位置编码。结果按
 
 ## 启动与调用
 
-按[安装说明](README.md#installation)安装 `.[docjev]`，准备完整的本地模型目录：
+按[安装说明](README.zh-CN.md#installation)安装 `.[docjev]`，准备完整的本地模型目录：
 
 ```bash
 python -m docjev.service --model models/mjev-doc --devices cuda:0 --max-batch-size 4 --port 8000
